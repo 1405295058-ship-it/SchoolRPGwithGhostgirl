@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://crf1w5euf8otp"]
+
+[ext_resource type="Texture2D" uid="uid://bld03bffl4tqy" path="res://art/校门和1层/路灯白天.png" id="1_hdgcg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qqhr"]
+atlas = ExtResource("1_hdgcg")
+region = Rect2(0, 0, 320, 960)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eaa0b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qqhr")
+}],
+"loop": true,
+"name": &"light_idel",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_we4ua"]
+radius = 8.514852
+height = 43.564358
+
+[node name="light" type="Node2D" groups=["Light"]]
+z_index = 1
+y_sort_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-1, 0)
+sprite_frames = SubResource("SpriteFrames_eaa0b")
+animation = &"light_idel"
+offset = Vector2(0, -460)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-6, -99.00001)
+scale = Vector2(5.05, 5.05)
+shape = SubResource("CapsuleShape2D_we4ua")

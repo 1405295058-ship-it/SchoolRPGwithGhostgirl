@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://btq2bojhyy5ey"]
+
+[ext_resource type="Script" uid="uid://snqc0xttnu5o" path="res://script/table.gd" id="1_fuyhv"]
+[ext_resource type="Texture2D" uid="uid://bd5k6fraap063" path="res://art/校门和1层/桌子.png" id="2_lb2yp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vjl2i"]
+radius = 69.115845
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67vji"]
+atlas = ExtResource("2_lb2yp")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jry6c"]
+atlas = ExtResource("2_lb2yp")
+region = Rect2(640, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhh2s"]
+atlas = ExtResource("2_lb2yp")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64sdq"]
+atlas = ExtResource("2_lb2yp")
+region = Rect2(960, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ormek"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67vji")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jry6c")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhh2s")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64sdq")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="Table" type="StaticBody2D" groups=["table"]]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_fuyhv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -45)
+shape = SubResource("CircleShape2D_vjl2i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_ormek")
+animation = &"up"
+offset = Vector2(0, -96.29)

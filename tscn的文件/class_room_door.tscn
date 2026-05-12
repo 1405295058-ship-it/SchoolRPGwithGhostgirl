@@ -1,0 +1,127 @@
+[gd_scene load_steps=15 format=3 uid="uid://5ilmuygmpvvl"]
+
+[ext_resource type="Script" uid="uid://bigtdgs813lu1" path="res://script/Door.gd" id="1_l4ys6"]
+[ext_resource type="Texture2D" uid="uid://dfsbn68qk83n0" path="res://art/校门和1层/教室门.png" id="2_g2vd5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhjlh"]
+atlas = ExtResource("2_g2vd5")
+region = Rect2(960, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we3ou"]
+atlas = ExtResource("2_g2vd5")
+region = Rect2(640, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87cry"]
+atlas = ExtResource("2_g2vd5")
+region = Rect2(320, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ng5u"]
+atlas = ExtResource("2_g2vd5")
+region = Rect2(0, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqtku"]
+atlas = ExtResource("2_g2vd5")
+region = Rect2(0, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7d8q"]
+atlas = ExtResource("2_g2vd5")
+region = Rect2(960, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llk35"]
+atlas = ExtResource("2_g2vd5")
+region = Rect2(0, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4gd3"]
+atlas = ExtResource("2_g2vd5")
+region = Rect2(320, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gq15e"]
+atlas = ExtResource("2_g2vd5")
+region = Rect2(640, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmbns"]
+atlas = ExtResource("2_g2vd5")
+region = Rect2(960, 0, 320, 540)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l4ys6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhjlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we3ou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87cry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ng5u")
+}],
+"loop": false,
+"name": &"close_door",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqtku")
+}],
+"loop": true,
+"name": &"idel_close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7d8q")
+}],
+"loop": true,
+"name": &"idel_open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llk35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4gd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gq15e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmbns")
+}],
+"loop": false,
+"name": &"open_door",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2vd5"]
+size = Vector2(319, 100)
+
+[node name="ClassRoomDoor" type="Node2D" groups=["Door"]]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_l4ys6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_l4ys6")
+animation = &"open_door"
+offset = Vector2(0, -282.37)
+
+[node name="Detect" type="StaticBody2D" parent="."]
+position = Vector2(2, -43)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detect"]
+position = Vector2(-0.5, -25)
+shape = SubResource("RectangleShape2D_g2vd5")
+
+[node name="Collision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+position = Vector2(-1, -67)
+shape = SubResource("RectangleShape2D_g2vd5")

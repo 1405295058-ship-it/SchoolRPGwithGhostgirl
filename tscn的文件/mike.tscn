@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://efiulgneaqnt"]
+
+[ext_resource type="Script" uid="uid://drcbl3bhxssdy" path="res://script/mike.gd" id="1_vjcqr"]
+[ext_resource type="Texture2D" uid="uid://c8yovw14lbse4" path="res://art/shadow.png" id="2_7bjg0"]
+[ext_resource type="SpriteFrames" uid="uid://co72a1s85wtag" path="res://Tres_animation_file/mike.tres" id="2_nnvbf"]
+[ext_resource type="Texture2D" uid="uid://cscyd155bttlt" path="res://art/UI/任务标demo.png" id="4_erqln"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kejhl"]
+radius = 64.00781
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyc27"]
+atlas = ExtResource("4_erqln")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_myfy2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyc27")
+}],
+"loop": true,
+"name": &"idel",
+"speed": 5.0
+}]
+
+[node name="Mike" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 5
+script = ExtResource("1_vjcqr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+sprite_frames = ExtResource("2_nnvbf")
+animation = &"walk_up"
+offset = Vector2(0, -151.82)
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D"]
+show_behind_parent = true
+y_sort_enabled = true
+position = Vector2(-0.455, -175.215)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_7bjg0")
+offset = Vector2(-0.68, 36.69)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -62)
+shape = SubResource("CircleShape2D_kejhl")
+
+[node name="MissionTask" type="AnimatedSprite2D" parent="."]
+z_index = 2
+position = Vector2(100, -307)
+sprite_frames = SubResource("SpriteFrames_myfy2")
+animation = &"idel"

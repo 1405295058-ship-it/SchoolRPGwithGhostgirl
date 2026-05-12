@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnafal0kdstjn"]
+
+[ext_resource type="Texture2D" uid="uid://b8ry0uql0aw18" path="res://art/校门和1层/教学楼1.png" id="1_btfqx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6luhf"]
+atlas = ExtResource("1_btfqx")
+region = Rect2(0, 0, 4160, 4000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p13gd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6luhf")
+}],
+"loop": true,
+"name": &"idel",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btfqx"]
+size = Vector2(3245, 3874)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6luhf"]
+size = Vector2(2513, 12829)
+
+[node name="JiaoXue" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_p13gd")
+animation = &"idel"
+offset = Vector2(0, -1017.82)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(367.5, -1009)
+shape = SubResource("RectangleShape2D_btfqx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(734.5, -2716.5)
+shape = SubResource("RectangleShape2D_6luhf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-1229, 3, -1459, 3, -1461, -368, -1620, -365, -1625, 4, -1781, 4, -1982, 3, -1987, -2973, 2029, -2957, 2015, 948, -1229, 953)

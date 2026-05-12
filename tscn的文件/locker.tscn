@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://44yf4ail1lmm"]
+
+[ext_resource type="Texture2D" uid="uid://dqo2i52jcdrsh" path="res://art/校门和1层/Locker.png" id="1_upnlh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrdys"]
+size = Vector2(1596, 115)
+
+[node name="Locker" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Locker" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+texture = ExtResource("1_upnlh")
+offset = Vector2(0, -211.845)
+
+[node name="collision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision"]
+position = Vector2(0, -32.5)
+shape = SubResource("RectangleShape2D_hrdys")

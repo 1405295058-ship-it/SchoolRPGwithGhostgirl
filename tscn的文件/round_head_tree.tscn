@@ -1,0 +1,120 @@
+[gd_scene load_steps=16 format=3 uid="uid://og38lr5rmvyr"]
+
+[ext_resource type="Texture2D" uid="uid://bijdwm3tmc4cf" path="res://art/round_head_tree.png" id="1_dy350"]
+[ext_resource type="Script" uid="uid://bhgm4w24l6lxu" path="res://script/tree.gd" id="1_wqbnx"]
+[ext_resource type="Texture2D" uid="uid://e1kp5na38o8f" path="res://art/园树影子.png" id="3_ehac5"]
+[ext_resource type="Texture2D" uid="uid://dtbmic57l86fy" path="res://art/园树叶子.png" id="3_quj1y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_quj1y"]
+radius = 70.5762
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ehac5"]
+load_path = "res://.godot/imported/round_head_tree.png-e9cc0fb40af673b9ba167a07dbef01ad.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3l1qv"]
+atlas = SubResource("CompressedTexture2D_ehac5")
+region = Rect2(1280, 0, 1280, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu5e2"]
+atlas = SubResource("CompressedTexture2D_ehac5")
+region = Rect2(3840, 0, 1280, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjnnk"]
+atlas = SubResource("CompressedTexture2D_ehac5")
+region = Rect2(1280, 0, 1280, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsg5o"]
+atlas = SubResource("CompressedTexture2D_ehac5")
+region = Rect2(2560, 0, 1280, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_um2kv"]
+atlas = ExtResource("1_dy350")
+region = Rect2(0, 0, 1280, 1280)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_um2kv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3l1qv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qu5e2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjnnk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsg5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_um2kv")
+}],
+"loop": true,
+"name": &"idel",
+"speed": 4.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g6l51"]
+radius = 422.0
+height = 1164.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ehac5"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(10, 10, 0)
+emission_shape_scale = Vector3(5, 5, 1)
+emission_shape = 3
+emission_box_extents = Vector3(20, 10, 1)
+direction = Vector3(0, 1, 0)
+spread = 50.0
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+angular_velocity_min = -174.73001
+angular_velocity_max = 180.74998
+gravity = Vector3(0, 40, 0)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ehac5"]
+polygon = PackedVector2Array(-634, -394, -602, -564, -634, -618, -563, -733, -470, -718, -382, -788, -334, -868, -244, -946, -164, -930, 0, -961, 97, -1024, 132, -1012, 144, -936, 218, -895, 282, -881, 349, -905, 384, -866, 292, -811, 294, -735, 333, -681, 464, -646, 578, -665, 600, -612, 619, -546, 612, -480, 557, -414, 520, -392, 504, -365, 458, -340, 265, -386, 80, -423, -43, -377, -144, -398, -326, -414, -394, -470)
+
+[node name="RoundHeadTree" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_wqbnx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(14, -9)
+shape = SubResource("CircleShape2D_quj1y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_um2kv")
+animation = &"idel"
+frame_progress = 0.042577855
+offset = Vector2(0, -502.705)
+
+[node name="园树影子" type="Sprite2D" parent="StaticBody2D/AnimatedSprite2D"]
+position = Vector2(19, -10)
+scale = Vector2(0.72, 0.665)
+texture = ExtResource("3_ehac5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -663)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_g6l51")
+
+[node name="LeafFall" type="GPUParticles2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(41, -626.9999)
+scale = Vector2(-4.2292166, 2.8126)
+amount = 3
+texture = ExtResource("3_quj1y")
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_ehac5")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_ehac5")

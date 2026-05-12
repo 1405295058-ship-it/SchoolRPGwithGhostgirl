@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://dpt4j14odlit6"]
+
+[ext_resource type="Texture2D" uid="uid://ccr48vc6s56oj" path="res://art/校门和1层/bigbigtree_idel.png" id="1_brfkd"]
+[ext_resource type="Script" uid="uid://bhgm4w24l6lxu" path="res://script/tree.gd" id="1_gvmkm"]
+[ext_resource type="Texture2D" uid="uid://deawf2rgcuj1c" path="res://art/校门和1层/叶子.png" id="4_k36v2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ind6k"]
+radius = 12.5813465
+height = 49.457706
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k36v2"]
+atlas = ExtResource("1_brfkd")
+region = Rect2(0, 0, 960, 1600)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gkx5"]
+atlas = ExtResource("1_brfkd")
+region = Rect2(960, 0, 960, 1600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_44ud8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k36v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gkx5")
+}],
+"loop": true,
+"name": &"idel",
+"speed": 2.0
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6gkx5"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(10, 10, 0)
+emission_shape_scale = Vector3(5, 5, 1)
+emission_shape = 3
+emission_box_extents = Vector3(20, 10, 1)
+direction = Vector3(0, 1, 0)
+spread = 50.0
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+angular_velocity_min = -174.73001
+angular_velocity_max = 180.74998
+gravity = Vector3(0, 40, 0)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d2g23"]
+radius = 289.0
+height = 850.0
+
+[node name="tree" type="Node2D"]
+z_index = 1
+script = ExtResource("1_gvmkm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+z_index = 1
+position = Vector2(-14, -7)
+rotation = 1.5707964
+scale = Vector2(6.915, 6.915)
+shape = SubResource("CapsuleShape2D_ind6k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-4, 7)
+sprite_frames = SubResource("SpriteFrames_44ud8")
+animation = &"idel"
+offset = Vector2(0, -688.33)
+
+[node name="LeafFall" type="GPUParticles2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(41, -626.9999)
+scale = Vector2(-4.2292166, 2.8126)
+amount = 3
+texture = ExtResource("4_k36v2")
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_6gkx5")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(3.000002, -753.0001)
+rotation = 1.5707964
+scale = Vector2(1.0000002, 1.0000002)
+
+[node name="fade_area" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("CapsuleShape2D_d2g23")

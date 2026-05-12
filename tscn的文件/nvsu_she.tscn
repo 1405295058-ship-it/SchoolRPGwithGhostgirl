@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://ce11kw0ovorlq"]
+
+[ext_resource type="Script" uid="uid://bxkt13p2ultsn" path="res://script/shcool_door.gd" id="1_acv7t"]
+[ext_resource type="Texture2D" uid="uid://1eaamutmetrt" path="res://art/校门和1层/女宿舍.png" id="1_l0mwd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acv7t"]
+size = Vector2(2710, 1455)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfvs2"]
+atlas = ExtResource("1_l0mwd")
+region = Rect2(0, 0, 2720, 2880)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1tmaw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfvs2")
+}],
+"loop": true,
+"name": &"idel",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0mwd"]
+size = Vector2(2713, 930.5)
+
+[node name="NvsuShe" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_acv7t")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-4, -1683)
+shape = SubResource("RectangleShape2D_acv7t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_1tmaw")
+animation = &"idel"
+offset = Vector2(0, -1418.61)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3.5, -466.75)
+shape = SubResource("RectangleShape2D_l0mwd")

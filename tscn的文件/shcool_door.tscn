@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://com4277np1815"]
+
+[ext_resource type="Texture2D" uid="uid://dd7odjanlpg2i" path="res://art/校门和1层/校门口正式.png" id="1_0vbcu"]
+[ext_resource type="Script" uid="uid://bxkt13p2ultsn" path="res://script/shcool_door.gd" id="1_aeso7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aeso7"]
+size = Vector2(229.82172, 81.056015)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oma55"]
+size = Vector2(461.5, 314.875)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhei2"]
+atlas = ExtResource("1_0vbcu")
+region = Rect2(0, 0, 2560, 1440)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3byjq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhei2")
+}],
+"loop": true,
+"name": &"idel",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4061s"]
+size = Vector2(229.65964, 158.67099)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_taaav"]
+size = Vector2(466.5, 1090)
+
+[node name="Shcool_door" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_aeso7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-468, -240.05782)
+scale = Vector2(6.17, 6.17)
+shape = SubResource("RectangleShape2D_aeso7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(972, -145.4375)
+shape = SubResource("RectangleShape2D_oma55")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(2, -1)
+sprite_frames = SubResource("SpriteFrames_3byjq")
+animation = &"idel"
+offset = Vector2(0, -700)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="fade_area1" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-469, -768)
+scale = Vector2(6.17, 6.17)
+shape = SubResource("RectangleShape2D_4061s")
+
+[node name="fade_area2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(969, -776)
+shape = SubResource("RectangleShape2D_taaav")

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://lrehhjj0gtih"]
+
+[ext_resource type="Script" uid="uid://tvaskc0ucsyd" path="res://script/basic_important_npc.gd" id="1_8v34l"]
+[ext_resource type="SpriteFrames" uid="uid://w8l8jhwje2nm" path="res://Tres_animation_file/李胜.tres" id="2_vh7mf"]
+[ext_resource type="Texture2D" uid="uid://c8yovw14lbse4" path="res://art/shadow.png" id="3_ctb53"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vh7mf"]
+radius = 68.117546
+
+[node name="BasicImportantNPC" type="CharacterBody2D" groups=["NPC"]]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 5
+script = ExtResource("1_8v34l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+sprite_frames = ExtResource("2_vh7mf")
+animation = &"idel_down"
+offset = Vector2(0, -146.28)
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D"]
+show_behind_parent = true
+y_sort_enabled = true
+position = Vector2(0, -142)
+texture = ExtResource("3_ctb53")
+offset = Vector2(-0.68, 36.69)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -51)
+shape = SubResource("CircleShape2D_vh7mf")

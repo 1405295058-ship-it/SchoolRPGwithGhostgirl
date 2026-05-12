@@ -1,0 +1,107 @@
+{
+
+	
+	
+		"开学":
+		{
+			"quest_states":
+			{
+				"1" :
+				[
+					{
+						"talk_state": "start",
+						"dialog":
+						[
+							{
+								"text":"嘿！这不是player吗？",
+								"emotion":"surprised"
+							},
+							{
+								"text":"你也来报道啦？！",
+								"emotion":"normal"
+							},
+							
+						],
+						"options":
+						[
+							{
+								"text": "Mike！好久不见！",
+								"next": "ask_class"
+							},
+							{
+								"text": "你谁啊？",
+								"next": "introduction"
+							}
+						]
+					},
+					{
+						"talk_state": "ask_class",
+						"dialog":
+						[
+							{
+								"text":"给你说，我刚看了一下我们班的名单。",
+								"emotion":"normal"
+							},
+							{
+								"text":"我们是一个班的诶！",
+								"emotion":"surprised"
+							},
+							{
+								"text":"等会儿我们就一起去报道了撒。",
+								"emotion":"normal"
+							},
+							{
+								"text":"走不走。",
+								"emotion":"normal"
+							}
+						
+						],
+						"options":
+						[
+							{
+								"text": "走吧",
+								"next": "end"
+							}
+							
+						]
+					},
+					{
+						"talk_state": "introduction",
+						"dialog":
+						[
+							{
+								"text":"不是，一个暑假没见，你放假放傻了吗。",
+								"emotion":"surprised"
+							},
+							{
+								"text":"我是你初中同学Mike啊,虽然不是一个班的，但是关系一直不错。（人机介绍）",
+								"emotion":"normal"
+							}
+						],
+						"options":
+						[
+							{
+								"text": "好了好了，逗你玩的。确实好久没见了。",
+								"next": "ask_class"
+							},
+						]
+					},
+					{
+						"talk_state": "end",
+						"dialog":
+						[
+							{
+								"text":"走！",
+								"emotion":"surprised"
+							}
+						],
+						"options":
+						[
+
+						]
+					}
+				]
+			}
+		}
+	
+}

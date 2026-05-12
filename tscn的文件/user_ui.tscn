@@ -1,0 +1,652 @@
+[gd_scene load_steps=40 format=3 uid="uid://dyvdo02ypkhn1"]
+
+[ext_resource type="Texture2D" uid="uid://djr3fmayndssy" path="res://art/UI/书壳背景.png" id="1_63agc"]
+[ext_resource type="Script" uid="uid://btwcfhsn06ttw" path="res://script/user_ui.gd" id="1_ts28q"]
+[ext_resource type="Texture2D" uid="uid://bb4jmev147brl" path="res://art/UI/人物背包排线.png" id="2_f361o"]
+[ext_resource type="Texture2D" uid="uid://2k2fiuo3ibkf" path="res://art/UI/人物展示栏.png" id="3_wa08o"]
+[ext_resource type="FontFile" uid="uid://ccbttyuoii471" path="res://art/UI/VonwaonBitmap-16px.ttf" id="4_nts06"]
+[ext_resource type="Texture2D" uid="uid://4dbck2acsy0" path="res://art/UI/裤子.png" id="5_iuwj4"]
+[ext_resource type="Texture2D" uid="uid://cyi2nxjvjeywx" path="res://art/UI/背包小.png" id="6_jxojm"]
+[ext_resource type="Texture2D" uid="uid://8cw4uuvmktbw" path="res://art/UI/裤子格子.png" id="7_lmqkl"]
+[ext_resource type="Texture2D" uid="uid://cnh3jqniiwnu1" path="res://art/UI/大背包.png" id="9_e84a6"]
+[ext_resource type="Texture2D" uid="uid://bfpc74r8utq0c" path="res://art/UI/打开了的背包格子.png" id="10_vkmlb"]
+[ext_resource type="Texture2D" uid="uid://bvihnl834difi" path="res://art/UI/设置书贴.png" id="11_q4fcb"]
+[ext_resource type="Texture2D" uid="uid://bliws8dgwsllw" path="res://art/UI/任务面板排线.png" id="11_vyjxb"]
+[ext_resource type="Texture2D" uid="uid://cof2x3748w0l6" path="res://art/UI/主线题目.png" id="12_8akce"]
+[ext_resource type="Texture2D" uid="uid://dxr55bosrqo4x" path="res://art/UI/任务书贴.png" id="12_m43yq"]
+[ext_resource type="Texture2D" uid="uid://cvakwuk7c2hyp" path="res://art/UI/背包书贴.png" id="13_vyjxb"]
+[ext_resource type="Texture2D" uid="uid://b862j3y8d04v2" path="res://art/UI/关系书贴.png" id="14_8akce"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iuwj4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxojm"]
+bg_color = Color(0.65882355, 0.60784316, 0.2784314, 0.05882353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lmqkl"]
+bg_color = Color(0.9490196, 0.9254902, 0.7607843, 0.08235294)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ts28q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k7l6t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opc8p"]
+bg_color = Color(0.5882353, 0.5882353, 0.5882353, 0.13333334)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqh68"]
+bg_color = Color(0.9137255, 0.92941177, 0.84705883, 0.29803923)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mv81f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_opc8p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mv81f"]
+bg_color = Color(0.4181052, 0.5618549, 0.6966921, 0.21960784)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euitq"]
+bg_color = Color(0.88235295, 0.9137255, 0.9254902, 0.28627452)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bo0br"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mppen"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q4fcb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m43yq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m43yq"]
+bg_color = Color(0.9160204, 0.64118856, 0.7450354, 0.14901961)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vyjxb"]
+bg_color = Color(0.98039216, 0.9098039, 0.93333334, 0.27058825)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8akce"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vyjxb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w0ula"]
+
+[sub_resource type="Animation" id="Animation_vyjxb"]
+resource_name = "show_user_UI"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackGround:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8akce"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackGround:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w0ula"]
+_data = {
+&"RESET": SubResource("Animation_8akce"),
+&"show_user_UI": SubResource("Animation_vyjxb")
+}
+
+[node name="UserUI" type="CanvasLayer"]
+scale = Vector2(1.3, 1.3)
+transform = Transform2D(1.3, 0, 0, 1.3, 0, 0)
+script = ExtResource("1_ts28q")
+
+[node name="BackGround" type="TextureRect" parent="."]
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -776.92303
+offset_top = -667.6923
+offset_right = 1783.0769
+offset_bottom = 1892.3076
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_63agc")
+
+[node name="CharacterBagLine" type="TextureRect" parent="BackGround"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_f361o")
+
+[node name="TextureRect" type="TextureRect" parent="BackGround/CharacterBagLine"]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 722.0
+offset_right = 868.0
+offset_bottom = 1362.0
+texture = ExtResource("3_wa08o")
+
+[node name="Date" type="Label" parent="BackGround/CharacterBagLine"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.008
+anchor_top = 0.004
+anchor_right = 0.008
+anchor_bottom = 0.004
+offset_left = 199.52
+offset_top = 451.76
+offset_right = 1587.52
+offset_bottom = 679.76
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("4_nts06")
+theme_override_font_sizes/font_size = 100
+text = "2026年 7月12号 星期天"
+
+[node name="Skill" type="Label" parent="BackGround/CharacterBagLine"]
+layout_mode = 0
+offset_left = 1880.0
+offset_top = 804.0
+offset_right = 2080.0
+offset_bottom = 905.0
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("4_nts06")
+theme_override_font_sizes/font_size = 100
+text = "属性"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/CharacterBagLine/Skill"]
+layout_mode = 0
+offset_left = -140.0
+offset_top = 174.0
+offset_right = 20.0
+offset_bottom = 630.0
+theme_override_constants/separation = 36
+
+[node name="Strength" type="Label" parent="BackGround/CharacterBagLine/Skill/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("4_nts06")
+theme_override_font_sizes/font_size = 80
+text = "体质"
+
+[node name="Agility" type="Label" parent="BackGround/CharacterBagLine/Skill/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("4_nts06")
+theme_override_font_sizes/font_size = 80
+text = "敏捷"
+
+[node name="Intelligence" type="Label" parent="BackGround/CharacterBagLine/Skill/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("4_nts06")
+theme_override_font_sizes/font_size = 80
+text = "智力"
+
+[node name="Charm" type="Label" parent="BackGround/CharacterBagLine/Skill/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("4_nts06")
+theme_override_font_sizes/font_size = 80
+text = "情商"
+
+[node name="Bag" type="HBoxContainer" parent="BackGround/CharacterBagLine"]
+layout_mode = 0
+offset_left = 542.0
+offset_top = 1784.0
+offset_right = 1776.0
+offset_bottom = 2254.0
+theme_override_constants/separation = 444
+
+[node name="Kuzi" type="TextureRect" parent="BackGround/CharacterBagLine/Bag"]
+layout_mode = 2
+texture = ExtResource("5_iuwj4")
+
+[node name="Bagg" type="TextureRect" parent="BackGround/CharacterBagLine/Bag"]
+layout_mode = 2
+texture = ExtResource("6_jxojm")
+
+[node name="OpenBagButtom" type="Button" parent="BackGround/CharacterBagLine/Bag/Bagg"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.57000005
+anchor_right = 0.5
+anchor_bottom = 0.57000005
+offset_left = -149.0
+offset_top = -239.90002
+offset_right = 147.0
+offset_bottom = 190.09998
+theme_override_styles/normal = SubResource("StyleBoxEmpty_iuwj4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jxojm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lmqkl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ts28q")
+
+[node name="SpaceInKuzi1" type="TextureRect" parent="BackGround/CharacterBagLine"]
+layout_mode = 0
+offset_left = 354.0
+offset_top = 1862.0
+offset_right = 514.0
+offset_bottom = 2022.0
+texture = ExtResource("7_lmqkl")
+
+[node name="SpaceInKuzi2" type="TextureRect" parent="BackGround/CharacterBagLine"]
+layout_mode = 0
+offset_left = 1028.0
+offset_top = 1862.0
+offset_right = 1188.0
+offset_bottom = 2022.0
+texture = ExtResource("7_lmqkl")
+
+[node name="OpenedBag" type="TextureRect" parent="BackGround/CharacterBagLine"]
+layout_mode = 0
+offset_left = 968.0
+offset_top = 1376.0
+offset_right = 2248.0
+offset_bottom = 2656.0
+texture = ExtResource("9_e84a6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/CharacterBagLine/OpenedBag"]
+layout_mode = 0
+offset_left = 366.0
+offset_top = 448.0
+offset_right = 876.0
+offset_bottom = 783.0
+theme_override_constants/separation = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BackGround/CharacterBagLine/OpenedBag/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Bagbox1" type="TextureRect" parent="BackGround/CharacterBagLine/OpenedBag/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_vkmlb")
+
+[node name="Bagbox2" type="TextureRect" parent="BackGround/CharacterBagLine/OpenedBag/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_vkmlb")
+
+[node name="Bagbox3" type="TextureRect" parent="BackGround/CharacterBagLine/OpenedBag/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_vkmlb")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="BackGround/CharacterBagLine/OpenedBag/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Bagbox4" type="TextureRect" parent="BackGround/CharacterBagLine/OpenedBag/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("10_vkmlb")
+
+[node name="Bagbox5" type="TextureRect" parent="BackGround/CharacterBagLine/OpenedBag/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("10_vkmlb")
+
+[node name="Bagbox6" type="TextureRect" parent="BackGround/CharacterBagLine/OpenedBag/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("10_vkmlb")
+
+[node name="MissionBagLine" type="TextureRect" parent="BackGround"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_vyjxb")
+
+[node name="MainMission" type="Label" parent="BackGround/MissionBagLine"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.008
+anchor_top = 0.004
+anchor_right = 0.008
+anchor_bottom = 0.004
+offset_left = 585.52
+offset_top = 475.76
+offset_right = 1973.52
+offset_bottom = 703.76
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("4_nts06")
+theme_override_font_sizes/font_size = 120
+text = "主线任务"
+
+[node name="MainMissionTitle" type="TextureRect" parent="BackGround/MissionBagLine"]
+layout_mode = 0
+offset_left = 246.0
+offset_top = 656.0
+offset_right = 1426.0
+offset_bottom = 936.0
+texture = ExtResource("12_8akce")
+
+[node name="MissionTitleButton" type="Button" parent="BackGround/MissionBagLine/MainMissionTitle"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -562.0
+offset_top = -100.0
+offset_right = 516.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("4_nts06")
+theme_override_font_sizes/font_size = 110
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k7l6t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_opc8p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dqh68")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mv81f")
+text = "开学"
+
+[node name="MainMissionTitle2" type="TextureRect" parent="BackGround/MissionBagLine"]
+layout_mode = 0
+offset_left = 246.0
+offset_top = 966.0
+offset_right = 1426.0
+offset_bottom = 1246.0
+texture = ExtResource("12_8akce")
+
+[node name="MissionTitleButton2" type="Button" parent="BackGround/MissionBagLine/MainMissionTitle2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -562.0
+offset_top = -100.0
+offset_right = 516.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("4_nts06")
+theme_override_font_sizes/font_size = 110
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k7l6t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_opc8p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dqh68")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mv81f")
+text = "开学"
+
+[node name="Objective" type="Label" parent="BackGround/MissionBagLine"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.65500003
+anchor_top = 0.21700001
+anchor_right = 0.65500003
+anchor_bottom = 0.21700001
+offset_left = 163.19995
+offset_top = 20.47998
+offset_right = 713.19995
+offset_bottom = 248.47998
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("4_nts06")
+theme_override_font_sizes/font_size = 120
+text = "目标"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/MissionBagLine/Objective"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -501.0
+offset_top = -10.0
+offset_right = 131.0
+offset_bottom = 650.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 100
+
+[node name="Objective1" type="Label" parent="BackGround/MissionBagLine/Objective/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("4_nts06")
+theme_override_font_sizes/font_size = 95
+text = "目标1"
+
+[node name="Objective2" type="Label" parent="BackGround/MissionBagLine/Objective/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("4_nts06")
+theme_override_font_sizes/font_size = 95
+text = "目标2"
+
+[node name="Objective3" type="Label" parent="BackGround/MissionBagLine/Objective/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("4_nts06")
+theme_override_font_sizes/font_size = 95
+text = "目标3"
+
+[node name="Discription" type="Label" parent="BackGround/MissionBagLine"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.008
+anchor_top = 0.004
+anchor_right = 0.008
+anchor_bottom = 0.004
+offset_left = 1829.52
+offset_top = 1317.76
+offset_right = 3053.52
+offset_bottom = 1545.76
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("4_nts06")
+theme_override_font_sizes/font_size = 120
+text = "概述"
+
+[node name="DiscriptionPlace" type="Label" parent="BackGround/MissionBagLine/Discription"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.008
+anchor_top = 0.004
+anchor_right = 0.008
+anchor_bottom = 0.004
+offset_left = -301.104
+offset_top = 149.088
+offset_right = 524.896
+offset_bottom = 1059.088
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("4_nts06")
+theme_override_font_sizes/font_size = 80
+text = "现在就是什么任务都没有啊BRO ， 想玩还得再等一阵。等我把任务系统做好 然后把人都画完 地图都搞好 也许就可以玩了。现在打这么多字就是测试一下我这个概述的格子能装多少字 感觉看着眼睛舒不舒服 好吧 感觉快要写完了 快要写完了 写完了吗 这是最后一排"
+autowrap_mode = 3
+
+[node name="SubMission" type="ScrollContainer" parent="BackGround/MissionBagLine"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.324
+anchor_top = 0.781
+anchor_right = 0.324
+anchor_bottom = 0.781
+offset_left = -584.44006
+offset_top = -391.8601
+offset_right = 585.55975
+offset_bottom = 430.6399
+grow_vertical = 0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/MissionBagLine/SubMission"]
+layout_mode = 2
+
+[node name="MainMission2" type="Label" parent="BackGround/MissionBagLine"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.008
+anchor_top = 0.004
+anchor_right = 0.008
+anchor_bottom = 0.004
+offset_left = 609.51996
+offset_top = 1409.76
+offset_right = 1997.52
+offset_bottom = 1637.76
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("4_nts06")
+theme_override_font_sizes/font_size = 120
+text = "支线任务"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -709.99994
+offset_top = -653.0769
+offset_right = 1517.0
+offset_bottom = -183.0769
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+theme_override_constants/separation = 100
+
+[node name="Setting" type="TextureRect" parent="HBoxContainer"]
+z_index = -1
+layout_mode = 2
+texture = ExtResource("11_q4fcb")
+
+[node name="Label" type="Label" parent="HBoxContainer/Setting"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 76.0
+offset_right = 338.0
+offset_bottom = 196.0
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("4_nts06")
+theme_override_font_sizes/font_size = 120
+text = "设置"
+
+[node name="Relasionship" type="TextureRect" parent="HBoxContainer"]
+z_index = -1
+layout_mode = 2
+texture = ExtResource("14_8akce")
+
+[node name="Label" type="Label" parent="HBoxContainer/Relasionship"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 68.0
+offset_right = 337.0
+offset_bottom = 311.0
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("4_nts06")
+theme_override_font_sizes/font_size = 120
+text = "关系
+"
+
+[node name="Bag" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("13_vyjxb")
+
+[node name="Label" type="Label" parent="HBoxContainer/Bag"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 68.0
+offset_right = 354.0
+offset_bottom = 188.0
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("4_nts06")
+theme_override_font_sizes/font_size = 120
+text = "背包"
+
+[node name="SwitchToBagButton" type="Button" parent="HBoxContainer/Bag"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -229.0
+offset_right = 224.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_opc8p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mv81f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_euitq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bo0br")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mppen")
+
+[node name="Mission" type="TextureRect" parent="HBoxContainer"]
+z_index = -1
+layout_mode = 2
+texture = ExtResource("12_m43yq")
+
+[node name="Label" type="Label" parent="HBoxContainer/Mission"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 72.0
+offset_right = 353.0
+offset_bottom = 192.0
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("4_nts06")
+theme_override_font_sizes/font_size = 120
+text = "任务"
+
+[node name="SwitchToMissionButton" type="Button" parent="HBoxContainer/Mission"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.31100002
+anchor_right = 0.5
+anchor_bottom = 0.31100002
+offset_left = -220.0
+offset_top = -138.17001
+offset_right = -132.4
+offset_bottom = -81.37002
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_q4fcb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_m43yq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m43yq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vyjxb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8akce")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vyjxb")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w0ula")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_w0ula")
+}
+
+[connection signal="pressed" from="BackGround/CharacterBagLine/Bag/Bagg/OpenBagButtom" to="." method="_on_open_bag_buttom_pressed"]
+[connection signal="pressed" from="BackGround/MissionBagLine/MainMissionTitle/MissionTitleButton" to="." method="_on_mission_title_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Bag/SwitchToBagButton" to="." method="_on_switch_to_bag_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Mission/SwitchToMissionButton" to="." method="_on_switch_to_mission_button_pressed"]

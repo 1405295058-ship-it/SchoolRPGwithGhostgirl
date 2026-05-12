@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=3 uid="uid://fu6cwpgjfxqp"]
+
+[ext_resource type="Script" uid="uid://b13hjkf2047t1" path="res://script/chair_normal.gd" id="1_cwxtn"]
+[ext_resource type="Texture2D" uid="uid://drtp4utwktacw" path="res://art/椅子.png" id="2_j8m8e"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cwxtn"]
+load_path = "res://.godot/imported/椅子.png-89aafee0fbd310d2e3ba3f6333e4cde8.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwxtn"]
+atlas = SubResource("CompressedTexture2D_cwxtn")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8m8e"]
+atlas = ExtResource("2_j8m8e")
+region = Rect2(640, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypq8i"]
+atlas = ExtResource("2_j8m8e")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j8m8e"]
+load_path = "res://.godot/imported/椅子.png-89aafee0fbd310d2e3ba3f6333e4cde8.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wek2h"]
+atlas = SubResource("CompressedTexture2D_j8m8e")
+region = Rect2(960, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8pad4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwxtn")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8m8e")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypq8i")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wek2h")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f0i4s"]
+radius = 70.028564
+
+[node name="Chair_Normal" type="StaticBody2D" groups=["blue_chair"]]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 5
+script = ExtResource("1_cwxtn")
+facing = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, 18)
+sprite_frames = SubResource("SpriteFrames_8pad4")
+animation = &"up"
+offset = Vector2(0, -103.85)
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -33)
+shape = SubResource("CircleShape2D_f0i4s")
+
+[node name="SitTarget" type="Marker2D" parent="."]
+position = Vector2(0, 33)
+
+[node name="SitBackTarget" type="Marker2D" parent="."]
+position = Vector2(0, 8)

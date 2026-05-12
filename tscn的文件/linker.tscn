@@ -1,0 +1,86 @@
+[gd_scene load_steps=10 format=3 uid="uid://bgqg72mh017p3"]
+
+[ext_resource type="Texture2D" uid="uid://dybvb5t3366rv" path="res://art/Linker人.png" id="1_irn6v"]
+[ext_resource type="Script" uid="uid://d04yl0v5dude0" path="res://script/linker.gd" id="1_loutq"]
+[ext_resource type="Texture2D" uid="uid://c8yovw14lbse4" path="res://art/shadow.png" id="2_loutq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypj26"]
+atlas = ExtResource("1_irn6v")
+region = Rect2(0, 0, 320, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukcjk"]
+atlas = ExtResource("1_irn6v")
+region = Rect2(0, 1440, 320, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvb13"]
+atlas = ExtResource("1_irn6v")
+region = Rect2(0, 960, 320, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1e37"]
+atlas = ExtResource("1_irn6v")
+region = Rect2(0, 480, 320, 480)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0ofeb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypj26")
+}],
+"loop": true,
+"name": &"idel_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukcjk")
+}],
+"loop": true,
+"name": &"idel_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvb13")
+}],
+"loop": true,
+"name": &"idel_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1e37")
+}],
+"loop": true,
+"name": &"idel_up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_loutq"]
+radius = 72.0
+height = 186.0
+
+[node name="Linker" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 5
+script = ExtResource("1_loutq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_0ofeb")
+animation = &"idel_left"
+offset = Vector2(0, -227.045)
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D"]
+show_behind_parent = true
+y_sort_enabled = true
+position = Vector2(1, -145)
+texture = ExtResource("2_loutq")
+offset = Vector2(-0.68, 36.69)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(1, -75)
+shape = SubResource("CapsuleShape2D_loutq")

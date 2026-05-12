@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://d17rsoa0dgrst"]
+
+[ext_resource type="Texture2D" uid="uid://cj0vkfmlcq84c" path="res://art/Animation/npc们.png" id="1_4nrkk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kme7v"]
+atlas = ExtResource("1_4nrkk")
+region = Rect2(2880, 6080, 320, 320)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kme7v")
+}],
+"loop": true,
+"name": &"idel_down",
+"speed": 5.0
+}]

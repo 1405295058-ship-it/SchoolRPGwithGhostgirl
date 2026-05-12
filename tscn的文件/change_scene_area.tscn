@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://djl3jdb75kd2t"]
+
+[ext_resource type="Script" uid="uid://fcvil1lwp6m8" path="res://change_scene_area.gd" id="1_hwptj"]
+
+[node name="ChangeSceneArea" type="StaticBody2D" groups=["ChangeSceneArea"]]
+collision_layer = 5
+script = ExtResource("1_hwptj")
+
+[node name="StartMarker2D" type="Marker2D" parent="."]

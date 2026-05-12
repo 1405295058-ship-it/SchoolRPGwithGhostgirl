@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk35deagp71vq"]
+
+[ext_resource type="Texture2D" uid="uid://dqsol6gd4ukn5" path="res://art/校门和1层/垃圾桶.png" id="1_3xrm2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmnpm"]
+atlas = ExtResource("1_3xrm2")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jvs2n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmnpm")
+}],
+"loop": true,
+"name": &"trush_can_idel",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pewee"]
+size = Vector2(79.73275, 24.153677)
+
+[node name="Trush_can" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-1, -1)
+sprite_frames = SubResource("SpriteFrames_jvs2n")
+animation = &"trush_can_idel"
+offset = Vector2(0, -150.01)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-5, -24.000023)
+scale = Vector2(2.245, 2.245)
+shape = SubResource("RectangleShape2D_pewee")

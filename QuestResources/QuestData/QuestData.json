@@ -1,0 +1,72 @@
+{
+	"开学" :
+		{
+			"type": "main",
+			"quest_states":
+				{
+					"1":
+						{
+							"quest_description":"暑假结束，高中生活开始了。刚下车的你似乎看见你的高中同学Mike在门口站着，去找他搭个话？",
+							"objective" : 	[
+												{
+													"text":"和Mike打声招呼",
+													"in_code":"talked_with_npc_Forecourt_Mike"
+												}
+								
+											]
+							
+						},
+					"2":
+						{
+							"quest_description":"你在校门口遇见了同样准备报道的Mike，在进行了简单的交谈过后你们准备一起去报到。",
+							"objective" : 	[
+												{
+													"text":"和Mike一起去报道吧",
+													"in_code":"talked_with_npc_Forecourt_Evelyn"
+												}
+								
+											]
+							
+						},
+					"3":
+						{
+							"quest_description":"你在班主任Evelyn那里登记完后，她让你去寝室先把行李放了再去报道。男寝怎么走来着？直走左转？",
+							"objective" : 	[
+												{
+													"text":"找到男寝",
+													"in_code":"arrive_boyacc"
+												}
+								
+											]
+							
+						}
+					
+				}
+			
+			
+		},
+	"恭喜哦" :
+		{
+			"type": "main",
+			"quest_states":
+				{
+					"1":
+						{
+							"quest_description":"恭喜你完成了这个游戏的第一个任务！",
+							"objective" :  	[
+												{
+													"text":"没目标了",
+													"in_code":"talked_with_Evelyn"
+												}
+								
+											]
+							
+						}
+					
+				}
+			
+			
+		}
+	
+	
+}

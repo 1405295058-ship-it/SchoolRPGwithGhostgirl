@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://dxpeqre7pt364"]
+
+[ext_resource type="Texture2D" uid="uid://cjk3dduiiskuu" path="res://art/校门和1层/灌木丛2.png" id="1_mv01g"]
+[ext_resource type="Script" uid="uid://vyuax5vl5pec" path="res://tscn的文件/big_bush.gd" id="1_u0p5t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28e2s"]
+atlas = ExtResource("1_mv01g")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg44q"]
+atlas = ExtResource("1_mv01g")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcrhb"]
+atlas = ExtResource("1_mv01g")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jojda"]
+atlas = ExtResource("1_mv01g")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15jqi"]
+atlas = ExtResource("1_mv01g")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r6hg6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28e2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mg44q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcrhb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jojda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15jqi")
+}],
+"loop": true,
+"name": &"idel",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mv01g"]
+radius = 134.0
+height = 474.0
+
+[node name="Big_bush" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_u0p5t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-1, 2)
+sprite_frames = SubResource("SpriteFrames_r6hg6")
+animation = &"idel"
+frame_progress = 0.025811361
+offset = Vector2(0, -170.74)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-19, -80)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_mv01g")

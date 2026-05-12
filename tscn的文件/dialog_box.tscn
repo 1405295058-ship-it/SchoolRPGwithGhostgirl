@@ -1,0 +1,210 @@
+[gd_scene load_steps=15 format=3 uid="uid://c7ud6ug2j7i8j"]
+
+[ext_resource type="Script" uid="uid://bwbefoe3hwqv8" path="res://script/dialog_box.gd" id="1_rkunf"]
+[ext_resource type="FontFile" uid="uid://ccbttyuoii471" path="res://art/UI/VonwaonBitmap-16px.ttf" id="2_a584j"]
+[ext_resource type="Texture2D" uid="uid://brjxllvika1ea" path="res://art/UI/对话框.png" id="3_4bm68"]
+[ext_resource type="Texture2D" uid="uid://08iqab2qcqhs" path="res://art/face/主角_说话.png" id="4_dggau"]
+[ext_resource type="Texture2D" uid="uid://dib8rmpthcmq8" path="res://art/UI/继续对话.png" id="5_05lse"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_it5w8"]
+content_margin_left = 435.0
+content_margin_top = 109.0
+content_margin_right = 44.0
+content_margin_bottom = 200.0
+texture = ExtResource("3_4bm68")
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 12.0
+expand_margin_left = 5.0
+expand_margin_right = 48.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkunf"]
+bg_color = Color(0.26293314, 0.2629322, 0.26293242, 0.09019608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a584j"]
+bg_color = Color(0.19607843, 0.19607843, 0.19607843, 0.18039216)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4bm68"]
+bg_color = Color(1, 1, 1, 0.24705882)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dggau"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05lse"]
+
+[sub_resource type="Animation" id="Animation_a584j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Content:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1032.5, 9.166666)]
+}
+
+[sub_resource type="Animation" id="Animation_rkunf"]
+resource_name = "dialog_show_cg"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Content:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.033333335, 0, 0.19999999),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-1032.5, 800.001), Vector2(-1032.5, 800), Vector2(-1032.5, 9.167)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4bm68"]
+_data = {
+&"RESET": SubResource("Animation_a584j"),
+&"dialog_show_cg": SubResource("Animation_rkunf")
+}
+
+[node name="DialogBox" type="CanvasLayer"]
+process_mode = 3
+scale = Vector2(1.2, 1.2)
+transform = Transform2D(1.2, 0, 0, 1.2, 0, 0)
+script = ExtResource("1_rkunf")
+
+[node name="Content" type="Label" parent="."]
+offset_left = -1032.5
+offset_top = 9.166666
+offset_right = 1367.5
+offset_bottom = 809.16766
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_fonts/font = ExtResource("2_a584j")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_it5w8")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="head" type="TextureRect" parent="Content"]
+layout_mode = 0
+offset_left = 899.4444
+offset_top = 449.4444
+offset_right = 1539.4443
+offset_bottom = 1089.4443
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_dggau")
+stretch_mode = 3
+
+[node name="Nextindicator" type="TextureRect" parent="Content"]
+layout_mode = 0
+offset_left = 1777.2222
+offset_top = 699.44446
+offset_right = 1937.2222
+offset_bottom = 859.4445
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_05lse")
+
+[node name="Options" type="VBoxContainer" parent="Content"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.57100004
+anchor_top = 0.52500004
+anchor_right = 0.57100004
+anchor_bottom = 0.52500004
+offset_left = -107.066895
+offset_top = 144.44437
+offset_right = 493.92566
+offset_bottom = 272.44437
+
+[node name="option1" type="Button" parent="Content/Options"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/font_focus_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/font_hover_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_fonts/font = ExtResource("2_a584j")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_rkunf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a584j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4bm68")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dggau")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_05lse")
+text = "出发！"
+
+[node name="option2" type="Button" parent="Content/Options"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/font_focus_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/font_hover_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_fonts/font = ExtResource("2_a584j")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_rkunf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a584j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4bm68")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dggau")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_05lse")
+text = "我想再逛一逛。"
+
+[node name="option3" type="Button" parent="Content/Options"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/font_focus_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/font_hover_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/font_disabled_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_fonts/font = ExtResource("2_a584j")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_rkunf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a584j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4bm68")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dggau")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_05lse")
+text = "fuck off! 我想自己走！"
+
+[node name="dialog" type="Label" parent="Content"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 55.0
+offset_top = 166.11108
+offset_right = 661.1111
+offset_bottom = 359.4444
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_fonts/font = ExtResource("2_a584j")
+theme_override_font_sizes/font_size = 32
+text = "what"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4bm68")
+}

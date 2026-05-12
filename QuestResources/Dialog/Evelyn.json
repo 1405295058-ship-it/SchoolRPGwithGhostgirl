@@ -1,0 +1,176 @@
+{
+
+	
+	
+		"开学":
+		{
+			"quest_states":
+			{
+				"2" :
+				[
+					{
+						"talk_state": "start",
+						"dialog":
+						[
+							{
+								"text":"哈喽呀，你是来报道的吗。",
+								"emotion":"normal"
+							},
+							{
+								"text":"看你这样子一定就是了吧。",
+								"emotion":"normal"
+							},
+							{
+								"text":"你叫什么名字呀？",
+								"emotion":"normal"
+							}
+							
+						],
+						"options":
+						[
+							{
+								"text": "门君结城理",
+								"next": "666"
+							},
+							{
+								"text": "番长鸣上悠",
+								"next": "666"
+							},
+							{
+								"text": "怪盗雨宫莲",
+								"next": "666"
+							}
+						]
+					},
+					{
+						"talk_state": "666",
+						"dialog":
+						[
+							{
+								"text":"嗯嗯，我找找哈。。。。",
+								"emotion":"normal"
+							},
+							{
+								"text":"。。。 诶！找到了！",
+								"emotion":"normal"
+							},
+							{
+								"text":"这是个好名字呀！",
+								"emotion":"normal"
+							},
+							{
+								"text":"欢迎来到3班!",
+								"emotion":"normal"
+							},
+							{
+								"text":"我是你的班主任Evelyn。",
+								"emotion":"normal"
+							},
+							{
+								"text":"然后旁边这位是副班开心小唐",
+								"emotion":"normal"
+							},
+							{
+								"text":"我看看哈，接下来你们先去把行李放了。",
+								"emotion":"normal"
+							},
+							{
+								"text":"然后就直接来班上报道就行。",
+								"emotion":"normal"
+							},
+							{
+								"text":"你们知道男寝怎么走吧。",
+								"emotion":"normal"
+							}
+						
+						],
+						"options":
+						[
+							{
+								"text": "知道",
+								"next": "end"
+							},
+							{
+								"text": "啊啊啊，不知道呀，我新来的。",
+								"next": "ask_location"
+							}
+							
+						]
+					},
+					{
+						"talk_state": "ask_location",
+						"dialog":
+						[
+							{
+								"text":"哦，我以为你们以前也是德普的呢，",
+								"emotion":"normal"
+							},
+							{
+								"text":"沿着这条路直走，走到那个大广场左转就到啦。",
+								"emotion":"normal"
+							},
+							{
+								"text":"听懂了吗？",
+								"emotion":"normal"
+							}
+						],
+						"options":
+						[
+							{
+								"text": "什么什么，再说一遍呢？",
+								"next": "ask_location2"
+							},
+							{
+								"text": "听懂了。",
+								"next": "end"
+							}
+						]
+					},
+					{
+						"talk_state": "ask_location2",
+						"dialog":
+						[
+							{
+								"text":"行吧，那我再讲一遍。",
+								"emotion":"normal"
+							},
+							{
+								"text":"沿着这条路直走，走到那个大广场左转就到啦。",
+								"emotion":"normal"
+							},
+							{
+								"text":"听懂了吗？",
+								"emotion":"normal"
+							}
+						],
+						"options":
+						[
+							{
+								"text": "什么什么，再说一遍呢？",
+								"next": "ask_location2"
+							},
+							{
+								"text": "听懂了。",
+								"next": "end"
+							}
+						]
+					},
+					{
+						"talk_state": "end",
+						"dialog":
+						[
+							{
+								"text":"好的好的，那班会见哦。",
+								"emotion":"normal"
+							}
+						],
+						"options":
+						[
+
+						]
+					}
+				]
+			}
+		}
+	
+}
