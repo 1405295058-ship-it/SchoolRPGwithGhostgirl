@@ -1,4 +1,4 @@
-# School RPG with Ghost Girl
+# Chinese international high School JRPG
 
 A Persona-inspired pixel RPG made with Godot 4.
 
