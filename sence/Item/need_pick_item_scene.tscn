@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://wd8thqvsv35f"]
+
+[ext_resource type="Script" uid="uid://b8nyeypi1o6o" path="res://script/need_pick_item_scene.gd" id="1_onn0u"]
+[ext_resource type="Texture2D" uid="uid://c7ssxkcorlyek" path="res://art/Item/MoneyCard.png" id="2_wfu2a"]
+[ext_resource type="FontFile" uid="uid://ccbttyuoii471" path="res://art/UI/VonwaonBitmap-16px.ttf" id="3_582k2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_quvto"]
+radius = 88.02273
+
+[node name="NeedPickItemScene" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_onn0u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+texture = ExtResource("2_wfu2a")
+
+[node name="InteractLayer" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractLayer"]
+shape = SubResource("CircleShape2D_quvto")
+
+[node name="Amount" type="Label" parent="."]
+z_index = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 23.0
+offset_right = 82.0
+offset_bottom = 87.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_582k2")
+theme_override_font_sizes/font_size = 64
+text = "60"

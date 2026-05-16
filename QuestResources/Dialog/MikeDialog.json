@@ -13,7 +13,7 @@
 						"dialog":
 						[
 							{
-								"text":"嘿！这不是player吗？",
+								"text":"嘿！好久不见了bro！",
 								"emotion":"surprised"
 							},
 							{
@@ -95,7 +95,7 @@
 								"emotion":"surprised"
 							}
 						],
-						"options":
+						"end":
 						[
 
 						]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr6bnouvsufm8"]
+
+[ext_resource type="Texture2D" uid="uid://cpgramp5x215f" path="res://art/教室柜子.png" id="1_0rcu6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lojy5"]
+size = Vector2(1587, 303)
+
+[node name="ClassCabinet" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Collision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+position = Vector2(0.5, 74.5)
+shape = SubResource("RectangleShape2D_lojy5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+texture = ExtResource("1_0rcu6")

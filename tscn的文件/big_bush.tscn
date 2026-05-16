@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dxpeqre7pt364"]
 
 [ext_resource type="Texture2D" uid="uid://cjk3dduiiskuu" path="res://art/校门和1层/灌木丛2.png" id="1_mv01g"]
-[ext_resource type="Script" uid="uid://vyuax5vl5pec" path="res://tscn的文件/big_bush.gd" id="1_u0p5t"]
+[ext_resource type="Script" uid="uid://vyuax5vl5pec" path="res://script/big_bush.gd" id="1_u0p5t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_28e2s"]
 atlas = ExtResource("1_mv01g")

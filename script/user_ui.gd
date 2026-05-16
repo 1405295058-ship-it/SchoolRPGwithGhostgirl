@@ -2,7 +2,10 @@ extends CanvasLayer
 var current_layer = null
 var can_close_ui = false
 var current_show_objectives = []
-@onready var sub_mission_button_path =preload("res://tscn的文件/sub_mission.tscn")
+@onready var sub_mission_button_path =preload("res://sence/需要path的/sub_mission.tscn")
+@onready var bag_slot = preload("res://sence/需要path的/slot.tscn")
+#背包的数据
+var horizontal_max_slot = 8
 
 
 @onready var layer_map = {
@@ -23,7 +26,7 @@ func _ready() -> void:
 	$BackGround/MissionBagLine/MainMissionTitle2/MissionTitleButton2.pressed.connect(func(): _is_presse_title_buttom($BackGround/MissionBagLine/MainMissionTitle2/MissionTitleButton2.text))
 	process_mode  = Node.PROCESS_MODE_ALWAYS
 	hide()
-	$BackGround/CharacterBagLine/OpenedBag.hide()
+
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("call_user_UI"):
@@ -31,13 +34,8 @@ func _process(delta: float) -> void:
 			close_user_UI()
 		else:
 			show_user_UI()
-	
-func _on_open_bag_buttom_pressed() -> void:
-	$BackGround/CharacterBagLine/OpenedBag.show()
-#关掉UI
 
 func close_user_UI():
-	$BackGround/CharacterBagLine/OpenedBag.hide()
 	get_tree().paused = false
 	hide()
 	can_close_ui = false
@@ -53,10 +51,11 @@ func show_user_UI():
 	current_layer = layer_map["bag"]["it_self"]
 	layer_map["bag"]["switcher"].z_index =1
 	current_layer.show()
+	setup_bag()
 	can_close_ui = false
 	await get_tree().process_frame
 	can_close_ui = true
-
+	
 func _on_switch_to_bag_button_pressed() -> void:
 	for layer in layer_map:
 		layer_map[layer]["it_self"].hide()
@@ -146,3 +145,88 @@ func show_objectives(quest_name):
 			obj3.text = objective["text"]
 			obj3.show()
 		index += 1
+func setup_bag():
+	for child in $BackGround/CharacterBagLine/ClothBag.get_children():
+		child.free()
+	for child in $BackGround/CharacterBagLine/BagBag/HBoxContainer.get_children():
+		child.free()
+	for child in $BackGround/CharacterBagLine/BagBag/HBoxContainer2.get_children():
+		child.free()
+	var cloth_slot_number = InventoryManager.cloth_bag_max_block
+	var bag_slot_number = InventoryManager.bag_bag_max_block
+	if cloth_slot_number<= horizontal_max_slot:
+		var index = 0
+		while index < cloth_slot_number:
+			var slot = bag_slot.instantiate()
+			slot.get_node("TextureRect/ItemTexture").hide()
+			slot.get_node("TextureRect/Amount").hide()
+			$BackGround/CharacterBagLine/ClothBag.add_child(slot)
+			index += 1
+	else:		
+		var index = 0
+		while index < horizontal_max_slot:
+			var slot = bag_slot.instantiate()
+			slot.get_node("TextureRect/ItemTexture").hide()
+			slot.get_node("TextureRect/Amount").hide()
+			$BackGround/CharacterBagLine/ClothBag.add_child(slot)
+			index += 1
+	if bag_slot_number<= horizontal_max_slot:
+		var index = 0
+		while index < bag_slot_number:
+			var slot = bag_slot.instantiate()
+			slot.get_node("TextureRect/ItemTexture").hide()
+			slot.get_node("TextureRect/Amount").hide()
+			$BackGround/CharacterBagLine/BagBag/HBoxContainer.add_child(slot)
+			
+			index += 1
+	if bag_slot_number > horizontal_max_slot and bag_slot_number <= horizontal_max_slot*2:		
+		var index = 0
+		while index < 8:
+			var slot = bag_slot.instantiate()
+			slot.get_node("TextureRect/ItemTexture").hide()
+			slot.get_node("TextureRect/Amount").hide()
+			$BackGround/CharacterBagLine/BagBag/HBoxContainer.add_child(slot)
+			index += 1
+		index= 0
+		while index < bag_slot_number-8:
+			var slot = bag_slot.instantiate()
+			slot.get_node("TextureRect/ItemTexture").hide()
+			slot.get_node("TextureRect/Amount").hide()
+			$BackGround/CharacterBagLine/BagBag/HBoxContainer2.add_child(slot)
+			index += 1
+	
+	var cloth_slots = $BackGround/CharacterBagLine/ClothBag.get_children()
+	var cloth_bag_things: Array = InventoryManager.cloth_bag_things
+	var bag_slots1 = $BackGround/CharacterBagLine/BagBag/HBoxContainer.get_children()
+	var bag_slots2 = $BackGround/CharacterBagLine/BagBag/HBoxContainer2.get_children()
+	var bag_bag_things: Array = InventoryManager.bag_bag_things
+	
+	for i in range(cloth_bag_things.size()):
+		var slot = cloth_slots[i]
+		
+		var slot_data = cloth_bag_things[i]
+		var item_data = ItemDataBase.get_item(slot_data.get("item_id"))
+		
+
+		if item_data:
+			slot.get_node("TextureRect/ItemTexture").texture = load(item_data.sprite)
+			slot.get_node("TextureRect/ItemTexture").show()
+			slot.get_node("TextureRect/Amount").text = str(slot_data.get("amount"))
+			slot.get_node("TextureRect/Amount").show()
+
+	for i in range(bag_bag_things.size()):
+		var slot_data = bag_bag_things[i]
+		var slot
+
+		if i < horizontal_max_slot:
+			slot = bag_slots1[i]
+		else:
+			slot = bag_slots2[i - horizontal_max_slot]
+
+		var item_data = ItemDataBase.get_item(slot_data.get("item_id"))
+
+		if item_data:
+			slot.get_node("TextureRect/ItemTexture").texture = load(item_data.sprite)
+			slot.get_node("TextureRect/ItemTexture").show()
+			slot.get_node("TextureRect/Amount").text = str(slot_data.get("amount"))
+			slot.get_node("TextureRect/Amount").show()

@@ -26,28 +26,22 @@
 							}
 							
 						],
-						"options":
-						[
-							{
-								"text": "门君结城理",
-								"next": "666"
-							},
-							{
-								"text": "番长鸣上悠",
-								"next": "666"
-							},
-							{
-								"text": "怪盗雨宫莲",
-								"next": "666"
-							}
-						]
+						"naming":
+						{
+							"next":"666"
+						}
+						
 					},
 					{
 						"talk_state": "666",
 						"dialog":
 						[
 							{
-								"text":"嗯嗯，我找找哈。。。。",
+								"text":"okok,叫{player}啊。",
+								"emotion":"normal"
+							},
+							{
+								"text":"我找找哈。。。。",
 								"emotion":"normal"
 							},
 							{
@@ -164,7 +158,7 @@
 								"emotion":"normal"
 							}
 						],
-						"options":
+						"end":
 						[
 
 						]

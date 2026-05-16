@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8og0d5axfob6"]
+
+[ext_resource type="Texture2D" uid="uid://dwxs2ih1yki7b" path="res://art/讲台桌子.png" id="1_mjl4s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spm2u"]
+size = Vector2(197, 344)
+
+[node name="Teacher\'sDesk" type="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+texture = ExtResource("1_mjl4s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -24)
+shape = SubResource("RectangleShape2D_spm2u")

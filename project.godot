@@ -22,6 +22,8 @@ UserUi="*res://tscn的文件/user_ui.tscn"
 QuestManager="*res://script/QuestManager.gd"
 GameStateManager="*res://script/GameStateManager.gd"
 SceneManager="*res://script/SceneManager.gd"
+InventoryManager="*res://script/InventoryManager.gd"
+ItemDataBase="*res://sence/Item/Data/ItemDataBase.gd"
 
 [display]
 

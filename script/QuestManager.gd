@@ -9,15 +9,9 @@ var quest_progress = {
 		"unlocked": true,
 		"finished": false,
 		"current_state": 1,
-		"unlock_quest":"恭喜哦"
-	},
-	"恭喜哦": 
-	{
-		"unlocked": false,
-		"finished": false,
-		"current_state": 1,
 		"unlock_quest":""
 	}
+	
 	
 }
 #dfihsduifhifhHFijhfjIAHIjhffuoasdfoshdoufhsuodhfuosauodfusahfuasughasudgasdfatrta

@@ -1,6 +1,6 @@
-[gd_scene load_steps=62 format=3 uid="uid://cvwrfokt5v8ue"]
+[gd_scene load_steps=64 format=3 uid="uid://cvwrfokt5v8ue"]
 
-[ext_resource type="Script" uid="uid://dabq5by3bto8q" path="res://tscn的文件/ScenecommonFile.gd" id="1_83vvf"]
+[ext_resource type="Script" uid="uid://dabq5by3bto8q" path="res://script/ScenecommonFile.gd" id="1_83vvf"]
 [ext_resource type="Texture2D" uid="uid://ccc6dru20i2wi" path="res://art/校门和1层/bigbigtree.png" id="2_u0uq3"]
 [ext_resource type="Texture2D" uid="uid://de848se8p5pj5" path="res://art/校门和1层/围墙正式.png" id="3_jyvo4"]
 [ext_resource type="Texture2D" uid="uid://dlh50xvogyewr" path="res://art/校门和1层/马路.png" id="4_4ypv0"]
@@ -43,6 +43,8 @@
 [ext_resource type="PackedScene" uid="uid://btq2bojhyy5ey" path="res://tscn的文件/table.tscn" id="41_maje2"]
 [ext_resource type="PackedScene" uid="uid://bydavctptf71c" path="res://tscn的文件/check_player_area.tscn" id="42_1dbik"]
 [ext_resource type="PackedScene" uid="uid://djl3jdb75kd2t" path="res://tscn的文件/change_scene_area.tscn" id="43_f840s"]
+[ext_resource type="PackedScene" uid="uid://wd8thqvsv35f" path="res://sence/Item/need_pick_item_scene.tscn" id="44_jyvo4"]
+[ext_resource type="Resource" uid="uid://bp1blx5x7va5g" path="res://sence/Item/MoneyCard.tres" id="45_4ypv0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e8dv2"]
 texture = ExtResource("2_u0uq3")
@@ -607,7 +609,7 @@ face_map = {
 sprite_frame = ExtResource("31_8fa61")
 defult_dialog = [{
 "emotion": "normal",
-"text": "开学快乐！   吗？  "
+"text": "开学快乐吗？{player}?  "
 }, {
 "emotion": "normal",
 "text": "我是你班主任Evelyn呀！"
@@ -813,3 +815,8 @@ enter_animation_facing_dir = Vector2(0, -1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeSceneArea"]
 position = Vector2(-22, -210)
 shape = SubResource("RectangleShape2D_83vvf")
+
+[node name="NeedPickItemScene" parent="." instance=ExtResource("44_jyvo4")]
+position = Vector2(-835, 2904)
+item_data = ExtResource("45_4ypv0")
+item_amount = 15

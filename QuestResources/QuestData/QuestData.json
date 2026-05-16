@@ -39,34 +39,24 @@
 								
 											]
 							
-						}
-					
-				}
-			
-			
-		},
-	"恭喜哦" :
-		{
-			"type": "main",
-			"quest_states":
-				{
-					"1":
+						},
+					"4":
 						{
-							"quest_description":"恭喜你完成了这个游戏的第一个任务！",
-							"objective" :  	[
+							"quest_description":"你到达了寝室，接下来去教学楼把饭卡拿了。",
+							"objective" : 	[
 												{
-													"text":"没目标了",
-													"in_code":"talked_with_Evelyn"
+													"text":"找到你的饭卡",
+													"in_code":"pick_up_player_money_card"
 												}
 								
 											]
 							
 						}
-					
 				}
 			
 			
 		}
+	
 	
 	
 }
