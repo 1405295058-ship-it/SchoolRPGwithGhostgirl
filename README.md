@@ -43,7 +43,7 @@ The goal is to create a story-driven RPG that captures the atmosphere of Chinese
 
 ## Teaching Building
 
-![Teaching Building](TeachingArea.png)
+![TeachingareaGF](TeachingareaGF.png)
 
 ## Dialogue System
 
