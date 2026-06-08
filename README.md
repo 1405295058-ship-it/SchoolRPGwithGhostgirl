@@ -50,9 +50,9 @@ The goal is to create a story-driven RPG that captures the atmosphere of Chinese
 
 ![TeachingareaGF](TeachingareaGF.png)
 
-## Campus Entrance
+## UI
 
-![Campus Entrance](SchoolDoor.png)
+![UserUI](UserUI.png)
 
 
 
