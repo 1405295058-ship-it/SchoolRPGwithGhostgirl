@@ -37,18 +37,24 @@ The goal is to create a story-driven RPG that captures the atmosphere of Chinese
   - Persistent scene states
 ## Screenshots
 
-## Campus Entrance
 
-![Campus Entrance](SchoolDoor.png)
+## Forecast
 
-## Teaching Building
-
-![TeachingareaGF](TeachingareaGF.png)
+![Dormitory](tenshapeCross.png)
 
 ## Dialogue System
 
 ![Dialogue](Talkingpart.png)
 
-## Forecast
+## Teaching Building
 
-![Dormitory](tenshapeCross.png)
+![TeachingareaGF](TeachingareaGF.png)
+
+## Campus Entrance
+
+![Campus Entrance](SchoolDoor.png)
+
+
+
+
+
