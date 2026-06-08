@@ -72,6 +72,7 @@ process_mode = 3
 scale = Vector2(1.2, 1.2)
 transform = Transform2D(1.2, 0, 0, 1.2, 0, 0)
 script = ExtResource("1_rkunf")
+character_face_database_path = "res://QuestResources/Dialog/Character_face_database.json"
 
 [node name="Content" type="Label" parent="."]
 offset_left = -1032.5
@@ -198,6 +199,7 @@ offset_bottom = 346.66614
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_constants/line_spacing = 8
 theme_override_fonts/font = ExtResource("2_a584j")
 theme_override_font_sizes/font_size = 32
 text = "what"

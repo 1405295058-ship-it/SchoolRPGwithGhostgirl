@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Need_pick_Item" load_steps=2 format=3 uid="uid://byief4gsvgi60"]
+
+[ext_resource type="Script" uid="uid://y4vimkj48vf0" path="res://script/NeedPickItemdefult.gd" id="1_vhveo"]
+
+[resource]
+script = ExtResource("1_vhveo")
+item_name = "李胜的员工卡"
+item_id = "sean_s_money_card"
+sprite = "uid://u6psbvovosqr"
+max_stack_size = 1
+description = "这是李胜的员工卡，有了它好像就拥有了和他一样的权力。"
+metadata/_custom_type_script = "uid://y4vimkj48vf0"

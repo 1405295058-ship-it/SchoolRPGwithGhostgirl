@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e1kp5na38o8f"
-path="res://.godot/imported/园树影子.png-bbdb774c30439fa6d6512c4a607513f7.ctex"
+uid="uid://wpn00toog245"
+path="res://.godot/imported/SchoolDoor.png-3e76711eb23c8ac02214d1af30fcc326.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/园树影子.png"
-dest_files=["res://.godot/imported/园树影子.png-bbdb774c30439fa6d6512c4a607513f7.ctex"]
+source_file="res://SchoolDoor.png"
+dest_files=["res://.godot/imported/SchoolDoor.png-3e76711eb23c8ac02214d1af30fcc326.ctex"]
 
 [params]
 

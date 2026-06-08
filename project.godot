@@ -24,6 +24,8 @@ GameStateManager="*res://script/GameStateManager.gd"
 SceneManager="*res://script/SceneManager.gd"
 InventoryManager="*res://script/InventoryManager.gd"
 ItemDataBase="*res://sence/Item/Data/ItemDataBase.gd"
+NormalStateUi="*res://tscn的文件/NormalStateUI.tscn"
+TimeManager="*res://script/TimeManager.gd"
 
 [display]
 

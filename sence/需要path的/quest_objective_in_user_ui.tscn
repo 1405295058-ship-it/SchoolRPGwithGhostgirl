@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8mb2g7bm0vcm"]
+
+[ext_resource type="Texture2D" uid="uid://d1j7pboosjgog" path="res://art/UI/任务UIobjective完成括号.png" id="1_brdce"]
+[ext_resource type="FontFile" uid="uid://ccbttyuoii471" path="res://art/UI/VonwaonBitmap-16px.ttf" id="2_c5k2l"]
+
+[node name="QuestObjectiveInUserUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 320.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_brdce")
+
+[node name="objectives" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.008
+anchor_top = 0.004
+anchor_right = 0.008
+anchor_bottom = 0.004
+offset_left = 129.52
+offset_top = 13.24
+offset_right = 955.52
+offset_bottom = 218.24
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("2_c5k2l")
+theme_override_font_sizes/font_size = 80
+text = "现在就是什么任务都没有啊BRO "
+autowrap_mode = 3
+paragraph_separator = "2"

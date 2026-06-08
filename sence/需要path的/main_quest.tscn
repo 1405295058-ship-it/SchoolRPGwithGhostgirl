@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7hut1dv0hoc0"]
+[gd_scene load_steps=7 format=3 uid="uid://d2g0unqc5qira"]
 
-[ext_resource type="Texture2D" uid="uid://daw5kp5v4op4y" path="res://art/UI/支线题目.png" id="1_bl1wd"]
-[ext_resource type="FontFile" uid="uid://ccbttyuoii471" path="res://art/UI/VonwaonBitmap-16px.ttf" id="2_dhscd"]
+[ext_resource type="Texture2D" uid="uid://daw5kp5v4op4y" path="res://art/UI/支线题目.png" id="1_gy7wu"]
+[ext_resource type="FontFile" uid="uid://ccbttyuoii471" path="res://art/UI/VonwaonBitmap-16px.ttf" id="2_by63q"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6a0h3"]
 
@@ -13,7 +13,7 @@ bg_color = Color(0.9137255, 0.92941177, 0.84705883, 0.29803923)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dvlq7"]
 
-[node name="SubMission" type="TextureRect"]
+[node name="MainQuest" type="TextureRect"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -25,9 +25,9 @@ offset_right = 590.0
 offset_bottom = 140.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_bl1wd")
+texture = ExtResource("1_gy7wu")
 
-[node name="MissionTitleButton2" type="Button" parent="."]
+[node name="QuestTitleButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -41,7 +41,7 @@ offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
-theme_override_fonts/font = ExtResource("2_dhscd")
+theme_override_fonts/font = ExtResource("2_by63q")
 theme_override_font_sizes/font_size = 110
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6a0h3")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fncfa")

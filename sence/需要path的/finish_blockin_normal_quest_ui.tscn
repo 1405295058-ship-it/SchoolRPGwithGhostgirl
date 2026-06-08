@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbofbso8yog8b"]
+
+[ext_resource type="Texture2D" uid="uid://d1j7pboosjgog" path="res://art/UI/任务UIobjective完成括号.png" id="1_qhpf4"]
+[ext_resource type="FontFile" uid="uid://ccbttyuoii471" path="res://art/UI/VonwaonBitmap-16px.ttf" id="2_sgpd2"]
+
+[node name="FinishBlockinNormalQuestUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 320.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_qhpf4")
+
+[node name="objectives" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 147.0
+offset_top = 22.0
+offset_right = 727.0
+offset_bottom = 267.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9372549, 0.9490196, 0.9490196, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_sgpd2")
+theme_override_font_sizes/font_size = 80
+text = "去拿一个东西"
+autowrap_mode = 3

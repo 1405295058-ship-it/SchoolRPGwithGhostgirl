@@ -1,41 +1,34 @@
-[gd_scene load_steps=16 format=3 uid="uid://og38lr5rmvyr"]
+[gd_scene load_steps=14 format=3 uid="uid://og38lr5rmvyr"]
 
 [ext_resource type="Texture2D" uid="uid://bijdwm3tmc4cf" path="res://art/round_head_tree.png" id="1_dy350"]
 [ext_resource type="Script" uid="uid://bhgm4w24l6lxu" path="res://script/tree.gd" id="1_wqbnx"]
-[ext_resource type="Texture2D" uid="uid://e1kp5na38o8f" path="res://art/园树影子.png" id="3_ehac5"]
+[ext_resource type="Texture2D" uid="uid://cw01fmvj0n1ab" path="res://art/树影子.png" id="3_ehac5"]
 [ext_resource type="Texture2D" uid="uid://dtbmic57l86fy" path="res://art/园树叶子.png" id="3_quj1y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_quj1y"]
 radius = 70.5762
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ehac5"]
-load_path = "res://.godot/imported/round_head_tree.png-e9cc0fb40af673b9ba167a07dbef01ad.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3l1qv"]
-atlas = SubResource("CompressedTexture2D_ehac5")
-region = Rect2(1280, 0, 1280, 1280)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qu5e2"]
-atlas = SubResource("CompressedTexture2D_ehac5")
-region = Rect2(3840, 0, 1280, 1280)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qjnnk"]
-atlas = SubResource("CompressedTexture2D_ehac5")
-region = Rect2(1280, 0, 1280, 1280)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fsg5o"]
-atlas = SubResource("CompressedTexture2D_ehac5")
-region = Rect2(2560, 0, 1280, 1280)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_um2kv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehac5"]
 atlas = ExtResource("1_dy350")
 region = Rect2(0, 0, 1280, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu5e2"]
+atlas = ExtResource("1_dy350")
+region = Rect2(2560, 0, 1280, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjnnk"]
+atlas = ExtResource("1_dy350")
+region = Rect2(3840, 0, 1280, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3l1qv"]
+atlas = ExtResource("1_dy350")
+region = Rect2(1280, 0, 1280, 1280)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_um2kv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3l1qv")
+"texture": SubResource("AtlasTexture_ehac5")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qu5e2")
@@ -44,10 +37,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_qjnnk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fsg5o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_um2kv")
+"texture": SubResource("AtlasTexture_3l1qv")
 }],
 "loop": true,
 "name": &"idel",
@@ -91,12 +81,12 @@ z_index = 1
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_um2kv")
 animation = &"idel"
-frame_progress = 0.042577855
+frame_progress = 0.7994794
 offset = Vector2(0, -502.705)
 
 [node name="园树影子" type="Sprite2D" parent="StaticBody2D/AnimatedSprite2D"]
-position = Vector2(19, -10)
-scale = Vector2(0.72, 0.665)
+position = Vector2(14.999999, 6.9999995)
+scale = Vector2(1.0566038, 0.79999995)
 texture = ExtResource("3_ehac5")
 
 [node name="Area2D" type="Area2D" parent="."]

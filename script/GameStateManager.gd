@@ -20,7 +20,7 @@ var event_state = {
 						"2": [
 								{
 							"scene": "Forecourt",
-							"object_ID": "npc_Forecourt_Mike",
+							"object_ID": "Forecourt_npc_Mike",
 							"group":"NPC",
 							"action": {
 								
@@ -35,6 +35,43 @@ var event_state = {
 							]
 						
 						}
+			},
+	"不对劲！": {
+		"quest_states": {
+						"unactive": [
+								{
+							"scene": "Forecourt",
+							"object_ID": "Forecourt_npc_Mike",
+							"group":"NPC",
+							"action": {
+								
+										"following":{
+										"enable":false,
+										"target_ID":"player",
+										"target_group":"player"
+												}
+									}
+								}
+					
+							],
+						"4": [
+								{
+							"scene": "Forecourt",
+							"object_ID": "Forecourt_npc_Mike",
+							"group":"NPC",
+							"action": {
+								
+										"following":{
+										"enable":true,
+										"target_ID":"player",
+										"target_group":"player"
+												}
+									}
+								}
+					
+							]	
+						
+						}
 			}
 }
 
@@ -44,11 +81,11 @@ var world_state = {
 			"1": [
 					{
 					"scene": "Forecourt",
-					"object_ID":"npc_Forecourt_Mike" ,
+					"object_ID":"Forecourt_npc_Mike" ,
 					"group": "NPC",
 					"change": {
 								"visible": true,
-								"position":Vector2(-1072.0, 1477.0)
+								"position":Vector2(-1828.0, 2663.0)
 							}
 					}	
 				
@@ -58,8 +95,43 @@ var world_state = {
 			
 			
 		}
+	},
+	"不对劲！": {
+		"quest_states": {
+			"unactive": [
+					{
+					"scene": "Forecourt",
+					"object_ID":"Forecourt_npc_Mike" ,
+					"group": "NPC",
+					"change": {
+								"visible": false,
+								"position":Vector2(-4534.0, -5000.8)
+							}
+					}	
+				
+				
+					],
+			"4": [
+					{
+					"scene": "Forecourt",
+					"object_ID":"Forecourt_npc_Mike" ,
+					"group": "NPC",
+					"change": {
+								"visible": true,
+								"position":Vector2(-4534.0, -5000.8)
+							}
+					}	
+				
+				
+					]
+					
+			
+			
+		}
 	}
 }
+
+
 
 func event_state_update(quest_name,current_state_str):
 	if not event_state.has(quest_name):
@@ -78,7 +150,8 @@ func event_state_update(quest_name,current_state_str):
 		
 		process_action_and_change(action,"action")
 		write_record(action,"action")
-		print(current_changed_record )
+		
+
 func world_state_update(quest_name,current_state_str):
 
 	

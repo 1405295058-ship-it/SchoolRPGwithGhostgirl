@@ -10,7 +10,14 @@
 							"objective" : 	[
 												{
 													"text":"和Mike打声招呼",
-													"in_code":"talked_with_npc_Forecourt_Mike"
+													"target_id":"Forecourt_npc_Mike",
+													"in_code":"talked_with_Forecourt_npc_Mike",
+													"target_amount": 1
+												},
+												{
+													"text":"找到5个你的饭卡",
+													"in_code":"pick_up_player_money_card",
+													"target_amount": 5
 												}
 								
 											]
@@ -22,7 +29,9 @@
 							"objective" : 	[
 												{
 													"text":"和Mike一起去报道吧",
-													"in_code":"talked_with_npc_Forecourt_Evelyn"
+													"target_id":"Forecourt_npc_Evelyn",
+													"in_code":"talked_with_Forecourt_npc_Evelyn",
+													"target_amount": 1
 												}
 								
 											]
@@ -34,7 +43,65 @@
 							"objective" : 	[
 												{
 													"text":"找到男寝",
-													"in_code":"arrive_boyacc"
+													"in_code":"arrive_boyacc",
+													"target_amount": 1
+												}
+								
+											]
+							
+						}
+					
+				}
+			
+			
+		},
+	"不对劲！" :
+		{
+			"type": "sub",
+			"active_method":
+								{
+									"target_id":"Forecourt_npc_Evelyn",
+									"active_event":"talked_with_Forecourt_npc_Evelyn"
+								},
+			
+			"quest_states":
+				{
+
+					"1":
+						{
+							"quest_description":"我听附近的同学说李胜在一楼很焦急的在找一样东西，开来他一定遇到了什么困难吧，要不去帮个忙？",
+							"objective" : 	[
+												{
+													"text":"和一楼的李胜对话",
+													"target_id":"TeachingAreaGF_npc_Sean",
+													"in_code":"talked_with_TeachingAreaGF_npc_Sean",
+													"target_amount": 1
+												}
+								
+											]
+							
+						},
+					"2":
+						{
+							"quest_description":"李胜说他的员工卡掉在了男寝外面的什么地方了，但为什么感觉他刚刚说话的语气怪怪的？算了，先去男寝附近看看吧。",
+							"objective" : 	[
+												{
+													"text":"前往男寝附近",
+													"in_code":"arrive_boyacc",
+													"target_amount": 1
+												}
+								
+											]
+							
+						},
+					"3":
+						{
+							"quest_description":"你到男寝了，接下来在附近找找看吧。",
+							"objective" : 	[
+												{
+													"text":"找到李胜的员工卡。",
+													"in_code":"pick_up_sean_s_money_card",
+													"target_amount": 1
 												}
 								
 											]
@@ -42,11 +109,13 @@
 						},
 					"4":
 						{
-							"quest_description":"你到达了寝室，接下来去教学楼把饭卡拿了。",
+							"quest_description":"你在男寝后的草丛附近找到了李胜的员工卡，奇怪，他的卡怎么会在这里呢？",
 							"objective" : 	[
 												{
-													"text":"找到你的饭卡",
-													"in_code":"pick_up_player_money_card"
+													"text":"把饭卡还给李胜。",
+													"target_id":"TeachingAreaGF_npc_Sean",
+													"in_code":"talked_with_TeachingAreaGF_npc_Sean",
+													"target_amount": 1
 												}
 								
 											]
@@ -56,7 +125,6 @@
 			
 			
 		}
-	
 	
 	
 }

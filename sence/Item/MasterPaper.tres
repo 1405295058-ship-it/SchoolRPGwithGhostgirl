@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Need_pick_Item" load_steps=2 format=3 uid="uid://dqgrdney7xjpk"]
+
+[ext_resource type="Script" uid="uid://y4vimkj48vf0" path="res://script/NeedPickItemdefult.gd" id="1_r7ehi"]
+
+[resource]
+script = ExtResource("1_r7ehi")
+item_name = "一团垃圾"
+item_id = "master_paper"
+sprite = "uid://3lh8svbn6ixg"
+max_stack_size = 3
+description = "在男寝旁边发现了这几团纸（似乎听见纸团在叫叔叔。。。 等会儿拿去扔掉把。）"
+metadata/_custom_type_script = "uid://y4vimkj48vf0"

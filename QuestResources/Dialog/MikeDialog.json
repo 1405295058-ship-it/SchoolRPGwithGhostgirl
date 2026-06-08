@@ -13,10 +13,12 @@
 						"dialog":
 						[
 							{
+								"speaker":"Mike",
 								"text":"嘿！好久不见了bro！",
 								"emotion":"surprised"
 							},
 							{
+								"speaker":"Mike",
 								"text":"你也来报道啦？！",
 								"emotion":"normal"
 							},
@@ -39,18 +41,22 @@
 						"dialog":
 						[
 							{
+								"speaker":"Mike",
 								"text":"给你说，我刚看了一下我们班的名单。",
 								"emotion":"normal"
 							},
 							{
+								"speaker":"Mike",
 								"text":"我们是一个班的诶！",
 								"emotion":"surprised"
 							},
 							{
+								"speaker":"Mike",
 								"text":"等会儿我们就一起去报道了撒。",
 								"emotion":"normal"
 							},
 							{
+								"speaker":"Mike",
 								"text":"走不走。",
 								"emotion":"normal"
 							}
@@ -70,10 +76,12 @@
 						"dialog":
 						[
 							{
+								"speaker":"Mike",
 								"text":"不是，一个暑假没见，你放假放傻了吗。",
 								"emotion":"surprised"
 							},
 							{
+								"speaker":"Mike",
 								"text":"我是你初中同学Mike啊,虽然不是一个班的，但是关系一直不错。（人机介绍）",
 								"emotion":"normal"
 							}
@@ -91,6 +99,7 @@
 						"dialog":
 						[
 							{
+								"speaker":"Mike",
 								"text":"走！",
 								"emotion":"surprised"
 							}
@@ -101,6 +110,148 @@
 						]
 					}
 				]
+			}
+		},
+		"不对劲！":
+		{
+			"quest_states":
+			{
+				"4" :
+				[
+					{
+						"talk_state": "start",
+						"dialog":
+						[
+							{
+								"speaker":"Mike",
+								"text":"诶？ {player}!鬼鬼祟祟的在干什么呢？",
+								"emotion":"surprised"
+							}
+							
+						],
+						"options":
+						[
+							{
+								"text": "呃，没干嘛，就在附近晃一下。",
+								"next": "八卦1"
+							},
+							{
+								"text": "我刚在这里帮李胜找到饭卡。",
+								"next": "八卦2"
+							}
+						]
+					},
+					{
+						"talk_state": "八卦1",
+						"dialog":
+						[
+							{
+								"speaker":"Mike",
+								"text":"诶诶，好像就是这里！",
+								"emotion":"surprised"
+							},
+							{
+								"speaker":"Mike",
+								"text":"我给你说，杰哥给我说昨天晚上他们听到他们寝室墙外面有摩东西的声音。",
+								"emotion":"normal"
+							},
+							{
+								"speaker":"Mike",
+								"text":"听起来像是有鬼在摩他们的墙诶！",
+								"emotion":"normal"
+							},
+							{
+								"speaker":"Mike",
+								"text":"怎么样，可怕吧。",
+								"emotion":"normal"
+							},
+							{
+								"speaker":"Mike",
+								"text":"（昨天晚上的人是李胜。。。）",
+								"emotion":"normal"
+							},
+							{
+								"speaker":"Mike",
+								"text":"怎么了，你脸怎么这么难看？",
+								"emotion":"normal"
+							},
+							{
+								"speaker":"Mike",
+								"text":"是我说错话了吗？",
+								"emotion":"normal"
+							}
+						
+						],
+						"options":
+						[
+							{
+								"text": "没有，我们一起去上课吧。",
+								"next": "end"
+							}
+							
+						]
+					},
+					{
+						"talk_state": "八卦2",
+						"dialog":
+						[
+							{
+								"speaker":"Mike",
+								"text":"咦？李胜的饭卡怎么在这？",
+								"emotion":"surprised"
+							},
+							{
+								"speaker":"Mike",
+								"text":"哦哦哦*** 原来是这样。",
+								"emotion":"normal"
+							},
+							{
+								"speaker":"Mike",
+								"text":"我给你说，杰哥给我说昨天晚上他们听到他们寝室墙外面有摩东西的声音。",
+								"emotion":"normal"
+							},
+							{
+								"speaker":"Mike",
+								"text":"听起来像是有鬼在摩他们的墙诶！",
+								"emotion":"normal"
+							},
+							{
+								"speaker":"Mike",
+								"text":"听你这么说，原来是李胜啊。",
+								"emotion":"normal"
+							},
+							{
+								"speaker":"Mike",
+								"text":"也不知道他在摩什么？",
+								"emotion":"normal"
+							}
+							
+						],
+						"options":
+						[
+							{
+								"text": "额额额，应该没什么吧，我们还是先去上课吧。",
+								"next": "end"
+							},
+						]
+					},
+					{
+						"talk_state": "end",
+						"dialog":
+						[
+							{
+								"speaker":"Mike",
+								"text":"行，那走吧。",
+								"emotion":"surprised"
+							}
+						],
+						"end":
+						[
+
+						]
+					}
+				]
+				
 			}
 		}
 	

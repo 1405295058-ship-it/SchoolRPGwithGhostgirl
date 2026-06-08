@@ -1,9 +1,6 @@
 extends CanvasLayer
 
-var player_face_map = {
-	"normal" : "res://art/face/主角_说话.png"
-	
-}
+
 
 var next_player_step = ""
 var dialog_list = []
@@ -12,7 +9,9 @@ var dialogs = []
 var current = 0
 var next_state = ""
 
-var current_face_map = {}
+
+@export_file("*.json") var character_face_database_path = ""
+var character_face_database ={}
 
 @onready var content = $Content
 @onready var head = $Content/head
@@ -27,6 +26,7 @@ var just_closed = false
 var player_name = ""
 
 func _ready():
+	load_face_database_from_json()
 	$Content/Options/option1.pressed.connect(func(): _on_option_pressed(0))
 	$Content/Options/option2.pressed.connect(func(): _on_option_pressed(1))
 	$Content/Options/option3.pressed.connect(func(): _on_option_pressed(2))
@@ -66,7 +66,7 @@ func player_input():
 func hide_DialogBox():
 	$Content.hide()
 
-func start_dialog(current_dialog_list,face_map,defult_dialog):
+func start_dialog(current_dialog_list,defult_dialog):
 	next_player_step = ""
 	print("start dialog")
 	$AnimationPlayer.play("dialog_show_cg")
@@ -76,7 +76,6 @@ func start_dialog(current_dialog_list,face_map,defult_dialog):
 	get_tree().paused = true
 	is_in_dialog = true
 	current = 0
-	current_face_map = face_map
 	if current_dialog_list.is_empty():
 		dialogs = defult_dialog
 		process_dialog(current)
@@ -109,28 +108,50 @@ func start_dialog(current_dialog_list,face_map,defult_dialog):
 			
 			
 func process_dialog(index):
-	if dialogs != null:
-		var dialog_text = dialogs[index]["text"]	
+	if dialogs == null or dialogs.is_empty():
+		push_error("dialogs为空")
+		return
+	
+	if index >= dialogs.size():
+		push_error("index超出dialogs范围: " + str(index))
+		return
+	
+	if dialogs[index] == null:
+		push_error("dialogs[" + str(index) + "] 是null")
+		return
+
+	
+	
+	var dialog_text = dialogs[index]["text"]	
 		
 		
 		
-		dialog_text = dialog_text.replace("{player}", player_name)	
+	dialog_text = dialog_text.replace("{player}", player_name)	
 		
 		
 		
 		
-		$Content/dialog.text = dialog_text
-		var emotion = dialogs[index]["emotion"]
-		var head_path = current_face_map[emotion]
-		head.texture = load(head_path)
-		$Content/dialog.visible_ratio = 0
-		NextI.hide()
-		if tween:
-			tween.kill()
-		tween = create_tween()
-		tween.tween_property($Content/dialog, "visible_ratio", 1.0, 0.5)
-		await tween.finished
-		NextI.show()
+	$Content/dialog.text = dialog_text
+	var emotion = dialogs[index]["emotion"]
+	var speaker = dialogs[index]["speaker"]
+	print(speaker)
+	if not character_face_database.has(speaker):
+		push_error("头像数据库没有这个角色: " + speaker)
+		return
+
+	if not character_face_database[speaker].has(emotion):
+		push_error("角色 " + speaker + " 没有这个表情: " + emotion)
+		return
+	var head_texture_path = character_face_database[speaker][emotion] 
+	head.texture = load(head_texture_path)
+	$Content/dialog.visible_ratio = 0
+	NextI.hide()
+	if tween:
+		tween.kill()
+	tween = create_tween()
+	tween.tween_property($Content/dialog, "visible_ratio", 1.0, 0.5)
+	await tween.finished
+	NextI.show()
 					
 
 			
@@ -167,9 +188,9 @@ func show_options():
 	$Content/Options/option1.hide()
 	$Content/Options/option2.hide()
 	$Content/Options/option3.hide()
-	var emotion = "normal"
 	var index = 0
-	$Content/head.texture = load(player_face_map[emotion])
+	var player_face_path = character_face_database["player"]["normal"]
+	$Content/head.texture = load(player_face_path)
 	for i in options:
 		if index == 0:
 			$Content/Options/option1.show()
@@ -213,6 +234,8 @@ func go_to_next_state():
 			break	
 
 
+
+
 func _on_sure_button_pressed() -> void:
 	var player_name_check = $Content/Naming/LineEdit.text
 	if player_name_check.strip_edges().length() == 0:
@@ -225,3 +248,15 @@ func _on_sure_button_pressed() -> void:
 		hide_naming()
 
 		go_to_next_state()
+
+func load_face_database_from_json():
+	if character_face_database_path == "":
+		return
+	
+	var data = FileAccess.get_file_as_string(character_face_database_path)
+	var parsed_data = JSON.parse_string(data)
+	if parsed_data:
+		character_face_database = parsed_data
+		print(character_face_database)
+	else:
+		print("fail to parsed",character_face_database_path)

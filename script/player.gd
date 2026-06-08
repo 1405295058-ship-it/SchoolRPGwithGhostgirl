@@ -22,6 +22,7 @@ var correctVector = Vector2(20.0,20.0)
 
 
 
+
 func _ready() -> void:
 	add_to_group("player")
 

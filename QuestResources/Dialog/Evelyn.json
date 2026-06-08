@@ -13,15 +13,18 @@
 						"dialog":
 						[
 							{
+								"speaker":"Evelyn",
 								"text":"哈喽呀，你是来报道的吗。",
 								"emotion":"normal"
 							},
 							{
+								"speaker":"Evelyn",
 								"text":"看你这样子一定就是了吧。",
 								"emotion":"normal"
 							},
 							{
-								"text":"你叫什么名字呀？",
+								"speaker":"Evelyn",
+								"text":"你们都叫什么名字呀？",
 								"emotion":"normal"
 							}
 							
@@ -37,42 +40,78 @@
 						"dialog":
 						[
 							{
+								"speaker":"Evelyn",
 								"text":"okok,叫{player}啊。",
 								"emotion":"normal"
 							},
 							{
+								"speaker":"Evelyn",
 								"text":"我找找哈。。。。",
 								"emotion":"normal"
 							},
 							{
+								"speaker":"Evelyn",
 								"text":"。。。 诶！找到了！",
 								"emotion":"normal"
 							},
 							{
+								"speaker":"Evelyn",
 								"text":"这是个好名字呀！",
 								"emotion":"normal"
 							},
 							{
+								"speaker":"Evelyn",
+								"text":"你呢？",
+								"emotion":"normal"
+							},
+							{
+								"speaker":"Mike",
+								"text":"哦，我是王Mike",
+								"emotion":"normal"
+							},
+							{
+								"speaker":"Evelyn",
+								"text":"ok，找到了！",
+								"emotion":"normal"
+							},
+							{
+								"speaker":"Evelyn",
 								"text":"欢迎来到3班!",
 								"emotion":"normal"
 							},
 							{
+								"speaker":"Evelyn",
 								"text":"我是你的班主任Evelyn。",
 								"emotion":"normal"
 							},
+							
 							{
+								"speaker":"Evelyn",
 								"text":"然后旁边这位是副班开心小唐",
 								"emotion":"normal"
 							},
 							{
+								"speaker":"Alice",
+								"text":"哈喽！",
+								"emotion":"normal"
+							},
+							{
+								"speaker":"Alice",
+								"text":"我是你们的副班小唐Alice。",
+								"emotion":"normal"
+							},
+							{
+								"speaker":"Evelyn",
 								"text":"我看看哈，接下来你们先去把行李放了。",
 								"emotion":"normal"
 							},
 							{
+								"speaker":"Evelyn",
 								"text":"然后就直接来班上报道就行。",
 								"emotion":"normal"
 							},
 							{
+								"speaker":"Evelyn",
 								"text":"你们知道男寝怎么走吧。",
 								"emotion":"normal"
 							}
@@ -96,14 +135,17 @@
 						"dialog":
 						[
 							{
+								"speaker":"Evelyn",
 								"text":"哦，我以为你们以前也是德普的呢，",
 								"emotion":"normal"
 							},
 							{
+								"speaker":"Evelyn",
 								"text":"沿着这条路直走，走到那个大广场左转就到啦。",
 								"emotion":"normal"
 							},
 							{
+								"speaker":"Evelyn",
 								"text":"听懂了吗？",
 								"emotion":"normal"
 							}
@@ -125,14 +167,17 @@
 						"dialog":
 						[
 							{
+								"speaker":"Evelyn",
 								"text":"行吧，那我再讲一遍。",
 								"emotion":"normal"
 							},
 							{
+								"speaker":"Evelyn",
 								"text":"沿着这条路直走，走到那个大广场左转就到啦。",
 								"emotion":"normal"
 							},
 							{
+								"speaker":"Evelyn",
 								"text":"听懂了吗？",
 								"emotion":"normal"
 							}
@@ -154,9 +199,26 @@
 						"dialog":
 						[
 							{
+								"speaker":"Evelyn",
 								"text":"好的好的，那班会见哦。",
 								"emotion":"normal"
-							}
+							},
+							{
+								"speaker":"Alice",
+								"text":"哦对了，你们俩是一个房间的。",
+								"emotion":"normal"
+							},
+							{
+								"speaker":"Alice",
+								"text":"房间号是3106",
+								"emotion":"normal"
+							},
+							{
+								"speaker":"Mike",
+								"text":"Ok!!!!",
+								"emotion":"normal"
+							},
+							
 						],
 						"end":
 						[
@@ -165,6 +227,44 @@
 					}
 				]
 			}
+		},
+	"不对劲！":
+		{
+			"unlock_dialog":
+			[
+				{
+						"talk_state": "start",
+						"dialog":
+						[
+							{
+								"text":"诶？ {player}! 你来得正正好。",
+								"emotion":"normal"
+							},
+							{
+								"text":"你听说没，李胜现在在一楼大喊大叫呢。",
+								"emotion":"normal"
+							},
+							{
+								"text":"好像是因为丢了什么东西，你要不去瞧一瞧？",
+								"emotion":"normal"
+							},
+							
+							
+						],
+						"end":
+						[
+						
+						]
+					},
+				
+				
+				
+				
+				
+				
+			]
+			
+			
 		}
 	
 }

@@ -18,6 +18,7 @@ var follow_ID = ""
 
 @export var defult_dialog: Array = [
 	{
+		"speaker":"Mike",
 		"text": "嘿！这不是nige吗？",
 		"emotion": "normal"
 	}
@@ -27,21 +28,23 @@ var dialog_data = {}
 var current_dialog_list = []
 
 func _ready() -> void:
+	var quest_status = QuestManager.get_hint_type_by_object_id(ID)
+	$QuestHintMarker.update_hint_mark(quest_status)
 	animated_sprite.sprite_frames = sprite_frame
 	animated_sprite.play("idel_down")
 	load_from_json()
 	current_dialog_list = QuestManager.update_character_dialoglist(dialog_data)
-
+	QuestManager.quest_hint_should_refresh.connect(refresh_quest_hint)
 func _process(delta: float) -> void:
 	if following:
 		follow_thing()
 
 func interact(player):
 	current_dialog_list = QuestManager.update_character_dialoglist(dialog_data)
-	DialogBox.start_dialog(current_dialog_list, face_map, defult_dialog)
+	DialogBox.start_dialog(current_dialog_list, defult_dialog)
 	var event_name = "talked_with_" + ID
 	print(event_name)
-	QuestManager.check_event_is_quest_need(event_name)
+	QuestManager.check_event_is_quest_need(event_name,1)
 
 func follow_thing():
 	var thing = find_target(follow_group, follow_ID)
@@ -100,3 +103,7 @@ func play_idle_animation(dir:Vector2):
 			animated_sprite.play("idel_down")
 		else:
 			animated_sprite.play("idel_up")
+func refresh_quest_hint():
+	var quest_status = QuestManager.get_hint_type_by_object_id(ID)
+	$QuestHintMarker.update_hint_mark(quest_status)
+	print(quest_status)

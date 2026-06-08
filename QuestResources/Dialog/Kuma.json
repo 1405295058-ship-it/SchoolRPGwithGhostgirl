@@ -1,0 +1,24 @@
+{
+  "不对劲！": {
+    "quest_states": {
+	"2": [
+	{
+	    "talk_state": "start",
+	    "dialog": [
+		{
+		  "text": "快去给我们小胜把他的饭卡找回来！",
+		  "emotion": "normal"
+		},
+		{
+		  "text": "我看不得他哭！！",
+		  "emotion": "normal"
+		}
+	    ],
+	    "end": [
+		
+	    ]
+	  }
+	]
+    }
+  }
+}

@@ -23,5 +23,5 @@ const defult_dialog = 	[
 						
 
 func interact(player):	
-	DialogBox.start_dialog(current_dialog_list,face_map,defult_dialog)
+	DialogBox.start_dialog(current_dialog_list,defult_dialog)
 	

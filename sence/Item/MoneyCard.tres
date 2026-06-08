@@ -4,8 +4,9 @@
 
 [resource]
 script = ExtResource("1_80mm6")
+item_name = "饭卡"
 item_id = "player_money_card"
 sprite = "uid://c7ssxkcorlyek"
 max_stack_size = 1
-description = "这是你的饭卡，在学校里面买东西只能用它。"
+description = "这是你的饭卡，在学校里面买东西只能用它。（除非你有手机）"
 metadata/_custom_type_script = "uid://y4vimkj48vf0"

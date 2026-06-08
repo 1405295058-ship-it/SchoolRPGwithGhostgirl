@@ -1,0 +1,56 @@
+{
+	"player":
+		{
+			"normal": "res://art/face/主角_说话.png"	
+			
+		},
+	
+	"Mike":
+		{
+			"normal":"res://art/face/Mike说话.png",
+			"surprised":"res://art/face/Mike惊讶.png"
+		},
+	"Sean":
+		{
+			"normal":"res://art/face/李胜.png",
+			"hiding":"res://art/face/李胜心虚.png",
+			"angry": "res://art/face/李胜生气.png"
+			
+		},
+	"Alice":
+		{
+			"normal":"res://art/face/开心小唐.png"
+		},
+	"Big_Alice":
+		{
+			"normal":"res://art/face/大Alice.png"
+		},
+	"Rachel":
+		{
+			"normal":"res://art/face/Rachel.png"
+		},
+	"Ryan":
+		{
+			"normal":"res://art/face/Ryan.png"
+		},
+	"Evelyn":
+		{
+			"normal":"res://art/face/Evelyn.png"
+		},
+	"Joy":
+		{
+			"normal":"res://art/face/曾joy.png"
+		},
+	"Kuma":
+		{
+			"normal":"res://art/face/2mm.png"
+		},
+	"Longer":
+		{
+			"normal":"res://art/face/Longer.png"
+		}
+	
+		
+	
+	
+}

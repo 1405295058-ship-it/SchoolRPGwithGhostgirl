@@ -1,12 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://hcmgjx7n1r21"]
+[gd_scene load_steps=7 format=3 uid="uid://hcmgjx7n1r21"]
 
 [ext_resource type="Texture2D" uid="uid://8cw4uuvmktbw" path="res://art/UI/裤子格子.png" id="1_rh7gs"]
+[ext_resource type="Script" uid="uid://cbtafr42vdge" path="res://script/slot.gd" id="1_xpehg"]
 [ext_resource type="Texture2D" uid="uid://c7ssxkcorlyek" path="res://art/Item/MoneyCard.png" id="2_05h11"]
 [ext_resource type="FontFile" uid="uid://ccbttyuoii471" path="res://art/UI/VonwaonBitmap-16px.ttf" id="3_xpehg"]
+[ext_resource type="Texture2D" uid="uid://dvme3f1h7t6xo" path="res://art/UI/Itemdiscription.png" id="4_05h11"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05h11"]
+bg_color = Color(1, 1, 1, 0.26666668)
 
 [node name="Slot" type="Button"]
+z_index = 2
 offset_right = 160.0
 offset_bottom = 160.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_05h11")
+script = ExtResource("1_xpehg")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -56,3 +64,43 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_xpehg")
 theme_override_font_sizes/font_size = 64
 text = "60"
+
+[node name="Discription" type="TextureRect" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = -1288.0
+offset_right = 891.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("4_05h11")
+
+[node name="DiscriptionLable" type="Label" parent="Discription"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -346.0
+offset_top = -457.0
+offset_right = 384.0
+offset_bottom = 566.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_constants/line_spacing = 20
+theme_override_fonts/font = ExtResource("3_xpehg")
+theme_override_font_sizes/font_size = 80
+text = "这个背包格子是空的哦。
+"
+autowrap_mode = 3
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

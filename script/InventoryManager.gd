@@ -25,17 +25,19 @@ func add_to_existing_slot(item_data:Need_pick_Item ,amount:int) -> int:
 			var exist_amount = item["amount"]
 			if exist_amount <item_data.max_stack_size:
 				var can_add = item_data.max_stack_size - exist_amount
-				var amount_in = min(can_add,amount)
+				var amount_in = min(can_add,left_amount)
 				left_amount -=  amount_in
 				item["amount"] = exist_amount + amount_in
+				QuestManager.check_event_is_quest_need("pick_up_"+item_data.item_id,amount_in)
 	for item in bag_bag_things:
 		if item["item_id"] == item_data.item_id:			
 			var exist_amount = item["amount"]
 			if exist_amount <item_data.max_stack_size:
 				var can_add = item_data.max_stack_size - exist_amount
-				var amount_in = min(can_add,amount)
+				var amount_in = min(can_add,left_amount)
 				left_amount -=  amount_in
 				item["amount"] = exist_amount + amount_in
+				QuestManager.check_event_is_quest_need("pick_up_"+item_data.item_id,amount_in)
 	return left_amount	
 func add_to_new_slot(item_data:Need_pick_Item ,left_amount:int):
 	var max_stack_size = item_data.max_stack_size
@@ -48,6 +50,7 @@ func add_to_new_slot(item_data:Need_pick_Item ,left_amount:int):
 		}
 		cloth_bag_things.append(item_infor_in)
 		left_amount -= amount_in
+		QuestManager.check_event_is_quest_need("pick_up_"+item_data.item_id,amount_in)
 	
 	while bag_bag_things.size() < bag_bag_max_block and left_amount>0:
 		var amount_in = min(max_stack_size,left_amount)
@@ -57,4 +60,5 @@ func add_to_new_slot(item_data:Need_pick_Item ,left_amount:int):
 	}
 		bag_bag_things.append(item_infor_in)
 		left_amount -= amount_in
+		QuestManager.check_event_is_quest_need("pick_up_"+item_data.item_id,amount_in)
 	return left_amount

@@ -1,0 +1,169 @@
+[gd_scene load_steps=9 format=3 uid="uid://hp5y7hm28jiq"]
+
+[ext_resource type="Script" uid="uid://bjedmde5l1mxq" path="res://script/NormalStateUI.gd" id="1_ft7s2"]
+[ext_resource type="Texture2D" uid="uid://ciu0y1etrg3t" path="res://art/UI/日常UI任务栏.png" id="2_n00yn"]
+[ext_resource type="FontFile" uid="uid://ccbttyuoii471" path="res://art/UI/VonwaonBitmap-16px.ttf" id="3_r42pu"]
+[ext_resource type="PackedScene" uid="uid://dbofbso8yog8b" path="res://sence/需要path的/finish_blockin_normal_quest_ui.tscn" id="4_lny4a"]
+[ext_resource type="Texture2D" uid="uid://b38glrasdw5ij" path="res://art/UI/手表卡西欧版.png" id="5_n00yn"]
+
+[sub_resource type="Animation" id="Animation_r42pu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Symbol:show_behind_parent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_n00yn"]
+resource_name = "SymbolAnimation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Symbol:show_behind_parent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lny4a"]
+_data = {
+&"RESET": SubResource("Animation_r42pu"),
+&"SymbolAnimation": SubResource("Animation_n00yn")
+}
+
+[node name="NormalStateUI" type="CanvasLayer"]
+script = ExtResource("1_ft7s2")
+
+[node name="QuestShowUpTitleBackground" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.83400005
+anchor_top = 0.367
+anchor_right = 0.83400005
+anchor_bottom = 0.367
+offset_left = -92.04004
+offset_top = -524.48004
+offset_right = 1187.96
+offset_bottom = 975.51984
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_n00yn")
+
+[node name="title" type="Label" parent="QuestShowUpTitleBackground"]
+layout_mode = 0
+offset_left = 27.500004
+offset_top = 227.5
+offset_right = 1190.0
+offset_bottom = 525.5
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 10
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("3_r42pu")
+theme_override_font_sizes/font_size = 144
+text = "拿东西而已
+"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuestShowUpTitleBackground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -620.0
+offset_top = -272.49994
+offset_right = 640.0
+offset_bottom = 675.00006
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 373
+
+[node name="FinishBlockinNormalQuestUI" parent="QuestShowUpTitleBackground/VBoxContainer" instance=ExtResource("4_lny4a")]
+layout_mode = 2
+
+[node name="FinishBlockinNormalQuestUI2" parent="QuestShowUpTitleBackground/VBoxContainer" instance=ExtResource("4_lny4a")]
+layout_mode = 2
+
+[node name="FinishBlockinNormalQuestUI3" parent="QuestShowUpTitleBackground/VBoxContainer" instance=ExtResource("4_lny4a")]
+layout_mode = 2
+
+[node name="TimeShowerWatch" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.56078434)
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 1490.0
+offset_bottom = 1170.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_n00yn")
+
+[node name="Date" type="Label" parent="TimeShowerWatch"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.34100002
+anchor_top = 0.59300005
+anchor_right = 0.34100002
+anchor_bottom = 0.59300005
+offset_left = -123.54004
+offset_top = -259.16003
+offset_right = 260.45996
+offset_bottom = -115.160034
+theme_override_colors/font_color = Color(0.6509804, 0.7019608, 0.53333336, 1)
+theme_override_fonts/font = ExtResource("3_r42pu")
+theme_override_font_sizes/font_size = 144
+text = "MON"
+
+[node name="SymbolAnimation" type="AnimationPlayer" parent="TimeShowerWatch"]
+libraries = {
+&"": SubResource("AnimationLibrary_lny4a")
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TimeShowerWatch"]
+layout_mode = 0
+offset_left = 370.00003
+offset_top = 602.5
+offset_right = 1062.4999
+offset_bottom = 755.0
+theme_override_constants/separation = 105
+
+[node name="Time" type="Label" parent="TimeShowerWatch/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6509804, 0.7019608, 0.53333336, 1)
+theme_override_fonts/font = ExtResource("3_r42pu")
+theme_override_font_sizes/font_size = 160
+text = "MOR"
+
+[node name="Time2" type="Label" parent="TimeShowerWatch/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6509804, 0.7019608, 0.53333336, 1)
+theme_override_fonts/font = ExtResource("3_r42pu")
+theme_override_font_sizes/font_size = 160
+text = "NING"
+
+[node name="Symbol" type="Label" parent="TimeShowerWatch"]
+layout_mode = 0
+offset_left = 617.5
+offset_top = 597.5
+offset_right = 697.5
+offset_bottom = 757.5
+theme_override_colors/font_color = Color(0.6509804, 0.7019608, 0.53333336, 1)
+theme_override_fonts/font = ExtResource("3_r42pu")
+theme_override_font_sizes/font_size = 160
+text = ":"
