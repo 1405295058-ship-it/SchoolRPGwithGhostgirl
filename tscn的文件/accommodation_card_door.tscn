@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddm7ddkbb7nn7"]
+
+[ext_resource type="Texture2D" uid="uid://s0m0djt7cv1x" path="res://art/男寝GF/刷卡门.png" id="1_3qtmo"]
+[ext_resource type="Script" uid="uid://dcunf421dqygb" path="res://script/two_direction_object.gd" id="1_w654m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aoals"]
+size = Vector2(126, 206.5)
+
+[node name="AccommodationCardDoor" type="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_w654m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-61, -90)
+shape = SubResource("RectangleShape2D_aoals")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(2, -1)
+texture = ExtResource("1_3qtmo")
+offset = Vector2(2.16, -143.145)

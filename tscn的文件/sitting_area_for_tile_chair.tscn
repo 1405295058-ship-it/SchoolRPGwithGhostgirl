@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bfi3bco58dahm"]
+
+[ext_resource type="Script" uid="uid://d1n466dx3n4au" path="res://script/sitting_area_for_tile_chair.gd" id="1_b14fn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8jw2q"]
+radius = 70.028564
+
+[node name="SittingAreaForTileChair" type="StaticBody2D" unique_id=947505883]
+z_index = 5
+collision_layer = 5
+script = ExtResource("1_b14fn")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1970748626]
+position = Vector2(0, -33)
+shape = SubResource("CircleShape2D_8jw2q")
+
+[node name="SitTarget" type="Marker2D" parent="." unique_id=1831224102]
+position = Vector2(0, 26)
+
+[node name="SitBackTarget" type="Marker2D" parent="." unique_id=1839108162]
+position = Vector2(0, 6)

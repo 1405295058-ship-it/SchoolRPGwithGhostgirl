@@ -1,0 +1,60 @@
+{
+	"开学": {
+		"quest_states": {
+						"2": [
+								{
+							"scene": "Forecourt",
+							"object_ID": "Forecourt_npc_Mike",
+							"group":"NPC",
+							"action": {
+								
+										"following":{
+										"enable":true,
+										"target_ID":"player",
+										"target_group":"player"
+												}
+									}
+								}
+					
+							]
+						
+						}
+			},
+	"不对劲！": {
+		"quest_states": {
+						"unactive": [
+								{
+							"scene": "Forecourt",
+							"object_ID": "Forecourt_npc_Mike",
+							"group":"NPC",
+							"action": {
+								
+										"following":{
+										"enable":false,
+										"target_ID":"player",
+										"target_group":"player"
+												}
+									}
+								}
+					
+							],
+						"4": [
+								{
+							"scene": "Forecourt",
+							"object_ID": "Forecourt_npc_Mike",
+							"group":"NPC",
+							"action": {
+								
+										"following":{
+										"enable":true,
+										"target_ID":"player",
+										"target_group":"player"
+												}
+									}
+								}
+					
+							]	
+						
+						}
+			}
+}

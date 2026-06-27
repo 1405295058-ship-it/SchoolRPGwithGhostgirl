@@ -5,5 +5,5 @@ extends StaticBody2D
 @export var target_spawn_id: String
 @export var enter_animation_facing_dir:Vector2
 
-func interact(player):
+func interact(_player):
 	SceneManager.change_scene_to(target_scene_path,target_spawn_id,enter_animation_facing_dir)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://fu6cwpgjfxqp"]
+[gd_scene format=3 uid="uid://fu6cwpgjfxqp"]
 
 [ext_resource type="Script" uid="uid://b13hjkf2047t1" path="res://script/chair_normal.gd" id="1_cwxtn"]
 [ext_resource type="Texture2D" uid="uid://drtp4utwktacw" path="res://art/椅子.png" id="2_j8m8e"]
@@ -63,14 +63,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_f0i4s"]
 radius = 70.028564
 
-[node name="Chair_Normal" type="StaticBody2D" groups=["blue_chair"]]
+[node name="Chair_Normal" type="StaticBody2D" unique_id=1229048233 groups=["blue_chair"]]
 z_index = 1
 y_sort_enabled = true
 collision_layer = 5
 script = ExtResource("1_cwxtn")
 facing = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1947682061]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(0, 18)
@@ -78,12 +78,12 @@ sprite_frames = SubResource("SpriteFrames_8pad4")
 animation = &"up"
 offset = Vector2(0, -103.85)
 
-[node name="Collision" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=287232776]
 position = Vector2(0, -33)
 shape = SubResource("CircleShape2D_f0i4s")
 
-[node name="SitTarget" type="Marker2D" parent="."]
+[node name="SitTarget" type="Marker2D" parent="." unique_id=1067975873]
 position = Vector2(0, 33)
 
-[node name="SitBackTarget" type="Marker2D" parent="."]
+[node name="SitBackTarget" type="Marker2D" parent="." unique_id=494078235]
 position = Vector2(0, 8)

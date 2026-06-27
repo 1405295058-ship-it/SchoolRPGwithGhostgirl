@@ -1,0 +1,96 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b783k1ics7pq7"]
+
+[ext_resource type="Texture2D" uid="uid://c63c716lcbtw4" path="res://art/男寝GF/寝室门.png" id="1_va8ap"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2vd5"]
+atlas = ExtResource("1_va8ap")
+region = Rect2(960, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhjlh"]
+atlas = ExtResource("1_va8ap")
+region = Rect2(640, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we3ou"]
+atlas = ExtResource("1_va8ap")
+region = Rect2(320, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87cry"]
+atlas = ExtResource("1_va8ap")
+region = Rect2(0, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ng5u"]
+atlas = ExtResource("1_va8ap")
+region = Rect2(0, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7d8q"]
+atlas = ExtResource("1_va8ap")
+region = Rect2(960, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llk35"]
+atlas = ExtResource("1_va8ap")
+region = Rect2(0, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4gd3"]
+atlas = ExtResource("1_va8ap")
+region = Rect2(320, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gq15e"]
+atlas = ExtResource("1_va8ap")
+region = Rect2(640, 0, 320, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmbns"]
+atlas = ExtResource("1_va8ap")
+region = Rect2(960, 0, 320, 540)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2vd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhjlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we3ou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87cry")
+}],
+"loop": false,
+"name": &"close_door",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ng5u")
+}],
+"loop": true,
+"name": &"idle_close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7d8q")
+}],
+"loop": true,
+"name": &"idle_open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llk35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4gd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gq15e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmbns")
+}],
+"loop": false,
+"name": &"open_door",
+"speed": 15.0
+}]

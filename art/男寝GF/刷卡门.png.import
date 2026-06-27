@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkd124sv56cj4"
-path="res://.godot/imported/室内假光.png-6634b373dce713b3d8ca4c0e2a5ee790.ctex"
+uid="uid://s0m0djt7cv1x"
+path="res://.godot/imported/刷卡门.png-1984339c9371b7999039ef780b7013df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/室内假光.png"
-dest_files=["res://.godot/imported/室内假光.png-6634b373dce713b3d8ca4c0e2a5ee790.ctex"]
+source_file="res://art/男寝GF/刷卡门.png"
+dest_files=["res://.godot/imported/刷卡门.png-1984339c9371b7999039ef780b7013df.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=38 format=3 uid="uid://co72a1s85wtag"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://co72a1s85wtag"]
 
 [ext_resource type="Texture2D" uid="uid://du0snp3xh1vm7" path="res://art/Mike.png" id="1_vj8qs"]
 
@@ -153,7 +153,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_qblse")
 }],
 "loop": true,
-"name": &"idel_down",
+"name": &"idle_down",
 "speed": 5.0
 }, {
 "frames": [{
@@ -161,7 +161,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_vjcqr")
 }],
 "loop": true,
-"name": &"idel_left",
+"name": &"idle_left",
 "speed": 5.0
 }, {
 "frames": [{
@@ -169,7 +169,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_erqln")
 }],
 "loop": true,
-"name": &"idel_right",
+"name": &"idle_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -177,7 +177,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_tgs01")
 }],
 "loop": true,
-"name": &"idel_up",
+"name": &"idle_up",
 "speed": 5.0
 }, {
 "frames": [{

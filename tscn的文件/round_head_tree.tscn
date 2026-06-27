@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://og38lr5rmvyr"]
+[gd_scene format=3 uid="uid://og38lr5rmvyr"]
 
 [ext_resource type="Texture2D" uid="uid://bijdwm3tmc4cf" path="res://art/round_head_tree.png" id="1_dy350"]
 [ext_resource type="Script" uid="uid://bhgm4w24l6lxu" path="res://script/tree.gd" id="1_wqbnx"]
@@ -40,7 +40,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_3l1qv")
 }],
 "loop": true,
-"name": &"idel",
+"name": &"idle",
 "speed": 4.0
 }]
 
@@ -62,41 +62,37 @@ angular_velocity_min = -174.73001
 angular_velocity_max = 180.74998
 gravity = Vector3(0, 40, 0)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ehac5"]
-polygon = PackedVector2Array(-634, -394, -602, -564, -634, -618, -563, -733, -470, -718, -382, -788, -334, -868, -244, -946, -164, -930, 0, -961, 97, -1024, 132, -1012, 144, -936, 218, -895, 282, -881, 349, -905, 384, -866, 292, -811, 294, -735, 333, -681, 464, -646, 578, -665, 600, -612, 619, -546, 612, -480, 557, -414, 520, -392, 504, -365, 458, -340, 265, -386, 80, -423, -43, -377, -144, -398, -326, -414, -394, -470)
-
-[node name="RoundHeadTree" type="Node2D"]
+[node name="RoundHeadTree" type="Node2D" unique_id=738161217]
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_wqbnx")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1948243296]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1492428897]
 position = Vector2(14, -9)
 shape = SubResource("CircleShape2D_quj1y")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D" unique_id=598467508]
 z_index = 1
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_um2kv")
-animation = &"idel"
-frame_progress = 0.7994794
+animation = &"idle"
 offset = Vector2(0, -502.705)
 
-[node name="园树影子" type="Sprite2D" parent="StaticBody2D/AnimatedSprite2D"]
+[node name="园树影子" type="Sprite2D" parent="StaticBody2D/AnimatedSprite2D" unique_id=7210779]
 position = Vector2(14.999999, 6.9999995)
 scale = Vector2(1.0566038, 0.79999995)
 texture = ExtResource("3_ehac5")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=864830777]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=812819622]
 position = Vector2(0, -663)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_g6l51")
 
-[node name="LeafFall" type="GPUParticles2D" parent="."]
+[node name="LeafFall" type="GPUParticles2D" parent="." unique_id=29451012]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(41, -626.9999)
@@ -105,6 +101,3 @@ amount = 3
 texture = ExtResource("3_quj1y")
 lifetime = 5.0
 process_material = SubResource("ParticleProcessMaterial_ehac5")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_ehac5")

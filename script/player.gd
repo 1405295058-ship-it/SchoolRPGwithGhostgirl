@@ -20,24 +20,56 @@ var _speed = 1
 var face_dir := Vector2.DOWN  # 给个默认朝向，别用 ZERO
 var correctVector = Vector2(20.0,20.0)
 
-
+var is_idle_extra_playing := false
+var idle_extra_timer_running := false
+var ANIMATION_EXTRA_TIMER_WAITING_TIME = 3
 
 
 func _ready() -> void:
+	hide_interact_hint()
 	add_to_group("player")
+	start_random_idle_extra()
 
 #每一帧进行一次
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	camera_zoom()
 	should_dialog()
 	
+func start_random_idle_extra():
+	if idle_extra_timer_running:
+		return
+	idle_extra_timer_running = true
+	
+	while true:
+		await get_tree().create_timer(randf_range(1,ANIMATION_EXTRA_TIMER_WAITING_TIME)).timeout
+		if can_play_idle_extra():
+			play_random_idle_extra()	
 	
 	
+func can_play_idle_extra()->bool:
+	if velocity != Vector2.ZERO:
+		return false
+	if player_current_state != Player_states.normal:
+		return false
 	
+	return true
+	
+func play_random_idle_extra():
+	is_idle_extra_playing = true
+	
+	var face_direction = get_face_direction()
+	var effect_name := "_blink" if randf() <0.75 else "_breath"
+	
+	var anim_name = "idle" + face_direction + effect_name
+	
+	anim.play(anim_name)
+	await anim.animation_finished
+	
+	is_idle_extra_playing = false
 		
 	
 #每一帧进行一次 有物理计算
-func _physics_process(delta):
+func _physics_process(_delta):
 	player_movement()
 	update_animation()
 
@@ -77,7 +109,10 @@ func player_movement():
 		$Camera2D.global_position = global_position.round()
 #走路动画
 func update_animation():
-	var moving = true
+	if is_idle_extra_playing:
+		return
+	
+	var moving = false
 	if Input.is_action_just_pressed("happy"):
 		anim.play("player_happy")
 		
@@ -89,14 +124,14 @@ func update_animation():
 		if velocity == Vector2.ZERO:
 			moving = false
 		if face_dir == Vector2.RIGHT:
-			anim.play("walk_right" if moving else "idel_right")
+			anim.play("walk_right" if moving else "idle_right")
 		elif face_dir == Vector2.LEFT:
-			anim.play("walk_left" if moving else "idel_left")
+			anim.play("walk_left" if moving else "idle_left")
 		elif face_dir == Vector2.UP:
-			anim.play("walk_up" if moving else "idel_up")
+			anim.play("walk_up" if moving else "idle_up")
 			
 		elif face_dir == Vector2.DOWN:
-			anim.play("walk_down" if moving else "idel_down")
+			anim.play("walk_down" if moving else "idle_down")
 			
 #相机缩放
 func camera_zoom():
@@ -141,12 +176,25 @@ func should_dialog():
 
 #判断有没有NPC在interactarea里面
 func _on_interact_area_body_entered(body: Node2D) -> void:
+	if body.has_method("interact"):
+		show_interact_hint()
 	current_interact_object.append(body)
-	print(current_interact_object)
 
 func _on_interact_area_body_exited(body: Node2D) -> void:
+	hide_interact_hint()
 	current_interact_object.erase(body)
 #呼叫userUI
+
+func get_face_direction():
+	if face_dir == Vector2.UP:
+		return "_up"
+	if face_dir == Vector2.DOWN:
+		return "_down"
+	if face_dir == Vector2.LEFT:
+		return "_left"
+	if face_dir == Vector2.RIGHT:
+		return "_right"
+	return "_down"
 
 func sit_on_seat(chair):
 	current_chair = null
@@ -166,4 +214,8 @@ func stand_from_chair()	:
 	player_current_state = Player_states.normal
 	var collision = current_chair.get_node("Collision")
 	collision.disabled = false
-	
+func hide_interact_hint():
+	$InteractHint.hide()
+func show_interact_hint():
+	$InteractHint.show()
+	$InteractHint.play("default")

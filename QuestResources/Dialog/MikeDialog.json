@@ -9,12 +9,34 @@
 				"1" :
 				[
 					{
+						"talk_state":"time_no_right",
+						"dialog":
+						[
+							{
+								"speaker":"Mike",
+								"text":"你这么早过来干嘛？",
+								"emotion":"normal"
+							},
+							{
+								"speaker":"Mike",
+								"text":"不是中午报道吗",
+								"emotion":"normal"
+							}
+							
+							
+						],
+						"end":[]
+						
+					},
+					{
+						
+						
 						"talk_state": "start",
 						"dialog":
 						[
 							{
 								"speaker":"Mike",
-								"text":"嘿！好久不见了bro！",
+								"text":"哈喽哈喽",
 								"emotion":"surprised"
 							},
 							{

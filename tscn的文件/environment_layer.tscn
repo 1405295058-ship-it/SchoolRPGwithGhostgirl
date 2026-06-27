@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bfsagwoh7qr04"]
+
+[ext_resource type="Script" uid="uid://dhy3brot2ka7y" path="res://script/environment_layer.gd" id="1_y1ggf"]
+
+[node name="EnvironmentLayer" type="CanvasLayer" unique_id=1419846412]
+script = ExtResource("1_y1ggf")

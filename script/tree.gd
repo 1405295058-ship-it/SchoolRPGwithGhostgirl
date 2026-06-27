@@ -42,6 +42,6 @@ func _on_body_exited(body: Node) -> void:
 func random_animation():
 	var time = randf_range(0,2)
 	await get_tree().create_timer(time).timeout
-	$StaticBody2D/AnimatedSprite2D.play("idel")
+	$StaticBody2D/AnimatedSprite2D.play("idle")
 
 	

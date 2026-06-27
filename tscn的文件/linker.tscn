@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgqg72mh017p3"]
+[gd_scene format=3 uid="uid://capowdmbe1sek"]
 
 [ext_resource type="Texture2D" uid="uid://dybvb5t3366rv" path="res://art/Linker人.png" id="1_irn6v"]
 [ext_resource type="Script" uid="uid://d04yl0v5dude0" path="res://script/linker.gd" id="1_loutq"]
@@ -59,27 +59,27 @@ animations = [{
 radius = 72.0
 height = 186.0
 
-[node name="Linker" type="CharacterBody2D"]
+[node name="Linker" type="CharacterBody2D" unique_id=2138626801]
 z_index = 1
 y_sort_enabled = true
 collision_layer = 5
 script = ExtResource("1_loutq")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1092833158]
 z_index = 1
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_0ofeb")
 animation = &"idel_left"
 offset = Vector2(0, -227.045)
 
-[node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D"]
+[node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D" unique_id=2050323705]
 show_behind_parent = true
 y_sort_enabled = true
 position = Vector2(1, -145)
 texture = ExtResource("2_loutq")
 offset = Vector2(-0.68, 36.69)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1042856918]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(1, -75)

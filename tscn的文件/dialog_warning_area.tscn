@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bea121cyqgx2p"]
+
+[ext_resource type="Script" uid="uid://jxkhuf4o4hvs" path="res://script/dialog_warning_area.gd" id="1_dwqep"]
+
+[node name="DialogWarningArea" type="StaticBody2D" unique_id=2078562206]
+collision_layer = 5
+script = ExtResource("1_dwqep")

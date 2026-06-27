@@ -9,17 +9,22 @@ extends Node2D
 @export var camera_limit_right: int
 @export var camera_limit_bottom: int
 
+
 @onready var animation_sprite = $Player/AnimatedSprite2D
 @onready var player = $Player
 @onready var camera = $Player/Camera2D
 var choose_spawn:Node 
+var canvas_modulate:CanvasModulate 
 
 
 func _ready():
 	await get_tree().process_frame
 	set_up_player_in_spawn()
 	_setup_camera_limit()
-	GameStateManager.load_record()
+	EventBus.scene_changed.emit()
+	find_canvas_modulate()
+	EnvironmentLayer.register_canvas_modulate(canvas_modulate)
+	await FadeLayer.fade_in(0.5)
 
 func set_up_player_in_spawn():
 	var spawn_id = SceneManager.next_spawn_id
@@ -27,7 +32,7 @@ func set_up_player_in_spawn():
 	if spawn_id == "":
 		return
 	
-	var choose_spawn = null
+	choose_spawn = null
 	
 	for spawn in get_tree().get_nodes_in_group("ChangeSceneArea"):
 		if spawn.spawn_id == spawn_id:
@@ -41,7 +46,13 @@ func set_up_player_in_spawn():
 	player.global_position = choose_spawn.get_node("StartMarker2D").global_position
 	player.face_dir = should_face_dir 
 
-
+func find_canvas_modulate():
+	for child in get_children():
+		if child is CanvasModulate:
+			canvas_modulate = child
+			return
+	
+	print("这个场景没有CanvasModulate")
 
 func _setup_camera_limit():
 	camera.limit_left = camera_limit_left

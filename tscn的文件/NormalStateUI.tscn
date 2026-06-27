@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://hp5y7hm28jiq"]
+[gd_scene format=3 uid="uid://hp5y7hm28jiq"]
 
 [ext_resource type="Script" uid="uid://bjedmde5l1mxq" path="res://script/NormalStateUI.gd" id="1_ft7s2"]
 [ext_resource type="Texture2D" uid="uid://ciu0y1etrg3t" path="res://art/UI/日常UI任务栏.png" id="2_n00yn"]
@@ -44,10 +44,10 @@ _data = {
 &"SymbolAnimation": SubResource("Animation_n00yn")
 }
 
-[node name="NormalStateUI" type="CanvasLayer"]
+[node name="NormalStateUI" type="CanvasLayer" unique_id=653267299]
 script = ExtResource("1_ft7s2")
 
-[node name="QuestShowUpTitleBackground" type="TextureRect" parent="."]
+[node name="QuestShowUpTitleBackground" type="TextureRect" parent="." unique_id=906289322]
 anchors_preset = -1
 anchor_left = 0.83400005
 anchor_top = 0.367
@@ -62,7 +62,7 @@ grow_vertical = 2
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_n00yn")
 
-[node name="title" type="Label" parent="QuestShowUpTitleBackground"]
+[node name="title" type="Label" parent="QuestShowUpTitleBackground" unique_id=1042557927]
 layout_mode = 0
 offset_left = 27.500004
 offset_top = 227.5
@@ -81,7 +81,7 @@ text = "拿东西而已
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="QuestShowUpTitleBackground"]
+[node name="VBoxContainer" type="VBoxContainer" parent="QuestShowUpTitleBackground" unique_id=471316320]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -96,16 +96,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 373
 
-[node name="FinishBlockinNormalQuestUI" parent="QuestShowUpTitleBackground/VBoxContainer" instance=ExtResource("4_lny4a")]
+[node name="FinishBlockinNormalQuestUI" parent="QuestShowUpTitleBackground/VBoxContainer" unique_id=785249406 instance=ExtResource("4_lny4a")]
 layout_mode = 2
 
-[node name="FinishBlockinNormalQuestUI2" parent="QuestShowUpTitleBackground/VBoxContainer" instance=ExtResource("4_lny4a")]
+[node name="FinishBlockinNormalQuestUI2" parent="QuestShowUpTitleBackground/VBoxContainer" unique_id=118631207 instance=ExtResource("4_lny4a")]
 layout_mode = 2
 
-[node name="FinishBlockinNormalQuestUI3" parent="QuestShowUpTitleBackground/VBoxContainer" instance=ExtResource("4_lny4a")]
+[node name="FinishBlockinNormalQuestUI3" parent="QuestShowUpTitleBackground/VBoxContainer" unique_id=841049706 instance=ExtResource("4_lny4a")]
 layout_mode = 2
 
-[node name="TimeShowerWatch" type="TextureRect" parent="."]
+[node name="TimeShowerWatch" type="TextureRect" parent="." unique_id=983239146]
 self_modulate = Color(1, 1, 1, 0.56078434)
 offset_left = 50.0
 offset_top = 50.0
@@ -114,7 +114,7 @@ offset_bottom = 1170.0
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("5_n00yn")
 
-[node name="Date" type="Label" parent="TimeShowerWatch"]
+[node name="Date" type="Label" parent="TimeShowerWatch" unique_id=1091642540]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.34100002
@@ -130,12 +130,10 @@ theme_override_fonts/font = ExtResource("3_r42pu")
 theme_override_font_sizes/font_size = 144
 text = "MON"
 
-[node name="SymbolAnimation" type="AnimationPlayer" parent="TimeShowerWatch"]
-libraries = {
-&"": SubResource("AnimationLibrary_lny4a")
-}
+[node name="SymbolAnimation" type="AnimationPlayer" parent="TimeShowerWatch" unique_id=656103570]
+libraries/ = SubResource("AnimationLibrary_lny4a")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TimeShowerWatch"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TimeShowerWatch" unique_id=1801595185]
 layout_mode = 0
 offset_left = 370.00003
 offset_top = 602.5
@@ -143,21 +141,21 @@ offset_right = 1062.4999
 offset_bottom = 755.0
 theme_override_constants/separation = 105
 
-[node name="Time" type="Label" parent="TimeShowerWatch/HBoxContainer"]
+[node name="Time" type="Label" parent="TimeShowerWatch/HBoxContainer" unique_id=1096111206]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6509804, 0.7019608, 0.53333336, 1)
 theme_override_fonts/font = ExtResource("3_r42pu")
 theme_override_font_sizes/font_size = 160
 text = "MOR"
 
-[node name="Time2" type="Label" parent="TimeShowerWatch/HBoxContainer"]
+[node name="Time2" type="Label" parent="TimeShowerWatch/HBoxContainer" unique_id=2122243752]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6509804, 0.7019608, 0.53333336, 1)
 theme_override_fonts/font = ExtResource("3_r42pu")
 theme_override_font_sizes/font_size = 160
 text = "NING"
 
-[node name="Symbol" type="Label" parent="TimeShowerWatch"]
+[node name="Symbol" type="Label" parent="TimeShowerWatch" unique_id=1131679282]
 layout_mode = 0
 offset_left = 617.5
 offset_top = 597.5

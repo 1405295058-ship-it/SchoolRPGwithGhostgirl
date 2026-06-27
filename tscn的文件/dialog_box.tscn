@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c7ud6ug2j7i8j"]
+[gd_scene format=3 uid="uid://c7ud6ug2j7i8j"]
 
 [ext_resource type="Script" uid="uid://bwbefoe3hwqv8" path="res://script/dialog_box.gd" id="1_rkunf"]
 [ext_resource type="FontFile" uid="uid://ccbttyuoii471" path="res://art/UI/VonwaonBitmap-16px.ttf" id="2_a584j"]
@@ -67,14 +67,14 @@ _data = {
 &"dialog_show_cg": SubResource("Animation_rkunf")
 }
 
-[node name="DialogBox" type="CanvasLayer"]
+[node name="DialogBox" type="CanvasLayer" unique_id=2098033609]
 process_mode = 3
 scale = Vector2(1.2, 1.2)
 transform = Transform2D(1.2, 0, 0, 1.2, 0, 0)
 script = ExtResource("1_rkunf")
 character_face_database_path = "res://QuestResources/Dialog/Character_face_database.json"
 
-[node name="Content" type="Label" parent="."]
+[node name="Content" type="Label" parent="." unique_id=792917256]
 offset_left = -1032.5
 offset_top = 9.166666
 offset_right = 1367.5
@@ -88,7 +88,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="head" type="TextureRect" parent="Content"]
+[node name="head" type="TextureRect" parent="Content" unique_id=174668654]
 layout_mode = 0
 offset_left = 899.4444
 offset_top = 449.4444
@@ -98,7 +98,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_dggau")
 stretch_mode = 3
 
-[node name="Nextindicator" type="TextureRect" parent="Content"]
+[node name="Nextindicator" type="TextureRect" parent="Content" unique_id=820911710]
 layout_mode = 0
 offset_left = 1777.2222
 offset_top = 699.44446
@@ -107,7 +107,7 @@ offset_bottom = 859.4445
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_05lse")
 
-[node name="Options" type="VBoxContainer" parent="Content"]
+[node name="Options" type="VBoxContainer" parent="Content" unique_id=1318554286]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.57100004
@@ -119,7 +119,7 @@ offset_top = 144.44437
 offset_right = 493.92566
 offset_bottom = 272.44437
 
-[node name="option1" type="Button" parent="Content/Options"]
+[node name="option1" type="Button" parent="Content/Options" unique_id=1772340160]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.16078432, 0.06666667, 0, 1)
 theme_override_colors/font_focus_color = Color(0.16078432, 0.06666667, 0, 1)
@@ -141,7 +141,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_dggau")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_05lse")
 text = "出发！"
 
-[node name="option2" type="Button" parent="Content/Options"]
+[node name="option2" type="Button" parent="Content/Options" unique_id=1893276507]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.16078432, 0.06666667, 0, 1)
 theme_override_colors/font_focus_color = Color(0.16078432, 0.06666667, 0, 1)
@@ -163,7 +163,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_dggau")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_05lse")
 text = "我想再逛一逛。"
 
-[node name="option3" type="Button" parent="Content/Options"]
+[node name="option3" type="Button" parent="Content/Options" unique_id=295728007]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.16078432, 0.06666667, 0, 1)
 theme_override_colors/font_focus_color = Color(0.16078432, 0.06666667, 0, 1)
@@ -185,7 +185,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_dggau")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_05lse")
 text = "fuck off! 我想自己走！"
 
-[node name="dialog" type="Label" parent="Content"]
+[node name="dialog" type="Label" parent="Content" unique_id=337837724]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -206,7 +206,7 @@ text = "what"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Naming" type="Label" parent="Content"]
+[node name="Naming" type="Label" parent="Content" unique_id=2049171296]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.564
@@ -222,7 +222,7 @@ theme_override_fonts/font = ExtResource("2_a584j")
 theme_override_font_sizes/font_size = 32
 text = "我的名字是:"
 
-[node name="LineEdit" type="LineEdit" parent="Content/Naming"]
+[node name="LineEdit" type="LineEdit" parent="Content/Naming" unique_id=1359889072]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.65400004
@@ -239,7 +239,7 @@ theme_override_colors/selection_color = Color(0.6431373, 0.45882353, 0.2627451, 
 theme_override_fonts/font = ExtResource("2_a584j")
 theme_override_font_sizes/font_size = 32
 
-[node name="SureButton" type="Button" parent="Content/Naming"]
+[node name="SureButton" type="Button" parent="Content/Naming" unique_id=1412565744]
 layout_mode = 0
 offset_left = 202.77792
 offset_top = 92.77771
@@ -265,7 +265,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_dggau")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_05lse")
 text = "我就叫这名字了！"
 
-[node name="Warning" type="Label" parent="Content/Naming"]
+[node name="Warning" type="Label" parent="Content/Naming" unique_id=2026630159]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.2980001
@@ -285,9 +285,7 @@ text = "what"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_4bm68")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=54694502]
+libraries/ = SubResource("AnimationLibrary_4bm68")
 
 [connection signal="pressed" from="Content/Naming/SureButton" to="." method="_on_sure_button_pressed"]

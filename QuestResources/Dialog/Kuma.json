@@ -1,24 +1,27 @@
 {
   "不对劲！": {
-    "quest_states": {
+	"quest_states": {
 	"2": [
 	{
-	    "talk_state": "start",
-	    "dialog": [
+
+		"talk_state": "start",
+		"dialog": [
 		{
+		  "speaker":"Kuma",
 		  "text": "快去给我们小胜把他的饭卡找回来！",
 		  "emotion": "normal"
 		},
 		{
+		  "speaker":"Kuma",
 		  "text": "我看不得他哭！！",
 		  "emotion": "normal"
 		}
-	    ],
-	    "end": [
+		],
+		"end": [
 		
-	    ]
+		]
 	  }
 	]
-    }
+	}
   }
 }

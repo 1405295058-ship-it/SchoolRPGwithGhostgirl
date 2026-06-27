@@ -3,7 +3,6 @@ var current_layer = null
 var can_close_ui = false
 var current_show_quest_name = ""
 var current_show_objectives = []
-signal change_the_track_quest
 @onready var main_quest_button_path = preload("res://sence/需要path的/main_quest.tscn")
 @onready var sub_quest_button_path =preload("res://sence/需要path的/sub_quest.tscn")
 @onready var quest_objective_showing_space =preload("res://sence/需要path的/quest_objective_in_user_ui.tscn")
@@ -33,7 +32,7 @@ func _ready() -> void:
 	hide()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("call_user_UI"):
 		if visible:
 			close_user_UI()
@@ -55,9 +54,9 @@ func show_user_UI():
 	setup_bag()
 
 func switch_bag_layer(layer_name:String):
-	for layer in layer_map:
-		layer_map[layer]["it_self"].hide()
-		layer_map[layer]["switcher"].z_index=-1
+	for each_layer in layer_map:
+		layer_map[each_layer]["it_self"].hide()
+		layer_map[each_layer]["switcher"].z_index=-1
 	current_layer = layer_map[layer_name]["it_self"]
 	layer_map[layer_name]["switcher"].z_index =1
 	current_layer.show()	
@@ -244,4 +243,4 @@ func _on_track_quest_button_pressed() -> void:
 	if current_show_quest_name == "":
 		return
 	
-	QuestManager.set_tracking_quest(current_show_quest_name)
+	EventBus.set_tracking_quest.emit(current_show_quest_name)

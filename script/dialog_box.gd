@@ -35,7 +35,7 @@ func _ready():
 	hide_naming()
 	
 	
-func _process(delta):
+func _process(_delta):
 	player_input()
 	
 func player_input():
@@ -66,9 +66,8 @@ func player_input():
 func hide_DialogBox():
 	$Content.hide()
 
-func start_dialog(current_dialog_list,defult_dialog):
+func start_dialog(current_dialog_list:Array,defult_dialog:Array,start_state:="start"):
 	next_player_step = ""
-	print("start dialog")
 	$AnimationPlayer.play("dialog_show_cg")
 	show()
 	$Content.show()
@@ -84,7 +83,7 @@ func start_dialog(current_dialog_list,defult_dialog):
 		dialog_list = current_dialog_list
 		
 		for state in dialog_list:
-			if state["talk_state"] == "start":
+			if state["talk_state"] == start_state:
 				dialogs = state["dialog"]#这里是判断下一个交互是取名字吗 还是干嘛
 				options = []
 				if state.has("options"):
@@ -134,7 +133,6 @@ func process_dialog(index):
 	$Content/dialog.text = dialog_text
 	var emotion = dialogs[index]["emotion"]
 	var speaker = dialogs[index]["speaker"]
-	print(speaker)
 	if not character_face_database.has(speaker):
 		push_error("头像数据库没有这个角色: " + speaker)
 		return
@@ -166,7 +164,7 @@ func close_dialog():
 	just_closed = true
 	await get_tree().create_timer(0.15, true, false, true).timeout
 	just_closed = false
-	print("just_closed reset")
+	
 
 	
 func hide_naming():
@@ -257,6 +255,5 @@ func load_face_database_from_json():
 	var parsed_data = JSON.parse_string(data)
 	if parsed_data:
 		character_face_database = parsed_data
-		print(character_face_database)
 	else:
 		print("fail to parsed",character_face_database_path)

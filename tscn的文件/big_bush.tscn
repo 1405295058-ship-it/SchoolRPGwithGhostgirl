@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dxpeqre7pt364"]
+[gd_scene format=3 uid="uid://dxpeqre7pt364"]
 
 [ext_resource type="Texture2D" uid="uid://cjk3dduiiskuu" path="res://art/校门和1层/灌木丛2.png" id="1_mv01g"]
 [ext_resource type="Script" uid="uid://vyuax5vl5pec" path="res://script/big_bush.gd" id="1_u0p5t"]
@@ -42,7 +42,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_15jqi")
 }],
 "loop": true,
-"name": &"idel",
+"name": &"idle",
 "speed": 3.0
 }]
 
@@ -50,23 +50,22 @@ animations = [{
 radius = 134.0
 height = 474.0
 
-[node name="Big_bush" type="Node2D"]
+[node name="Big_bush" type="Node2D" unique_id=1514274061]
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_u0p5t")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=715169317]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(-1, 2)
 sprite_frames = SubResource("SpriteFrames_r6hg6")
-animation = &"idel"
-frame_progress = 0.025811361
+animation = &"idle"
 offset = Vector2(0, -170.74)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1304698127]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1404166047]
 position = Vector2(-19, -80)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_mv01g")

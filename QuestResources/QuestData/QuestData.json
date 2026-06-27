@@ -7,12 +7,23 @@
 					"1":
 						{
 							"quest_description":"暑假结束，高中生活开始了。刚下车的你似乎看见你的高中同学Mike在门口站着，去找他搭个话？",
+							"time_condition":
+																	{
+																		
+																	},
+													"time_hint":"现在不是时候，等到中午的时候再去找Mike把。",
 							"objective" : 	[
 												{
 													"text":"和Mike打声招呼",
 													"target_id":"Forecourt_npc_Mike",
 													"in_code":"talked_with_Forecourt_npc_Mike",
-													"target_amount": 1
+													"target_amount": 1,
+													"time_condition":
+																	{
+																		"day_period":["lunch_time"],
+																		"week_period":["monday"]
+																	},
+													"time_hint":"现在不是时候，等到中午的时候再去找Mike把。"
 												},
 												{
 													"text":"找到5个你的饭卡",
@@ -61,7 +72,12 @@
 			"active_method":
 								{
 									"target_id":"Forecourt_npc_Evelyn",
-									"active_event":"talked_with_Forecourt_npc_Evelyn"
+									"active_event":"talked_with_Forecourt_npc_Evelyn",
+									"time_condition":
+																	{
+																		"day_period":["lunch_time"],
+																		"week_period":["tuesday"]
+																	}
 								},
 			
 			"quest_states":

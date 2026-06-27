@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://crf1w5euf8otp"]
+[gd_scene format=3 uid="uid://crf1w5euf8otp"]
 
+[ext_resource type="Script" uid="uid://c7osyj0fcexaw" path="res://script/light.gd" id="1_fseyr"]
 [ext_resource type="Texture2D" uid="uid://bld03bffl4tqy" path="res://art/校门和1层/路灯白天.png" id="1_hdgcg"]
+[ext_resource type="Texture2D" uid="uid://dkd124sv56cj4" path="res://art/校门和1层/室内假光.png" id="3_25ayh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5qqhr"]
 atlas = ExtResource("1_hdgcg")
@@ -13,7 +15,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_5qqhr")
 }],
 "loop": true,
-"name": &"light_idel",
+"name": &"light_idle",
 "speed": 5.0
 }]
 
@@ -21,21 +23,37 @@ animations = [{
 radius = 8.514852
 height = 43.564358
 
-[node name="light" type="Node2D" groups=["Light"]]
+[node name="light" type="Node2D" unique_id=488568018 groups=["Light"]]
 z_index = 1
 y_sort_enabled = true
+script = ExtResource("1_fseyr")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1627178020]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_eaa0b")
-animation = &"light_idel"
+animation = &"light_idle"
 offset = Vector2(0, -460)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1635545686]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2096986808]
 position = Vector2(-6, -99.00001)
 scale = Vector2(5.05, 5.05)
 shape = SubResource("CapsuleShape2D_we4ua")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1964936140]
+position = Vector2(8, -716.99994)
+scale = Vector2(1.9350444, 1.5029019)
+color = Color(0.99061376, 0.862455, 0.56727844, 0.87058824)
+shadow_color = Color(0, 0, 0, 0.2901961)
+shadow_filter = 2
+shadow_filter_smooth = 1.0
+texture = ExtResource("3_25ayh")
+
+[node name="PointLight2D" type="PointLight2D" parent="PointLight2D" unique_id=72669076]
+position = Vector2(-3.100708, 21.292091)
+scale = Vector2(0.060358725, 0.07385263)
+color = Color(0.98764116, 0.9057459, 0.7322481, 1)
+texture = ExtResource("3_25ayh")

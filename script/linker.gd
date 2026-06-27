@@ -22,6 +22,6 @@ const defult_dialog = 	[
 						]
 						
 
-func interact(player):	
+func interact(_player):	
 	DialogBox.start_dialog(current_dialog_list,defult_dialog)
 	

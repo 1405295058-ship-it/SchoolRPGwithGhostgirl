@@ -1,24 +1,28 @@
 {
   "不对劲！": {
-    "quest_states": {
+	"quest_states": {
 	"1": [
 	  {
-	    "talk_state": "start",
-	    "dialog": [
+		"talk_state": "start",
+		"dialog": [
 		{
+		  "speaker":"Sean",
 		  "text": "啊啊啊啊！我的员工卡卡去哪里啦！",
 		  "emotion": "angry"
 		},
 		{
+		  "speaker":"Sean",
 		  "text": "万一被哪个同学拿去刷电梯我又要遭处分了。",
 		  "emotion": "angry"
 		},
 		{
+			"speaker":"Sean",
+		  "speaker":"Sean",
 		  "text": "怎么办好呢？",
 		  "emotion": "normal"
 		}
-	    ],
-	    "options": [
+		],
+		"options": [
 		{
 		  "text": "诶，老师，请问需要什么帮忙吗？",
 		  "next": "thanksful"
@@ -27,39 +31,45 @@
 		  "text": "诶老灯，该遭了撒。喊你一天管楞个严嘛！",
 		  "next": "angry"
 		}
-	    ]
+		]
 	  },
 	 {
-	    "talk_state": "angry",
-	    "dialog": [
+		"talk_state": "angry",
+		"dialog": [
 		{
+			"speaker":"Sean",
 		  "text": "不是！你竟然敢骂老师？",
 		  "emotion": "angry"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "小心我。。。",
 		  "emotion": "angry"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "我。。。",
 		  "emotion": "hiding"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "算了 我现在都没有心情给你处分了。",
 		  "emotion": "normal"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "我的员工卡丢了",
 		  "emotion": "normal"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "找不到可是会很麻烦的诶。",
 		  "emotion": "hiding"
 		}
 		
 		
-	    ],
-	    "options": [
+		],
+		"options": [
 		{
 		  "text": "上一次看到它是在哪里？",
 		  "next": "describe_position"
@@ -68,21 +78,23 @@
 		  "text": "多久丢的呀？",
 		  "next": "describe_position"
 		}
-	    ]
+		]
 	  },
 	  {
-	    "talk_state": "thanksful",
-	    "dialog": [
+		"talk_state": "thanksful",
+		"dialog": [
 		{
+			"speaker":"Sean",
 		  "text": "Oh. {player}啊，没什么事。就是我的员工卡找不到了。",
 		  "emotion": "normal"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "现在麻烦了诶。",
 		  "emotion": "normal"
 		}
-	    ],
-	    "options": [
+		],
+		"options": [
 		{
 		  "text": "上一次看到它是在哪里？",
 		  "next": "describe_position"
@@ -91,86 +103,97 @@
 		  "text": "多久丢的呀？",
 		  "next": "describe_position"
 		}
-	    ]
+		]
 	  },
 	  {
-	    "talk_state": "describe_position",
-	    "dialog": [
+		"talk_state": "describe_position",
+		"dialog": [
 		{
+			"speaker":"Sean",
 		  "text": "嗯嗯嗯……",
 		  "emotion": "hiding"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "我记得昨天放学过后我还去小卖部买了个面包，之后就去男寝查寝了。",
 		  "emotion": "normal"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "查完寝我好像……诶！查完寝我什么都没干就回去了。",
 		  "emotion": "hiding"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "真的。",
 		  "emotion": "hiding"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "没事的，可能是我放家里了吧，哈哈哈。",
 		  "emotion": "normal"
 		}
-	    ],
-	    "options": [
+		],
+		"options": [
 		{
 		  "text": "好吧，如果我看见了，我会给你说的。",
 		  "next": "end"
 		}
-	    ]
+		]
 	  },
 	  {
-	    "talk_state": "end",
-	    "dialog": [
+		"talk_state": "end",
+		"dialog": [
 		{
+			"speaker":"Sean",
 		  "text": "呃呃，好！但是其实你不需要为此这么麻烦。",
 		  "emotion": "hiding"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "在你们这个时候，学习最重要不是吗？",
 		  "emotion": "normal"
 		}
-	    ],
-	    "end": []
+		],
+		"end": []
 	  }
 	],
 	"2": [
 	{
-	    "talk_state": "start",
-	    "dialog": [
+		"talk_state": "start",
+		"dialog": [
 		{
+			"speaker":"Sean",
 		  "text": "我的饭卡啊呜呜呜",
 		  "emotion": "angry"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "去哪里了呢？",
 		  "emotion": "normal"
 		}
-	    ],
-	    "end": [
+		],
+		"end": [
 		
-	    ]
+		]
 	  }
 	],
 	"4": [
 	{
-	    "talk_state": "start",
-	    "dialog": [
+		"talk_state": "start",
+		"dialog": [
 		{
+			"speaker":"Sean",
 		  "text": "我的饭卡啊呜呜呜",
 		  "emotion": "angry"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "去哪里了呢？",
 		  "emotion": "normal"
 		}
-	    ],
-	    "options": [
+		],
+		"options": [
 		{
 		  "text": "这里，你的饭卡。",
 		  "next": "thanks"
@@ -179,25 +202,28 @@
 		  "text": "我在男寝旁边找到了你的饭卡。",
 		  "next": "thanks"
 		}
-	    ]
+		]
 	  },
 	{
-	    "talk_state": "thanks",
-	    "dialog": [
+		"talk_state": "thanks",
+		"dialog": [
 		{
+			"speaker":"Sean",
 		  "text": "啊？真的吗？",
 		  "emotion": "normal"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "啊哈哈，我也没想到他会掉在男寝旁边呢。",
 		  "emotion": "normal"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "你应该没看到其它东西吧？",
 		  "emotion": "hiding"
 		}
-	    ],
-	    "options": [
+		],
+		"options": [
 		{
 		  "text": "没有",
 		  "next": "end1"
@@ -206,63 +232,73 @@
 		  "text": "我在地上看到一些垃圾，你知道发生了什么吗？",
 		  "next": "end2"
 		}
-	    ]
+		]
 		},
 	{
-	    "talk_state": "end1",
-	    "dialog": [
+		"talk_state": "end1",
+		"dialog": [
 		{
+			"speaker":"Sean",
 		  "text": "OKok，那就好啊。",
 		  "emotion": "normal"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "好了，谢谢你！我也要回去备课了。",
 		  "emotion": "normal"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "如果没有你我真不知道改怎么办啊。",
 		  "emotion": "normal"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "那就这样了，拜拜。",
 		  "emotion": "normal"
 		}
-	    ],
-	    "end": [
-	    ]
+		],
+		"end": [
+		]
 	  },
 	{
-	    "talk_state": "end2",
-	    "dialog": [
+		"talk_state": "end2",
+		"dialog": [
 		{
+			"speaker":"Sean",
 		  "text": "呃。",
 		  "emotion": "hiding"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "呃呃呃。",
 		  "emotion": "hiding"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "这一定是哪个同学丢的垃圾吧！",
 		  "emotion": "normal"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "我回去查一下监控，一定把他通报批评。",
 		  "emotion": "normal"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "总之谢谢你，没有你真不知道该怎么办。",
 		  "emotion": "normal"
 		},
 		{
+			"speaker":"Sean",
 		  "text": "（他不和你说话了。。。）",
 		  "emotion": "normal"
 		}
-	    ],
-	    "end": [
-	    ]
+		],
+		"end": [
+		]
 	  }
 	]
-    }
+	}
   }
 }

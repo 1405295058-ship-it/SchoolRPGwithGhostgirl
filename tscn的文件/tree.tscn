@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpt4j14odlit6"]
+[gd_scene format=3 uid="uid://dpt4j14odlit6"]
 
 [ext_resource type="Texture2D" uid="uid://ccr48vc6s56oj" path="res://art/校门和1层/bigbigtree_idel.png" id="1_brfkd"]
 [ext_resource type="Script" uid="uid://bhgm4w24l6lxu" path="res://script/tree.gd" id="1_gvmkm"]
@@ -26,7 +26,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_6gkx5")
 }],
 "loop": true,
-"name": &"idel",
+"name": &"idle",
 "speed": 2.0
 }]
 
@@ -48,28 +48,28 @@ gravity = Vector3(0, 40, 0)
 radius = 289.0
 height = 850.0
 
-[node name="tree" type="Node2D"]
+[node name="tree" type="Node2D" unique_id=1900049258]
 z_index = 1
 script = ExtResource("1_gvmkm")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1049420005]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1255201829]
 z_index = 1
 position = Vector2(-14, -7)
 rotation = 1.5707964
 scale = Vector2(6.915, 6.915)
 shape = SubResource("CapsuleShape2D_ind6k")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D" unique_id=132978239]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(-4, 7)
 sprite_frames = SubResource("SpriteFrames_44ud8")
-animation = &"idel"
+animation = &"idle"
 offset = Vector2(0, -688.33)
 
-[node name="LeafFall" type="GPUParticles2D" parent="."]
+[node name="LeafFall" type="GPUParticles2D" parent="." unique_id=330757590]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(41, -626.9999)
@@ -79,11 +79,11 @@ texture = ExtResource("4_k36v2")
 lifetime = 5.0
 process_material = SubResource("ParticleProcessMaterial_6gkx5")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=2017058590]
 position = Vector2(3.000002, -753.0001)
 rotation = 1.5707964
 scale = Vector2(1.0000002, 1.0000002)
 
-[node name="fade_area" type="CollisionShape2D" parent="Area2D"]
+[node name="fade_area" type="CollisionShape2D" parent="Area2D" unique_id=2105125023]
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("CapsuleShape2D_d2g23")

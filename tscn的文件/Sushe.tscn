@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2qvgp4rsa8mb"]
+[gd_scene format=3 uid="uid://c2qvgp4rsa8mb"]
 
 [ext_resource type="Texture2D" uid="uid://j0ucyd57rudh" path="res://art/校门和1层/宿舍正式.png" id="1_1wh1h"]
 [ext_resource type="Script" uid="uid://bxkt13p2ultsn" path="res://script/shcool_door.gd" id="1_fmdts"]
@@ -14,7 +14,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_fmdts")
 }],
 "loop": true,
-"name": &"idel",
+"name": &"idle",
 "speed": 5.0
 }]
 
@@ -24,26 +24,26 @@ size = Vector2(2712, 731)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atq7f"]
 size = Vector2(2703, 1686.5)
 
-[node name="SuShe" type="Node2D"]
+[node name="SuShe" type="Node2D" unique_id=1284167953]
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_fmdts")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1891922936]
 z_index = 1
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_mmsoy")
-animation = &"idel"
+animation = &"idle"
 offset = Vector2(0, -1345.71)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=334264413]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=161020994]
 position = Vector2(2, -373)
 shape = SubResource("RectangleShape2D_mmsoy")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1870576667]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=373241221]
 position = Vector2(2, -1576)
 shape = SubResource("RectangleShape2D_atq7f")

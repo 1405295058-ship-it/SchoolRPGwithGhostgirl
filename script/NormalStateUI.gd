@@ -11,15 +11,15 @@ var week_time_map = {
 var day_time_map = {
 	"morning":{"timer1":"MOR","timer2":"NING"},
 	"lunch_time":{"timer1":"LUN","timer2":"CH"},
-	"dinner_time":{"timer1":"DIN","timer2":"NNER"},
+	"dinner_time":{"timer1":"DIN","timer2":"NER"},
 	"night_time":{"timer1":"NIG","timer2":"HT"},
 }
-##明天要连信号 然后写函数
+
 @onready var objective_block_path = preload("res://sence/需要path的/finish_blockin_normal_quest_ui.tscn")
 func _ready() -> void:
-	TimeManager.change_day_period.connect(update_watch_timer)
-	TimeManager.change_week_period.connect(update_watch_timer)
-	QuestManager.tracking_quest_changed.connect(update_track_quest)
+	EventBus.change_day_period.connect(update_watch_timer)
+	EventBus.change_week_period.connect(update_watch_timer)
+	EventBus.tracking_quest_changed.connect(update_track_quest)
 	update_track_quest()
 
 func update_track_quest():
@@ -51,12 +51,8 @@ func update_track_quest():
 func update_watch_timer():
 	$TimeShowerWatch.show()
 	$TimeShowerWatch/SymbolAnimation.play("SymbolAnimation")
-	var current_week_period = TimeManager.current_week_preiod
+	var current_week_period = TimeManager.current_week_period
 	var current_day_period = TimeManager.current_day_period
-	print("week = ", current_week_period, " type = ", typeof(current_week_period))
-	print("day = ", current_day_period, " type = ", typeof(current_day_period))
-	print("week map has = ", week_time_map.has(current_week_period))
-	print("day map has = ", day_time_map.has(current_day_period))
 	$TimeShowerWatch/Date.text = week_time_map[current_week_period]
 	$TimeShowerWatch/HBoxContainer/Time.text = day_time_map[current_day_period]["timer1"]		
 	$TimeShowerWatch/HBoxContainer/Time2.text = day_time_map[current_day_period]["timer2"]		

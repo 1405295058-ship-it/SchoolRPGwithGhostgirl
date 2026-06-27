@@ -1,12 +1,13 @@
 extends CharacterBody2D
 class_name BasicImportantNPC
 
+var breath_tween:Tween
+var virsual_origin_y = 0.0
+
 @export var NPC_name = ""
 @export var ID = ""
 @export_file("*.json") var dialog_json_path = ""
-@export var face_map: Dictionary = {
-	"normal": "res://art/face/Mike说话.png"
-}
+
 @export var sprite_frame: SpriteFrames
 
 @onready var animated_sprite = $AnimatedSprite2D
@@ -15,6 +16,12 @@ class_name BasicImportantNPC
 var following = false
 var follow_group = ""
 var follow_ID = ""
+
+var face_dir := Vector2.DOWN
+var is_idle_extra_playing := false
+var idle_extra_timer_running := false
+var MAX_ANIMATION_EXTRA_TIMER_WAITING_TIME = 10
+var MIN_ANIMATION_EXTRA_TIMER_WAITING_TIME = 5
 
 @export var defult_dialog: Array = [
 	{
@@ -25,25 +32,35 @@ var follow_ID = ""
 ]
 
 var dialog_data = {}
-var current_dialog_list = []
+var dialog_result = {}
 
 func _ready() -> void:
 	var quest_status = QuestManager.get_hint_type_by_object_id(ID)
 	$QuestHintMarker.update_hint_mark(quest_status)
 	animated_sprite.sprite_frames = sprite_frame
-	animated_sprite.play("idel_down")
+	animated_sprite.play("idle_down")
 	load_from_json()
-	current_dialog_list = QuestManager.update_character_dialoglist(dialog_data)
-	QuestManager.quest_hint_should_refresh.connect(refresh_quest_hint)
-func _process(delta: float) -> void:
+	dialog_result = QuestManager.resolve_character_dialoglist(dialog_data,ID)
+	EventBus.quest_hint_should_refresh.connect(refresh_quest_hint)
+	
+	start_random_idle_extra()
+func _process(_delta: float) -> void:
 	if following:
 		follow_thing()
 
-func interact(player):
-	current_dialog_list = QuestManager.update_character_dialoglist(dialog_data)
-	DialogBox.start_dialog(current_dialog_list, defult_dialog)
+
+	
+
+func interact(_player):
+	dialog_result = QuestManager.resolve_character_dialoglist(dialog_data,ID)
+	DialogBox.start_dialog(
+	 dialog_result["dialog_list"],
+	 defult_dialog,
+	 dialog_result["start_talk_state"]
+	)
 	var event_name = "talked_with_" + ID
 	print(event_name)
+	
 	QuestManager.check_event_is_quest_need(event_name,1)
 
 func follow_thing():
@@ -53,6 +70,8 @@ func follow_thing():
 	
 	var vector = thing.global_position - global_position
 	var dir = vector.normalized()
+	if vector.length() >5000:
+		global_position = thing.global_position
 	if vector.length() < 300.0:
 		play_idle_animation(dir)
 		
@@ -81,6 +100,9 @@ func load_from_json():
 		print("fail to parsed")
 
 func update_following_animation(dir: Vector2):
+	if is_idle_extra_playing:
+		is_idle_extra_playing =false
+	
 	if abs(dir.x) > abs(dir.y):
 		if dir.x > 0:
 			animated_sprite.play("walk_right")
@@ -91,19 +113,88 @@ func update_following_animation(dir: Vector2):
 			animated_sprite.play("walk_down")
 		else:
 			animated_sprite.play("walk_up")
+func apply_facing_dir(dir: Vector2):
+	if not is_node_ready():
+		await ready
+
+	play_idle_animation(dir)
 
 func play_idle_animation(dir:Vector2):
+	if is_idle_extra_playing:
+		return
+		
+	if animated_sprite == null:
+		animated_sprite = get_node_or_null("AnimatedSprite2D")
+
+	if animated_sprite == null:
+		push_error("NPC没有 AnimatedSprite2D：", ID)
+		return
+
+	if animated_sprite.sprite_frames == null:
+		push_error("NPC没有 SpriteFrames：", ID)
+		return
 	if abs(dir.x) > abs(dir.y):
 		if dir.x > 0:
-			animated_sprite.play("idel_right")
+			animated_sprite.play("idle_right")
 		else:
-			animated_sprite.play("idel_left")
+			animated_sprite.play("idle_left")
 	else:
 		if dir.y > 0:
-			animated_sprite.play("idel_down")
+			animated_sprite.play("idle_down")
 		else:
-			animated_sprite.play("idel_up")
+			animated_sprite.play("idle_up")
 func refresh_quest_hint():
 	var quest_status = QuestManager.get_hint_type_by_object_id(ID)
 	$QuestHintMarker.update_hint_mark(quest_status)
 	print(quest_status)
+
+	
+func start_random_idle_extra():
+	if idle_extra_timer_running:
+		return
+	idle_extra_timer_running = true
+	
+	while true:
+		await get_tree().create_timer(randf_range(MIN_ANIMATION_EXTRA_TIMER_WAITING_TIME,MAX_ANIMATION_EXTRA_TIMER_WAITING_TIME)).timeout
+		if can_play_idle_extra():
+			play_random_idle_extra()	
+	
+	
+func can_play_idle_extra()->bool:
+	if velocity != Vector2.ZERO:
+		return false
+	
+	
+	return true
+	
+func play_random_idle_extra():
+	is_idle_extra_playing = true
+	
+	var face_direction = get_face_direction()
+	var effect_name := "breath"
+	var anim_name = "idle" + face_direction + "_" + effect_name
+	
+	if animated_sprite.sprite_frames == null:
+		is_idle_extra_playing = false
+		return
+	
+	if not animated_sprite.sprite_frames.has_animation(anim_name):
+	
+		is_idle_extra_playing = false
+		return
+
+	animated_sprite.play(anim_name)
+	await animated_sprite.animation_finished
+	
+	is_idle_extra_playing = false
+	play_idle_animation(face_dir)
+func get_face_direction():
+	if face_dir == Vector2.UP:
+		return "_up"
+	if face_dir == Vector2.DOWN:
+		return "_down"
+	if face_dir == Vector2.LEFT:
+		return "_left"
+	if face_dir == Vector2.RIGHT:
+		return "_right"
+	return "_down"

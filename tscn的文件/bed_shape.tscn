@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bxxit5vxtb4rl"]
+
+[ext_resource type="Script" uid="uid://44wmgubvkrog" path="res://script/bed_demo.gd" id="1_pcxq0"]
+
+[node name="BedShape" type="StaticBody2D" unique_id=1264920210]
+collision_layer = 5
+script = ExtResource("1_pcxq0")

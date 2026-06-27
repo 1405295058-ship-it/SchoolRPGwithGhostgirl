@@ -8,11 +8,15 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="game"
 run/main_scene="uid://cvwrfokt5v8ue"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -26,13 +30,15 @@ InventoryManager="*res://script/InventoryManager.gd"
 ItemDataBase="*res://sence/Item/Data/ItemDataBase.gd"
 NormalStateUi="*res://tscn的文件/NormalStateUI.tscn"
 TimeManager="*res://script/TimeManager.gd"
+FadeLayer="*uid://25n1c6p7clcs"
+EnvironmentLayer="*uid://bfsagwoh7qr04"
+EventBus="*uid://cw5d33nmwqduk"
 
 [display]
 
 window/size/viewport_width=2560
 window/size/viewport_height=1440
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 
 [input]
 

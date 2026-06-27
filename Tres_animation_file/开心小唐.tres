@@ -1,10 +1,14 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://cxcax5qepujdg"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://cxcax5qepujdg"]
 
 [ext_resource type="Texture2D" uid="uid://cj0vkfmlcq84c" path="res://art/Animation/npc们.png" id="1_3qhh8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fw25h"]
 atlas = ExtResource("1_3qhh8")
 region = Rect2(320, 6080, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qhh8"]
+atlas = ExtResource("1_3qhh8")
+region = Rect2(320, 5760, 320, 320)
 
 [resource]
 animations = [{
@@ -13,6 +17,14 @@ animations = [{
 "texture": SubResource("AtlasTexture_fw25h")
 }],
 "loop": true,
-"name": &"idel_down",
+"name": &"idle_down",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qhh8")
+}],
+"loop": false,
+"name": &"idle_down_breath",
+"speed": 1.0
 }]
