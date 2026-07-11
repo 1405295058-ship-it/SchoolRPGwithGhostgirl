@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://2hsv17y1b0dl"]
+
+[ext_resource type="Script" uid="uid://dsfryt1jlw8d1" path="res://script/cg_director.gd" id="1_71i6j"]
+
+[node name="CgDirector" type="Node2D" unique_id=1525437144 groups=["CGDirector"]]
+script = ExtResource("1_71i6j")
+cg_dialog_database_path = "res://QuestResources/CgDialogDataBase/CgDialogDataBase.json"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1745594314]

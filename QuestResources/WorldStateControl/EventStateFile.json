@@ -1,6 +1,39 @@
 {
 	"开学": {
 		"quest_states": {
+						"1": [
+								{
+							"scene": "Forecourt",
+							"object_ID": "CGDirector",
+							"group":"CGDirector",
+							"action": {
+								
+										"play_animation":
+												{
+													"anim_name":"intro_1"
+												}
+									}
+								},
+								{
+							"scene": "Forecourt",
+							"object_ID": "Forecourt_schooldoor_blocker4",
+							"group":"ProgressBlocker",
+							"action": {
+										"warning_dialog_change":[
+																	{
+																		"speaker":"player",
+																		"text": "Mike在门口，要不要去和他打个招呼？",
+																		"emotion": "normal"
+																	}
+																],
+										"enable": true
+										
+									}
+								},
+								
+								
+					
+							],
 						"2": [
 								{
 							"scene": "Forecourt",
@@ -13,6 +46,49 @@
 										"target_ID":"player",
 										"target_group":"player"
 												}
+									}
+								},
+								{
+							"scene": "Forecourt",
+							"object_ID": "Forecourt_schooldoor_blocker3",
+							"group":"ProgressBlocker",
+							"action": {
+										
+										"enable": true
+										
+									}
+								},
+								{
+							"scene": "Forecourt",
+							"object_ID": "Forecourt_schooldoor_blocker4",
+							"group":"ProgressBlocker",
+							"action": {
+										
+										"enable": false
+										
+									}
+								}
+					
+							],
+							"3": [
+								{
+							"scene": "Forecourt",
+							"object_ID": "Forecourt_center_blocker1",
+							"group":"ProgressBlocker",
+							"action": {
+										
+										"enable": false
+										
+									}
+								},
+								{
+							"scene": "Forecourt",
+							"object_ID": "Forecast_to_TeachingAreaGF",
+							"group":"ChangeSceneArea",
+							"action": {
+										
+										"enable": false
+										
 									}
 								}
 					
@@ -34,6 +110,16 @@
 										"target_ID":"player",
 										"target_group":"player"
 												}
+									}
+								},
+								{
+							"scene": "Forecourt",
+							"object_ID": "Forecast_to_TeachingAreaGF",
+							"group":"ChangeSceneArea",
+							"action": {
+										
+										"enable": true
+										
 									}
 								}
 					

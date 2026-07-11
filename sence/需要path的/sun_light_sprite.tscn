@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cykwuwrbfy85l"]
+
+[ext_resource type="Texture2D" uid="uid://dkd124sv56cj4" path="res://art/校门和1层/室内假光.png" id="1_cvrgp"]
+[ext_resource type="Script" uid="uid://400laa5ybjiy" path="res://script/sun_light_sprite.gd" id="2_b8781"]
+
+[node name="SunLightSprite" type="PointLight2D" unique_id=185607761]
+scale = Vector2(17.620089, 10.1683035)
+color = Color(0.9862669, 0.82362443, 0.44118702, 0.11764706)
+texture = ExtResource("1_cvrgp")
+script = ExtResource("2_b8781")

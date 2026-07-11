@@ -47,7 +47,7 @@ func close_user_UI():
 func show_user_UI():
 	get_tree().paused = true
 	$AnimationPlayer.play("show_user_UI")
-	
+	$AnimationPlayer.seek(0.0,true)
 	show()
 
 	switch_bag_layer("bag")

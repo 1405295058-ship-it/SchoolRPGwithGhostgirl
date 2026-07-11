@@ -21,14 +21,9 @@
 													"time_condition":
 																	{
 																		"day_period":["lunch_time"],
-																		"week_period":["monday"]
+																		"week_period":["sunday"]
 																	},
 													"time_hint":"现在不是时候，等到中午的时候再去找Mike把。"
-												},
-												{
-													"text":"找到5个你的饭卡",
-													"in_code":"pick_up_player_money_card",
-													"target_amount": 5
 												}
 								
 											]

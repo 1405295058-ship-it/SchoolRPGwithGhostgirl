@@ -273,17 +273,32 @@ func find_quest_discription_by_quest_name(quest_name):
 #================================================================================================================================================================	
 
 func is_npc_related_objective_time_available(quest_name:String,npc_id:String)-> bool:
-	var quest_state_str = str(quest_progress_data[quest_name]["current_state"])
-	var state_data = quest_data[quest_name]["quest_states"].get(quest_state_str,{})
-	var objectives = state_data.get("objective",[])
 	
-	for objective in objectives:
-		if objective.get("target_id","")!= npc_id:
-			continue
-		if not is_objective_time_available(objective):
-			return false
-		
-	return true
+	var quest_status = quest_progress_data[quest_name]["quest_progress_status"]
+	
+	
+	match quest_status:
+		quest_progress_status.active:
+			var quest_state_str = str(quest_progress_data[quest_name]["current_state"])
+			var state_data = quest_data[quest_name]["quest_states"].get(quest_state_str,{})
+			var objectives = state_data.get("objective",[])
+			for objective in objectives:
+				if objective.get("target_id","")!= npc_id:
+					continue
+				if not is_objective_time_available(objective):
+					return false
+				
+			return true
+		quest_progress_status.unlock:
+			var active_method = quest_data[quest_name].get("active_method",{})
+			if active_method.get("target_id","")!= npc_id:
+					return true
+			if not is_objective_time_available(active_method):
+					return false
+			return true
+			
+	
+	return true		
 
 
 func is_objective_time_available(objective:Dictionary)->bool:
@@ -340,7 +355,9 @@ func resolve_character_dialoglist(npc_dialog_data: Dictionary,npc_id:String) -> 
 
 			if quest_data[quest_name]["type"] != rule["type"]:#找到符合type的任务
 				continue
-
+			
+			
+			
 			if rule["status"] == "active":#激活状态
 				if not npc_dialog_data[quest_name].has("quest_states"):#如果这个阶段npc不需要说话的话
 					continue
@@ -355,6 +372,8 @@ func resolve_character_dialoglist(npc_dialog_data: Dictionary,npc_id:String) -> 
 				}
 			
 			if rule["status"] == "unlock":#解锁状态#active检查完正常就return了 如果到了这里说明没有active的任务
+				if not is_npc_related_objective_time_available(quest_name,npc_id):
+					continue
 				return {
 					"dialog_list": npc_dialog_data[quest_name].get("unlock_dialog", []),
 					"start_talk_state":start_talk_state
@@ -390,12 +409,14 @@ func get_hint_type_by_object_id(ID:String):
 	#接下来是unlocked
 	for quest_name in unlocked_quest:
 		var active_method = quest_data[quest_name].get("active_method",{})
-
+		
 		if active_method.is_empty():
 			continue
-
+		
 		if active_method.get("target_id", "") == ID:
-			return "unlocked"
+			if is_objective_time_available(active_method):
+				return "unlocked"
+			return ""
 	return ""	
 
 

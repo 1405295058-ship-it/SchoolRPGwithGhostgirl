@@ -1,3 +1,4 @@
+#basicimportantNPC
 extends CharacterBody2D
 class_name BasicImportantNPC
 
@@ -23,7 +24,7 @@ var idle_extra_timer_running := false
 var MAX_ANIMATION_EXTRA_TIMER_WAITING_TIME = 10
 var MIN_ANIMATION_EXTRA_TIMER_WAITING_TIME = 5
 
-@export var defult_dialog: Array = [
+@export var default_dialog: Array = [
 	{
 		"speaker":"Mike",
 		"text": "嘿！这不是nige吗？",
@@ -55,7 +56,7 @@ func interact(_player):
 	dialog_result = QuestManager.resolve_character_dialoglist(dialog_data,ID)
 	DialogBox.start_dialog(
 	 dialog_result["dialog_list"],
-	 defult_dialog,
+	 default_dialog,
 	 dialog_result["start_talk_state"]
 	)
 	var event_name = "talked_with_" + ID
@@ -146,7 +147,7 @@ func play_idle_animation(dir:Vector2):
 func refresh_quest_hint():
 	var quest_status = QuestManager.get_hint_type_by_object_id(ID)
 	$QuestHintMarker.update_hint_mark(quest_status)
-	print(quest_status)
+	
 
 	
 func start_random_idle_extra():

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://betgqbyoqeybt"]
+
+[ext_resource type="Script" uid="uid://wcto51pcap8c" path="res://script/sun_light.gd" id="1_rea1a"]
+
+[sub_resource type="Curve2D" id="Curve2D_kx7k1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -477, -7179.5522, 0, 0, 0, 0, -318, 3728.2678)
+}
+point_count = 2
+
+[node name="SunLight" type="Path2D" unique_id=1123450457]
+curve = SubResource("Curve2D_kx7k1")
+script = ExtResource("1_rea1a")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=1959503851]
+position = Vector2(-322.3883, 3427.2197)
+rotation = 1.5562207
+progress = 10607.878

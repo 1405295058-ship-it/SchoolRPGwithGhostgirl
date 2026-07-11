@@ -4,7 +4,9 @@ var scene_map = {}
 
 const WORLD_STATE_PATH:="res://QuestResources/WorldStateControl/WorldStateFile.json"
 const EVENT_STATE_PATH:="res://QuestResources/WorldStateControl/EventStateFile.json"
-const DEFULT_OBJECT_SCHEDULE_PATH:="res://QuestResources/WorldStateControl/DefaultObjectScheduleFile.json"
+const DEFAULT_OBJECT_SCHEDULE_PATH:="res://QuestResources/WorldStateControl/DefaultObjectScheduleFile.json"
+
+var cg_played_once = {}
 
 var current_changed_record = {
 	"Forecourt":{
@@ -26,6 +28,7 @@ var default_object_schedule := {}
 var event_state := {}
 var world_state := {}
 
+var lock_interact := false
 
 func _ready() -> void:
 	EventBus.change_day_period.connect(_on_day_period_changed)
@@ -33,10 +36,12 @@ func _ready() -> void:
 	EventBus.a_quest_state_finished.connect(_on_quest_state_finish)
 	EventBus.unlocked_quest_world_should_apply.connect(_on_unlocked_quest_world_should_apply)
 	EventBus.scene_changed.connect(_on_scene_changed)
+	EventBus.start_play_cg.connect(lock_interaction)
+	EventBus.end_play_cg.connect(unlock_interaction)
 	
 	world_state = load_file_from_json(WORLD_STATE_PATH)
 	event_state = load_file_from_json(EVENT_STATE_PATH)
-	default_object_schedule = load_file_from_json(DEFULT_OBJECT_SCHEDULE_PATH)
+	default_object_schedule = load_file_from_json(DEFAULT_OBJECT_SCHEDULE_PATH)
 	
 	
 func load_file_from_json(path:String)->Dictionary:
@@ -52,7 +57,9 @@ func load_file_from_json(path:String)->Dictionary:
 		return{}
 	return data
 
-
+#===================================================================================================================================================
+#信号
+#===================================================================================================================================================
 func _on_scene_changed():
 	refresh_scene_state()	
 	
@@ -68,13 +75,17 @@ func _on_day_period_changed()->void:
 func _on_unlocked_quest_world_should_apply(quest_name)->void:
 	event_and_world_state_update(quest_name,"unactive")
 	
+	
+#===================================================================================================================================================
+#信号
+#===================================================================================================================================================
 #一个需要刷新的总和
 func refresh_scene_state():
 	erase_current_scene_record()
-	load_defult_objects_in_current_scene()
+	load_default_objects_in_current_scene()
 	apply_current_quest_states()
 	load_record()
-	print("record是： ",current_changed_record)
+	
 	
 func erase_current_scene_record():
 	var current_scene_name = get_tree().current_scene.name
@@ -137,7 +148,7 @@ func world_state_update(quest_name,current_state_str):
 	for change_information in current_changes:
 		process_action_and_change(change_information ,"change")
 		write_record(change_information,"change")
-		print(current_changed_record )
+		
 
 		
 func find_things_in_scene_byID(group:String,ID:String):
@@ -229,7 +240,7 @@ func load_record():
 			
 			
 #加载有schedule的东西
-func load_defult_objects_in_current_scene():
+func load_default_objects_in_current_scene():
 	var current_week_period = TimeManager.current_week_period
 	var current_day_period = TimeManager.current_day_period
 	var current_scene_name = get_tree().current_scene.name
@@ -291,17 +302,34 @@ func process_action_and_change(action_or_change_information,action_or_change:Str
 	
 	match action_or_change:
 		"action":
-			var ID = action_or_change_information["object_ID"]
-			var group = action_or_change_information["group"]
-			var actions = action_or_change_information["action"]
-
-			if group == "NPC":
-				for action_name in actions.keys():
-					match action_name:
-						"following":
-							should_follow(ID, group, action_or_change_information)
-						
-
+			var ID = action_or_change_information.get("object_ID","")
+			var group = action_or_change_information.get("group","")
+			var actions = action_or_change_information.get("action",{})
+			
+			match group:
+				"NPC":
+					for action_name in actions.keys():
+						match action_name:
+							"following":
+								should_follow(ID, group, action_or_change_information)
+				"CGDirector":
+					for action_name in actions.keys():
+						match action_name:
+							"play_animation":
+									var anim_name = actions["play_animation"].get("anim_name","")
+									if can_play_this_cg(anim_name):
+										cg_played_once[anim_name] = true
+										EventBus.play_this_animation.emit(anim_name)			
+				"ProgressBlocker":
+					var enable = actions.get("enable",false)
+					var warning_dialog_change = actions.get("warning_dialog_change",[])
+					EventBus.call_this_progress_blocker.emit(ID,enable,warning_dialog_change)
+				"ChangeSceneArea":
+					var enable = actions.get("enable",true)
+					var warning_dialog_change = actions.get("warning_dialog_change",[])
+					EventBus.call_this_change_scene_area.emit(ID, enable,warning_dialog_change)
+				
+			
 		"change":
 			var group = action_or_change_information["group"]
 			var object_id = action_or_change_information["object_ID"]
@@ -323,3 +351,16 @@ func process_action_and_change(action_or_change_information,action_or_change:Str
 				var facing_dir = face_dir_vector
 				if body.has_method("apply_facing_dir"):
 					body.apply_facing_dir(facing_dir)
+func can_play_this_cg(anim_name:String)->bool:
+	if anim_name == "":
+		push_error("这个阶段的任务CG动画缺失。",)
+		return false
+	if cg_played_once and cg_played_once.get(anim_name,false):
+		return false
+	return true
+
+func lock_interaction():
+	lock_interact = true
+func unlock_interaction():
+	lock_interact = false
+		

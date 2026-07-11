@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var current_interact_object = []
+var cg_is_playing :=false
 
 var ID = "player"
 
@@ -26,9 +27,18 @@ var ANIMATION_EXTRA_TIMER_WAITING_TIME = 3
 
 
 func _ready() -> void:
+	EventBus.start_play_cg.connect(on_cg_start_play)
+	EventBus.end_play_cg.connect(on_cg_stop_play)
 	hide_interact_hint()
 	add_to_group("player")
 	start_random_idle_extra()
+
+func on_cg_start_play():
+	cg_is_playing = true
+func on_cg_stop_play():
+	cg_is_playing = false
+	
+
 
 #每一帧进行一次
 func _process(_delta: float) -> void:
@@ -51,6 +61,8 @@ func can_play_idle_extra()->bool:
 		return false
 	if player_current_state != Player_states.normal:
 		return false
+	if cg_is_playing:
+		return false
 	
 	return true
 	
@@ -65,13 +77,15 @@ func play_random_idle_extra():
 	anim.play(anim_name)
 	await anim.animation_finished
 	
-	is_idle_extra_playing = false
+	if velocity == Vector2.ZERO:
+		is_idle_extra_playing = false
 		
 	
 #每一帧进行一次 有物理计算
 func _physics_process(_delta):
-	player_movement()
-	update_animation()
+	if cg_is_playing == false:
+		player_movement()
+		update_animation()
 
 #移动
 func player_movement():
@@ -109,7 +123,10 @@ func player_movement():
 		$Camera2D.global_position = global_position.round()
 #走路动画
 func update_animation():
-	if is_idle_extra_playing:
+	var is_moving := velocity != Vector2.ZERO
+	if is_idle_extra_playing and is_moving:
+		is_idle_extra_playing = false
+	elif is_idle_extra_playing:
 		return
 	
 	var moving = false
@@ -151,10 +168,13 @@ func camera_zoom():
 
 	
 	
-	#这是判断是不是可以说话的npc然后用defult dialoge对话
+	#这是判断是不是可以说话的npc然后用default dialoge对话
 func should_dialog():
 	
 	if DialogBox.is_in_dialog or DialogBox.just_closed:
+		return
+
+	if GameStateManager.lock_interact:
 		return
 
 	if Input.is_action_just_pressed("Interaction"):
@@ -219,3 +239,10 @@ func hide_interact_hint():
 func show_interact_hint():
 	$InteractHint.show()
 	$InteractHint.play("default")
+
+func _play_animation_called_by_animation_player(anim_name:String):
+	if not $AnimatedSprite2D.sprite_frames.has_animation(anim_name):
+		push_error(ID,"没有这个动画名: ",anim_name)
+		return
+	$AnimatedSprite2D.play(anim_name)
+	

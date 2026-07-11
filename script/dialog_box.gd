@@ -8,7 +8,13 @@ var options = []
 var dialogs = []
 var current = 0
 var next_state = ""
+var is_talking_status := true
 
+var known_speakers: Dictionary = {
+"Mom":true	
+}
+
+var pending_name_reveal:String = ""
 
 @export_file("*.json") var character_face_database_path = ""
 var character_face_database ={}
@@ -25,6 +31,8 @@ var just_closed = false
 
 var player_name = ""
 
+@onready var character_name_label = $Content/NameText
+
 func _ready():
 	load_face_database_from_json()
 	$Content/Options/option1.pressed.connect(func(): _on_option_pressed(0))
@@ -36,10 +44,12 @@ func _ready():
 	
 	
 func _process(_delta):
-	player_input()
+	if content.visible and is_talking_status == true:
+		player_input()
 	
+
 func player_input():
-	if Input.is_action_just_pressed("Interaction") and $Content.visible:
+	if Input.is_action_just_pressed("Interaction") or Input.is_action_just_pressed("left_click") :
 		if tween and tween.is_running():
 			tween.kill()
 			$Content/dialog.visible_ratio = 1
@@ -48,6 +58,7 @@ func player_input():
 		
 		
 		elif current +1 < dialogs.size():
+			apply_pending_name_reveal()
 			current += 1
 			process_dialog(current)
 			
@@ -66,17 +77,18 @@ func player_input():
 func hide_DialogBox():
 	$Content.hide()
 
-func start_dialog(current_dialog_list:Array,defult_dialog:Array,start_state:="start"):
+func start_dialog(current_dialog_list:Array,default_dialog:Array,start_state:="start"):
 	next_player_step = ""
+	$Content.hide()
 	$AnimationPlayer.play("dialog_show_cg")
-	show()
+	$AnimationPlayer.seek(0.0,true)
 	$Content.show()
 	
 	get_tree().paused = true
 	is_in_dialog = true
 	current = 0
 	if current_dialog_list.is_empty():
-		dialogs = defult_dialog
+		dialogs = default_dialog
 		process_dialog(current)
 		next_player_step = "end"
 	else:
@@ -120,19 +132,19 @@ func process_dialog(index):
 		return
 
 	
+	pending_name_reveal = dialogs[index].get("reveal_name", "")
+	 
 	
 	var dialog_text = dialogs[index]["text"]	
 		
-		
-		
 	dialog_text = dialog_text.replace("{player}", player_name)	
-		
-		
-		
 		
 	$Content/dialog.text = dialog_text
 	var emotion = dialogs[index]["emotion"]
 	var speaker = dialogs[index]["speaker"]
+	
+	update_speaker_name(speaker)
+	
 	if not character_face_database.has(speaker):
 		push_error("头像数据库没有这个角色: " + speaker)
 		return
@@ -164,21 +176,26 @@ func close_dialog():
 	just_closed = true
 	await get_tree().create_timer(0.15, true, false, true).timeout
 	just_closed = false
-	
+	EventBus.on_dialog_finished.emit()
 
 	
 func hide_naming():
+	is_talking_status = true
 	$Content/Naming.hide()
 func player_naming_show():
+	is_talking_status = false
 	$Content/Naming.show()
 	$Content/dialog.text = ""
+	$Content/NameText.text = ""
 	$Content/Naming/Warning.text = ""
 	$Content/Naming/LineEdit.text = ""		
 	$Content/Nextindicator.hide()
 	
 #这是角色选项
 func show_options():
+	is_talking_status = false
 	$Content/dialog.text = ""
+	$Content/NameText.text = ""
 	if options.is_empty() :
 		return
 	$Content.text = ""
@@ -211,7 +228,7 @@ func _on_option_pressed(index):
 
 func hide_options():
 	$Content/Options.hide()	
-
+	is_talking_status = true
 func go_to_next_state():
 	for state in dialog_list:
 		if state["talk_state"] == next_state:
@@ -242,10 +259,14 @@ func _on_sure_button_pressed() -> void:
 		$Content/Naming/Warning.text = "不是哥们儿 你名字太长了吧"
 	else:
 		player_name = player_name_check.strip_edges()
+		known_speakers["player"] = true
 		current = 0
 		hide_naming()
-
+		
+		
 		go_to_next_state()
+		is_talking_status = true
+		
 
 func load_face_database_from_json():
 	if character_face_database_path == "":
@@ -257,3 +278,34 @@ func load_face_database_from_json():
 		character_face_database = parsed_data
 	else:
 		print("fail to parsed",character_face_database_path)
+
+func update_speaker_name(speaker: String) -> void:
+	if not character_face_database.has(speaker):
+		character_name_label.text = "???:"
+		return
+	
+	if not known_speakers.has(speaker):
+		if speaker == "player":
+			character_name_label.text = "我" + ":"
+			return
+		character_name_label.text = "???:"
+		return
+	
+	if speaker == "player":
+		character_name_label.text = player_name + ":"
+		return
+
+	var display_name: String = character_face_database[speaker].get(
+		"display_name",
+		speaker
+	) + ":"
+
+	if known_speakers.has(speaker):
+		character_name_label.text = display_name
+	
+func apply_pending_name_reveal() -> void:
+	if pending_name_reveal.is_empty():
+		return
+
+	known_speakers[pending_name_reveal] = true
+	pending_name_reveal = ""

@@ -10,7 +10,7 @@ const face_map = {
 	
 }
 
-const defult_dialog = 	[
+const default_dialog = 	[
 							{
 								"text":"别来烦我呀！",
 								"emotion":"normal"
@@ -23,5 +23,5 @@ const defult_dialog = 	[
 						
 
 func interact(_player):	
-	DialogBox.start_dialog(current_dialog_list,defult_dialog)
+	DialogBox.start_dialog(current_dialog_list,default_dialog)
 	

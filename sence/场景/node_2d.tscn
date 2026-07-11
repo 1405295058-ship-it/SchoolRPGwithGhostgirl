@@ -16,18 +16,18 @@
 [ext_resource type="Texture2D" uid="uid://jkp3g88qr56s" path="res://art/亮红树丛.png" id="14_cafo5"]
 [ext_resource type="Texture2D" uid="uid://gglsem7frjxo" path="res://art/校门和1层/楼梯.png" id="15_nc082"]
 [ext_resource type="Texture2D" uid="uid://cesienvttirwg" path="res://art/校门和1层/坛.png" id="16_7abug"]
-[ext_resource type="PackedScene" uid="uid://ce11kw0ovorlq" path="res://tscn的文件/nvsu_she.tscn" id="17_8r5ll"]
-[ext_resource type="PackedScene" uid="uid://c2qvgp4rsa8mb" path="res://tscn的文件/Sushe.tscn" id="18_w75i2"]
-[ext_resource type="PackedScene" uid="uid://com4277np1815" path="res://tscn的文件/shcool_door.tscn" id="19_fmgcx"]
-[ext_resource type="PackedScene" uid="uid://cnafal0kdstjn" path="res://tscn的文件/jiao_xue.tscn" id="20_bx4kr"]
-[ext_resource type="PackedScene" uid="uid://dxpeqre7pt364" path="res://tscn的文件/big_bush.tscn" id="21_4k64w"]
-[ext_resource type="PackedScene" uid="uid://crf1w5euf8otp" path="res://tscn的文件/light.tscn" id="22_41b2x"]
-[ext_resource type="PackedScene" uid="uid://bk35deagp71vq" path="res://tscn的文件/trush_can.tscn" id="23_hixiv"]
-[ext_resource type="PackedScene" uid="uid://capowdmbe1sek" path="res://tscn的文件/linker.tscn" id="24_d5hhr"]
-[ext_resource type="PackedScene" uid="uid://5sgy0k2htp7b" path="res://tscn的文件/player.tscn" id="25_2g1hi"]
-[ext_resource type="PackedScene" uid="uid://dpt4j14odlit6" path="res://tscn的文件/tree.tscn" id="26_fkely"]
+[ext_resource type="PackedScene" uid="uid://ce11kw0ovorlq" path="res://sence/tscn的文件/nvsu_she.tscn" id="17_8r5ll"]
+[ext_resource type="PackedScene" uid="uid://c2qvgp4rsa8mb" path="res://sence/tscn的文件/Sushe.tscn" id="18_w75i2"]
+[ext_resource type="PackedScene" uid="uid://com4277np1815" path="res://sence/tscn的文件/shcool_door.tscn" id="19_fmgcx"]
+[ext_resource type="PackedScene" uid="uid://cnafal0kdstjn" path="res://sence/tscn的文件/jiao_xue.tscn" id="20_bx4kr"]
+[ext_resource type="PackedScene" uid="uid://dxpeqre7pt364" path="res://sence/tscn的文件/big_bush.tscn" id="21_4k64w"]
+[ext_resource type="PackedScene" uid="uid://crf1w5euf8otp" path="res://sence/tscn的文件/light.tscn" id="22_41b2x"]
+[ext_resource type="PackedScene" uid="uid://bk35deagp71vq" path="res://sence/tscn的文件/trush_can.tscn" id="23_hixiv"]
+[ext_resource type="PackedScene" uid="uid://capowdmbe1sek" path="res://sence/tscn的文件/linker.tscn" id="24_d5hhr"]
+[ext_resource type="PackedScene" uid="uid://5sgy0k2htp7b" path="res://sence/tscn的文件/player.tscn" id="25_2g1hi"]
+[ext_resource type="PackedScene" uid="uid://dpt4j14odlit6" path="res://sence/tscn的文件/tree.tscn" id="26_fkely"]
 [ext_resource type="AudioStream" uid="uid://h0cthu34qk3b" path="res://Music/蝉叫声.ogg" id="27_341ir"]
-[ext_resource type="PackedScene" uid="uid://lrehhjj0gtih" path="res://tscn的文件/basic_important_npc.tscn" id="29_k5pxi"]
+[ext_resource type="PackedScene" uid="uid://lrehhjj0gtih" path="res://sence/tscn的文件/basic_important_npc.tscn" id="29_k5pxi"]
 [ext_resource type="SpriteFrames" uid="uid://co72a1s85wtag" path="res://Tres_animation_file/mike.tres" id="30_j28si"]
 [ext_resource type="SpriteFrames" uid="uid://cy1ptl5655tyo" path="res://Tres_animation_file/Evelyn.tres" id="31_8fa61"]
 [ext_resource type="SpriteFrames" uid="uid://cxcax5qepujdg" path="res://Tres_animation_file/开心小唐.tres" id="32_aetdp"]
@@ -38,17 +38,20 @@
 [ext_resource type="SpriteFrames" uid="uid://exfqkq1p6phx" path="res://Tres_animation_file/Kuma.tres" id="37_ofi84"]
 [ext_resource type="SpriteFrames" uid="uid://yl5ean4doyst" path="res://Tres_animation_file/Longer.tres" id="38_qi1d8"]
 [ext_resource type="SpriteFrames" uid="uid://2h05qhr52hqn" path="res://Tres_animation_file/Rachel.tres" id="39_uumq1"]
-[ext_resource type="PackedScene" uid="uid://og38lr5rmvyr" path="res://tscn的文件/round_head_tree.tscn" id="40_n1trc"]
-[ext_resource type="PackedScene" uid="uid://btq2bojhyy5ey" path="res://tscn的文件/table.tscn" id="41_maje2"]
-[ext_resource type="PackedScene" uid="uid://bydavctptf71c" path="res://tscn的文件/check_player_area.tscn" id="42_1dbik"]
-[ext_resource type="PackedScene" uid="uid://djl3jdb75kd2t" path="res://tscn的文件/change_scene_area.tscn" id="43_f840s"]
+[ext_resource type="PackedScene" uid="uid://og38lr5rmvyr" path="res://sence/tscn的文件/round_head_tree.tscn" id="40_n1trc"]
+[ext_resource type="PackedScene" uid="uid://btq2bojhyy5ey" path="res://sence/tscn的文件/table.tscn" id="41_maje2"]
+[ext_resource type="PackedScene" uid="uid://bydavctptf71c" path="res://sence/tscn的文件/check_player_area.tscn" id="42_1dbik"]
+[ext_resource type="PackedScene" uid="uid://djl3jdb75kd2t" path="res://sence/tscn的文件/change_scene_area.tscn" id="43_f840s"]
 [ext_resource type="PackedScene" uid="uid://wd8thqvsv35f" path="res://sence/Item/need_pick_item_scene.tscn" id="44_jyvo4"]
 [ext_resource type="Resource" uid="uid://byief4gsvgi60" path="res://sence/Item/LaoShiCard.tres" id="45_4ypv0"]
 [ext_resource type="Resource" uid="uid://dqgrdney7xjpk" path="res://sence/Item/MasterPaper.tres" id="46_doqns"]
-[ext_resource type="Resource" uid="uid://bp1blx5x7va5g" path="res://sence/Item/MoneyCard.tres" id="47_doqns"]
-[ext_resource type="PackedScene" uid="uid://bea121cyqgx2p" path="res://tscn的文件/dialog_warning_area.tscn" id="48_otlnv"]
+[ext_resource type="PackedScene" uid="uid://bea121cyqgx2p" path="res://sence/tscn的文件/dialog_warning_area.tscn" id="48_otlnv"]
 [ext_resource type="Texture2D" uid="uid://d3lutn5cgntpq" path="res://art/飘的粒子特效.png" id="49_cafo5"]
-[ext_resource type="PackedScene" uid="uid://c251sqr0v2q4c" path="res://tscn的文件/bed_demo.tscn" id="49_xc6fy"]
+[ext_resource type="PackedScene" uid="uid://betgqbyoqeybt" path="res://sence/tscn的文件/sun_light.tscn" id="50_2hqcw"]
+[ext_resource type="PackedScene" uid="uid://2hsv17y1b0dl" path="res://sence/tscn的文件/cg_director.tscn" id="50_xc6fy"]
+[ext_resource type="Texture2D" uid="uid://dm7balgu5yr6s" path="res://art/动画资源/开学/车子.png" id="51_2hqcw"]
+[ext_resource type="PackedScene" uid="uid://b0i2pgw2of37r" path="res://sence/tscn的文件/progress_blocker.tscn" id="51_lovux"]
+[ext_resource type="PackedScene" uid="uid://bh1u51nkb477v" path="res://sence/tscn的文件/random_npc_spawner.tscn" id="52_lovux"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e8dv2"]
 texture = ExtResource("2_u0uq3")
@@ -309,13 +312,144 @@ scale_curve = SubResource("CurveTexture_doqns")
 size = Vector2(3095, 2057)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_83vvf"]
-size = Vector2(312, 363)
+size = Vector2(458, 345.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_doqns"]
-size = Vector2(906, 311)
+size = Vector2(906, 336.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cafo5"]
 size = Vector2(912, 399)
+
+[sub_resource type="Animation" id="Animation_lovux"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3836, 3372)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../车子demo:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4106, 3221)]
+}
+
+[sub_resource type="Animation" id="Animation_xc6fy"]
+resource_name = "intro_1"
+length = 9.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 6.06, 7.01, 7.84),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3836, 3372), Vector2(-2400, 3323), Vector2(-2311, 3136), Vector2(-2311, 3136), Vector2(-2294, 2899)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../车子demo:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5, 6.02, 9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4106, 3221), Vector2(-2378, 3221), Vector2(-2378, 3221), Vector2(-13632, 3296)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Player")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(5.266667, 7, 7.8333335),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["idle_up"],
+"method": &"_play_animation_called_by_animation_player"
+}, {
+"args": ["walk_up"],
+"method": &"_play_animation_called_by_animation_player"
+}, {
+"args": ["idle_up"],
+"method": &"_play_animation_called_by_animation_player"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(5.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["intro_1_01"],
+"method": &"start_cg_dialog"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2hqcw"]
+_data = {
+&"RESET": SubResource("Animation_lovux"),
+&"intro_1": SubResource("Animation_xc6fy")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rksx3"]
+size = Vector2(557, 2169.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hqcw"]
+size = Vector2(6130, 1826.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lovux"]
+size = Vector2(6278, 2043)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5gu7"]
+size = Vector2(1149, 4692.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f57uv"]
+size = Vector2(15192.5, 719.53125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pf22d"]
+size = Vector2(13874, 518)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nc082"]
+size = Vector2(2678, 408)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7abug"]
+size = Vector2(2144, 315)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8r5ll"]
+size = Vector2(562, 7626)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w75i2"]
+size = Vector2(400.75, 7555.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmgcx"]
+size = Vector2(14903, 1203)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bx4kr"]
+size = Vector2(13649, 595)
 
 [node name="Forecourt" type="Node2D" unique_id=325294605]
 y_sort_enabled = true
@@ -325,7 +459,7 @@ scene_id = "Forecast"
 camera_limit_left = -10068
 camera_limit_top = -7061
 camera_limit_right = 3849
-camera_limit_bottom = 3272
+camera_limit_bottom = 3500
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1023375103]
 z_index = 1
@@ -484,7 +618,7 @@ position = Vector2(-1924, -189)
 position = Vector2(734, 1824)
 
 [node name="Player" parent="." unique_id=472104056 instance=ExtResource("25_2g1hi")]
-position = Vector2(-1753, 2994)
+position = Vector2(3836, 3372)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Player" unique_id=1109843750]
 top_level = true
@@ -612,16 +746,11 @@ autoplay = true
 parameters/looping = true
 
 [node name="Mike" parent="." unique_id=71429859 instance=ExtResource("29_k5pxi")]
-position = Vector2(-2273, 2333)
+position = Vector2(8775, -333)
 NPC_name = "Mike"
 ID = "Forecourt_npc_Mike"
 dialog_json_path = "res://QuestResources/Dialog/MikeDialog.json"
 sprite_frame = ExtResource("30_j28si")
-defult_dialog = [{
-"emotion": "normal",
-"speaker": "Mike",
-"text": "看我干嘛？"
-}]
 
 [node name="Evelyn" parent="." unique_id=1372863975 instance=ExtResource("29_k5pxi")]
 position = Vector2(-1434, 1373)
@@ -629,115 +758,54 @@ NPC_name = "Evelyn"
 ID = "Forecourt_npc_Evelyn"
 dialog_json_path = "res://QuestResources/Dialog/Evelyn.json"
 sprite_frame = ExtResource("31_8fa61")
-defult_dialog = [{
-"emotion": "normal",
-"speaker": "Evelyn",
-"text": "开学快乐吗？{player}?  "
-}, {
-"emotion": "normal",
-"speaker": "Evelyn",
-"text": "我是你班主任Evelyn呀！"
-}]
 
 [node name="小唐" parent="." unique_id=1809239349 instance=ExtResource("29_k5pxi")]
 position = Vector2(-1224, 1375)
 NPC_name = "Small_Alice"
 ID = "Forecourt_npc_Small_Alice"
 sprite_frame = ExtResource("32_aetdp")
-defult_dialog = [{
-"emotion": "normal",
-"speaker": "Alice",
-"text": "Hello呀！ "
-}, {
-"emotion": "normal",
-"speaker": "Alice",
-"text": "我是副班开心小唐。"
-}]
 
 [node name="Ryan" parent="." unique_id=1542039601 instance=ExtResource("29_k5pxi")]
 position = Vector2(-495, 1326)
 NPC_name = "Ryan"
 ID = "Forecourt_npc_Ryan"
 sprite_frame = ExtResource("33_oke22")
-defult_dialog = [{
-"emotion": "normal",
-"speaker": "Ryan",
-"text": "也？ 我假发也？"
-}]
 
 [node name="大爱丽丝" parent="." unique_id=66369320 instance=ExtResource("29_k5pxi")]
 position = Vector2(-646, 1433)
 NPC_name = "Big_Alice"
 ID = "Forecourt_npc_Alice"
 sprite_frame = ExtResource("34_b70ti")
-defult_dialog = [{
-"emotion": "normal",
-"speaker": "Big_Alice",
-"text": "去不去吃好吃的？"
-}, {
-"emotion": "normal",
-"speaker": "Big_Alice",
-"text": "Ryan有个新据点。"
-}]
 
 [node name="曾joy" parent="." unique_id=758304559 instance=ExtResource("29_k5pxi")]
 position = Vector2(543, 1267)
 NPC_name = "ZJoy"
 ID = "Forecourt_npc_ZJoy"
 sprite_frame = ExtResource("35_wbwrt")
-defult_dialog = [{
-"emotion": "normal",
-"speaker": "Joy",
-"text": "同学，想升学吗？"
-}]
 
 [node name="李胜" parent="." unique_id=116977866 instance=ExtResource("29_k5pxi")]
 position = Vector2(101, 1610)
 NPC_name = "Sean"
 ID = "Forecourt_npc_Sean"
 sprite_frame = ExtResource("36_gg1wg")
-defult_dialog = [{
-"emotion": "normal",
-"speaker": "Sean",
-"text": "头发，头发！头发！！"
-}, {
-"emotion": "normal",
-"speaker": "Sean",
-"text": "出去剪了再回来！"
-}]
 
 [node name="Kuma" parent="." unique_id=172376608 instance=ExtResource("29_k5pxi")]
 position = Vector2(407, 1622)
 NPC_name = "Kuma"
 ID = "Forecourt_npc_Kuma"
 sprite_frame = ExtResource("37_ofi84")
-defult_dialog = [{
-"emotion": "normal",
-"speaker": "Kuma",
-"text": "滚出去！！"
-}]
 
 [node name="Longer" parent="." unique_id=636594441 instance=ExtResource("29_k5pxi")]
 position = Vector2(937, 1305)
 NPC_name = "Longer"
 ID = "Forecourt_npc_Longer"
 sprite_frame = ExtResource("38_qi1d8")
-defult_dialog = [{
-"emotion": "normal",
-"speaker": "Longer",
-"text": "同学，你也想学物理吗？"
-}]
 
 [node name="Rachel" parent="." unique_id=1898281864 instance=ExtResource("29_k5pxi")]
 position = Vector2(1164, 1369)
 NPC_name = "Rachel"
 ID = "Forecourt_npc_Rachel"
 sprite_frame = ExtResource("39_uumq1")
-defult_dialog = [{
-"emotion": "normal",
-"speaker": "Rachel",
-"text": "哦，我是数学老师，你找错人了吧。"
-}]
 
 [node name="RoundHeadTree" parent="." unique_id=1674854392 groups=["tree"] instance=ExtResource("40_n1trc")]
 position = Vector2(-2305, 112)
@@ -806,7 +874,7 @@ position = Vector2(-1223, 1432)
 position = Vector2(-646, 1486)
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=809311728]
-position = Vector2(-1568, -5245)
+position = Vector2(1319, -1105)
 
 [node name="CheckPlayerArea" parent="." unique_id=687199203 instance=ExtResource("42_1dbik")]
 position = Vector2(-6385, -4977)
@@ -817,14 +885,18 @@ position = Vector2(252.5, -39.5)
 shape = SubResource("RectangleShape2D_r5kkd")
 
 [node name="ChangeSceneArea" parent="." unique_id=1665399113 instance=ExtResource("43_f840s")]
-position = Vector2(2195, -1366)
-spawn_id = "Forecast_to_TeachingAreaGF"
+z_index = 3
+position = Vector2(2192, -1535)
+ID = "Forecast_to_TeachingAreaGF"
 target_scene_path = "uid://d0w6ui0guwdyv"
 target_spawn_id = "TeachingAreaGF_to_Forecast1"
 enter_animation_facing_dir = Vector2(0, -1)
 
+[node name="StartMarker2D" parent="ChangeSceneArea" index="0"]
+position = Vector2(1, 113)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeSceneArea" unique_id=201449884]
-position = Vector2(-22, -210)
+position = Vector2(-4, -59)
 shape = SubResource("RectangleShape2D_83vvf")
 
 [node name="NeedPickItemScene" parent="." unique_id=1075732251 instance=ExtResource("44_jyvo4")]
@@ -836,25 +908,15 @@ position = Vector2(-4871, -6221)
 item_data = ExtResource("46_doqns")
 item_amount = 2
 
-[node name="NeedPickItemScene3" parent="." unique_id=709541634 instance=ExtResource("44_jyvo4")]
-position = Vector2(-799, 2914)
-item_data = ExtResource("47_doqns")
-item_amount = 3
-
-[node name="NeedPickItemScene4" parent="." unique_id=766742975 instance=ExtResource("44_jyvo4")]
-position = Vector2(-498, 2909)
-item_data = ExtResource("47_doqns")
-item_amount = 2
-
 [node name="ChangeSceneArea2" parent="." unique_id=643835194 instance=ExtResource("43_f840s")]
-position = Vector2(-6340, -6014)
-spawn_id = "Forecast_to_BoyAccommodationGF"
+position = Vector2(-6351, -6036)
+ID = "Forecast_to_BoyAccommodationGF"
 target_scene_path = "uid://bs72imyflkrc3"
 target_spawn_id = "BoyAccommodationGF_to_Forecast"
 enter_animation_facing_dir = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeSceneArea2" unique_id=459895540]
-position = Vector2(-103, -152)
+position = Vector2(-103, -139.25)
 shape = SubResource("RectangleShape2D_doqns")
 
 [node name="DialogWarningArea" parent="." unique_id=2078562206 instance=ExtResource("48_otlnv")]
@@ -873,9 +935,215 @@ warning_dialog = [{
 position = Vector2(-54, -8.5)
 shape = SubResource("RectangleShape2D_cafo5")
 
-[node name="BedDemo" parent="." unique_id=1708034812 instance=ExtResource("49_xc6fy")]
-z_index = 1
-position = Vector2(-1257, 2989)
+[node name="CgDirector" parent="." unique_id=1525437144 instance=ExtResource("50_xc6fy")]
+z_index = 5
+
+[node name="AnimationPlayer" parent="CgDirector" index="0" unique_id=1745594314]
+libraries/ = SubResource("AnimationLibrary_2hqcw")
+
+[node name="车子demo" type="Sprite2D" parent="." unique_id=1239123698]
+z_index = 3
+position = Vector2(4106, 3221)
+texture = ExtResource("51_2hqcw")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=632149206]
 color = Color(0.93022895, 0.9300889, 0.96494025, 1)
+
+[node name="SunLight" parent="." unique_id=1123450457 instance=ExtResource("50_2hqcw")]
+position = Vector2(3240, -1227)
+scale = Vector2(1, 0.9550735)
+
+[node name="ProgressBlocker" parent="." unique_id=1032827499 instance=ExtResource("51_lovux")]
+z_index = 3
+position = Vector2(-3353, 2929)
+ID = "Forecourt_schooldoor_blocker1"
+enabled = true
+
+[node name="CollisionShape2D" parent="ProgressBlocker/TriggerArea" parent_id_path=PackedInt32Array(1032827499, 911507852) index="0" unique_id=514485377]
+position = Vector2(-1330, 697)
+
+[node name="CollisionShape2D" parent="ProgressBlocker/CollisionArea" parent_id_path=PackedInt32Array(1032827499, 1395308723) index="0" unique_id=895998015]
+position = Vector2(-363, 673)
+shape = SubResource("RectangleShape2D_rksx3")
+
+[node name="ProgressBlocker2" parent="." unique_id=1046007039 instance=ExtResource("51_lovux")]
+position = Vector2(-2279, 3965)
+ID = "Forecourt_schooldoor_blocker2"
+enabled = true
+
+[node name="CollisionShape2D" parent="ProgressBlocker2/TriggerArea" parent_id_path=PackedInt32Array(1046007039, 911507852) index="0" unique_id=514485377]
+position = Vector2(1949, 498.125)
+shape = SubResource("RectangleShape2D_2hqcw")
+
+[node name="CollisionShape2D" parent="ProgressBlocker2/CollisionArea" parent_id_path=PackedInt32Array(1046007039, 1395308723) index="0" unique_id=895998015]
+position = Vector2(1893, 643.5)
+shape = SubResource("RectangleShape2D_lovux")
+
+[node name="ProgressBlocker3" parent="." unique_id=2051612490 instance=ExtResource("51_lovux")]
+position = Vector2(2945, 4033)
+ID = "Forecourt_schooldoor_blocker3"
+
+[node name="CollisionShape2D" parent="ProgressBlocker3/TriggerArea" parent_id_path=PackedInt32Array(2051612490, 911507852) index="0" unique_id=514485377]
+position = Vector2(-202.5, 218.25)
+shape = SubResource("RectangleShape2D_u5gu7")
+
+[node name="CollisionShape2D" parent="ProgressBlocker3/CollisionArea" parent_id_path=PackedInt32Array(2051612490, 1395308723) index="0" unique_id=895998015]
+position = Vector2(-105, -421)
+
+[node name="ProgressBlocker4" parent="." unique_id=1221306220 instance=ExtResource("51_lovux")]
+position = Vector2(-2057, 1328)
+ID = "Forecourt_center_blocker1"
+enabled = true
+
+[node name="CollisionShape2D" parent="ProgressBlocker4/TriggerArea" parent_id_path=PackedInt32Array(1221306220, 911507852) index="0" unique_id=514485377]
+position = Vector2(-98.75, -759)
+shape = SubResource("RectangleShape2D_f57uv")
+
+[node name="CollisionShape2D" parent="ProgressBlocker4/CollisionArea" parent_id_path=PackedInt32Array(1221306220, 1395308723) index="0" unique_id=895998015]
+position = Vector2(-730, -784)
+shape = SubResource("RectangleShape2D_pf22d")
+
+[node name="ProgressBlocker5" parent="." unique_id=1399542432 instance=ExtResource("51_lovux")]
+position = Vector2(-2248, 2430)
+ID = "Forecourt_schooldoor_blocker4"
+enabled = true
+
+[node name="CollisionShape2D" parent="ProgressBlocker5/TriggerArea" parent_id_path=PackedInt32Array(1399542432, 911507852) index="0" unique_id=514485377]
+position = Vector2(-63, -69)
+shape = SubResource("RectangleShape2D_nc082")
+
+[node name="CollisionShape2D" parent="ProgressBlocker5/CollisionArea" parent_id_path=PackedInt32Array(1399542432, 1395308723) index="0" unique_id=895998015]
+position = Vector2(-19, -102)
+shape = SubResource("RectangleShape2D_7abug")
+
+[node name="ProgressBlocker6" parent="." unique_id=388823237 instance=ExtResource("51_lovux")]
+position = Vector2(-2580, -408)
+ID = "Forecourt_center_blocker2"
+
+[node name="CollisionShape2D" parent="ProgressBlocker6/TriggerArea" parent_id_path=PackedInt32Array(388823237, 911507852) index="0" unique_id=514485377]
+position = Vector2(-379, -2811)
+shape = SubResource("RectangleShape2D_8r5ll")
+
+[node name="CollisionShape2D" parent="ProgressBlocker6/CollisionArea" parent_id_path=PackedInt32Array(388823237, 1395308723) index="0" unique_id=895998015]
+position = Vector2(-386, -2837.125)
+shape = SubResource("RectangleShape2D_w75i2")
+
+[node name="ProgressBlocker7" parent="." unique_id=897786947 instance=ExtResource("51_lovux")]
+position = Vector2(1001, -392)
+ID = "Forecourt_center_blocker3"
+
+[node name="CollisionShape2D" parent="ProgressBlocker7/TriggerArea" parent_id_path=PackedInt32Array(897786947, 911507852) index="0" unique_id=514485377]
+position = Vector2(-379, -2811)
+shape = SubResource("RectangleShape2D_8r5ll")
+
+[node name="CollisionShape2D" parent="ProgressBlocker7/CollisionArea" parent_id_path=PackedInt32Array(897786947, 1395308723) index="0" unique_id=895998015]
+position = Vector2(-386, -2837.125)
+shape = SubResource("RectangleShape2D_w75i2")
+
+[node name="ProgressBlocker8" parent="." unique_id=1862672967 instance=ExtResource("51_lovux")]
+position = Vector2(-894, -3074)
+ID = "Forecourt_center_blocker3"
+
+[node name="CollisionShape2D" parent="ProgressBlocker8/TriggerArea" parent_id_path=PackedInt32Array(1862672967, 911507852) index="0" unique_id=514485377]
+position = Vector2(-1420, -81)
+shape = SubResource("RectangleShape2D_fmgcx")
+
+[node name="CollisionShape2D" parent="ProgressBlocker8/CollisionArea" parent_id_path=PackedInt32Array(1862672967, 1395308723) index="0" unique_id=895998015]
+position = Vector2(-1998.5, -97)
+shape = SubResource("RectangleShape2D_bx4kr")
+
+[node name="RandomNPCSpawner" parent="." unique_id=2119991077 instance=ExtResource("52_lovux")]
+position = Vector2(-1291, 2765)
+facing_dir = 2
+
+[node name="RandomNPCSpawner2" parent="." unique_id=1557210183 instance=ExtResource("52_lovux")]
+position = Vector2(-957, 2758)
+facing_dir = 3
+
+[node name="RandomNPCSpawner3" parent="." unique_id=485077420 instance=ExtResource("52_lovux")]
+position = Vector2(-641, 1560)
+
+[node name="RandomNPCSpawner4" parent="." unique_id=1628185151 instance=ExtResource("52_lovux")]
+position = Vector2(-279, 1418)
+facing_dir = 3
+
+[node name="RandomNPCSpawner5" parent="." unique_id=121626936 instance=ExtResource("52_lovux")]
+position = Vector2(-992, 1977)
+facing_dir = 2
+
+[node name="RandomNPCSpawner6" parent="." unique_id=2031033748 instance=ExtResource("52_lovux")]
+position = Vector2(-485, 1995)
+facing_dir = 3
+
+[node name="RandomNPCSpawner7" parent="." unique_id=150728497 instance=ExtResource("52_lovux")]
+position = Vector2(-717, 1801)
+facing_dir = 1
+
+[node name="RandomNPCSpawner8" parent="." unique_id=83217160 instance=ExtResource("52_lovux")]
+position = Vector2(432, 1819)
+facing_dir = 2
+
+[node name="RandomNPCSpawner9" parent="." unique_id=255001810 instance=ExtResource("52_lovux")]
+position = Vector2(1263, 1515)
+facing_dir = 1
+
+[node name="RandomNPCSpawner10" parent="." unique_id=63149556 instance=ExtResource("52_lovux")]
+position = Vector2(-4554, -1344)
+facing_dir = 2
+
+[node name="RandomNPCSpawner11" parent="." unique_id=283409318 instance=ExtResource("52_lovux")]
+position = Vector2(-4209, -1343)
+facing_dir = 3
+
+[node name="RandomNPCSpawner12" parent="." unique_id=702589242 instance=ExtResource("52_lovux")]
+position = Vector2(-754, -1503)
+
+[node name="RandomNPCSpawner13" parent="." unique_id=1609448497 instance=ExtResource("52_lovux")]
+position = Vector2(-747, -1790)
+facing_dir = 1
+
+[node name="RandomNPCSpawner14" parent="." unique_id=94550404 instance=ExtResource("52_lovux")]
+position = Vector2(1545, -1119)
+facing_dir = 1
+
+[node name="RandomNPCSpawner15" parent="." unique_id=1157606793 instance=ExtResource("52_lovux")]
+position = Vector2(-930, -4010)
+facing_dir = 1
+
+[node name="RandomNPCSpawner16" parent="." unique_id=1085549952 instance=ExtResource("52_lovux")]
+position = Vector2(-930, -3657)
+
+[node name="RandomNPCSpawner17" parent="." unique_id=93195688 instance=ExtResource("52_lovux")]
+position = Vector2(-1266, -3826)
+facing_dir = 2
+
+[node name="RandomNPCSpawner18" parent="." unique_id=1750051162 instance=ExtResource("52_lovux")]
+position = Vector2(-637, -3864)
+facing_dir = 3
+
+[node name="RandomNPCSpawner19" parent="." unique_id=719186533 instance=ExtResource("52_lovux")]
+position = Vector2(233, -5722)
+facing_dir = 3
+
+[node name="RandomNPCSpawner20" parent="." unique_id=2084385157 instance=ExtResource("52_lovux")]
+position = Vector2(-227, -5728)
+facing_dir = 2
+
+[node name="RandomNPCSpawner21" parent="." unique_id=369952931 instance=ExtResource("52_lovux")]
+position = Vector2(-5282, -5385)
+facing_dir = 2
+
+[node name="RandomNPCSpawner22" parent="." unique_id=1039274328 instance=ExtResource("52_lovux")]
+position = Vector2(-4847, -5416)
+facing_dir = 3
+
+[editable path="ChangeSceneArea"]
+[editable path="CgDirector"]
+[editable path="ProgressBlocker"]
+[editable path="ProgressBlocker2"]
+[editable path="ProgressBlocker3"]
+[editable path="ProgressBlocker4"]
+[editable path="ProgressBlocker5"]
+[editable path="ProgressBlocker6"]
+[editable path="ProgressBlocker7"]
+[editable path="ProgressBlocker8"]

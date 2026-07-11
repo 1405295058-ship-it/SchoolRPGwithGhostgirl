@@ -3,16 +3,16 @@
 [ext_resource type="Script" uid="uid://dabq5by3bto8q" path="res://script/ScenecommonFile.gd" id="1_mvvio"]
 [ext_resource type="Texture2D" uid="uid://cw14jhkcp4cmj" path="res://art/男寝GF/宿舍楼地板套装.png" id="2_na387"]
 [ext_resource type="Texture2D" uid="uid://cqmghxq575pm4" path="res://art/男寝GF/寝室套装.png" id="3_4w24i"]
-[ext_resource type="PackedScene" uid="uid://5sgy0k2htp7b" path="res://tscn的文件/player.tscn" id="4_0kobe"]
+[ext_resource type="PackedScene" uid="uid://5sgy0k2htp7b" path="res://sence/tscn的文件/player.tscn" id="4_0kobe"]
 [ext_resource type="Texture2D" uid="uid://rpa4p8rxijym" path="res://art/男寝GF/寝室椅子.png" id="4_1stc1"]
-[ext_resource type="PackedScene" uid="uid://djl3jdb75kd2t" path="res://tscn的文件/change_scene_area.tscn" id="5_155rg"]
+[ext_resource type="PackedScene" uid="uid://djl3jdb75kd2t" path="res://sence/tscn的文件/change_scene_area.tscn" id="5_155rg"]
 [ext_resource type="Texture2D" uid="uid://fme5duqsqv4e" path="res://art/男寝GF/寝室的tile合集.png" id="5_ouq1n"]
 [ext_resource type="Texture2D" uid="uid://dkd124sv56cj4" path="res://art/校门和1层/室内假光.png" id="6_74rdq"]
 [ext_resource type="Texture2D" uid="uid://ck57gqc25kq25" path="res://art/男寝GF/寝室楼的粒子特效.png" id="7_h42vk"]
-[ext_resource type="PackedScene" uid="uid://5ilmuygmpvvl" path="res://tscn的文件/class_room_door.tscn" id="11_j78gv"]
-[ext_resource type="PackedScene" uid="uid://bfi3bco58dahm" path="res://tscn的文件/sitting_area_for_tile_chair.tscn" id="11_ouq1n"]
-[ext_resource type="PackedScene" uid="uid://bea121cyqgx2p" path="res://tscn的文件/dialog_warning_area.tscn" id="12_j78gv"]
-[ext_resource type="PackedScene" uid="uid://bxxit5vxtb4rl" path="res://tscn的文件/bed_shape.tscn" id="13_jaia0"]
+[ext_resource type="PackedScene" uid="uid://5ilmuygmpvvl" path="res://sence/tscn的文件/class_room_door.tscn" id="11_j78gv"]
+[ext_resource type="PackedScene" uid="uid://bfi3bco58dahm" path="res://sence/tscn的文件/sitting_area_for_tile_chair.tscn" id="11_ouq1n"]
+[ext_resource type="PackedScene" uid="uid://bea121cyqgx2p" path="res://sence/tscn的文件/dialog_warning_area.tscn" id="12_j78gv"]
+[ext_resource type="PackedScene" uid="uid://bxxit5vxtb4rl" path="res://sence/tscn的文件/bed_shape.tscn" id="13_jaia0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3mnmi"]
 texture = ExtResource("2_na387")
@@ -372,8 +372,8 @@ position = Vector2(-545, 15)
 position = Vector2(-1452, -4735)
 
 [node name="ChangeSceneArea" parent="." unique_id=290124550 instance=ExtResource("5_155rg")]
-position = Vector2(1351, 1492)
-spawn_id = "BoyAccommodationGF_to_Forecast"
+position = Vector2(1353, 1492)
+ID = "BoyAccommodationGF_to_Forecast"
 target_scene_path = "uid://cvwrfokt5v8ue"
 target_spawn_id = "Forecast_to_BoyAccommodationGF"
 enter_animation_facing_dir = Vector2(0, 1)

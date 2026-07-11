@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b0i2pgw2of37r"]
+
+[ext_resource type="Script" uid="uid://bga7r1mkr1cd" path="res://script/progress_blocker.gd" id="1_gad6o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gad6o"]
+size = Vector2(2796, 2189)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gr4eb"]
+size = Vector2(724, 2862)
+
+[node name="ProgressBlocker" type="Node2D" unique_id=1032827499]
+z_index = 2
+script = ExtResource("1_gad6o")
+
+[node name="TriggerArea" type="Area2D" parent="." unique_id=911507852]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea" unique_id=514485377]
+position = Vector2(258, -88)
+shape = SubResource("RectangleShape2D_gad6o")
+
+[node name="CollisionArea" type="StaticBody2D" parent="." unique_id=1395308723]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea" unique_id=895998015]
+z_index = 2
+position = Vector2(833.5, -141.5)
+shape = SubResource("RectangleShape2D_gr4eb")
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_area_2d_body_entered"]

@@ -35,7 +35,7 @@ func set_up_player_in_spawn():
 	choose_spawn = null
 	
 	for spawn in get_tree().get_nodes_in_group("ChangeSceneArea"):
-		if spawn.spawn_id == spawn_id:
+		if spawn.ID == spawn_id:
 			choose_spawn = spawn
 			break
 	

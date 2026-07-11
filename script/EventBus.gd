@@ -15,7 +15,20 @@ signal change_week_period
 signal change_day_period
 
 #userUI
-signal set_tracking_quest(quest_name)
+signal set_tracking_quest(quest_name:String)
 
 #sceneManager
 signal scene_changed
+
+
+#DialogBox
+signal on_dialog_finished
+
+#GameManager
+signal play_this_animation(anim_name:String)
+signal call_this_progress_blocker(blocker_id:String,action:bool,warning_dialog_change:Array )
+signal call_this_change_scene_area(area_id:String,action,warning_dialog_change:Array)
+
+#CGdirector
+signal start_play_cg
+signal end_play_cg

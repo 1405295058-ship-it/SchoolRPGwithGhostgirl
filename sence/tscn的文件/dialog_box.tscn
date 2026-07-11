@@ -108,6 +108,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_05lse")
 
 [node name="Options" type="VBoxContainer" parent="Content" unique_id=1318554286]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.57100004
@@ -192,10 +193,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 57.777832
-offset_top = 153.33282
-offset_right = 663.8889
-offset_bottom = 346.66614
+offset_left = 61.111084
+offset_top = 183.88837
+offset_right = 667.22217
+offset_bottom = 323.88837
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.16078432, 0.06666667, 0, 1)
@@ -207,6 +208,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Naming" type="Label" parent="Content" unique_id=2049171296]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.564
@@ -268,14 +270,14 @@ text = "我就叫这名字了！"
 [node name="Warning" type="Label" parent="Content/Naming" unique_id=2026630159]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.2980001
-anchor_top = -1.9210001
-anchor_right = 1.2980001
-anchor_bottom = -1.9210001
-offset_left = -238.52567
-offset_top = -31.098328
-offset_right = 238.69656
-offset_bottom = 31.123993
+anchor_left = 1.383
+anchor_top = -1.4130001
+anchor_right = 1.383
+anchor_bottom = -1.4130001
+offset_left = -238.55052
+offset_top = -31.100548
+offset_right = 238.67169
+offset_bottom = 31.121773
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.69411767, 0.06666667, 0, 1)
@@ -283,6 +285,26 @@ theme_override_fonts/font = ExtResource("2_a584j")
 theme_override_font_sizes/font_size = 32
 text = "what"
 horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="NameText" type="Label" parent="Content" unique_id=1810473960]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 69.44446
+offset_top = 115.55505
+offset_right = 348.88892
+offset_bottom = 308.88837
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.16078432, 0.06666667, 0, 1)
+theme_override_constants/line_spacing = 8
+theme_override_fonts/font = ExtResource("2_a584j")
+theme_override_font_sizes/font_size = 48
+text = "Alvin:"
 autowrap_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=54694502]

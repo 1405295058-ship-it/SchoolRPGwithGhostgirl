@@ -14,18 +14,18 @@
 [ext_resource type="Texture2D" uid="uid://caq2bhc2moxds" path="res://art/TeachingArea的摆件.png" id="12_iu1r4"]
 [ext_resource type="Texture2D" uid="uid://gglsem7frjxo" path="res://art/校门和1层/楼梯.png" id="13_kfib1"]
 [ext_resource type="Texture2D" uid="uid://cesienvttirwg" path="res://art/校门和1层/坛.png" id="14_652iq"]
-[ext_resource type="PackedScene" uid="uid://djl3jdb75kd2t" path="res://tscn的文件/change_scene_area.tscn" id="14_ilyvu"]
-[ext_resource type="PackedScene" uid="uid://5sgy0k2htp7b" path="res://tscn的文件/player.tscn" id="15_7qy7e"]
+[ext_resource type="PackedScene" uid="uid://djl3jdb75kd2t" path="res://sence/tscn的文件/change_scene_area.tscn" id="14_ilyvu"]
+[ext_resource type="PackedScene" uid="uid://5sgy0k2htp7b" path="res://sence/tscn的文件/player.tscn" id="15_7qy7e"]
 [ext_resource type="Texture2D" uid="uid://dkd124sv56cj4" path="res://art/校门和1层/室内假光.png" id="15_45ruq"]
 [ext_resource type="Texture2D" uid="uid://ce54uso6kt7le" path="res://art/室内的粒子特效.png" id="16_2xvvu"]
 [ext_resource type="Texture2D" uid="uid://votan16d5ui0" path="res://art/校门和1层/光照窗子.png" id="17_xl5ya"]
-[ext_resource type="PackedScene" uid="uid://5ilmuygmpvvl" path="res://tscn的文件/class_room_door.tscn" id="18_dybng"]
-[ext_resource type="PackedScene" uid="uid://fu6cwpgjfxqp" path="res://tscn的文件/chair_normal.tscn" id="19_afor2"]
-[ext_resource type="PackedScene" uid="uid://btq2bojhyy5ey" path="res://tscn的文件/table.tscn" id="20_3xasg"]
-[ext_resource type="PackedScene" uid="uid://44yf4ail1lmm" path="res://tscn的文件/locker.tscn" id="21_3xasg"]
-[ext_resource type="PackedScene" uid="uid://cr6bnouvsufm8" path="res://tscn的文件/class_cabinet.tscn" id="22_iu1r4"]
-[ext_resource type="PackedScene" uid="uid://b8og0d5axfob6" path="res://tscn的文件/teacher's_desk.tscn" id="22_xmlxd"]
-[ext_resource type="PackedScene" uid="uid://lrehhjj0gtih" path="res://tscn的文件/basic_important_npc.tscn" id="25_2o7ax"]
+[ext_resource type="PackedScene" uid="uid://5ilmuygmpvvl" path="res://sence/tscn的文件/class_room_door.tscn" id="18_dybng"]
+[ext_resource type="PackedScene" uid="uid://fu6cwpgjfxqp" path="res://sence/tscn的文件/chair_normal.tscn" id="19_afor2"]
+[ext_resource type="PackedScene" uid="uid://btq2bojhyy5ey" path="res://sence/tscn的文件/table.tscn" id="20_3xasg"]
+[ext_resource type="PackedScene" uid="uid://44yf4ail1lmm" path="res://sence/tscn的文件/locker.tscn" id="21_3xasg"]
+[ext_resource type="PackedScene" uid="uid://cr6bnouvsufm8" path="res://sence/tscn的文件/class_cabinet.tscn" id="22_iu1r4"]
+[ext_resource type="PackedScene" uid="uid://b8og0d5axfob6" path="res://sence/tscn的文件/teacher's_desk.tscn" id="22_xmlxd"]
+[ext_resource type="PackedScene" uid="uid://lrehhjj0gtih" path="res://sence/tscn的文件/basic_important_npc.tscn" id="25_2o7ax"]
 [ext_resource type="SpriteFrames" uid="uid://w8l8jhwje2nm" path="res://Tres_animation_file/李胜.tres" id="26_j5wcy"]
 [ext_resource type="SpriteFrames" uid="uid://exfqkq1p6phx" path="res://Tres_animation_file/Kuma.tres" id="27_e8vr3"]
 
@@ -480,7 +480,7 @@ process_material = SubResource("ParticleProcessMaterial_ekqyo")
 
 [node name="ChangeSceneArea" parent="." unique_id=478060897 instance=ExtResource("14_ilyvu")]
 position = Vector2(399, 443)
-spawn_id = "TeachingAreaGF_to_Forecast1"
+ID = "TeachingAreaGF_to_Forecast1"
 target_scene_path = "uid://cvwrfokt5v8ue"
 target_spawn_id = "Forecast_to_TeachingAreaGF"
 enter_animation_facing_dir = Vector2(0, 1)

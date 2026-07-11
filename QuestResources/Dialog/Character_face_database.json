@@ -2,54 +2,67 @@
 	"player":
 		{
 			"normal": "res://art/face/主角_说话.png"	
-			
 		},
 	
 	"Mike":
 		{
 			"normal":"res://art/face/Mike说话.png",
-			"surprised":"res://art/face/Mike惊讶.png"
+			"surprised":"res://art/face/Mike惊讶.png",
+			"display_name":"Mike"
 		},
 	"Sean":
 		{
 			"normal":"res://art/face/李胜.png",
 			"hiding":"res://art/face/李胜心虚.png",
-			"angry": "res://art/face/李胜生气.png"
+			"angry": "res://art/face/李胜生气.png",
+			"display_name":"Sean"
 			
 		},
 	"Alice":
 		{
-			"normal":"res://art/face/开心小唐.png"
+			"normal":"res://art/face/开心小唐.png",
+			"display_name":"开心小唐"
 		},
 	"Big_Alice":
 		{
-			"normal":"res://art/face/大Alice.png"
+			"normal":"res://art/face/大Alice.png",
+			"display_name":"大Alice"
 		},
 	"Rachel":
 		{
-			"normal":"res://art/face/Rachel.png"
+			"normal":"res://art/face/Rachel.png",
+			"display_name":"Rachel"
 		},
 	"Ryan":
 		{
-			"normal":"res://art/face/Ryan.png"
+			"normal":"res://art/face/Ryan.png",
+			"display_name":"Ryan"
 		},
 	"Evelyn":
 		{
-			"normal":"res://art/face/Evelyn.png"
+			"normal":"res://art/face/Evelyn.png",
+			"display_name":"Evelyn"
 		},
 	"Joy":
 		{
-			"normal":"res://art/face/曾joy.png"
+			"normal":"res://art/face/曾joy.png",
+			"display_name":"曾老师"
 		},
 	"Kuma":
 		{
-			"normal":"res://art/face/2mm.png"
+			"normal":"res://art/face/2mm.png",
+			"display_name":"Kuma"
 		},
 	"Longer":
 		{
-			"normal":"res://art/face/Longer.png"
+			"normal":"res://art/face/Longer.png",
+			"display_name":"Longer"
+		},
+	"Mom":
+		{
+			"normal":"res://art/face/妈妈.png",
+			"display_name":"妈妈"
 		}
-	
 		
 	
 	

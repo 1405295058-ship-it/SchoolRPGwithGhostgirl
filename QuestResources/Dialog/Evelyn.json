@@ -82,7 +82,8 @@
 							{
 								"speaker":"Evelyn",
 								"text":"我是你的班主任Evelyn。",
-								"emotion":"normal"
+								"emotion":"normal",
+								"reveal_name":"Evelyn"
 							},
 							
 							{
@@ -98,7 +99,8 @@
 							{
 								"speaker":"Alice",
 								"text":"我是你们的副班小唐Alice。",
-								"emotion":"normal"
+								"emotion":"normal",
+								"reveal_name":"Alice"
 							},
 							{
 								"speaker":"Evelyn",
@@ -228,6 +230,7 @@
 				]
 			}
 		},
+		
 	"不对劲！":
 		{
 			"unlock_dialog":

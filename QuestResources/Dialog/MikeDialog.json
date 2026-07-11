@@ -65,7 +65,8 @@
 							{
 								"speaker":"Mike",
 								"text":"给你说，我刚看了一下我们班的名单。",
-								"emotion":"normal"
+								"emotion":"normal",
+								"reveal_name":"Mike"
 							},
 							{
 								"speaker":"Mike",
@@ -105,7 +106,8 @@
 							{
 								"speaker":"Mike",
 								"text":"我是你初中同学Mike啊,虽然不是一个班的，但是关系一直不错。（人机介绍）",
-								"emotion":"normal"
+								"emotion":"normal",
+								"reveal_name":"Mike"
 							}
 						],
 						"options":

@@ -1,0 +1,36 @@
+{
+	"intro_1_01":[
+					{
+						"speaker":"Mom",
+						"text": "我就送你到这里了哈。",
+						"emotion": "normal"
+					},
+					{
+						"speaker":"Mom",
+						"text": "接下来你自己去报道应该行吧。",
+						"emotion": "normal"
+					},
+					{
+						"speaker":"Mom",
+						"text": "高中生活要开始了，好好珍惜这宝贵的时光吧。",
+						"emotion": "normal"
+					},
+					{
+						"speaker":"player",
+						"text": "好的。",
+						"emotion": "normal"
+					},
+					{
+						"speaker":"player",
+						"text": "(高中生活开始了，也不知道自己能闯出个什么名堂。)",
+						"emotion": "normal"
+					},
+				]
+	
+	
+	
+	
+	
+	
+	
+}

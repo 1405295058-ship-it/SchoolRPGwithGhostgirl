@@ -25,6 +25,22 @@
 		"quest_states": {
 			
 			
+			"unactive": [
+					{
+					"scene": "Forecourt",
+					"object_ID":"Forecourt_npc_Evelyn" ,
+					"group": "NPC",
+					"change": {
+								"visible": true,
+								"position":[1319.0, -1105.0],
+								"facing_dir":[0, 1]
+							}
+					}	
+				
+				
+					],
+					
+			
 			"4": [
 					{
 					"scene": "Forecourt",
