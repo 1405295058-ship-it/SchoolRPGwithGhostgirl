@@ -15,8 +15,8 @@
 							"objective" : 	[
 												{
 													"text":"和Mike打声招呼",
-													"target_id":"Forecourt_npc_Mike",
-													"in_code":"talked_with_Forecourt_npc_Mike",
+													"target_id":"npc_Mike",
+													"in_code":"talked_with_npc_Mike",
 													"target_amount": 1,
 													"time_condition":
 																	{
@@ -35,8 +35,8 @@
 							"objective" : 	[
 												{
 													"text":"和Mike一起去报道吧",
-													"target_id":"Forecourt_npc_Evelyn",
-													"in_code":"talked_with_Forecourt_npc_Evelyn",
+													"target_id":"npc_Evelyn",
+													"in_code":"talked_with_npc_Evelyn",
 													"target_amount": 1
 												}
 								
@@ -66,12 +66,12 @@
 			"type": "sub",
 			"active_method":
 								{
-									"target_id":"Forecourt_npc_Evelyn",
-									"active_event":"talked_with_Forecourt_npc_Evelyn",
+									"target_id":"npc_Evelyn",
+									"active_event":"talked_with_npc_Evelyn",
 									"time_condition":
 																	{
 																		"day_period":["lunch_time"],
-																		"week_period":["tuesday"]
+																		"week_period":["monday"]
 																	}
 								},
 			
@@ -84,8 +84,8 @@
 							"objective" : 	[
 												{
 													"text":"和一楼的李胜对话",
-													"target_id":"TeachingAreaGF_npc_Sean",
-													"in_code":"talked_with_TeachingAreaGF_npc_Sean",
+													"target_id":"npc_Sean",
+													"in_code":"talked_with_npc_Sean",
 													"target_amount": 1
 												}
 								
@@ -124,8 +124,8 @@
 							"objective" : 	[
 												{
 													"text":"把饭卡还给李胜。",
-													"target_id":"TeachingAreaGF_npc_Sean",
-													"in_code":"talked_with_TeachingAreaGF_npc_Sean",
+													"target_id":"npc_Sean",
+													"in_code":"talked_with_npc_Sean",
 													"target_amount": 1
 												}
 								

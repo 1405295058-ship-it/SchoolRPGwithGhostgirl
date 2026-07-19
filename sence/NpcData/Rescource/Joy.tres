@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="NPCData" format=3 uid="uid://cv62erxmyiw1g"]
+
+[ext_resource type="Script" uid="uid://cwaferjpl1ch5" path="res://sence/NpcData/NPCDataResource.gd" id="1_aho8v"]
+[ext_resource type="SpriteFrames" uid="uid://bequsm1xab18j" path="res://Tres_animation_file/NPCAnimation/曾joy.tres" id="2_fcfhl"]
+
+[resource]
+script = ExtResource("1_aho8v")
+NPC_name = "Joy"
+ID = "npc_Joy"
+default_dialog = [{
+"emotion": "normal",
+"speaker": "Joy",
+"text": "嘿！这不是nige吗？"
+}]
+sprite_frame = ExtResource("2_fcfhl")
+metadata/_custom_type_script = "uid://cwaferjpl1ch5"

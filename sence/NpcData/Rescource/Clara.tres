@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="NPCData" format=3 uid="uid://buiwy3efjnsow"]
+
+[ext_resource type="Script" uid="uid://cwaferjpl1ch5" path="res://sence/NpcData/NPCDataResource.gd" id="1_dbp3w"]
+[ext_resource type="SpriteFrames" uid="uid://nkimpu7iv7fk" path="res://Tres_animation_file/NPCAnimation/Clara.tres" id="2_5p7uh"]
+
+[resource]
+script = ExtResource("1_dbp3w")
+NPC_name = "Clara"
+ID = "npc_Clara"
+default_dialog = [{
+"emotion": "normal",
+"speaker": "Clara",
+"text": "嘿！这不是nige吗？"
+}]
+sprite_frame = ExtResource("2_5p7uh")
+metadata/_custom_type_script = "uid://cwaferjpl1ch5"

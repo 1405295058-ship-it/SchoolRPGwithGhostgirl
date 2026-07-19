@@ -3,20 +3,23 @@ extends CharacterBody2D
 class_name BasicImportantNPC
 
 var breath_tween:Tween
-var virsual_origin_y = 0.0
-
-@export var NPC_name = ""
-@export var ID = ""
-@export_file("*.json") var dialog_json_path = ""
-
-@export var sprite_frame: SpriteFrames
-
+var visual_origin_y = 0.0
 @onready var animated_sprite = $AnimatedSprite2D
+#npc基础数据
+var NPC_name = ""
+var ID = ""
+var dialog_json_path = ""
+var default_dialog: Array 
+var sprite_frame: SpriteFrames
 
+#npc的data_rescource
+@export var npc_data:NPCData
 
+#这里是npc行为相关的
 var following = false
 var follow_group = ""
 var follow_ID = ""
+
 
 var face_dir := Vector2.DOWN
 var is_idle_extra_playing := false
@@ -24,18 +27,13 @@ var idle_extra_timer_running := false
 var MAX_ANIMATION_EXTRA_TIMER_WAITING_TIME = 10
 var MIN_ANIMATION_EXTRA_TIMER_WAITING_TIME = 5
 
-@export var default_dialog: Array = [
-	{
-		"speaker":"Mike",
-		"text": "嘿！这不是nige吗？",
-		"emotion": "normal"
-	}
-]
+
 
 var dialog_data = {}
 var dialog_result = {}
 
 func _ready() -> void:
+	read_npc_data_resource()
 	var quest_status = QuestManager.get_hint_type_by_object_id(ID)
 	$QuestHintMarker.update_hint_mark(quest_status)
 	animated_sprite.sprite_frames = sprite_frame
@@ -45,6 +43,15 @@ func _ready() -> void:
 	EventBus.quest_hint_should_refresh.connect(refresh_quest_hint)
 	
 	start_random_idle_extra()
+func read_npc_data_resource():
+	if npc_data == null:
+		push_error("有npc没有放resource")
+	NPC_name = npc_data.NPC_name
+	ID = npc_data.ID
+	dialog_json_path = npc_data.dialog_json_path
+	default_dialog = npc_data.default_dialog
+	sprite_frame = npc_data.sprite_frame
+	
 func _process(_delta: float) -> void:
 	if following:
 		follow_thing()
@@ -199,3 +206,9 @@ func get_face_direction():
 	if face_dir == Vector2.RIGHT:
 		return "_right"
 	return "_down"
+func _play_animation_called_by_animation_player(anim_name:String):
+	if not sprite_frame.has_animation(anim_name):
+		push_error(ID,"没有这个动画名: ",anim_name)
+		return
+	animated_sprite.play(anim_name)
+	

@@ -1,0 +1,37 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://nkimpu7iv7fk"]
+
+[ext_resource type="Texture2D" uid="uid://cj0vkfmlcq84c" path="res://art/Animation/npc们.png" id="1_sccaj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8qrp"]
+atlas = ExtResource("1_sccaj")
+region = Rect2(0, 2560, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5p7uh"]
+atlas = ExtResource("1_sccaj")
+region = Rect2(640, 2560, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sccaj"]
+atlas = ExtResource("1_sccaj")
+region = Rect2(960, 2560, 320, 320)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8qrp")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5p7uh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sccaj")
+}],
+"loop": true,
+"name": &"in_dream_cry",
+"speed": 2.0
+}]

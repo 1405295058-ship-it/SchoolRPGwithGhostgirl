@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://tvaskc0ucsyd" path="res://script/basic_important_npc.gd" id="1_8v34l"]
 [ext_resource type="Texture2D" uid="uid://c8yovw14lbse4" path="res://art/shadow.png" id="3_ctb53"]
-[ext_resource type="SpriteFrames" uid="uid://cxcax5qepujdg" path="res://Tres_animation_file/开心小唐.tres" id="4_h2c07"]
+[ext_resource type="SpriteFrames" uid="uid://nkimpu7iv7fk" path="res://Tres_animation_file/NPCAnimation/Clara.tres" id="4_ib1et"]
 [ext_resource type="PackedScene" uid="uid://t3f272navsri" path="res://sence/tscn的文件/QuestHintMarker.tscn" id="4_k7hvh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vh7mf"]
@@ -19,7 +19,7 @@ position = Vector2(1, -51)
 shape = SubResource("CircleShape2D_vh7mf")
 
 [node name="QuestHintMarker" parent="." unique_id=813876670 instance=ExtResource("4_k7hvh")]
-position = Vector2(1, -373)
+position = Vector2(72, -302)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=538337740]
 show_behind_parent = true
@@ -31,6 +31,6 @@ offset = Vector2(-0.68, 36.69)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1745707722]
 z_index = 1
 y_sort_enabled = true
-sprite_frames = ExtResource("4_h2c07")
-animation = &"idle_down"
+sprite_frames = ExtResource("4_ib1et")
+animation = &"in_dream_cry"
 offset = Vector2(0, -146.28)

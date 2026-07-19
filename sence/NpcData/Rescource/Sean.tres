@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="NPCData" format=3 uid="uid://bp3i2qsc57bws"]
+
+[ext_resource type="Script" uid="uid://cwaferjpl1ch5" path="res://sence/NpcData/NPCDataResource.gd" id="1_4e0u5"]
+[ext_resource type="SpriteFrames" uid="uid://w8l8jhwje2nm" path="res://Tres_animation_file/NPCAnimation/李胜.tres" id="2_1x6a7"]
+
+[resource]
+script = ExtResource("1_4e0u5")
+NPC_name = "Sean"
+ID = "npc_Sean"
+dialog_json_path = "res://QuestResources/Dialog/SeanDialog.json"
+default_dialog = [{
+"emotion": "normal",
+"speaker": "Sean",
+"text": "要好好学英语呀同学。"
+}]
+sprite_frame = ExtResource("2_1x6a7")
+metadata/_custom_type_script = "uid://cwaferjpl1ch5"

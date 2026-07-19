@@ -4,7 +4,7 @@
 				"monday":{
 					"morning":{
 								"scene":"Forecourt",
-								"object_ID":"Forecourt_npc_Mike",
+								"object_ID":"npc_Mike",
 								"group":"NPC",
 								"change":{
 									"visible":true,
@@ -14,8 +14,9 @@
 						
 							},
 					"lunch_time":{
+						
 								"scene":"Forecourt",
-								"object_ID":"Forecourt_npc_Mike",
+								"object_ID":"npc_Mike",
 								"group":"NPC",
 								"change":{
 									"visible":true,
@@ -26,7 +27,7 @@
 							},
 					"dinner_time":{
 								"scene":"Forecourt",
-								"object_ID":"Forecourt_npc_Mike",
+								"object_ID":"npc_Mike",
 								"group":"NPC",
 								"change":{
 									"visible":true,
@@ -37,7 +38,7 @@
 							},
 					"night_time":{
 								"scene":"Forecourt",
-								"object_ID":"Forecourt_npc_Mike",
+								"object_ID":"npc_Mike",
 								"group":"NPC",
 								"change":{
 									"visible":true,
@@ -50,7 +51,7 @@
 					"tuesday":{
 					"morning":{
 								"scene":"Forecourt",
-								"object_ID":"Forecourt_npc_Mike",
+								"object_ID":"npc_Mike",
 								"group":"NPC",
 								"change":{
 									"visible":true,
@@ -61,7 +62,7 @@
 							},
 					"lunch_time":{
 								"scene":"Forecourt",
-								"object_ID":"Forecourt_npc_Mike",
+								"object_ID":"npc_Mike",
 								"group":"NPC",
 								"change":{
 									"visible":true,
@@ -72,7 +73,7 @@
 							},
 					"dinner_time":{
 								"scene":"Forecourt",
-								"object_ID":"Forecourt_npc_Mike",
+								"object_ID":"npc_Mike",
 								"group":"NPC",
 								"change":{
 									"visible":true,
@@ -83,7 +84,7 @@
 							},
 					"night_time":{
 								"scene":"Forecourt",
-								"object_ID":"Forecourt_npc_Mike",
+								"object_ID":"npc_Mike",
 								"group":"NPC",
 								"change":{
 									"visible":true,
@@ -100,7 +101,7 @@
 					"sunday":{
 								"lunch_time":{
 								"scene":"Forecourt",
-								"object_ID":"Forecourt_npc_Mike",
+								"object_ID":"npc_Mike",
 								"group":"NPC",
 								"change":{
 									"visible":true,

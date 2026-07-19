@@ -20,15 +20,15 @@ var canvas_modulate:CanvasModulate
 func _ready():
 	await get_tree().process_frame
 	set_up_player_in_spawn()
-	_setup_camera_limit()
 	EventBus.scene_changed.emit()
 	find_canvas_modulate()
 	EnvironmentLayer.register_canvas_modulate(canvas_modulate)
-	await FadeLayer.fade_in(0.5)
-
+	SceneManager.continue_pending_cg()
 func set_up_player_in_spawn():
 	var spawn_id = SceneManager.next_spawn_id
 	var should_face_dir = SceneManager.enter_animation_facing_dir
+	if should_face_dir == Vector2.ZERO:
+		return
 	if spawn_id == "":
 		return
 	
@@ -44,6 +44,7 @@ func set_up_player_in_spawn():
 		return
 	
 	player.global_position = choose_spawn.get_node("StartMarker2D").global_position
+	_setup_camera_limit(player)
 	player.face_dir = should_face_dir 
 
 func find_canvas_modulate():
@@ -54,8 +55,8 @@ func find_canvas_modulate():
 	
 	print("这个场景没有CanvasModulate")
 
-func _setup_camera_limit():
-	camera.limit_left = camera_limit_left
-	camera.limit_top = camera_limit_top
-	camera.limit_right = camera_limit_right
-	camera.limit_bottom = camera_limit_bottom
+func _setup_camera_limit(player:Player):
+	player.camera.limit_left = camera_limit_left
+	player.camera.limit_top = camera_limit_top
+	player.camera.limit_right = camera_limit_right
+	player.camera.limit_bottom = camera_limit_bottom

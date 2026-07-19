@@ -4,7 +4,7 @@
 			"1": [
 					{
 					"scene": "Forecourt",
-					"object_ID":"Forecourt_npc_Mike" ,
+					"object_ID":"npc_Mike" ,
 					"group": "NPC",
 					"change": {
 								"visible": true,
@@ -15,6 +15,7 @@
 				
 				
 					],
+					
 			
 					
 			
@@ -25,17 +26,24 @@
 		"quest_states": {
 			
 			
-			"unactive": [
-					{
-					"scene": "Forecourt",
-					"object_ID":"Forecourt_npc_Evelyn" ,
-					"group": "NPC",
-					"change": {
-								"visible": true,
-								"position":[1319.0, -1105.0],
-								"facing_dir":[0, 1]
-							}
-					}	
+			"unactive": 
+					[
+						{
+							"scene": "Forecourt",
+							"object_ID":"npc_Evelyn" ,
+							"group": "NPC",
+							"time_condition":
+												{
+													"day_period":["lunch_time"],
+													"week_period":["monday"]
+												},
+							"change": 
+												{
+													"visible": true,
+													"position":[1319.0, -1105.0],
+													"facing_dir":[0, 1]
+												}
+						}	
 				
 				
 					],
@@ -44,7 +52,7 @@
 			"4": [
 					{
 					"scene": "Forecourt",
-					"object_ID":"Forecourt_npc_Mike" ,
+					"object_ID":"npc_Mike" ,
 					"group": "NPC",
 					"change": {
 								"visible": true,

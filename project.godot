@@ -28,11 +28,12 @@ GameStateManager="*res://script/GameStateManager.gd"
 SceneManager="*res://script/SceneManager.gd"
 InventoryManager="*res://script/InventoryManager.gd"
 ItemDataBase="*res://sence/Item/Data/ItemDataBase.gd"
-NormalStateUi="*res://sence/tscn的文件/NormalStateUI.tscn"
+NormalStateUi="*res://sence/tscn的文件/HeadUpUI.tscn"
 TimeManager="*res://script/TimeManager.gd"
 FadeLayer="*uid://25n1c6p7clcs"
 EnvironmentLayer="*uid://bfsagwoh7qr04"
 EventBus="*uid://cw5d33nmwqduk"
+DailyRoutineManager="*uid://bk4fwsfcn3oer"
 
 [display]
 
@@ -95,6 +96,11 @@ call_user_UI={
 left_click={
 "deadzone": 0.2,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+Space_Button={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
 ]
 }
 

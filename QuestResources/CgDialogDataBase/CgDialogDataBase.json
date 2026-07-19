@@ -1,5 +1,60 @@
 {
-	"intro_1_01":[
+	"intro_0_01":[
+					{
+						"speaker":"Clara",
+						"text": "救救我",
+						"emotion": "in_dream"
+					},
+					{
+						"speaker":"player",
+						"text": "谁？谁在说话？",
+						"emotion": "normal"
+					},
+					{
+						"speaker":"Clara",
+						"text": "救救我",
+						"emotion": "in_dream"
+					},
+					{
+						"speaker":"player",
+						"text": "你是谁啊？我该怎么救你？",
+						"emotion": "normal"
+					},
+					{
+						"speaker":"Clara",
+						"text": "....",
+						"emotion": "in_dream"
+					},
+				],
+	"intro_0_02":[
+					{
+						"speaker":"player",
+						"text": "我靠,刚刚那个人是谁？",
+						"emotion": "sleep_normal_surprised"
+					},
+					{
+						"speaker":"player",
+						"text": "听声音应该是个女生吧。",
+						"emotion": "sleep_normal_surprised"
+					},
+					{
+						"speaker":"player",
+						"text": "我去, 吓死我了。",
+						"emotion": "sleep_normal"
+					},
+					{
+						"speaker":"player",
+						"text": "就是没看清那个女生的脸。",
+						"emotion": "sleep_normal"
+					},
+					{
+						"speaker":"player",
+						"text": "话说今天开学了吧, 得赶紧收拾东西了。",
+						"emotion": "sleep_normal"
+					},
+					
+				],
+	"intro_1_02":[
 					{
 						"speaker":"Mom",
 						"text": "我就送你到这里了哈。",
@@ -22,7 +77,7 @@
 					},
 					{
 						"speaker":"player",
-						"text": "(高中生活开始了，也不知道自己能闯出个什么名堂。)",
+						"text": "(高中生活开始了，希望能平安度过吧。)",
 						"emotion": "normal"
 					},
 				]

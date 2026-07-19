@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="NPCData" format=3 uid="uid://dq7nqrlxlf7yi"]
+
+[ext_resource type="Script" uid="uid://cwaferjpl1ch5" path="res://sence/NpcData/NPCDataResource.gd" id="1_k4tf8"]
+[ext_resource type="SpriteFrames" uid="uid://cy1ptl5655tyo" path="res://Tres_animation_file/NPCAnimation/Evelyn.tres" id="2_gw6c3"]
+
+[resource]
+script = ExtResource("1_k4tf8")
+NPC_name = "Evelyn"
+ID = "npc_Evelyn"
+dialog_json_path = "res://QuestResources/Dialog/Evelyn.json"
+default_dialog = [{
+"emotion": "normal",
+"speaker": "Evelyn",
+"text": "哟,{player},开学快乐吗？"
+}]
+sprite_frame = ExtResource("2_gw6c3")
+metadata/_custom_type_script = "uid://cwaferjpl1ch5"

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="NPCData" format=3 uid="uid://ci12l6n2lpf2c"]
+
+[ext_resource type="Script" uid="uid://cwaferjpl1ch5" path="res://sence/NpcData/NPCDataResource.gd" id="1_vnqry"]
+[ext_resource type="SpriteFrames" uid="uid://exfqkq1p6phx" path="res://Tres_animation_file/NPCAnimation/Kuma.tres" id="2_masvf"]
+
+[resource]
+script = ExtResource("1_vnqry")
+NPC_name = "Kuma"
+ID = "npc_Kuma"
+dialog_json_path = "res://QuestResources/Dialog/Kuma.json"
+default_dialog = [{
+"emotion": "normal",
+"speaker": "Kuma",
+"text": "滚出去！"
+}]
+sprite_frame = ExtResource("2_masvf")
+metadata/_custom_type_script = "uid://cwaferjpl1ch5"

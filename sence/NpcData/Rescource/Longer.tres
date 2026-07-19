@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="NPCData" format=3 uid="uid://cu121wwdfhv7u"]
+
+[ext_resource type="Script" uid="uid://cwaferjpl1ch5" path="res://sence/NpcData/NPCDataResource.gd" id="1_wrweg"]
+[ext_resource type="SpriteFrames" uid="uid://yl5ean4doyst" path="res://Tres_animation_file/NPCAnimation/Longer.tres" id="2_w3ie0"]
+
+[resource]
+script = ExtResource("1_wrweg")
+NPC_name = "Longer"
+ID = "npc_Longer"
+default_dialog = [{
+"emotion": "normal",
+"speaker": "Longer",
+"text": "同学, 你想学物理吗？"
+}]
+sprite_frame = ExtResource("2_w3ie0")
+metadata/_custom_type_script = "uid://cwaferjpl1ch5"

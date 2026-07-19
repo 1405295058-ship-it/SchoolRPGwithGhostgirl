@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="NPCData" format=3 uid="uid://bqu5qd5ru07nm"]
+
+[ext_resource type="Script" uid="uid://cwaferjpl1ch5" path="res://sence/NpcData/NPCDataResource.gd" id="1_4mf3p"]
+[ext_resource type="SpriteFrames" uid="uid://2h05qhr52hqn" path="res://Tres_animation_file/NPCAnimation/Rachel.tres" id="2_14hog"]
+
+[resource]
+script = ExtResource("1_4mf3p")
+NPC_name = "Rachel"
+ID = "npc_Rachel"
+default_dialog = [{
+"emotion": "normal",
+"speaker": "Rachel",
+"text": "同学你找错人了吧, 我是个数学老师。。"
+}]
+sprite_frame = ExtResource("2_14hog")
+metadata/_custom_type_script = "uid://cwaferjpl1ch5"

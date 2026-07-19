@@ -64,3 +64,9 @@ func is_time_match(time_condition:Dictionary):
 		if not time_condition["week_period"].has(current_week_period):
 			return false	
 	return true
+
+func is_weekend()->bool:
+	if current_week_period == "saturday" or current_week_period =="sunday":
+		return true
+	return false
+	

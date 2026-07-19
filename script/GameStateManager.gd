@@ -9,16 +9,12 @@ const DEFAULT_OBJECT_SCHEDULE_PATH:="res://QuestResources/WorldStateControl/Defa
 var cg_played_once = {}
 
 var current_changed_record = {
-	"Forecourt":{
-					
-			},
+	"Forecourt":{},
 		
-		
+	"TeachingAreaGF":{},
 	
-	"TeachingAreaGF":{}
-	
-	
-					}
+	"BoyAccommodationGF":{}
+}
 
 #"morning",
 #	"lunch_time",
@@ -37,7 +33,7 @@ func _ready() -> void:
 	EventBus.unlocked_quest_world_should_apply.connect(_on_unlocked_quest_world_should_apply)
 	EventBus.scene_changed.connect(_on_scene_changed)
 	EventBus.start_play_cg.connect(lock_interaction)
-	EventBus.end_play_cg.connect(unlock_interaction)
+	EventBus.end_play_cg.connect(_on_cg_ended_play)
 	
 	world_state = load_file_from_json(WORLD_STATE_PATH)
 	event_state = load_file_from_json(EVENT_STATE_PATH)
@@ -75,7 +71,8 @@ func _on_day_period_changed()->void:
 func _on_unlocked_quest_world_should_apply(quest_name)->void:
 	event_and_world_state_update(quest_name,"unactive")
 	
-	
+func _on_cg_ended_play(_anim_name):
+	unlock_interaction()	
 #===================================================================================================================================================
 #信号
 #===================================================================================================================================================
@@ -174,13 +171,13 @@ func should_follow(ID:String,group:String,action:Dictionary):
 
 func write_record(save: Dictionary, action_or_change: String):
 	if not save.has("scene"):
-		print("缺少 scene")
+		push_error("缺少 scene",save)
 		return
 	if not save.has("object_ID"):
-		print("缺少 object_ID")
+		push_error("缺少 object_ID",save)
 		return
 	if not save.has("group"):
-		print("缺少 group")
+		push_error("缺少 group",save)
 		return
 
 	if action_or_change != "action" and action_or_change != "change":
@@ -190,6 +187,7 @@ func write_record(save: Dictionary, action_or_change: String):
 	var scene_name = save["scene"]
 	var object_id = save["object_ID"]
 	var group = save["group"]
+	var time_condition = save.get("time_condition",{})
 
 	if not current_changed_record.has(scene_name):
 		current_changed_record[scene_name] = {}
@@ -197,6 +195,7 @@ func write_record(save: Dictionary, action_or_change: String):
 	if not current_changed_record[scene_name].has(object_id):
 		current_changed_record[scene_name][object_id] = {
 			"group": group,
+			"time_condition":time_condition,
 			"change": {},
 			"action": {}
 		}
@@ -204,7 +203,7 @@ func write_record(save: Dictionary, action_or_change: String):
 	current_changed_record[scene_name][object_id]["group"] = group
 
 	var real_data = save[action_or_change]
-
+	
 	for key in real_data.keys():
 		current_changed_record[scene_name][object_id][action_or_change][key] = real_data[key]
 
@@ -219,11 +218,13 @@ func load_record():
 	for object_id in scene_saves:
 		var object_record = scene_saves[object_id]
 		var group = object_record["group"]
+		var time_condition = object_record.get("time_condition",{})
 
 		if object_record.has("change"):
 			var info = {
 				"scene": current_scene_name,
 				"object_ID": object_id,
+				"time_condition":time_condition,
 				"group": group,
 				"change": object_record["change"]
 			}
@@ -295,9 +296,10 @@ func process_current_schedule(object: Node, current_schedule: Dictionary):
 			object.apply_facing_dir(facing_dir)
 
 func process_action_and_change(action_or_change_information,action_or_change:String):
-	var current_scene_name = get_tree().current_scene.name
+	var current_scene_name = get_tree().current_scene.scene_id
 	var scene_name = action_or_change_information["scene"]
 	if scene_name != current_scene_name:
+		print("这个scene和现在的Scene不一样",scene_name)
 		return
 	
 	match action_or_change:
@@ -305,6 +307,11 @@ func process_action_and_change(action_or_change_information,action_or_change:Str
 			var ID = action_or_change_information.get("object_ID","")
 			var group = action_or_change_information.get("group","")
 			var actions = action_or_change_information.get("action",{})
+			var time_condition = action_or_change_information.get("time_condition",{})
+			
+			if not time_condition.is_empty():
+				if not TimeManager.is_time_match(time_condition):
+					return
 			
 			match group:
 				"NPC":
@@ -313,13 +320,14 @@ func process_action_and_change(action_or_change_information,action_or_change:Str
 							"following":
 								should_follow(ID, group, action_or_change_information)
 				"CGDirector":
+					print("开始执行process action and change的cgdirector")
 					for action_name in actions.keys():
 						match action_name:
 							"play_animation":
 									var anim_name = actions["play_animation"].get("anim_name","")
 									if can_play_this_cg(anim_name):
 										cg_played_once[anim_name] = true
-										EventBus.play_this_animation.emit(anim_name)			
+										EventBus.play_this_animation.emit(anim_name,true)			
 				"ProgressBlocker":
 					var enable = actions.get("enable",false)
 					var warning_dialog_change = actions.get("warning_dialog_change",[])
@@ -335,11 +343,17 @@ func process_action_and_change(action_or_change_information,action_or_change:Str
 			var object_id = action_or_change_information["object_ID"]
 			var change = action_or_change_information["change"]
 			var body = find_things_in_scene_byID(group, object_id)
+			var time_condition = action_or_change_information.get("time_condition",{})
+			
+				
 			
 			if body == null:
-				print("没有找到body")
 				return
-
+			
+			if not time_condition.is_empty():
+				if not TimeManager.is_time_match(time_condition):
+					return
+			
 			if change.has("visible"):
 				body.visible = change["visible"]
 
@@ -363,4 +377,3 @@ func lock_interaction():
 	lock_interact = true
 func unlock_interaction():
 	lock_interact = false
-		

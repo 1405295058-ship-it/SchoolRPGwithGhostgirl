@@ -10,17 +10,17 @@ var current_light := 0
 
 func _process(delta: float) -> void:
 	if current_light < maximum_light:
-		creat_light()
+		create_light()
 	
-func creat_light():
+func create_light():
 	path_follow.progress_ratio = randf()
 	var sun_light_sprite = sun_light_sprite_path.instantiate()
 	sun_light_sprite.global_position = path_follow.global_position
 	add_child(sun_light_sprite)
 	current_light += 1
-	creat_timer_for_light(sun_light_sprite)
+	create_timer_for_light(sun_light_sprite)
 	
-func creat_timer_for_light(sun_light_sprite):
+func create_timer_for_light(sun_light_sprite):
 	var timer  = get_tree().create_timer(30)
 	await timer.timeout
 	sun_light_sprite.queue_free()

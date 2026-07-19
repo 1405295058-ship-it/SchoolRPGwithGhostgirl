@@ -3,14 +3,14 @@
 		"quest_states": {
 						"1": [
 								{
-							"scene": "Forecourt",
+							"scene": "Home_player_room",
 							"object_ID": "CGDirector",
 							"group":"CGDirector",
 							"action": {
 								
 										"play_animation":
 												{
-													"anim_name":"intro_1"
+													"anim_name":"intro_0"
 												}
 									}
 								},
@@ -37,7 +37,7 @@
 						"2": [
 								{
 							"scene": "Forecourt",
-							"object_ID": "Forecourt_npc_Mike",
+							"object_ID": "npc_Mike",
 							"group":"NPC",
 							"action": {
 								
@@ -101,7 +101,7 @@
 						"unactive": [
 								{
 							"scene": "Forecourt",
-							"object_ID": "Forecourt_npc_Mike",
+							"object_ID": "npc_Mike",
 							"group":"NPC",
 							"action": {
 								
@@ -127,7 +127,7 @@
 						"4": [
 								{
 							"scene": "Forecourt",
-							"object_ID": "Forecourt_npc_Mike",
+							"object_ID": "npc_Mike",
 							"group":"NPC",
 							"action": {
 								

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 var current_interact_object = []
 var cg_is_playing :=false
@@ -12,12 +13,13 @@ enum Player_states{
 var player_current_state = Player_states.normal
 
 var current_chair = null
-@export var wallk_speed = 1 
+@export var walk_speed = 1 
 @export var ran_speed = 2 
 var _speed = 1
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var camera: Camera2D = $Camera2D
 @onready var InteractArea = $AnimatedSprite2D/InteractArea
+@onready var player_camera:Camera2D = $Camera2D
 var face_dir := Vector2.DOWN  # 给个默认朝向，别用 ZERO
 var correctVector = Vector2(20.0,20.0)
 
@@ -35,9 +37,9 @@ func _ready() -> void:
 
 func on_cg_start_play():
 	cg_is_playing = true
-func on_cg_stop_play():
+func on_cg_stop_play(_anim_name):
 	cg_is_playing = false
-	
+	enable_player_camera()
 
 
 #每一帧进行一次
@@ -95,7 +97,7 @@ func player_movement():
 	if Input.is_action_pressed("sprint"):
 		_speed = ran_speed
 	else:
-		_speed = wallk_speed
+		_speed = walk_speed
 	if player_current_state == Player_states.siting:
 		if input_dir != Vector2.ZERO:
 			stand_from_chair()
@@ -239,6 +241,12 @@ func hide_interact_hint():
 func show_interact_hint():
 	$InteractHint.show()
 	$InteractHint.play("default")
+
+func disable_player_camera():
+	player_camera.enabled = false
+func enable_player_camera():
+	player_camera.enabled = true
+	player_camera.make_current()
 
 func _play_animation_called_by_animation_player(anim_name:String):
 	if not $AnimatedSprite2D.sprite_frames.has_animation(anim_name):

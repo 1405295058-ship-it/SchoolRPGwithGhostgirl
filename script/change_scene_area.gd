@@ -2,7 +2,7 @@
 extends StaticBody2D
 
 @export var ID:String
-@export_file("*.tscn") var target_scene_path: String
+@export var target_scene_id: String
 @export var target_spawn_id: String
 @export var enter_animation_facing_dir:Vector2
 
@@ -16,12 +16,16 @@ extends StaticBody2D
 	}
 ]
 
+
+
+
+
 func _ready() -> void:
 	EventBus.call_this_change_scene_area.connect(on_call_this_change_scene_area)
 
 func interact(_player):
 	if is_enable:
-		SceneManager.change_scene_to(target_scene_path,target_spawn_id,enter_animation_facing_dir)
+		SceneManager.change_scene_from_spawn(target_scene_id,target_spawn_id,enter_animation_facing_dir)
 	else:
 		DialogBox.start_dialog([],warning_dialog)
 func on_call_this_change_scene_area(area_id:String,action:bool,warning_dialog_change:Array):

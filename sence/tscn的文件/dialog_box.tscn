@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bwbefoe3hwqv8" path="res://script/dialog_box.gd" id="1_rkunf"]
 [ext_resource type="FontFile" uid="uid://ccbttyuoii471" path="res://art/UI/VonwaonBitmap-16px.ttf" id="2_a584j"]
 [ext_resource type="Texture2D" uid="uid://brjxllvika1ea" path="res://art/UI/对话框.png" id="3_4bm68"]
-[ext_resource type="Texture2D" uid="uid://08iqab2qcqhs" path="res://art/face/主角_说话.png" id="4_dggau"]
+[ext_resource type="Texture2D" uid="uid://dgvimt6wu7nbl" path="res://art/face/女主normal.png" id="4_aghym"]
 [ext_resource type="Texture2D" uid="uid://dib8rmpthcmq8" path="res://art/UI/继续对话.png" id="5_05lse"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_it5w8"]
@@ -55,10 +55,10 @@ tracks/0/path = NodePath("Content:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(-0.033333335, 0, 0.19999999),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(-0.033333335, 0, 0.19999999, 0.20666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-1032.5, 800.001), Vector2(-1032.5, 800), Vector2(-1032.5, 9.167)]
+"values": [Vector2(-1032.5, 800.001), Vector2(-1032.5, 800), Vector2(-1032.5, 9.167), Vector2(-1032.5, -10)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4bm68"]
@@ -75,10 +75,17 @@ script = ExtResource("1_rkunf")
 character_face_database_path = "res://QuestResources/Dialog/Character_face_database.json"
 
 [node name="Content" type="Label" parent="." unique_id=792917256]
-offset_left = -1032.5
-offset_top = 9.166666
-offset_right = 1367.5
-offset_bottom = 809.16766
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2312.5
+offset_top = -710.8333
+offset_right = 87.5
+offset_bottom = 89.16852
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1.5, 1.5)
 theme_override_colors/font_color = Color(0.16078432, 0.06666667, 0, 1)
 theme_override_fonts/font = ExtResource("2_a584j")
@@ -90,12 +97,12 @@ autowrap_mode = 2
 
 [node name="head" type="TextureRect" parent="Content" unique_id=174668654]
 layout_mode = 0
-offset_left = 899.4444
-offset_top = 449.4444
-offset_right = 1539.4443
-offset_bottom = 1089.4443
+offset_left = 897.77783
+offset_top = 448.33328
+offset_right = 1537.778
+offset_bottom = 1088.3333
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_dggau")
+texture = ExtResource("4_aghym")
 stretch_mode = 3
 
 [node name="Nextindicator" type="TextureRect" parent="Content" unique_id=820911710]

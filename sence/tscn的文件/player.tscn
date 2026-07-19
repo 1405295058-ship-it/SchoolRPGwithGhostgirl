@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c4k0scbm7vf3n" path="res://art/新主角.png" id="2_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://ckjfgwpuh0wk7" path="res://art/Animation/player_animation.png" id="3_3g0us"]
 [ext_resource type="Texture2D" uid="uid://c8yovw14lbse4" path="res://art/shadow.png" id="3_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://blsqeppcasmhx" path="res://art/Animation/主角动画.png" id="5_7bbqk"]
 [ext_resource type="Texture2D" uid="uid://bpincjhmtmawo" path="res://art/UI/interacthint.png" id="6_aqrd7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7hhp3"]
@@ -179,6 +180,18 @@ load_path = "res://.godot/imported/player_animation.png-e62d87662674c0027bfddcb5
 [sub_resource type="AtlasTexture" id="AtlasTexture_lt6cr"]
 atlas = SubResource("CompressedTexture2D_aqrd7")
 region = Rect2(0, 960, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fo60"]
+atlas = ExtResource("5_7bbqk")
+region = Rect2(0, 320, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bbqk"]
+atlas = ExtResource("5_7bbqk")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4f6h"]
+atlas = ExtResource("5_7bbqk")
+region = Rect2(320, 0, 320, 320)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_onrkg"]
 load_path = "res://.godot/imported/新主角.png-feff26d0e0e47b0913bb4386c82a0151.ctex"
@@ -523,6 +536,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_4fo60")
+}],
+"loop": true,
+"name": &"sleep_close_eye",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bbqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4f6h")
+}],
+"loop": true,
+"name": &"sleep_excited_breath",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_onrkg")
 }, {
 "duration": 1.0,
@@ -679,14 +711,15 @@ animations = [{
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_onrkg")
-wallk_speed = 900
+walk_speed = 1000
 ran_speed = 2000
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1051288141]
 z_index = 1
 position = Vector2(-1, -3)
 sprite_frames = SubResource("SpriteFrames_qwsg1")
-animation = &"idle_up"
+animation = &"sleep_excited_breath"
+frame_progress = 0.28488657
 offset = Vector2(0, -144.965)
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D" unique_id=1999080811]

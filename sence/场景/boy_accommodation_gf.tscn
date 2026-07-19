@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bfi3bco58dahm" path="res://sence/tscn的文件/sitting_area_for_tile_chair.tscn" id="11_ouq1n"]
 [ext_resource type="PackedScene" uid="uid://bea121cyqgx2p" path="res://sence/tscn的文件/dialog_warning_area.tscn" id="12_j78gv"]
 [ext_resource type="PackedScene" uid="uid://bxxit5vxtb4rl" path="res://sence/tscn的文件/bed_shape.tscn" id="13_jaia0"]
+[ext_resource type="PackedScene" uid="uid://2hsv17y1b0dl" path="res://sence/tscn的文件/cg_director.tscn" id="14_52xn4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3mnmi"]
 texture = ExtResource("2_na387")
@@ -344,7 +345,44 @@ size = Vector2(629, 380)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_52xn4"]
 size = Vector2(467, 608)
 
-[node name="BoyAccommodationGF" type="Node2D" unique_id=1465272510]
+[sub_resource type="Animation" id="Animation_52xn4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1031, -1959)]
+}
+
+[sub_resource type="Animation" id="Animation_4enay"]
+resource_name = "daily_routine_wake_up"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1031, -1959), Vector2(-1065, -1053)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vlv2o"]
+_data = {
+&"RESET": SubResource("Animation_52xn4"),
+&"daily_routine_wake_up": SubResource("Animation_4enay")
+}
+
+[node name="ChangeSceneArea" type="Node2D" unique_id=1465272510]
 y_sort_enabled = true
 script = ExtResource("1_mvvio")
 scene_name = "Accommodation"
@@ -366,7 +404,7 @@ tile_map_data = PackedByteArray("AAD3//j/AAAEAAAAAAD6//j/AAACAAAAAAD3//L/AAAGAAA
 tile_set = SubResource("TileSet_ouq1n")
 
 [node name="Player" parent="." unique_id=498338322 instance=ExtResource("4_0kobe")]
-position = Vector2(-545, 15)
+position = Vector2(-1031, -1959)
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=985033403]
 position = Vector2(-1452, -4735)
@@ -374,7 +412,7 @@ position = Vector2(-1452, -4735)
 [node name="ChangeSceneArea" parent="." unique_id=290124550 instance=ExtResource("5_155rg")]
 position = Vector2(1353, 1492)
 ID = "BoyAccommodationGF_to_Forecast"
-target_scene_path = "uid://cvwrfokt5v8ue"
+target_scene_id = "Forecourt"
 target_spawn_id = "Forecast_to_BoyAccommodationGF"
 enter_animation_facing_dir = Vector2(0, 1)
 
@@ -578,3 +616,10 @@ position = Vector2(-554, -2470)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BedShape" unique_id=1786500572]
 position = Vector2(-5.5, 60)
 shape = SubResource("RectangleShape2D_52xn4")
+
+[node name="CgDirector" parent="." unique_id=1525437144 instance=ExtResource("14_52xn4")]
+
+[node name="AnimationPlayer" parent="CgDirector" index="0" unique_id=1745594314]
+libraries/ = SubResource("AnimationLibrary_vlv2o")
+
+[editable path="CgDirector"]

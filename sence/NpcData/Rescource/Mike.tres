@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="NPCData" format=3 uid="uid://c8im6f014xdsy"]
+
+[ext_resource type="Script" uid="uid://cwaferjpl1ch5" path="res://sence/NpcData/NPCDataResource.gd" id="1_5hud2"]
+[ext_resource type="SpriteFrames" uid="uid://co72a1s85wtag" path="res://Tres_animation_file/NPCAnimation/mike.tres" id="2_fgbg7"]
+
+[resource]
+script = ExtResource("1_5hud2")
+NPC_name = "Mike"
+ID = "npc_Mike"
+dialog_json_path = "res://QuestResources/Dialog/MikeDialog.json"
+sprite_frame = ExtResource("2_fgbg7")
+metadata/_custom_type_script = "uid://cwaferjpl1ch5"

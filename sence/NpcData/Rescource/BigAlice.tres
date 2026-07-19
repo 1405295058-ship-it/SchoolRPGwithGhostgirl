@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="NPCData" format=3 uid="uid://dnfnjhs6gdp6x"]
+
+[ext_resource type="Script" uid="uid://cwaferjpl1ch5" path="res://sence/NpcData/NPCDataResource.gd" id="1_o0cfy"]
+[ext_resource type="SpriteFrames" uid="uid://dc5qwkka4ibtk" path="res://Tres_animation_file/NPCAnimation/大Alice.tres" id="2_utstp"]
+
+[resource]
+script = ExtResource("1_o0cfy")
+NPC_name = "大Alice"
+ID = "npc_big_Alice"
+default_dialog = [{
+"emotion": "normal",
+"speaker": "Big_Alice",
+"text": "同学,你是不是走错了哦?"
+}, {
+"emotion": "normal",
+"speaker": "Big_Alice",
+"text": "这里是2班哦。"
+}]
+sprite_frame = ExtResource("2_utstp")
+metadata/_custom_type_script = "uid://cwaferjpl1ch5"

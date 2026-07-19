@@ -2,8 +2,62 @@ extends Node
 
 var next_spawn_id:String  = ""
 var enter_animation_facing_dir:Vector2
-func change_scene_to(scene_path , spawn_id,enter_animation_facing_dir_):
+
+
+
+var scene_path_map = {}
+
+var pending_cg_animation := ""
+
+func _ready() -> void:
+	scene_path_map = {
+	"Forecourt": "res://sence/场景/node_2d.tscn",
+	"BoyAccommodationGF":"res://sence/场景/boy_accommodation_gf.tscn",
+	"TeachingAreaGF":"res://sence/场景/school_building_fg.tscn"
+	}
+	
+
+func change_scene_from_spawn(scene_id , spawn_id,enter_animation_facing_dir_):
+	if get_tree().current_scene.scene_id == scene_id:
+		return
+	var scene_path = scene_path_map.get(scene_id,"")
+	if scene_path == "" :
+		push_error("这个scene_id写错了",scene_id,"发生在",spawn_id)
+		return
 	next_spawn_id = spawn_id
 	enter_animation_facing_dir = enter_animation_facing_dir_
 	await FadeLayer.fade_out(0.5)
 	get_tree().change_scene_to_file(scene_path)
+	await FadeLayer.fade_in(0.5)
+
+func change_scene_to(scene_id:String):
+	if get_tree().current_scene.scene_id == scene_id:
+		return
+	next_spawn_id = ""
+	enter_animation_facing_dir= Vector2.ZERO
+	var scene_path = scene_path_map.get(scene_id,"")
+	if scene_path == "" :
+		push_error("这个scene_id写错了",scene_id)
+		return
+	await FadeLayer.fade_out(0.5)
+	get_tree().change_scene_to_file(scene_path)
+	await FadeLayer.fade_in(0.5)
+	
+func change_scene_during_cg(scene_id:String,next_cg_id:String):
+	if get_tree().current_scene.scene_id == scene_id:
+		return
+	next_spawn_id = ""
+	enter_animation_facing_dir= Vector2.ZERO
+	pending_cg_animation = next_cg_id
+	var scene_path = scene_path_map.get(scene_id,"")
+	if scene_path == "" :
+		push_error("这个scene_id写错了",scene_id)
+		return
+	await FadeLayer.fade_out(0.5)
+	get_tree().change_scene_to_file(scene_path)
+
+func continue_pending_cg():
+	if pending_cg_animation == "":
+		return
+	EventBus.play_this_animation.emit(pending_cg_animation,true)
+	pending_cg_animation = ""

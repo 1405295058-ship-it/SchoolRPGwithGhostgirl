@@ -26,8 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://cr6bnouvsufm8" path="res://sence/tscn的文件/class_cabinet.tscn" id="22_iu1r4"]
 [ext_resource type="PackedScene" uid="uid://b8og0d5axfob6" path="res://sence/tscn的文件/teacher's_desk.tscn" id="22_xmlxd"]
 [ext_resource type="PackedScene" uid="uid://lrehhjj0gtih" path="res://sence/tscn的文件/basic_important_npc.tscn" id="25_2o7ax"]
-[ext_resource type="SpriteFrames" uid="uid://w8l8jhwje2nm" path="res://Tres_animation_file/李胜.tres" id="26_j5wcy"]
-[ext_resource type="SpriteFrames" uid="uid://exfqkq1p6phx" path="res://Tres_animation_file/Kuma.tres" id="27_e8vr3"]
+[ext_resource type="Resource" uid="uid://bp3i2qsc57bws" path="res://sence/NpcData/Rescource/Sean.tres" id="27_2xvvu"]
+[ext_resource type="Resource" uid="uid://ci12l6n2lpf2c" path="res://sence/NpcData/Rescource/Kuma.tres" id="28_0455o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3dc60"]
 texture = ExtResource("2_g7ybl")
@@ -481,7 +481,7 @@ process_material = SubResource("ParticleProcessMaterial_ekqyo")
 [node name="ChangeSceneArea" parent="." unique_id=478060897 instance=ExtResource("14_ilyvu")]
 position = Vector2(399, 443)
 ID = "TeachingAreaGF_to_Forecast1"
-target_scene_path = "uid://cvwrfokt5v8ue"
+target_scene_id = "Forecourt"
 target_spawn_id = "Forecast_to_TeachingAreaGF"
 enter_animation_facing_dir = Vector2(0, 1)
 
@@ -828,24 +828,8 @@ position = Vector2(11307, -286)
 
 [node name="李胜" parent="." unique_id=1988037467 instance=ExtResource("25_2o7ax")]
 position = Vector2(1111, -99)
-NPC_name = "Sean"
-ID = "TeachingAreaGF_npc_Sean"
-dialog_json_path = "res://QuestResources/Dialog/SeanDialog.json"
-sprite_frame = ExtResource("26_j5wcy")
-defult_dialog = [{
-"emotion": "normal",
-"speaker": "Sean",
-"text": "{player},要好好学英语哦。"
-}]
+npc_data = ExtResource("27_2xvvu")
 
 [node name="Kuma" parent="." unique_id=597568407 instance=ExtResource("25_2o7ax")]
 position = Vector2(1402, -96)
-NPC_name = "Kuma"
-ID = "TeachingAreaGF_npc_Kuma"
-dialog_json_path = "res://QuestResources/Dialog/Kuma.json"
-sprite_frame = ExtResource("27_e8vr3")
-defult_dialog = [{
-"emotion": "normal",
-"speaker": "Kuma",
-"text": "同学，快回去学习！"
-}]
+npc_data = ExtResource("28_0455o")

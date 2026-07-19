@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="NPCData" format=3 uid="uid://bxch574x65eii"]
+
+[ext_resource type="Script" uid="uid://cwaferjpl1ch5" path="res://sence/NpcData/NPCDataResource.gd" id="1_8774a"]
+[ext_resource type="SpriteFrames" uid="uid://d17rsoa0dgrst" path="res://Tres_animation_file/NPCAnimation/Ryan.tres" id="2_hihp3"]
+
+[resource]
+script = ExtResource("1_8774a")
+NPC_name = "Ryan"
+ID = "npc_Ryan"
+default_dialog = [{
+"emotion": "normal",
+"speaker": "Ryan",
+"text": "也? 我假发呢?"
+}]
+sprite_frame = ExtResource("2_hihp3")
+metadata/_custom_type_script = "uid://cwaferjpl1ch5"

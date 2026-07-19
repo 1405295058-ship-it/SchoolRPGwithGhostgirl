@@ -25,10 +25,15 @@ signal scene_changed
 signal on_dialog_finished
 
 #GameManager
-signal play_this_animation(anim_name:String)
+signal play_this_animation(anim_name:String,is_play_once_only:bool)
 signal call_this_progress_blocker(blocker_id:String,action:bool,warning_dialog_change:Array )
 signal call_this_change_scene_area(area_id:String,action,warning_dialog_change:Array)
 
 #CGdirector
 signal start_play_cg
-signal end_play_cg
+signal end_play_cg(anim_name:String)
+signal cg_start_fast_forward()
+
+#DailyRoutineManager
+signal increase_routine_by_one_step
+signal end_free_time

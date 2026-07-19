@@ -32,10 +32,13 @@ func _ready() -> void:
 
 func on_cg_started_play():
 	hide_head_up_ui()
+	$SkipTip.show()
 	show_fade_layer_when_cg_start()
-func on_cg_ended_play():
+func on_cg_ended_play(_anim_name):
+	$SkipTip.hide()
 	await hide_fade_layer_when_cg_end()
 	show_head_up_ui()
+	
 func show_head_up_ui():
 	$TimeShowerWatch.show()	
 	if is_tracking_quest:
@@ -100,5 +103,6 @@ func hide_fade_layer_when_cg_end():
 	await tween.finished
 	tween.kill()
 func hide_fade_layer():
+	$SkipTip.hide()
 	cg_up_fade_layer.scale.y = 0
 	cg_down_fade_layer.scale.y = 0

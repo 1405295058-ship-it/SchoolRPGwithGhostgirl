@@ -1,7 +1,9 @@
 {
 	"player":
 		{
-			"normal": "res://art/face/主角_说话.png"	
+			"normal": "res://art/face/主角_说话.png",
+			"sleep_normal":	"res://art/face/主角_sleep_normal.png",
+			"sleep_normal_surprised":"res://art/face/主角_sleep_surprise.png"
 		},
 	
 	"Mike":
@@ -62,6 +64,12 @@
 		{
 			"normal":"res://art/face/妈妈.png",
 			"display_name":"妈妈"
+		},
+	"Clara":
+		{
+			"normal":"res://art/face/女主normal.png",
+			"in_dream":"res://art/face/女主哭.png",
+			"display_name":"Clara"	
 		}
 		
 	

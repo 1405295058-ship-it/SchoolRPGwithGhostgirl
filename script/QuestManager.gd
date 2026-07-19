@@ -1,6 +1,6 @@
 #QuestManager.gd
 extends Node
-var quest_data =  {}
+var quest_data:Dictionary =  {}
 var unlocked_quest = []
 var active_quest = []
 var current_objective = []
@@ -73,6 +73,7 @@ func load_Data_from_json():
 		print("fail to parsed")
 
 func update_quest_list():
+	
 	
 	active_quest.clear()
 	unlocked_quest.clear()

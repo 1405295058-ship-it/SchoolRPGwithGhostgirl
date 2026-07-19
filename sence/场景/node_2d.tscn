@@ -28,16 +28,16 @@
 [ext_resource type="PackedScene" uid="uid://dpt4j14odlit6" path="res://sence/tscn的文件/tree.tscn" id="26_fkely"]
 [ext_resource type="AudioStream" uid="uid://h0cthu34qk3b" path="res://Music/蝉叫声.ogg" id="27_341ir"]
 [ext_resource type="PackedScene" uid="uid://lrehhjj0gtih" path="res://sence/tscn的文件/basic_important_npc.tscn" id="29_k5pxi"]
-[ext_resource type="SpriteFrames" uid="uid://co72a1s85wtag" path="res://Tres_animation_file/mike.tres" id="30_j28si"]
-[ext_resource type="SpriteFrames" uid="uid://cy1ptl5655tyo" path="res://Tres_animation_file/Evelyn.tres" id="31_8fa61"]
-[ext_resource type="SpriteFrames" uid="uid://cxcax5qepujdg" path="res://Tres_animation_file/开心小唐.tres" id="32_aetdp"]
-[ext_resource type="SpriteFrames" uid="uid://d17rsoa0dgrst" path="res://Tres_animation_file/Ryan.tres" id="33_oke22"]
-[ext_resource type="SpriteFrames" uid="uid://dc5qwkka4ibtk" path="res://Tres_animation_file/大Alice.tres" id="34_b70ti"]
-[ext_resource type="SpriteFrames" uid="uid://bequsm1xab18j" path="res://Tres_animation_file/曾joy.tres" id="35_wbwrt"]
-[ext_resource type="SpriteFrames" uid="uid://w8l8jhwje2nm" path="res://Tres_animation_file/李胜.tres" id="36_gg1wg"]
-[ext_resource type="SpriteFrames" uid="uid://exfqkq1p6phx" path="res://Tres_animation_file/Kuma.tres" id="37_ofi84"]
-[ext_resource type="SpriteFrames" uid="uid://yl5ean4doyst" path="res://Tres_animation_file/Longer.tres" id="38_qi1d8"]
-[ext_resource type="SpriteFrames" uid="uid://2h05qhr52hqn" path="res://Tres_animation_file/Rachel.tres" id="39_uumq1"]
+[ext_resource type="Resource" uid="uid://c8im6f014xdsy" path="res://sence/NpcData/Rescource/Mike.tres" id="30_lovux"]
+[ext_resource type="Resource" uid="uid://dq7nqrlxlf7yi" path="res://sence/NpcData/Rescource/Evelyn.tres" id="31_rksx3"]
+[ext_resource type="Resource" uid="uid://syl65i06h6r6" path="res://sence/NpcData/Rescource/small_Alice.tres" id="32_u5gu7"]
+[ext_resource type="Resource" uid="uid://bxch574x65eii" path="res://sence/NpcData/Rescource/Ryan.tres" id="33_f57uv"]
+[ext_resource type="Resource" uid="uid://dnfnjhs6gdp6x" path="res://sence/NpcData/Rescource/BigAlice.tres" id="34_pf22d"]
+[ext_resource type="Resource" uid="uid://cv62erxmyiw1g" path="res://sence/NpcData/Rescource/Joy.tres" id="35_nc082"]
+[ext_resource type="Resource" uid="uid://bp3i2qsc57bws" path="res://sence/NpcData/Rescource/Sean.tres" id="36_7abug"]
+[ext_resource type="Resource" uid="uid://ci12l6n2lpf2c" path="res://sence/NpcData/Rescource/Kuma.tres" id="37_8r5ll"]
+[ext_resource type="Resource" uid="uid://cu121wwdfhv7u" path="res://sence/NpcData/Rescource/Longer.tres" id="38_w75i2"]
+[ext_resource type="Resource" uid="uid://bqu5qd5ru07nm" path="res://sence/NpcData/Rescource/Rachel.tres" id="39_fmgcx"]
 [ext_resource type="PackedScene" uid="uid://og38lr5rmvyr" path="res://sence/tscn的文件/round_head_tree.tscn" id="40_n1trc"]
 [ext_resource type="PackedScene" uid="uid://btq2bojhyy5ey" path="res://sence/tscn的文件/table.tscn" id="41_maje2"]
 [ext_resource type="PackedScene" uid="uid://bydavctptf71c" path="res://sence/tscn的文件/check_player_area.tscn" id="42_1dbik"]
@@ -291,11 +291,18 @@ sources/6 = SubResource("TileSetAtlasSource_r5kkd")
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cafo5"]
 
+[sub_resource type="Gradient" id="Gradient_lovux"]
+offsets = PackedFloat32Array(0, 0.5139442, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.98108333, 0.98108333, 0.98108333, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lovux"]
+gradient = SubResource("Gradient_lovux")
+
 [sub_resource type="Curve" id="Curve_xc6fy"]
 _data = [Vector2(0.008547008, 0.016903877), 0.0, 0.0, 0, 0, Vector2(0.50854707, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_doqns"]
+[sub_resource type="CurveTexture" id="CurveTexture_rksx3"]
 curve = SubResource("Curve_xc6fy")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lovux"]
@@ -306,7 +313,8 @@ spread = 180.0
 initial_velocity_min = 50.0
 initial_velocity_max = 100.0
 gravity = Vector3(0, 0, 0)
-scale_curve = SubResource("CurveTexture_doqns")
+scale_curve = SubResource("CurveTexture_rksx3")
+color_ramp = SubResource("GradientTexture1D_lovux")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r5kkd"]
 size = Vector2(3095, 2057)
@@ -349,7 +357,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_xc6fy"]
 resource_name = "intro_1"
-length = 9.1
+length = 9.133333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -401,10 +409,13 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(5.1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 5.1),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": ["intro_1_01"],
+"args": [1.0],
+"method": &"cg_fade_in"
+}, {
+"args": ["intro_1_02"],
 "method": &"start_cg_dialog"
 }]
 }
@@ -455,7 +466,7 @@ size = Vector2(13649, 595)
 y_sort_enabled = true
 script = ExtResource("1_83vvf")
 scene_name = "校园前庭"
-scene_id = "Forecast"
+scene_id = "Forecourt"
 camera_limit_left = -10068
 camera_limit_top = -7061
 camera_limit_right = 3849
@@ -625,7 +636,7 @@ top_level = true
 z_index = 3
 material = SubResource("CanvasItemMaterial_cafo5")
 position = Vector2(-1416, -2815)
-amount = 500
+amount = 600
 texture = ExtResource("49_cafo5")
 lifetime = 20.0
 preprocess = 14.25
@@ -747,65 +758,43 @@ parameters/looping = true
 
 [node name="Mike" parent="." unique_id=71429859 instance=ExtResource("29_k5pxi")]
 position = Vector2(8775, -333)
-NPC_name = "Mike"
-ID = "Forecourt_npc_Mike"
-dialog_json_path = "res://QuestResources/Dialog/MikeDialog.json"
-sprite_frame = ExtResource("30_j28si")
+npc_data = ExtResource("30_lovux")
 
 [node name="Evelyn" parent="." unique_id=1372863975 instance=ExtResource("29_k5pxi")]
 position = Vector2(-1434, 1373)
-NPC_name = "Evelyn"
-ID = "Forecourt_npc_Evelyn"
-dialog_json_path = "res://QuestResources/Dialog/Evelyn.json"
-sprite_frame = ExtResource("31_8fa61")
+npc_data = ExtResource("31_rksx3")
 
 [node name="小唐" parent="." unique_id=1809239349 instance=ExtResource("29_k5pxi")]
 position = Vector2(-1224, 1375)
-NPC_name = "Small_Alice"
-ID = "Forecourt_npc_Small_Alice"
-sprite_frame = ExtResource("32_aetdp")
+npc_data = ExtResource("32_u5gu7")
 
 [node name="Ryan" parent="." unique_id=1542039601 instance=ExtResource("29_k5pxi")]
 position = Vector2(-495, 1326)
-NPC_name = "Ryan"
-ID = "Forecourt_npc_Ryan"
-sprite_frame = ExtResource("33_oke22")
+npc_data = ExtResource("33_f57uv")
 
 [node name="大爱丽丝" parent="." unique_id=66369320 instance=ExtResource("29_k5pxi")]
 position = Vector2(-646, 1433)
-NPC_name = "Big_Alice"
-ID = "Forecourt_npc_Alice"
-sprite_frame = ExtResource("34_b70ti")
+npc_data = ExtResource("34_pf22d")
 
 [node name="曾joy" parent="." unique_id=758304559 instance=ExtResource("29_k5pxi")]
 position = Vector2(543, 1267)
-NPC_name = "ZJoy"
-ID = "Forecourt_npc_ZJoy"
-sprite_frame = ExtResource("35_wbwrt")
+npc_data = ExtResource("35_nc082")
 
 [node name="李胜" parent="." unique_id=116977866 instance=ExtResource("29_k5pxi")]
 position = Vector2(101, 1610)
-NPC_name = "Sean"
-ID = "Forecourt_npc_Sean"
-sprite_frame = ExtResource("36_gg1wg")
+npc_data = ExtResource("36_7abug")
 
 [node name="Kuma" parent="." unique_id=172376608 instance=ExtResource("29_k5pxi")]
 position = Vector2(407, 1622)
-NPC_name = "Kuma"
-ID = "Forecourt_npc_Kuma"
-sprite_frame = ExtResource("37_ofi84")
+npc_data = ExtResource("37_8r5ll")
 
 [node name="Longer" parent="." unique_id=636594441 instance=ExtResource("29_k5pxi")]
 position = Vector2(937, 1305)
-NPC_name = "Longer"
-ID = "Forecourt_npc_Longer"
-sprite_frame = ExtResource("38_qi1d8")
+npc_data = ExtResource("38_w75i2")
 
 [node name="Rachel" parent="." unique_id=1898281864 instance=ExtResource("29_k5pxi")]
 position = Vector2(1164, 1369)
-NPC_name = "Rachel"
-ID = "Forecourt_npc_Rachel"
-sprite_frame = ExtResource("39_uumq1")
+npc_data = ExtResource("39_fmgcx")
 
 [node name="RoundHeadTree" parent="." unique_id=1674854392 groups=["tree"] instance=ExtResource("40_n1trc")]
 position = Vector2(-2305, 112)
@@ -888,11 +877,11 @@ shape = SubResource("RectangleShape2D_r5kkd")
 z_index = 3
 position = Vector2(2192, -1535)
 ID = "Forecast_to_TeachingAreaGF"
-target_scene_path = "uid://d0w6ui0guwdyv"
+target_scene_id = "TeachingAreaGF"
 target_spawn_id = "TeachingAreaGF_to_Forecast1"
 enter_animation_facing_dir = Vector2(0, -1)
 
-[node name="StartMarker2D" parent="ChangeSceneArea" index="0"]
+[node name="StartMarker2D" parent="ChangeSceneArea" index="0" unique_id=446158515]
 position = Vector2(1, 113)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeSceneArea" unique_id=201449884]
@@ -911,7 +900,7 @@ item_amount = 2
 [node name="ChangeSceneArea2" parent="." unique_id=643835194 instance=ExtResource("43_f840s")]
 position = Vector2(-6351, -6036)
 ID = "Forecast_to_BoyAccommodationGF"
-target_scene_path = "uid://bs72imyflkrc3"
+target_scene_id = "BoyAccommodationGF"
 target_spawn_id = "BoyAccommodationGF_to_Forecast"
 enter_animation_facing_dir = Vector2(0, -1)
 
@@ -1136,6 +1125,8 @@ facing_dir = 2
 [node name="RandomNPCSpawner22" parent="." unique_id=1039274328 instance=ExtResource("52_lovux")]
 position = Vector2(-4847, -5416)
 facing_dir = 3
+
+[node name="CGCamera" type="Camera2D" parent="." unique_id=799567380 groups=["CGCamera"]]
 
 [editable path="ChangeSceneArea"]
 [editable path="CgDirector"]
