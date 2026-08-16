@@ -42,15 +42,14 @@
 [ext_resource type="PackedScene" uid="uid://btq2bojhyy5ey" path="res://sence/tscn的文件/table.tscn" id="41_maje2"]
 [ext_resource type="PackedScene" uid="uid://bydavctptf71c" path="res://sence/tscn的文件/check_player_area.tscn" id="42_1dbik"]
 [ext_resource type="PackedScene" uid="uid://djl3jdb75kd2t" path="res://sence/tscn的文件/change_scene_area.tscn" id="43_f840s"]
-[ext_resource type="PackedScene" uid="uid://wd8thqvsv35f" path="res://sence/Item/need_pick_item_scene.tscn" id="44_jyvo4"]
-[ext_resource type="Resource" uid="uid://byief4gsvgi60" path="res://sence/Item/LaoShiCard.tres" id="45_4ypv0"]
-[ext_resource type="Resource" uid="uid://dqgrdney7xjpk" path="res://sence/Item/MasterPaper.tres" id="46_doqns"]
 [ext_resource type="PackedScene" uid="uid://bea121cyqgx2p" path="res://sence/tscn的文件/dialog_warning_area.tscn" id="48_otlnv"]
 [ext_resource type="Texture2D" uid="uid://d3lutn5cgntpq" path="res://art/飘的粒子特效.png" id="49_cafo5"]
 [ext_resource type="PackedScene" uid="uid://betgqbyoqeybt" path="res://sence/tscn的文件/sun_light.tscn" id="50_2hqcw"]
+[ext_resource type="PackedScene" uid="uid://rq0wok7fo45w" path="res://sence/tscn的文件/world_item.tscn" id="50_lovux"]
 [ext_resource type="PackedScene" uid="uid://2hsv17y1b0dl" path="res://sence/tscn的文件/cg_director.tscn" id="50_xc6fy"]
 [ext_resource type="Texture2D" uid="uid://dm7balgu5yr6s" path="res://art/动画资源/开学/车子.png" id="51_2hqcw"]
 [ext_resource type="PackedScene" uid="uid://b0i2pgw2of37r" path="res://sence/tscn的文件/progress_blocker.tscn" id="51_lovux"]
+[ext_resource type="Resource" uid="uid://b3ynmi4q1vl5t" path="res://sence/Item/LaoShiCard.tres" id="51_rksx3"]
 [ext_resource type="PackedScene" uid="uid://bh1u51nkb477v" path="res://sence/tscn的文件/random_npc_spawner.tscn" id="52_lovux"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e8dv2"]
@@ -516,6 +515,7 @@ position = Vector2(-2762, 440)
 
 [node name="Big_bush7" parent="." unique_id=411823022 instance=ExtResource("21_4k64w")]
 position = Vector2(2826, 1009)
+script = null
 
 [node name="Big_bush8" parent="." unique_id=1318470196 instance=ExtResource("21_4k64w")]
 position = Vector2(1864, 269)
@@ -888,15 +888,6 @@ position = Vector2(1, 113)
 position = Vector2(-4, -59)
 shape = SubResource("RectangleShape2D_83vvf")
 
-[node name="NeedPickItemScene" parent="." unique_id=1075732251 instance=ExtResource("44_jyvo4")]
-position = Vector2(-5005, -6338)
-item_data = ExtResource("45_4ypv0")
-
-[node name="NeedPickItemScene2" parent="." unique_id=1939235591 instance=ExtResource("44_jyvo4")]
-position = Vector2(-4871, -6221)
-item_data = ExtResource("46_doqns")
-item_amount = 2
-
 [node name="ChangeSceneArea2" parent="." unique_id=643835194 instance=ExtResource("43_f840s")]
 position = Vector2(-6351, -6036)
 ID = "Forecast_to_BoyAccommodationGF"
@@ -1127,6 +1118,16 @@ position = Vector2(-4847, -5416)
 facing_dir = 3
 
 [node name="CGCamera" type="Camera2D" parent="." unique_id=799567380 groups=["CGCamera"]]
+
+[node name="WorldItems" type="Node2D" parent="." unique_id=848718455]
+
+[node name="WorldItem" parent="WorldItems" unique_id=1426212331 instance=ExtResource("50_lovux")]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(1155, 2816)
+collision_layer = 2
+collision_mask = 3
+item_data = ExtResource("51_rksx3")
 
 [editable path="ChangeSceneArea"]
 [editable path="CgDirector"]

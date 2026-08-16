@@ -57,7 +57,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2ng5u")
 }],
-"loop": false,
+"loop": 0,
 "name": &"close_door",
 "speed": 15.0
 }, {
@@ -65,7 +65,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sqtku")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle_close",
 "speed": 5.0
 }, {
@@ -73,7 +73,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p7d8q")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle_open",
 "speed": 5.0
 }, {
@@ -90,7 +90,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xmbns")
 }],
-"loop": false,
+"loop": 0,
 "name": &"open_door",
 "speed": 15.0
 }]

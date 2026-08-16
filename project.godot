@@ -16,24 +16,24 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="game"
 run/main_scene="uid://cvwrfokt5v8ue"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 DialogBox="*res://sence/tscn的文件/dialog_box.tscn"
-UserUi="*res://sence/tscn的文件/user_ui.tscn"
 QuestManager="*res://script/QuestManager.gd"
 GameStateManager="*res://script/GameStateManager.gd"
 SceneManager="*res://script/SceneManager.gd"
-InventoryManager="*res://script/InventoryManager.gd"
-ItemDataBase="*res://sence/Item/Data/ItemDataBase.gd"
 NormalStateUi="*res://sence/tscn的文件/HeadUpUI.tscn"
 TimeManager="*res://script/TimeManager.gd"
 FadeLayer="*uid://25n1c6p7clcs"
 EnvironmentLayer="*uid://bfsagwoh7qr04"
 EventBus="*uid://cw5d33nmwqduk"
 DailyRoutineManager="*uid://bk4fwsfcn3oer"
+ItemDatabase="*uid://ckkf4xjlprgvq"
+InventoryManager="*uid://b5sr22f427p0"
+UserUi="*uid://dyvdo02ypkhn1"
 
 [display]
 

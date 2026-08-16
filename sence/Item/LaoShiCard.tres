@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="Need_pick_Item" load_steps=2 format=3 uid="uid://byief4gsvgi60"]
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b3ynmi4q1vl5t"]
 
-[ext_resource type="Script" uid="uid://y4vimkj48vf0" path="res://script/NeedPickItemdefult.gd" id="1_vhveo"]
+[ext_resource type="Texture2D" uid="uid://u6psbvovosqr" path="res://art/Item/员工卡.png" id="1_e1w7w"]
+[ext_resource type="Script" uid="uid://c6xyj218e8c1r" path="res://Inventory/Data/item_data.gd" id="1_vhveo"]
 
 [resource]
 script = ExtResource("1_vhveo")
-item_name = "李胜的员工卡"
 item_id = "sean_s_money_card"
-sprite = "uid://u6psbvovosqr"
+item_name = "sean_s_money_card"
+description = "sean的卡"
+icon = ExtResource("1_e1w7w")
 max_stack_size = 1
-description = "这是李胜的员工卡，有了它好像就拥有了和他一样的权力。"
-metadata/_custom_type_script = "uid://y4vimkj48vf0"
+metadata/_custom_type_script = "uid://c6xyj218e8c1r"

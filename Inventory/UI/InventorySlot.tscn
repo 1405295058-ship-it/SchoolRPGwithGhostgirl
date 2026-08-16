@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bjac0i2jvyr1j"]
+
+[ext_resource type="Script" uid="uid://c1g2qu7s0jiam" path="res://Inventory/UI/inventory_slot.gd" id="1_wugbe"]
+
+[node name="InventorySlot" type="PanelContainer" unique_id=996714235]
+custom_minimum_size = Vector2(64, 64)
+script = ExtResource("1_wugbe")
+
+[node name="ItemIcon" type="TextureRect" parent="." unique_id=997754961]
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AmountLablel" type="Label" parent="." unique_id=277794101]
+layout_mode = 2
+horizontal_alignment = 2
+vertical_alignment = 2

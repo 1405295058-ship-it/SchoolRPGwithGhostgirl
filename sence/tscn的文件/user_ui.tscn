@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dyvdo02ypkhn1"]
+[gd_scene format=3 uid="uid://dyvdo02ypkhn1"]
 
 [ext_resource type="Texture2D" uid="uid://djr3fmayndssy" path="res://art/UI/书壳背景.png" id="1_63agc"]
 [ext_resource type="Script" uid="uid://btwcfhsn06ttw" path="res://script/user_ui.gd" id="1_ts28q"]
@@ -7,6 +7,8 @@
 [ext_resource type="FontFile" uid="uid://ccbttyuoii471" path="res://art/UI/VonwaonBitmap-16px.ttf" id="4_nts06"]
 [ext_resource type="Texture2D" uid="uid://4dbck2acsy0" path="res://art/UI/裤子.png" id="5_iuwj4"]
 [ext_resource type="Texture2D" uid="uid://cyi2nxjvjeywx" path="res://art/UI/背包小.png" id="6_jxojm"]
+[ext_resource type="Script" uid="uid://nmww1wamlei3" path="res://Inventory/UI/inventory_ui.gd" id="8_sjpp7"]
+[ext_resource type="PackedScene" uid="uid://bjac0i2jvyr1j" path="res://Inventory/UI/InventorySlot.tscn" id="9_h7p8p"]
 [ext_resource type="Texture2D" uid="uid://bvihnl834difi" path="res://art/UI/设置书贴.png" id="11_q4fcb"]
 [ext_resource type="Texture2D" uid="uid://bliws8dgwsllw" path="res://art/UI/任务面板排线.png" id="11_vyjxb"]
 [ext_resource type="Texture2D" uid="uid://dxr55bosrqo4x" path="res://art/UI/任务书贴.png" id="12_m43yq"]
@@ -110,12 +112,12 @@ _data = {
 &"show_user_UI": SubResource("Animation_vyjxb")
 }
 
-[node name="UserUI" type="CanvasLayer"]
+[node name="UserUI" type="CanvasLayer" unique_id=853070211]
 scale = Vector2(1.3, 1.3)
 transform = Transform2D(1.3, 0, 0, 1.3, 0, 0)
 script = ExtResource("1_ts28q")
 
-[node name="BackGround" type="TextureRect" parent="."]
+[node name="BackGround" type="TextureRect" parent="." unique_id=271297160]
 z_index = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -131,14 +133,14 @@ grow_vertical = 2
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_63agc")
 
-[node name="CharacterBagLine" type="TextureRect" parent="BackGround"]
+[node name="CharacterBagLine" type="TextureRect" parent="BackGround" unique_id=609195229]
 visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_f361o")
 
-[node name="TextureRect" type="TextureRect" parent="BackGround/CharacterBagLine"]
+[node name="TextureRect" type="TextureRect" parent="BackGround/CharacterBagLine" unique_id=2091548297]
 layout_mode = 0
 offset_left = 228.0
 offset_top = 722.0
@@ -146,7 +148,7 @@ offset_right = 868.0
 offset_bottom = 1362.0
 texture = ExtResource("3_wa08o")
 
-[node name="Date" type="Label" parent="BackGround/CharacterBagLine"]
+[node name="Date" type="Label" parent="BackGround/CharacterBagLine" unique_id=1397068031]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.008
@@ -162,7 +164,7 @@ theme_override_fonts/font = ExtResource("4_nts06")
 theme_override_font_sizes/font_size = 100
 text = "2026年 7月12号 星期天"
 
-[node name="Skill" type="Label" parent="BackGround/CharacterBagLine"]
+[node name="Skill" type="Label" parent="BackGround/CharacterBagLine" unique_id=1621662464]
 layout_mode = 0
 offset_left = 1880.0
 offset_top = 804.0
@@ -173,7 +175,7 @@ theme_override_fonts/font = ExtResource("4_nts06")
 theme_override_font_sizes/font_size = 100
 text = "属性"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/CharacterBagLine/Skill"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/CharacterBagLine/Skill" unique_id=1253151859]
 layout_mode = 0
 offset_left = -140.0
 offset_top = 174.0
@@ -181,87 +183,77 @@ offset_right = 20.0
 offset_bottom = 630.0
 theme_override_constants/separation = 36
 
-[node name="Strength" type="Label" parent="BackGround/CharacterBagLine/Skill/VBoxContainer"]
+[node name="Strength" type="Label" parent="BackGround/CharacterBagLine/Skill/VBoxContainer" unique_id=130107647]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
 theme_override_fonts/font = ExtResource("4_nts06")
 theme_override_font_sizes/font_size = 80
 text = "体质"
 
-[node name="Agility" type="Label" parent="BackGround/CharacterBagLine/Skill/VBoxContainer"]
+[node name="Agility" type="Label" parent="BackGround/CharacterBagLine/Skill/VBoxContainer" unique_id=2013666635]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
 theme_override_fonts/font = ExtResource("4_nts06")
 theme_override_font_sizes/font_size = 80
 text = "敏捷"
 
-[node name="Intelligence" type="Label" parent="BackGround/CharacterBagLine/Skill/VBoxContainer"]
+[node name="Intelligence" type="Label" parent="BackGround/CharacterBagLine/Skill/VBoxContainer" unique_id=485540824]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
 theme_override_fonts/font = ExtResource("4_nts06")
 theme_override_font_sizes/font_size = 80
 text = "智力"
 
-[node name="Charm" type="Label" parent="BackGround/CharacterBagLine/Skill/VBoxContainer"]
+[node name="Charm" type="Label" parent="BackGround/CharacterBagLine/Skill/VBoxContainer" unique_id=623075572]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
 theme_override_fonts/font = ExtResource("4_nts06")
 theme_override_font_sizes/font_size = 80
 text = "情商"
 
-[node name="Picture" type="VBoxContainer" parent="BackGround/CharacterBagLine"]
+[node name="Picture" type="VBoxContainer" parent="BackGround/CharacterBagLine" unique_id=1699230508]
 layout_mode = 0
 offset_left = 286.53833
 offset_top = 1498.077
 offset_right = 746.5383
 offset_bottom = 2372.0771
 
-[node name="Cloth" type="TextureRect" parent="BackGround/CharacterBagLine/Picture"]
+[node name="Cloth" type="TextureRect" parent="BackGround/CharacterBagLine/Picture" unique_id=1155605172]
 layout_mode = 2
 texture = ExtResource("5_iuwj4")
 stretch_mode = 3
 
-[node name="Bag" type="TextureRect" parent="BackGround/CharacterBagLine/Picture"]
+[node name="Bag" type="TextureRect" parent="BackGround/CharacterBagLine/Picture" unique_id=118976131]
 layout_mode = 2
 texture = ExtResource("6_jxojm")
 stretch_mode = 3
 
-[node name="ClothBag" type="HBoxContainer" parent="BackGround/CharacterBagLine"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.578
-anchor_top = 0.65800005
-anchor_right = 0.578
-anchor_bottom = 0.65800005
-offset_left = -683.52637
-offset_top = -107.55701
-offset_right = 681.8585
-offset_bottom = 105.90454
-theme_override_constants/separation = 180
+[node name="InventoryUI" type="Control" parent="BackGround/CharacterBagLine" unique_id=1173996867]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_sjpp7")
+inventory_slot_scene = ExtResource("9_h7p8p")
 
-[node name="BagBag" type="VBoxContainer" parent="BackGround/CharacterBagLine"]
+[node name="BackpackGrid" type="GridContainer" parent="BackGround/CharacterBagLine/InventoryUI" unique_id=1050344023]
 layout_mode = 0
-offset_left = 799.9999
-offset_top = 2051.9233
-offset_right = 2167.3076
-offset_bottom = 2371.154
-theme_override_constants/separation = 180
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BackGround/CharacterBagLine/BagBag"]
-layout_mode = 2
-theme_override_constants/separation = 180
+[node name="PocketGrid" type="GridContainer" parent="BackGround/CharacterBagLine/InventoryUI" unique_id=1253140413]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="BackGround/CharacterBagLine/BagBag"]
-layout_mode = 2
-theme_override_constants/separation = 180
-
-[node name="MissionBagLine" type="TextureRect" parent="BackGround"]
+[node name="MissionBagLine" type="TextureRect" parent="BackGround" unique_id=1368860856]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("11_vyjxb")
 
-[node name="MainMission" type="Label" parent="BackGround/MissionBagLine"]
+[node name="MainMission" type="Label" parent="BackGround/MissionBagLine" unique_id=308533114]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.008
@@ -279,7 +271,7 @@ text = "主线任务"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MainMission" type="ScrollContainer" parent="BackGround/MissionBagLine/MainMission"]
+[node name="MainMission" type="ScrollContainer" parent="BackGround/MissionBagLine/MainMission" unique_id=1952404158]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -293,10 +285,10 @@ offset_bottom = 320.15894
 grow_vertical = 0
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/MissionBagLine/MainMission/MainMission"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/MissionBagLine/MainMission/MainMission" unique_id=2146444067]
 layout_mode = 2
 
-[node name="Objective" type="Label" parent="BackGround/MissionBagLine"]
+[node name="Objective" type="Label" parent="BackGround/MissionBagLine" unique_id=1661090423]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.65500003
@@ -313,7 +305,7 @@ theme_override_font_sizes/font_size = 120
 text = "目标"
 horizontal_alignment = 1
 
-[node name="ObjectiveShowSpace" type="ScrollContainer" parent="BackGround/MissionBagLine/Objective"]
+[node name="ObjectiveShowSpace" type="ScrollContainer" parent="BackGround/MissionBagLine/Objective" unique_id=1246154708]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.324
@@ -327,11 +319,11 @@ offset_bottom = 515.1627
 grow_vertical = 0
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/MissionBagLine/Objective/ObjectiveShowSpace"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/MissionBagLine/Objective/ObjectiveShowSpace" unique_id=779460401]
 layout_mode = 2
 theme_override_constants/separation = 200
 
-[node name="Discription" type="Label" parent="BackGround/MissionBagLine"]
+[node name="Discription" type="Label" parent="BackGround/MissionBagLine" unique_id=2125075506]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.008
@@ -348,7 +340,7 @@ theme_override_font_sizes/font_size = 120
 text = "概述"
 horizontal_alignment = 1
 
-[node name="DiscriptionPlace" type="Label" parent="BackGround/MissionBagLine/Discription"]
+[node name="DiscriptionPlace" type="Label" parent="BackGround/MissionBagLine/Discription" unique_id=726423897]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.008
@@ -365,7 +357,7 @@ theme_override_font_sizes/font_size = 80
 text = "现在就是什么任务都没有啊BRO ， 想玩还得再等一阵。等我把任务系统做好 然后把人都画完 地图都搞好 也许就可以玩了。现在打这么多字就是测试一下我这个概述的格子能装多少字 感觉看着眼睛舒不舒服 好吧 感觉快要写完了 快要写完了 写完了吗 这是最后一排"
 autowrap_mode = 3
 
-[node name="SubMission" type="ScrollContainer" parent="BackGround/MissionBagLine"]
+[node name="SubMission" type="ScrollContainer" parent="BackGround/MissionBagLine" unique_id=302114019]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.324
@@ -379,10 +371,10 @@ offset_bottom = 446.21704
 grow_vertical = 0
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/MissionBagLine/SubMission"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/MissionBagLine/SubMission" unique_id=487064397]
 layout_mode = 2
 
-[node name="MainMission2" type="Label" parent="BackGround/MissionBagLine"]
+[node name="MainMission2" type="Label" parent="BackGround/MissionBagLine" unique_id=680453971]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.008
@@ -400,7 +392,7 @@ text = "支线任务"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TrackQuestButton" type="Button" parent="BackGround/MissionBagLine"]
+[node name="TrackQuestButton" type="Button" parent="BackGround/MissionBagLine" unique_id=490269376]
 layout_mode = 0
 offset_left = 1319.2307
 offset_top = 450.00006
@@ -413,7 +405,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_imom8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_q4fcb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8akce")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1191044640]
 z_index = 1
 anchors_preset = -1
 anchor_left = 0.397
@@ -429,12 +421,12 @@ grow_vertical = 2
 scale = Vector2(0.4, 0.4)
 theme_override_constants/separation = 100
 
-[node name="Setting" type="TextureRect" parent="HBoxContainer"]
+[node name="Setting" type="TextureRect" parent="HBoxContainer" unique_id=726130233]
 z_index = -1
 layout_mode = 2
 texture = ExtResource("11_q4fcb")
 
-[node name="Label" type="Label" parent="HBoxContainer/Setting"]
+[node name="Label" type="Label" parent="HBoxContainer/Setting" unique_id=1328363380]
 layout_mode = 0
 offset_left = 98.0
 offset_top = 76.0
@@ -445,12 +437,12 @@ theme_override_fonts/font = ExtResource("4_nts06")
 theme_override_font_sizes/font_size = 120
 text = "设置"
 
-[node name="Relasionship" type="TextureRect" parent="HBoxContainer"]
+[node name="Relasionship" type="TextureRect" parent="HBoxContainer" unique_id=1369466104]
 z_index = -1
 layout_mode = 2
 texture = ExtResource("14_8akce")
 
-[node name="Label" type="Label" parent="HBoxContainer/Relasionship"]
+[node name="Label" type="Label" parent="HBoxContainer/Relasionship" unique_id=372065738]
 layout_mode = 0
 offset_left = 97.0
 offset_top = 68.0
@@ -462,11 +454,11 @@ theme_override_font_sizes/font_size = 120
 text = "关系
 "
 
-[node name="Bag" type="TextureRect" parent="HBoxContainer"]
+[node name="Bag" type="TextureRect" parent="HBoxContainer" unique_id=52817862]
 layout_mode = 2
 texture = ExtResource("13_vyjxb")
 
-[node name="Label" type="Label" parent="HBoxContainer/Bag"]
+[node name="Label" type="Label" parent="HBoxContainer/Bag" unique_id=1036706467]
 layout_mode = 0
 offset_left = 114.0
 offset_top = 68.0
@@ -477,7 +469,7 @@ theme_override_fonts/font = ExtResource("4_nts06")
 theme_override_font_sizes/font_size = 120
 text = "背包"
 
-[node name="SwitchToBagButton" type="Button" parent="HBoxContainer/Bag"]
+[node name="SwitchToBagButton" type="Button" parent="HBoxContainer/Bag" unique_id=2023734475]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -496,12 +488,12 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_euitq")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_bo0br")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mppen")
 
-[node name="Mission" type="TextureRect" parent="HBoxContainer"]
+[node name="Mission" type="TextureRect" parent="HBoxContainer" unique_id=1999427611]
 z_index = -1
 layout_mode = 2
 texture = ExtResource("12_m43yq")
 
-[node name="Label" type="Label" parent="HBoxContainer/Mission"]
+[node name="Label" type="Label" parent="HBoxContainer/Mission" unique_id=588687698]
 layout_mode = 0
 offset_left = 113.0
 offset_top = 72.0
@@ -512,7 +504,7 @@ theme_override_fonts/font = ExtResource("4_nts06")
 theme_override_font_sizes/font_size = 120
 text = "任务"
 
-[node name="SwitchToQuestButton" type="Button" parent="HBoxContainer/Mission"]
+[node name="SwitchToQuestButton" type="Button" parent="HBoxContainer/Mission" unique_id=2107721814]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -534,10 +526,8 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8akce")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_vyjxb")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_w0ula")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_w0ula")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1004743781]
+libraries/ = SubResource("AnimationLibrary_w0ula")
 
 [connection signal="pressed" from="BackGround/MissionBagLine/TrackQuestButton" to="." method="_on_track_quest_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Mission/SwitchToQuestButton" to="." method="_on_switch_to_mission_button_pressed"]
