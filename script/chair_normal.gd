@@ -8,15 +8,19 @@ enum FacingDir{
 	right,
 	left
 }
-
+@onready var sit_target = $SitTarget
 
 var animation_name = ""
 @export var facing = FacingDir.down
+
 
 func _ready() -> void:
 	initialize_face_dir()
 	update_sit_animation_name()
 	choose_mark()
+
+func get_sit_target():
+	return sit_target
 			
 func choose_mark():
 	if facing == FacingDir.up:

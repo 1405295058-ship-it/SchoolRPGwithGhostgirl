@@ -30,18 +30,33 @@ func change_scene_from_spawn(scene_id , spawn_id,enter_animation_facing_dir_):
 	get_tree().change_scene_to_file(scene_path)
 	await FadeLayer.fade_in(0.5)
 
+func change_scene_to_with_fade(scene_id:String):
+	await FadeLayer.fade_out(0.5)
+	change_scene_to(scene_id)
+	await FadeLayer.fade_in(0.5)
+
 func change_scene_to(scene_id:String):
-	if get_tree().current_scene.scene_id == scene_id:
+	var current_scene := get_tree().current_scene
+	if current_scene != null and current_scene.scene_id == scene_id:
 		return
 	next_spawn_id = ""
-	enter_animation_facing_dir= Vector2.ZERO
-	var scene_path = scene_path_map.get(scene_id,"")
-	if scene_path == "" :
-		push_error("这个scene_id写错了",scene_id)
+	enter_animation_facing_dir = Vector2.ZERO
+	var scene_path: String = scene_path_map.get(scene_id, "")
+	if scene_path.is_empty():
+		push_error("这个 scene_id 写错了：" + scene_id)
 		return
-	await FadeLayer.fade_out(0.5)
-	get_tree().change_scene_to_file(scene_path)
-	await FadeLayer.fade_in(0.5)
+	var error := get_tree().change_scene_to_file(scene_path)
+	if error != OK:
+		push_error("切换场景失败：" + scene_id)
+		return
+	# 等待 SceneTree 真正完成场景替换
+	await get_tree().process_frame
+	# 更保险：确认目标场景真的已经成为 current_scene
+	while get_tree().current_scene == null:
+		await get_tree().process_frame
+	while get_tree().current_scene.scene_id != scene_id:
+		await get_tree().process_frame
+
 	
 func change_scene_during_cg(scene_id:String,next_cg_id:String):
 	if get_tree().current_scene.scene_id == scene_id:

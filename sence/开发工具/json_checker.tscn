@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cujc70mrnrsp7"]
+
+[ext_resource type="Script" uid="uid://ds4pvmhwsolli" path="res://script/Tool/QuestDataInspector.gd" id="1_hkvm4"]
+
+[node name="JsonChecker" type="Node2D" unique_id=836057686]
+
+[node name="QuestDataChecker" type="Node2D" parent="." unique_id=768226037]
+script = ExtResource("1_hkvm4")

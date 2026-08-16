@@ -28,8 +28,6 @@ func play_animation(anim_name:String, is_play_once_only := false):
 		return
 	if animation_player.is_playing():
 		return
-	# 先遮住画面，不能等动画第0秒再调用
-	FadeLayer.set_black_screen()
 	# 再播放动画
 	animation_player.play(anim_name)
 	# 强制立即应用动画0秒的所有属性关键帧

@@ -8,36 +8,35 @@ enum face_dir{
 	left
 }
 @export var npc_preload = preload("res://sence/需要path的/back_ground_npc.tscn")
-var all_character_type = [
-	"boy",
-	"girl"
-]
-var all_state = [
-	"idle",
-	"talk"
-]
 
-func _ready() -> void:
+
+func _ready() -> void: 
 	creat_npc()
 
 func creat_npc():
-	var character_type = all_character_type.pick_random()
-	var state = all_state.pick_random()
-	var dir = get_dir_string(facing_dir)
+	
 	
 	var background_npc = npc_preload.instantiate()
 	get_parent().add_child.call_deferred(background_npc)
+	background_npc.face_dir = get_dir_vec(facing_dir)
 	background_npc.global_position = global_position
-	var anim_name = "%s_%s_%s" % [
-		character_type,
-		state,
-		dir
-	]
-	var time = randf_range(0,2)
-	await get_tree().create_timer(time).timeout
-	background_npc.play_animation(anim_name)
+	await background_npc.ready
+	await get_tree().create_timer(randf_range(0,1)).timeout
+	background_npc.change_npc_state("background_idle",{})
+	
+	
+	
 	
 	
 
-func get_dir_string(facing_direction:face_dir)->String:
-	return ["up","down","right","left"][facing_direction]
+func get_dir_vec(facing_direction:face_dir)->Vector2:
+	match facing_direction:
+		face_dir.up:
+			return Vector2.UP
+		face_dir.down:
+			return Vector2.DOWN
+		face_dir.right:
+			return Vector2.RIGHT
+		face_dir.left:
+			return Vector2.LEFT
+	return Vector2.DOWN

@@ -218,7 +218,7 @@ func show_options():
 			$Content/Options/option3.text = i["text"]
 		index += 1
 	
-func _on_option_pressed(index):
+func _on_option_pressed(index:int):
 	if options.is_empty() :
 		return
 	hide_options()

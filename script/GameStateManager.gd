@@ -162,11 +162,20 @@ func should_follow(ID:String,group:String,action:Dictionary):
 		var obj = find_things_in_scene_byID(group,ID)
 		if obj == null:
 			return
-		obj.following = enable
-		obj.follow_ID = target_ID
-		obj.follow_group = target_group
+		if enable == true:
+			var data:Dictionary ={
+			"follow_group":target_group,
+			"target_ID":target_ID
+			}
+			obj.change_npc_state("following",data)
+		elif enable == false:
+			var data = {}
+			obj.change_npc_state("idle",data)
 		
-		
+#follow_group = data.get("follow_group", "")
+#	target_ID = data.get("target_ID", "")
+
+#	thing = find_target(follow_group, target_ID)		
 
 
 func write_record(save: Dictionary, action_or_change: String):

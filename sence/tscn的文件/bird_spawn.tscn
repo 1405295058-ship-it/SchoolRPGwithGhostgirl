@@ -1,0 +1,230 @@
+[gd_scene format=3 uid="uid://dw7abahg0pmx0"]
+
+[ext_resource type="Script" uid="uid://q2wuycxvcoys" path="res://script/bird_spawn.gd" id="1_h13br"]
+[ext_resource type="Texture2D" uid="uid://ohnas51ye38w" path="res://art/Animation/麻雀.png" id="1_mp3lg"]
+
+[sub_resource type="Curve2D" id="Curve2D_h13br"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 377, -198, -164.51743, 133.52724, 164.51743, -133.52724, 1308, -343, -65.88781, 15.6298275, 65.88781, -15.6298275, 2135, -768, 0, 0, 0, 0, 2762, -877, 0, 0, 0, 0, 22194, -2868)
+}
+point_count = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxqyy"]
+atlas = ExtResource("1_mp3lg")
+region = Rect2(160, 320, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pequl"]
+atlas = ExtResource("1_mp3lg")
+region = Rect2(320, 320, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or7s3"]
+atlas = ExtResource("1_mp3lg")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx4ef"]
+atlas = ExtResource("1_mp3lg")
+region = Rect2(320, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc03y"]
+atlas = ExtResource("1_mp3lg")
+region = Rect2(160, 160, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k8hj"]
+atlas = ExtResource("1_mp3lg")
+region = Rect2(320, 160, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3q8c2"]
+atlas = ExtResource("1_mp3lg")
+region = Rect2(160, 480, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scon7"]
+atlas = ExtResource("1_mp3lg")
+region = Rect2(320, 480, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le3km"]
+atlas = ExtResource("1_mp3lg")
+region = Rect2(0, 640, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6r4ba"]
+atlas = ExtResource("1_mp3lg")
+region = Rect2(160, 640, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26ljb"]
+atlas = ExtResource("1_mp3lg")
+region = Rect2(0, 320, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6njg3"]
+atlas = ExtResource("1_mp3lg")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lyxk"]
+atlas = ExtResource("1_mp3lg")
+region = Rect2(0, 160, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ujcj"]
+atlas = ExtResource("1_mp3lg")
+region = Rect2(0, 480, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e3y4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxqyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pequl")
+}],
+"loop": true,
+"name": &"eat_down",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_or7s3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gx4ef")
+}],
+"loop": true,
+"name": &"eat_left",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gc03y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8k8hj")
+}],
+"loop": true,
+"name": &"eat_right",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3q8c2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scon7")
+}],
+"loop": true,
+"name": &"eat_up",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le3km")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6r4ba")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26ljb")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6njg3")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lyxk")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ujcj")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_lufbd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_sdm4q"]
+resource_name = "fly_animation"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sd0pk"]
+_data = {
+&"RESET": SubResource("Animation_lufbd"),
+&"fly_animation": SubResource("Animation_sdm4q")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5uvcb"]
+radius = 336.16812
+
+[node name="BirdSpawn" type="Node2D" unique_id=750030776]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_h13br")
+
+[node name="FlyPath" type="Path2D" parent="." unique_id=261002565]
+position = Vector2(-377, 198)
+curve = SubResource("Curve2D_h13br")
+
+[node name="Bird" type="PathFollow2D" parent="FlyPath" unique_id=897281394]
+position = Vector2(377, -198)
+rotation = -0.014966951
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FlyPath/Bird" unique_id=300094625]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0.9999417, 0.010796547)
+sprite_frames = SubResource("SpriteFrames_e3y4m")
+animation = &"fly"
+frame_progress = 0.69809055
+offset = Vector2(0, -62.875)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FlyPath/Bird" unique_id=1872998252]
+libraries/ = SubResource("AnimationLibrary_sd0pk")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2011268374]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=969202154]
+position = Vector2(3, -2)
+shape = SubResource("CircleShape2D_5uvcb")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

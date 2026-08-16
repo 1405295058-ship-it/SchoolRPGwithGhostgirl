@@ -37,3 +37,5 @@ signal cg_start_fast_forward()
 #DailyRoutineManager
 signal increase_routine_by_one_step
 signal end_free_time
+signal class_start
+signal class_end

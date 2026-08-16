@@ -20,6 +20,7 @@ var canvas_modulate:CanvasModulate
 func _ready():
 	await get_tree().process_frame
 	set_up_player_in_spawn()
+	_setup_camera_limit(player)
 	EventBus.scene_changed.emit()
 	find_canvas_modulate()
 	EnvironmentLayer.register_canvas_modulate(canvas_modulate)
@@ -44,7 +45,6 @@ func set_up_player_in_spawn():
 		return
 	
 	player.global_position = choose_spawn.get_node("StartMarker2D").global_position
-	_setup_camera_limit(player)
 	player.face_dir = should_face_dir 
 
 func find_canvas_modulate():

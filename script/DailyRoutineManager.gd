@@ -10,7 +10,7 @@ enum RoutineStep {
 	LUNCH_FREE,
 	AFTERNOON_CLASS,
 	EVENING_FREE,
-	NIGHT_STUDY,
+	NIGHT_SLEEP,
 	NIGHT_FREE
 }
 
@@ -35,7 +35,7 @@ func start_weekday_routine() -> void:
 		RoutineStep.LUNCH_FREE,
 		RoutineStep.AFTERNOON_CLASS,
 		RoutineStep.EVENING_FREE,
-		RoutineStep.NIGHT_STUDY
+		RoutineStep.NIGHT_SLEEP
 	]
 func start_weekend_routine() -> void:
 	current_routine = [
@@ -69,8 +69,7 @@ func run_current_step():
 			print("去学校")
 			go_next_step()
 		RoutineStep.MORNING_CLASS:
-			print("早课")
-			go_next_step()
+			process_class()
 		RoutineStep.LUNCH_FREE:
 			print("进入中午活动")
 			is_processing = false
@@ -80,7 +79,7 @@ func run_current_step():
 		RoutineStep.EVENING_FREE:
 			print("进入黄昏时间")
 			is_processing = false
-		RoutineStep.NIGHT_STUDY:
+		RoutineStep.NIGHT_SLEEP:
 			print("晚上学习")
 			go_next_step()
 		RoutineStep.NIGHT_FREE:
@@ -116,7 +115,6 @@ func play_cg_and_wait(anim_name: String) -> void:
 	EventBus.play_this_animation.emit(anim_name,false)
 	
 	var finished_anim_name: String = await EventBus.end_play_cg
-	go_next_step()
 	if finished_anim_name != anim_name:
 		push_warning(
 			"等待的是 " + anim_name +
@@ -127,3 +125,41 @@ func process_routine_wake_up():
 	await SceneManager.change_scene_to("BoyAccommodationGF")
 	print("现在起床")
 	await play_cg_and_wait("daily_routine_wake_up")
+	go_next_step()
+
+
+func process_class():
+	await FadeLayer.fade_out(0.5)
+	await SceneManager.change_scene_to("TeachingAreaGF")
+	EventBus.class_start.emit()
+	await get_tree().process_frame#npc定位
+	await play_cg_and_wait("start_class")
+	await end_class()
+	
+func end_class():
+	var npc_array = get_nodes_in_current_scene_group("NPC")
+	var disapear_position = Vector2(-2649.0,88)
+	var gap = 60#為防止碰撞搞的東西 錯開瞬移
+	await FadeLayer.fade_out(2)
+	for npc in npc_array:
+		if npc.on_class_seat_id.is_empty():
+			continue
+		disapear_position.y += gap
+		npc.global_position = disapear_position
+	EventBus.class_end.emit()	
+	GameStateManager.refresh_scene_state()
+	go_next_step()
+	await FadeLayer.fade_in(1)
+	
+func get_nodes_in_current_scene_group(group_name: StringName) -> Array[Node]:
+	var result: Array[Node] = []
+	var current_scene := get_tree().current_scene
+	if current_scene == null:
+		push_error("current_scene 是 null")
+		return result
+	for node in get_tree().get_nodes_in_group(group_name):
+		if node == current_scene or current_scene.is_ancestor_of(node):
+			result.append(node)
+	return result
+	
+	

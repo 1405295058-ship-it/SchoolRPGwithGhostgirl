@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://wd8thqvsv35f"]
+[gd_scene format=3 uid="uid://wd8thqvsv35f"]
 
 [ext_resource type="Script" uid="uid://b8nyeypi1o6o" path="res://script/need_pick_item_scene.gd" id="1_onn0u"]
 [ext_resource type="Texture2D" uid="uid://c7ssxkcorlyek" path="res://art/Item/MoneyCard.png" id="2_wfu2a"]
@@ -7,24 +7,24 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_quvto"]
 radius = 88.02273
 
-[node name="NeedPickItemScene" type="Node2D"]
+[node name="NeedPickItemScene" type="Node2D" unique_id=1960358230]
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_onn0u")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1453894010]
 z_index = 1
 y_sort_enabled = true
 texture = ExtResource("2_wfu2a")
 
-[node name="InteractLayer" type="StaticBody2D" parent="."]
+[node name="InteractLayer" type="StaticBody2D" parent="." unique_id=260981049]
 collision_layer = 4
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractLayer"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractLayer" unique_id=591531848]
 shape = SubResource("CircleShape2D_quvto")
 
-[node name="Amount" type="Label" parent="."]
+[node name="Amount" type="Label" parent="." unique_id=672014722]
 z_index = 2
 anchors_preset = 3
 anchor_left = 1.0

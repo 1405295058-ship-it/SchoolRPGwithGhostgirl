@@ -81,7 +81,7 @@ animation = &"idle"
 offset = Vector2(0, -502.705)
 
 [node name="园树影子" type="Sprite2D" parent="StaticBody2D/AnimatedSprite2D" unique_id=7210779]
-position = Vector2(14.999999, 6.9999995)
+position = Vector2(8, -16.999998)
 scale = Vector2(1.0566038, 0.79999995)
 texture = ExtResource("3_ehac5")
 

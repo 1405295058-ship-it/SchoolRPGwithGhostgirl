@@ -1,11 +1,21 @@
-#backgroundNPC
-extends StaticBody2D
+extends NPCBase
+class_name BackGroundNPC
 
+@export var gender:all_gender = all_gender.no
+enum all_gender {
+	boy,
+	girl,
+	no
+}
 
-func play_animation(anim_name:String):
-	if $AnimatedSprite2D.sprite_frames.has_animation(anim_name):
-		$AnimatedSprite2D.play(anim_name)
-	else:
-		push_error("缺少这个动画：", anim_name)
-	
-	
+func _ready() -> void:
+	super._ready()
+
+func get_gender():
+	match gender:
+		all_gender.boy:
+			return "boy"
+		all_gender.girl:
+			return "girl"
+		all_gender.no:
+			return null
