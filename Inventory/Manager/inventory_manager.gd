@@ -331,6 +331,38 @@ func has_empty_slot() -> bool:
 				
 	return false
 	
+#检查背包是否有指定数量的某个物品
+func check_item(item_id: String, required_amount: int = 1) -> bool:
+	if item_id == "":
+		return false
+
+	if required_amount <= 0:
+		return true
+
+	var total_amount: int = 0
+
+	for bag_id in bags:
+		var slots: Array = bags[bag_id]
+
+		for value in slots:
+			var stack := value as ItemStack
+
+			if stack == null:
+				continue
+
+			if stack.item_data == null:
+				continue
+
+			if stack.item_data.item_id != item_id:
+				continue
+
+			total_amount += stack.amount
+
+			if total_amount >= required_amount:
+				return true
+
+	return false
+	
 ##判断道具还能不能至少放入一个, world，UI判断背包空间时调用
 func can_add_item(item : ItemData) -> bool:
 	if item == null:
