@@ -1,16 +1,22 @@
 extends Node
 
-
-##背包内数据发生变化时发出
-signal inventory_changed(bag_id : String)
-
-##背包容量发生变化时发出
-signal inventory_capacity_changed(bag_id : String)
-
 const POCKET_ID := "pocket"
 const BACKPACK_ID := "backpack"
 
 var bags : Dictionary = {}
+
+
+#====================== signals ====================
+
+
+#背包内数据发生变化时发出
+signal inventory_changed(bag_id : String)
+
+#背包容量发生变化时发出
+signal inventory_capacity_changed(bag_id : String)
+
+#==================== initialization ========================
+
 
 func _ready() -> void:
 	initialize_inventory()
@@ -23,7 +29,7 @@ func initialize_inventory() -> void:
 	create_bag(POCKET_ID,2)
 	create_bag(BACKPACK_ID,5)
 	
-##创建背包
+#创建背包, 在initialize_inventory()调用
 func create_bag(bag_id : String, capacity : int) -> void:
 	if bags.has(bag_id):
 		push_warning("背包已存在：" + bag_id)
@@ -39,7 +45,12 @@ func create_bag(bag_id : String, capacity : int) -> void:
 		slots.append(null)
 	
 	bags[bag_id] = slots	
-##获取指定背包容量
+	
+	
+#=========================== read data ========================
+	
+	
+#获取指定背包容量, 在InventoryUI.build_bag(), Inventory.refresh_bag()调用
 func get_capacity(bag_id : String) -> int:
 	if not bags.has(bag_id):
 		push_error("不存在这个背包：" + bag_id)
@@ -48,14 +59,14 @@ func get_capacity(bag_id : String) -> int:
 	var slots : Array = bags[bag_id]
 	return slots.size()
 	
-##获取格子中ItemStack	
+#获取格子中ItemStack	, 在InventorySlot.refresh(), InventorySlot._get_drag_data()调用
 func get_itemstack(bag_id : String, slot_index : int) -> ItemStack:
 	if not is_valid_slot(bag_id,slot_index):
 		return null
 	
 	return bags[bag_id][slot_index] as ItemStack
 	
-##获取格子中Itemdata
+#获取格子中Itemdata, 游戏逻辑查询物品类型时可以调用
 func get_item_data(bag_id : String, slot_index : int) -> ItemData:
 	var stack := get_itemstack(bag_id, slot_index)
 	
@@ -64,8 +75,7 @@ func get_item_data(bag_id : String, slot_index : int) -> ItemData:
 				
 	return stack.item_data
 
-
-##检查容器和格子下标合不合理
+#检查容器和格子下标合不合理, manager中所有读写slot的函数
 func is_valid_slot(bag_id : String, slot_index : int) -> bool:
 	if not bags.has(bag_id):
 		push_error("不存在此背包：" + bag_id)
@@ -78,7 +88,11 @@ func is_valid_slot(bag_id : String, slot_index : int) -> bool:
 		
 	return true
 
-##加入道具到背包
+
+#======================== add item ====================
+
+
+#加入道具到背包, 在worlditem.pickup()调用
 func add_item(item : ItemData, amount : int = 1) -> Dictionary:
 	var result = {
 		##原本想加入多少
@@ -86,7 +100,7 @@ func add_item(item : ItemData, amount : int = 1) -> Dictionary:
 		##实际加入多少
 		"added_amount" : 0,
 		##没有放进去多少
-		"remaining_amount " : amount,
+		"remaining_amount" : amount,
 		##是否全部放入
 		"success" : false
 	}
@@ -112,7 +126,8 @@ func add_item(item : ItemData, amount : int = 1) -> Dictionary:
 	result["remaining_amount"] = remaining_amount
 	result["success"] = remaining_amount == 0
 	return result
-##把物品加入已有同类堆叠
+	
+#把物品加入已有同类堆叠, 在add_item()调用
 func add_to_existing_stacks(bag_id : String, item : ItemData, amount : int) -> int:
 	if amount <= 0:
 		push_warning("添加物品需要大于0")
@@ -153,7 +168,7 @@ func add_to_existing_stacks(bag_id : String, item : ItemData, amount : int) -> i
 				
 	return remaining_amount
 	
-##把剩余数量分配进空格子
+#把剩余数量分配进空格子, 在add_item()调用
 func add_to_empty_slots(bag_id : String, item : ItemData, amount : int) -> int:
 	if amount <= 0:
 		return 0
@@ -184,9 +199,13 @@ func add_to_empty_slots(bag_id : String, item : ItemData, amount : int) -> int:
 		inventory_changed.emit(bag_id)
 		
 	return remaining_amount
-		
-##拖拽板块
-func move_or_merge_stack(from_bag_id : String, from_slot_index : int, to_bag_id : String, to_slot_index: int) -> void:
+
+
+#======================== drag/ move/ swap ==================
+
+
+#实现背包拖拽规则, 在InventorySlot._drop_data()调用
+func move_or_swap_stack(from_bag_id : String, from_slot_index : int, to_bag_id : String, to_slot_index: int) -> void:
 	if not is_valid_slot(from_bag_id, from_slot_index):
 		return
 		
@@ -208,25 +227,10 @@ func move_or_merge_stack(from_bag_id : String, from_slot_index : int, to_bag_id 
 		
 		emit_changed_for_bags(from_bag_id, to_bag_id)
 		return
-	
-	if(from_stack.item_data.item_id == to_stack.item_data.item_id):
-		var available_space = to_stack.get_remaining_space()
 		
-		if available_space > 0:
-			var transfer_amount : Variant = min(available_space, from_stack.amount)
-			
-			to_stack += transfer_amount
-			from_stack.amount -= transfer_amount
-			
-			if from_stack.amount <= 0:
-				bags[from_bag_id][from_slot_index] = null
-				
-				emit_changed_for_bags(from_bag_id, to_bag_id)
-				return
-		
-		swap_stack(from_bag_id, from_slot_index, to_bag_id, to_slot_index)
+	swap_stack(from_bag_id, from_slot_index, to_bag_id, to_slot_index)
 
-##强制交换两个格子的堆叠
+#强制交换两个格子的堆叠, 在move_or_swap_stack()调用
 func swap_stack(from_bag_id : String, from_slot_index : int, to_bag_id : String, to_slot_index: int) -> void:
 	if not is_valid_slot(from_bag_id, from_slot_index):
 		return
@@ -237,20 +241,23 @@ func swap_stack(from_bag_id : String, from_slot_index : int, to_bag_id : String,
 	var from_stack = get_itemstack(from_bag_id, from_slot_index)
 	var to_stack = get_itemstack(to_bag_id, to_slot_index)
 	
-	bags[from_bag_id][from_slot_index] = to_stack
-	bags[to_bag_id][to_slot_index] = from_bag_id
+	bags[from_bag_id][from_slot_index] = (to_stack)
+	bags[to_bag_id][to_slot_index] = (from_stack)
 	
 	emit_changed_for_bags(from_bag_id, to_bag_id)
 
+#修改bag数据后发送刷新信号, 在move_or_swap_stack(), swap_stack()调用
 func emit_changed_for_bags(first_bag_id : String, second_bag_id : String) -> void:
 	inventory_changed.emit(first_bag_id)
 	
 	if first_bag_id != second_bag_id:
 		inventory_changed.emit(second_bag_id)
 	
+	
+#==================== remove ==========================
 
 		
-##删除和减少数量
+##删除和减少数量, 在消耗品任务交付等系统调用
 func remove_amount(bag_id : String, slot_index : int, amount: int) -> int:
 	if not is_valid_slot(bag_id, slot_index):
 		return 0
@@ -268,13 +275,13 @@ func remove_amount(bag_id : String, slot_index : int, amount: int) -> int:
 	stack.amount -= remove_amount
 	
 	if stack.amount <= 0:
-		stack.amount = null
-	
+		bags[bag_id][slot_index] = null
+
 	inventory_changed.emit(bag_id)
 	
 	return remove_amount
 
-##删除整个格子内容
+##删除整个格子内容, 在丢弃物品，移动到其它系统时调用
 func remove_stack(bag_id : String, slot_index : int) -> ItemStack:
 	if not is_valid_slot(bag_id, slot_index):
 		return null
@@ -287,7 +294,11 @@ func remove_stack(bag_id : String, slot_index : int) -> ItemStack:
 	
 	return remove_stack
 	
-##扩容背包
+	
+#===================== capacity ==========================
+	
+	
+##扩容背包, 在后续背包升级时调用
 func expand_bag(bag_id : String, additional_capacity : int) -> void:
 	if not bags.has(bag_id):
 		push_error("背包不存在：" + bag_id)
@@ -305,7 +316,11 @@ func expand_bag(bag_id : String, additional_capacity : int) -> void:
 		inventory_capacity_changed.emit(bag_id)
 		inventory_changed.emit(bag_id)
 	
-##判断还存不存在放入道具的位置
+	
+#===================== query ======================
+	
+	
+##判断还存不存在放入道具的位置, 在其它系统判断时调用
 func has_empty_slot() -> bool:
 	for bag_id in bags:
 		var slots : Array = bags[bag_id]
@@ -316,7 +331,7 @@ func has_empty_slot() -> bool:
 				
 	return false
 	
-##判断道具还能不能至少放入一个
+##判断道具还能不能至少放入一个, world，UI判断背包空间时调用
 func can_add_item(item : ItemData) -> bool:
 	if item == null:
 		return false

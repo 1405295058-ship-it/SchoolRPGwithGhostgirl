@@ -1,10 +1,13 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://deyo7viblerke"]
 
 [ext_resource type="Script" uid="uid://c6xyj218e8c1r" path="res://Inventory/Data/item_data.gd" id="1_80mm6"]
-[ext_resource type="Texture2D" uid="uid://u6psbvovosqr" path="res://art/Item/员工卡.png" id="1_vdy6p"]
+[ext_resource type="Texture2D" uid="uid://c7ssxkcorlyek" path="res://art/Item/MoneyCard.png" id="1_vdy6p"]
 
 [resource]
 script = ExtResource("1_80mm6")
+item_id = "我的卡"
+item_name = "我的卡"
+description = "这就是我的卡"
 icon = ExtResource("1_vdy6p")
 max_stack_size = 1
 metadata/_custom_type_script = "uid://c6xyj218e8c1r"

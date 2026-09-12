@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://cyi2nxjvjeywx" path="res://art/UI/背包小.png" id="6_jxojm"]
 [ext_resource type="Script" uid="uid://nmww1wamlei3" path="res://Inventory/UI/inventory_ui.gd" id="8_sjpp7"]
 [ext_resource type="PackedScene" uid="uid://bjac0i2jvyr1j" path="res://Inventory/UI/InventorySlot.tscn" id="9_h7p8p"]
+[ext_resource type="Script" uid="uid://3dhvbhhbggjp" path="res://Inventory/UI/delete_zone.gd" id="10_slen8"]
+[ext_resource type="Texture2D" uid="uid://dqsol6gd4ukn5" path="res://art/校门和1层/垃圾桶.png" id="11_a778r"]
 [ext_resource type="Texture2D" uid="uid://bvihnl834difi" path="res://art/UI/设置书贴.png" id="11_q4fcb"]
 [ext_resource type="Texture2D" uid="uid://bliws8dgwsllw" path="res://art/UI/任务面板排线.png" id="11_vyjxb"]
 [ext_resource type="Texture2D" uid="uid://dxr55bosrqo4x" path="res://art/UI/任务书贴.png" id="12_m43yq"]
@@ -230,22 +232,81 @@ stretch_mode = 3
 
 [node name="InventoryUI" type="Control" parent="BackGround/CharacterBagLine" unique_id=1173996867]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 700.0
+offset_top = 500.0
+offset_right = 1150.0
+offset_bottom = 800.0
 script = ExtResource("8_sjpp7")
 inventory_slot_scene = ExtResource("9_h7p8p")
 
-[node name="BackpackGrid" type="GridContainer" parent="BackGround/CharacterBagLine/InventoryUI" unique_id=1050344023]
+[node name="PocketGrid" type="GridContainer" parent="BackGround/CharacterBagLine/InventoryUI" unique_id=1253140413]
+custom_minimum_size = Vector2(680, 350)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_top = 1050.0
+offset_right = 680.0
+offset_bottom = 1400.0
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 2
+
+[node name="BackpackGrid" type="GridContainer" parent="BackGround/CharacterBagLine/InventoryUI" unique_id=1050344023]
+custom_minimum_size = Vector2(1680, 350)
+layout_mode = 0
+offset_top = 1500.0
+offset_right = 1680.0
+offset_bottom = 1850.0
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
 columns = 5
 
-[node name="PocketGrid" type="GridContainer" parent="BackGround/CharacterBagLine/InventoryUI" unique_id=1253140413]
+[node name="ItemInfoPanel" type="PanelContainer" parent="BackGround/CharacterBagLine/InventoryUI" unique_id=840517688]
+visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-columns = 2
+offset_right = 350.0
+offset_bottom = 220.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/CharacterBagLine/InventoryUI/ItemInfoPanel" unique_id=2121587315]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="BackGround/CharacterBagLine/InventoryUI/ItemInfoPanel/VBoxContainer" unique_id=753469674]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+
+[node name="DescribtionLabel" type="Label" parent="BackGround/CharacterBagLine/InventoryUI/ItemInfoPanel/VBoxContainer" unique_id=192810692]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+autowrap_mode = 3
+
+[node name="DropButton" type="Button" parent="BackGround/CharacterBagLine/InventoryUI/ItemInfoPanel/VBoxContainer" unique_id=1970853129]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "丢弃"
+
+[node name="CloseButton" type="Button" parent="BackGround/CharacterBagLine/InventoryUI/ItemInfoPanel/VBoxContainer" unique_id=1228293886]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "关闭
+"
+
+[node name="DeleteZone" type="PanelContainer" parent="BackGround/CharacterBagLine/InventoryUI" unique_id=931354545]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 0
+offset_left = 1000.0
+offset_top = 1050.0
+offset_right = 1420.0
+offset_bottom = 1470.0
+script = ExtResource("10_slen8")
+
+[node name="TrashIcon" type="TextureRect" parent="BackGround/CharacterBagLine/InventoryUI/DeleteZone" unique_id=1984909808]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("11_a778r")
+
+[node name="Label" type="Label" parent="BackGround/CharacterBagLine/InventoryUI/DeleteZone" unique_id=1277874085]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "拖到这里删除"
 
 [node name="MissionBagLine" type="TextureRect" parent="BackGround" unique_id=1368860856]
 layout_mode = 0

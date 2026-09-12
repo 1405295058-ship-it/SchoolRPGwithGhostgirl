@@ -10,7 +10,6 @@ var current_show_objectives: Array = []
 
 @onready var inventory_ui: InventoryUI = $BackGround/CharacterBagLine/InventoryUI
 
-
 @onready var main_quest_button_path: PackedScene = preload("res://sence/需要path的/main_quest.tscn")
 
 @onready var sub_quest_button_path: PackedScene = preload("res://sence/需要path的/sub_quest.tscn")
@@ -28,7 +27,6 @@ var current_show_objectives: Array = []
 	}
 }
 
-
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
@@ -38,7 +36,6 @@ func _ready() -> void:
 
 	hide()
 
-
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("call_user_UI"):
 		if visible:
@@ -46,13 +43,12 @@ func _process(_delta: float) -> void:
 		else:
 			show_user_UI()
 
-
 func close_user_UI() -> void:
 	get_tree().paused = false
 
 	hide()
+	
 	can_close_ui = false
-
 
 func show_user_UI() -> void:
 	get_tree().paused = true
@@ -66,7 +62,6 @@ func show_user_UI() -> void:
 
 	if inventory_ui != null:
 		inventory_ui.refresh_all()
-
 
 func switch_bag_layer(layer_name: String) -> void:
 	if not layer_map.has(layer_name):
@@ -87,8 +82,8 @@ func switch_bag_layer(layer_name: String) -> void:
 	var current_switcher := layer_map[layer_name]["switcher"] as Control
 
 	current_switcher.z_index = 1
+	
 	current_layer.show()
-
 
 func _on_switch_to_bag_button_pressed() -> void:
 	switch_bag_layer("bag")

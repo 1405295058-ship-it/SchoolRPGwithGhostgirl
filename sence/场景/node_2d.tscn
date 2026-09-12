@@ -50,6 +50,7 @@
 [ext_resource type="Texture2D" uid="uid://dm7balgu5yr6s" path="res://art/动画资源/开学/车子.png" id="51_2hqcw"]
 [ext_resource type="PackedScene" uid="uid://b0i2pgw2of37r" path="res://sence/tscn的文件/progress_blocker.tscn" id="51_lovux"]
 [ext_resource type="Resource" uid="uid://b3ynmi4q1vl5t" path="res://sence/Item/LaoShiCard.tres" id="51_rksx3"]
+[ext_resource type="Resource" uid="uid://deyo7viblerke" path="res://sence/Item/MoneyCard.tres" id="51_u5gu7"]
 [ext_resource type="PackedScene" uid="uid://bh1u51nkb477v" path="res://sence/tscn的文件/random_npc_spawner.tscn" id="52_lovux"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e8dv2"]
@@ -1122,12 +1123,20 @@ facing_dir = 3
 [node name="WorldItems" type="Node2D" parent="." unique_id=848718455]
 
 [node name="WorldItem" parent="WorldItems" unique_id=1426212331 instance=ExtResource("50_lovux")]
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(1155, 2816)
-collision_layer = 2
-collision_mask = 3
+position = Vector2(546, 2850)
 item_data = ExtResource("51_rksx3")
+
+[node name="WorldItem2" parent="WorldItems" unique_id=1211742559 instance=ExtResource("50_lovux")]
+position = Vector2(-1792, 2739)
+item_data = ExtResource("51_rksx3")
+
+[node name="WorldItem3" parent="WorldItems" unique_id=1882983512 instance=ExtResource("50_lovux")]
+position = Vector2(374, 2897)
+item_data = ExtResource("51_rksx3")
+
+[node name="WorldItem4" parent="WorldItems" unique_id=77882840 instance=ExtResource("50_lovux")]
+position = Vector2(424, 2875)
+item_data = ExtResource("51_u5gu7")
 
 [editable path="ChangeSceneArea"]
 [editable path="CgDirector"]

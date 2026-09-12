@@ -1,18 +1,45 @@
 [gd_scene format=3 uid="uid://bjac0i2jvyr1j"]
 
 [ext_resource type="Script" uid="uid://c1g2qu7s0jiam" path="res://Inventory/UI/inventory_slot.gd" id="1_wugbe"]
+[ext_resource type="Texture2D" uid="uid://b2x8jamjv1dih" path="res://art/UI/物品框.png" id="2_n217v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvoxt"]
 
 [node name="InventorySlot" type="PanelContainer" unique_id=996714235]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(320, 320)
+offset_right = 96.0
+offset_bottom = 96.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cvoxt")
 script = ExtResource("1_wugbe")
 
-[node name="ItemIcon" type="TextureRect" parent="." unique_id=997754961]
+[node name="SlotContent" type="Control" parent="." unique_id=620833182]
 layout_mode = 2
+mouse_filter = 2
+
+[node name="SlotBackground" type="TextureRect" parent="SlotContent" unique_id=1995260191]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 320.0
+mouse_filter = 2
+texture = ExtResource("2_n217v")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ItemIcon" type="TextureRect" parent="SlotContent" unique_id=997754961]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 290.0
+offset_bottom = 290.0
 mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="AmountLablel" type="Label" parent="." unique_id=277794101]
-layout_mode = 2
+[node name="AmountLabel" type="Label" parent="SlotContent" unique_id=277794101]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 76.0
+offset_bottom = 76.0
 horizontal_alignment = 2
 vertical_alignment = 2

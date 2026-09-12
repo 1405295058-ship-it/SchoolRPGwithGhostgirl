@@ -1,20 +1,34 @@
 class_name InventorySlot
 extends PanelContainer
 
-@onready var item_icon : TextureRect = $ItemIcon
+signal item_info_requested(item_data : ItemData, bag_id : String, slot_index : int)
 
-@onready var amount_label : Label = $AmountLablel
+@onready var item_icon : TextureRect = $SlotContent/ItemIcon
+
+@onready var amount_label : Label = $SlotContent/AmountLabel
 
 var bag_id : String =""
 var slot_index : int = -1
 
+func _ready() -> void:
+	mouse_filter = Control.MOUSE_FILTER_STOP
+	
+	item_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
+	amount_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
+	
+#===================== setup/ refresh ===================
+	
+
+#把UIslot绑定到manager中一个真实的格子, 在InventoryUI.build_bag()调用
 func set_up(new_bag_id : String, new_slot_index : int) -> void:
 	bag_id = new_bag_id
 	slot_index = new_slot_index
 	
 	refresh()
 	
-##根据InventoryManager刷新图标	
+#根据InventoryManager刷新图标, 在InventoryUI.refresh_bag()调用
 func refresh() -> void:
 	var stack : ItemStack = InventoryManager.get_itemstack(bag_id, slot_index)
 	
@@ -23,6 +37,7 @@ func refresh() -> void:
 		amount_label.text = ""
 		amount_label.hide()
 		tooltip_text = ""
+		
 		return
 	
 	item_icon.texture = stack.item_data.icon
@@ -37,7 +52,10 @@ func refresh() -> void:
 	tooltip_text = "%s\n%s"%[stack.item_data.item_name, stack.item_data.description]
 
 
-##开始拖拽物体时自调用
+#======================= drag/ drop =======================
+
+
+#开始拖拽物体时自调用
 func _get_drag_data(_at_position : Vector2) -> Variant:
 	var stack: ItemStack = InventoryManager.get_itemstack(bag_id, slot_index)
 	
@@ -46,6 +64,7 @@ func _get_drag_data(_at_position : Vector2) -> Variant:
 		
 	var preview_container := Control.new()
 	preview_container.custom_minimum_size = Vector2(64,64)
+	preview_container.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	##鼠标拖拽时跟随光标
 	var preview_icon := TextureRect.new()
@@ -73,7 +92,7 @@ func _get_drag_data(_at_position : Vector2) -> Variant:
 		"slot_index" : slot_index
 		}
 
-##判断当前格子能否放下物体
+#判断当前格子能否放下物体
 func _can_drop_data(_at_position : Vector2, data :Variant) -> bool:
 	if not data is Dictionary:
 		return false
@@ -95,7 +114,28 @@ func _drop_data(_at_position : Vector2, data : Variant) -> void:
 	var from_bag_id : String = data["bag_id"]
 	var from_slot_index : int = data["slot_index"]
 	
-	InventoryManager.move_or_merge_stack(from_bag_id, from_slot_index, bag_id, slot_index)	
+	InventoryManager.move_or_swap_stack(from_bag_id, from_slot_index, bag_id, slot_index)	
 
+func _gui_input(event: InputEvent) -> void:
+	if not event is InputEventMouseButton:
+		return
+		
+	var mouse_event := event as InputEventMouseButton
+	
+	if mouse_event.button_index != MOUSE_BUTTON_LEFT:
+		return
+		
+	if not mouse_event.pressed:
+		return
+		
+	var stack : ItemStack = InventoryManager.get_itemstack(bag_id,slot_index)
+	
+	if stack == null:
+		return
+		
+	if stack.item_data == null:
+		return
+		
+	item_info_requested.emit(stack.item_data, bag_id, slot_index)
 	
 	

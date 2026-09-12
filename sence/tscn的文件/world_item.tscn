@@ -6,6 +6,8 @@
 radius = 90.934044
 
 [node name="WorldItem" type="Area2D" unique_id=1426212331]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_ug4tg")
 
 [node name="ItemSprite" type="Sprite2D" parent="." unique_id=667219332]

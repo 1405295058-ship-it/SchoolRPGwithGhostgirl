@@ -12,34 +12,17 @@ extends Area2D
 @export_range(1,9999,1)
 var amount : int = 1
 
-##是否自动拾取
-##false 表示交互拾取
-
-@export var auto_pick : bool = false
-
 @onready var item_sprite : Sprite2D = $ItemSprite
 
-@onready var interaction_hint : Label = get_node_or_null("InteractionHint") as Label
-
-var player_in_range : Node = null
-
 var is_picking_up : bool = false
+
+#============================= lifecycle=======================
+
 
 func _ready() -> void:
 	update_item_visual()
 	
-	if Engine.is_editor_hint():
-		return
-		
-	if interaction_hint != null:
-		interaction_hint.hide()
-		
-	if not body_entered.is_connected(_on_body_entered):
-		body_entered.connect(_on_body_entered)
-	
-	if not body_exited.is_connected(_on_body_exited):
-		body_exited.connect(_on_body_exited)
-
+#根据item_data.icon更新Itemsprite, 在_ready()调用
 func update_item_visual() -> void:
 	var sprite := get_node_or_null("ItemSprite") as Sprite2D
 	
@@ -57,41 +40,19 @@ func update_item_visual() -> void:
 		return
 		
 	item_sprite.texture = item_data.icon
-	
 	sprite.z_index = 10
-func _process(_delta : float) -> void:
-	if auto_pick:
-		return
-					
-	if player_in_range == null:
-		return
-		
-	if Input.is_action_just_pressed("Interaction"):
-		pick_up()
-			
-func _on_body_entered(body : Node) -> void:
-	if not body.is_in_group("player"):
-		return
-		
-	player_in_range = body
 	
-	if auto_pick:
-		pick_up()
-		return
+	#======================== player interaction ======================
 	
-	if interaction_hint != null:
-		interaction_hint.text = "按E拾取"
-		interaction_hint.show()
 
-func _on_body_exited(body : Node) -> void:
-	if body != player_in_range:
-		return
-		
-	player_in_range = null
+func interact(_player) -> void:
+	pick_up()
 	
-	if interaction_hint != null:
-		interaction_hint.hide()
-		
+	
+#============================= pickup ========================
+
+
+#把worlditem放进inventorymanager, 在interact()调用
 func pick_up() -> void:
 	if is_picking_up:
 		return
@@ -124,29 +85,24 @@ func pick_up() -> void:
 		
 	QuestManager.check_event_is_quest_need("pick_up_" + item_data.item_id, added_amount)
 	
-	amount = clampi(remaining_amount, 0, original_amount - added_amount)
-	##全部拾取成功，立即关闭检测并删除
+	amount = remaining_amount
+	
 	if amount <= 0:
 		monitoring = false
 		monitorable = false
 		
-		if interaction_hint != null:
-			interaction_hint.hide()
-			
 		queue_free()
 		return
+		
+	update_remaining_item()
+	
 	is_picking_up = false
 
 func update_remaining_item() -> void:
 	print("部分拾取成功， 地上还剩:", amount, "个", item_data.item_id)
 	
-	if interaction_hint != null:
-		interaction_hint.text = "按E拾取（剩余 %d）" %amount
-		
 func show_inventory_full_message() -> void:
 	print("背包空间不足，无法拾取：", item_data.item_id)
-	
-	if interaction_hint != null:
-		interaction_hint.text = "背包空间不足"
-		interaction_hint.show()
+
+
 		
