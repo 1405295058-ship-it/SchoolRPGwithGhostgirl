@@ -29,7 +29,7 @@ func enter(data: Dictionary = {}) -> void:
 	# 即使退出后旧的 await 醒来，也能知道自己已经失效。
 	var current_generation := idle_generation
 	start_random_idle_extra(current_generation)
-
+	print(npc.name + "开始idlestate")
 
 func update(_delta: float) -> void:
 	pass

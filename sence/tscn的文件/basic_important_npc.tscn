@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://tvaskc0ucsyd" path="res://script/basic_important_npc.gd" id="1_8v34l"]
 [ext_resource type="Texture2D" uid="uid://c8yovw14lbse4" path="res://art/shadow.png" id="3_ctb53"]
-[ext_resource type="SpriteFrames" uid="uid://nkimpu7iv7fk" path="res://Tres_animation_file/NPCAnimation/Clara.tres" id="4_ib1et"]
+[ext_resource type="SpriteFrames" uid="uid://co72a1s85wtag" path="res://Tres_animation_file/NPCAnimation/mike.tres" id="4_ib1et"]
 [ext_resource type="PackedScene" uid="uid://t3f272navsri" path="res://sence/tscn的文件/QuestHintMarker.tscn" id="4_k7hvh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vh7mf"]
@@ -33,5 +33,6 @@ offset = Vector2(-0.68, 36.69)
 z_index = 1
 y_sort_enabled = true
 sprite_frames = ExtResource("4_ib1et")
-animation = &"in_dream_cry"
+animation = &"on_class_animation"
+frame_progress = 0.26487592
 offset = Vector2(0, -146.28)

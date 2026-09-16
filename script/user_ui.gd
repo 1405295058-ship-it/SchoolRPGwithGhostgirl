@@ -40,12 +40,12 @@ func _process(_delta: float) -> void:
 			show_user_UI()
 
 func close_user_UI():
-	get_tree().paused = false
+	SystemManager.release_pause("Show_UserUI")
 	hide()
 	can_close_ui = false
 
 func show_user_UI():
-	get_tree().paused = true
+	SystemManager.request_pause("Show_UserUI")
 	$AnimationPlayer.play("show_user_UI")
 	$AnimationPlayer.seek(0.0,true)
 	show()

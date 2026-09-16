@@ -12,6 +12,7 @@ var default_dialog: Array = []
 var dialog_data: Dictionary = {}
 var dialog_result: Dictionary = {}
 
+var initial_state = &"idle"
 
 @export var npc_data: NPCData
 
@@ -38,7 +39,8 @@ func _ready() -> void:
 		EventBus.quest_hint_should_refresh.connect(
 			refresh_quest_hint
 		)
-
+	
+	call_deferred("change_npc_state", initial_state)
 
 func read_npc_data_resource() -> void:
 	if npc_data == null:

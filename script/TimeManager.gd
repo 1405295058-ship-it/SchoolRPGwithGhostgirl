@@ -69,4 +69,18 @@ func is_weekend()->bool:
 	if current_week_period == "saturday" or current_week_period =="sunday":
 		return true
 	return false
-	
+func set_day_period(period: String):
+	if current_day_period == period:
+		return
+
+	if not day_period.has(period):
+		push_error("不存在的 day period: " + period)
+		return
+
+	current_day_period = period
+
+	EventBus.change_day_period.emit()
+	EventBus.time_context_changed.emit(
+		current_week_period,
+		current_day_period
+	)	

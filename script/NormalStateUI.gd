@@ -17,6 +17,9 @@ var day_time_map = {
 
 @onready var cg_up_fade_layer := $CgUpFadeLayer
 @onready var cg_down_fade_layer := $CgBottomFadeLayer
+var is_cg_playing := false
+
+var can_show_fast_sigh := true
 
 @onready var objective_block_path = preload("res://sence/需要path的/finish_blockin_normal_quest_ui.tscn")
 
@@ -27,17 +30,23 @@ func _ready() -> void:
 	EventBus.tracking_quest_changed.connect(update_track_quest)
 	EventBus.start_play_cg.connect(on_cg_started_play)
 	EventBus.end_play_cg.connect(on_cg_ended_play)
+	EventBus.enable_fast_forward.connect(hide_cg_fast_forward_sigh)
 	update_track_quest()
 	hide_fade_layer()
 
+
 func on_cg_started_play():
+	is_cg_playing = true
 	hide_head_up_ui()
 	$SkipTip.show()
 	show_fade_layer_when_cg_start()
 func on_cg_ended_play(_anim_name):
+	is_cg_playing = false
 	$SkipTip.hide()
 	await hide_fade_layer_when_cg_end()
-	show_head_up_ui()
+	if not is_cg_playing:	
+		show_head_up_ui()
+	
 	
 func show_head_up_ui():
 	$TimeShowerWatch.show()	
@@ -82,7 +91,6 @@ func update_track_quest():
 				objective_node.text = objective.get("time_hint","")
 			$QuestShowUpTitleBackground/VBoxContainer.add_child(objective_block)
 func update_watch_timer():
-	$TimeShowerWatch.show()
 	$TimeShowerWatch/SymbolAnimation.play("SymbolAnimation")
 	var current_week_period = TimeManager.current_week_period
 	var current_day_period = TimeManager.current_day_period
@@ -106,3 +114,8 @@ func hide_fade_layer():
 	$SkipTip.hide()
 	cg_up_fade_layer.scale.y = 0
 	cg_down_fade_layer.scale.y = 0
+func hide_cg_fast_forward_sigh(enable:bool):
+	if enable == false:
+		$SkipTip.hide()
+	else:
+		$SkipTip.show()

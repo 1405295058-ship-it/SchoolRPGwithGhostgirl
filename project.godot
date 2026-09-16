@@ -34,6 +34,7 @@ FadeLayer="*uid://25n1c6p7clcs"
 EnvironmentLayer="*uid://bfsagwoh7qr04"
 EventBus="*uid://cw5d33nmwqduk"
 DailyRoutineManager="*uid://bk4fwsfcn3oer"
+SystemManager="*uid://ygyqbu667kdn"
 
 [display]
 

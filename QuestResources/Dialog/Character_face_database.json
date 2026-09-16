@@ -23,6 +23,7 @@
 	"Alice":
 		{
 			"normal":"res://art/face/开心小唐.png",
+			"angry":"res://art/face/生气小唐.png",
 			"display_name":"开心小唐"
 		},
 	"Big_Alice":

@@ -193,6 +193,14 @@ region = Rect2(0, 0, 320, 320)
 atlas = ExtResource("5_7bbqk")
 region = Rect2(320, 0, 320, 320)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2dqw"]
+atlas = ExtResource("5_7bbqk")
+region = Rect2(320, 640, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olhsw"]
+atlas = ExtResource("5_7bbqk")
+region = Rect2(0, 640, 320, 320)
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_onrkg"]
 load_path = "res://.godot/imported/新主角.png-feff26d0e0e47b0913bb4386c82a0151.ctex"
 
@@ -555,6 +563,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_i2dqw")
+}],
+"loop": true,
+"name": &"sleep_in_acco_eye_close",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olhsw")
+}],
+"loop": true,
+"name": &"sleep_in_acco_eye_open",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_onrkg")
 }, {
 "duration": 1.0,
@@ -718,8 +742,7 @@ ran_speed = 2000
 z_index = 1
 position = Vector2(-1, -3)
 sprite_frames = SubResource("SpriteFrames_qwsg1")
-animation = &"sleep_excited_breath"
-frame_progress = 0.28488657
+animation = &"sleep_in_acco_eye_open"
 offset = Vector2(0, -144.965)
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D" unique_id=1999080811]

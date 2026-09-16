@@ -32,8 +32,7 @@ func _ready() -> void:
 	EventBus.a_quest_state_finished.connect(_on_quest_state_finish)
 	EventBus.unlocked_quest_world_should_apply.connect(_on_unlocked_quest_world_should_apply)
 	EventBus.scene_changed.connect(_on_scene_changed)
-	EventBus.start_play_cg.connect(lock_interaction)
-	EventBus.end_play_cg.connect(_on_cg_ended_play)
+
 	
 	world_state = load_file_from_json(WORLD_STATE_PATH)
 	event_state = load_file_from_json(EVENT_STATE_PATH)
@@ -66,18 +65,21 @@ func _on_quest_state_finish(quest_name:String,current_state_str:String)->void:
 	event_and_world_state_update(quest_name,current_state_str)	
 
 func _on_day_period_changed()->void:
+	if get_tree().current_scene == null:
+		return
 	call_deferred("refresh_scene_state")
 	
 func _on_unlocked_quest_world_should_apply(quest_name)->void:
 	event_and_world_state_update(quest_name,"unactive")
 	
-func _on_cg_ended_play(_anim_name):
-	unlock_interaction()	
+
 #===================================================================================================================================================
 #信号
 #===================================================================================================================================================
 #一个需要刷新的总和
 func refresh_scene_state():
+	if get_tree().current_scene == null:
+		return
 	erase_current_scene_record()
 	load_default_objects_in_current_scene()
 	apply_current_quest_states()
@@ -85,14 +87,19 @@ func refresh_scene_state():
 	
 	
 func erase_current_scene_record():
-	var current_scene_name = get_tree().current_scene.name
+	var current_scene = get_tree().current_scene
 
-	if not current_changed_record.has(current_scene_name):
-		current_changed_record[current_scene_name] = {}
+	if current_scene == null:
 		return
 
-	for object_id in current_changed_record[current_scene_name].keys():
-		current_changed_record[current_scene_name][object_id]["change"] = {}
+	var current_scene_id = current_scene.scene_id
+
+	if not current_changed_record.has(current_scene_id ):
+		current_changed_record[current_scene_id ] = {}
+		return
+
+	for object_id in current_changed_record[current_scene_id ].keys():
+		current_changed_record[current_scene_id ][object_id]["change"] = {}
 func apply_current_quest_states():
 	for quest_name in QuestManager.quest_progress_data.keys():
 		var quest_data = QuestManager.quest_progress_data[quest_name]
@@ -150,6 +157,9 @@ func world_state_update(quest_name,current_state_str):
 		
 func find_things_in_scene_byID(group:String,ID:String):
 	for obj in get_tree().get_nodes_in_group(group):
+		if not obj is BasicImportantNPC:
+			continue
+			
 		if obj.ID == ID:
 			return obj
 	return null
@@ -178,75 +188,88 @@ func should_follow(ID:String,group:String,action:Dictionary):
 #	thing = find_target(follow_group, target_ID)		
 
 
-func write_record(save: Dictionary, action_or_change: String):
+func write_record(save: Dictionary,action_or_change: String) -> void:
+
 	if not save.has("scene"):
-		push_error("缺少 scene",save)
+		push_error("缺少 scene：", save)
 		return
 	if not save.has("object_ID"):
-		push_error("缺少 object_ID",save)
+		push_error("缺少 object_ID：", save)
 		return
 	if not save.has("group"):
-		push_error("缺少 group",save)
+		push_error("缺少 group：", save)
 		return
-
+		
 	if action_or_change != "action" and action_or_change != "change":
-		print("action_or_change 必须是 action 或 change")
+		push_error("action_or_change 必须是 action 或 change")
 		return
-
-	var scene_name = save["scene"]
+		
+	var scene_list = save["scene"]#拿到scene的list 必须是数组
+	
+	if not scene_list is Array:
+		push_error("record 的 scene 必须是 Array：",save)
+		return
 	var object_id = save["object_ID"]
 	var group = save["group"]
 	var time_condition = save.get("time_condition",{})
 
-	if not current_changed_record.has(scene_name):
-		current_changed_record[scene_name] = {}
-
-	if not current_changed_record[scene_name].has(object_id):
-		current_changed_record[scene_name][object_id] = {
-			"group": group,
-			"time_condition":time_condition,
-			"change": {},
-			"action": {}
-		}
-
-	current_changed_record[scene_name][object_id]["group"] = group
-
-	var real_data = save[action_or_change]
-	
-	for key in real_data.keys():
-		current_changed_record[scene_name][object_id][action_or_change][key] = real_data[key]
-
+	var real_data = save.get(action_or_change,{})
+	for scene_id in scene_list:
+		if not scene_id is String:
+			push_error(
+				"scene 数组里的内容必须是 String：",
+				scene_id
+			)
+			continue
+		if not current_changed_record.has(scene_id):
+			current_changed_record[scene_id] = {}
+		if not current_changed_record[scene_id].has(object_id):
+			current_changed_record[scene_id][object_id] = {
+				"group": group,
+				"time_condition": {},
+				"change": {},
+				"action": {}
+			}
+		var record = current_changed_record[scene_id][object_id]
+		record["group"] = group
+		record["time_condition"] = (time_condition.duplicate(true))
+		for key in real_data.keys():
+			record[action_or_change][key] = real_data[key]
 func load_record():
-	var current_scene_name = get_tree().current_scene.name
+	var current_scene_id = get_tree().current_scene.scene_id
 
-	if not current_changed_record.has(current_scene_name):
+	if not current_changed_record.has(current_scene_id):
 		return
 
-	var scene_saves = current_changed_record[current_scene_name]
+	var scene_saves = current_changed_record[current_scene_id]
 
 	for object_id in scene_saves:
 		var object_record = scene_saves[object_id]
 		var group = object_record["group"]
-		var time_condition = object_record.get("time_condition",{})
-
+		var time_condition = object_record.get("time_condition", {})
 		if object_record.has("change"):
 			var info = {
-				"scene": current_scene_name,
+				"scene": [current_scene_id],
 				"object_ID": object_id,
-				"time_condition":time_condition,
+				"time_condition": time_condition,
 				"group": group,
 				"change": object_record["change"]
 			}
-			process_action_and_change(info, "change")
-
+			process_action_and_change(
+				info,
+				"change"
+			)
 		if object_record.has("action"):
 			var info = {
-				"scene": current_scene_name,
+				"scene": [current_scene_id],
 				"object_ID": object_id,
 				"group": group,
 				"action": object_record["action"]
 			}
-			process_action_and_change(info, "action")
+			process_action_and_change(
+				info,
+				"action"
+			)
 			
 			
 #加载有schedule的东西
@@ -263,20 +286,53 @@ func load_default_objects_in_current_scene():
 			continue
 		if not object_schedule.has(current_week_period):
 			continue
-		if not object_schedule[current_week_period].has(current_day_period):
+		var week_schedule = object_schedule[current_week_period]
+		
+		if not week_schedule.has(current_day_period):
 			continue
-		var current_schedule =  object_schedule[current_week_period][current_day_period]
+		var current_schedule =  week_schedule[current_day_period]
+		
+		
 		var object_group = current_schedule.get("group")
 		var object_id = current_schedule.get("object_ID")
-		var should_change_scene_name = current_schedule.get("scene")
-		if should_change_scene_name != current_scene_name:
+		var changes = current_schedule.get("changes", [])
+		
+		if object_group.is_empty():
+			push_error("schedule 缺少 group:" + object_name)
 			continue
-		var object = find_things_in_scene_byID(object_group,object_id)
-		if object == null:
-			push_error("日程目标不存在： ",object_id)
-			continue
-		process_current_schedule(object,current_schedule)
-		write_record(current_schedule,"change")
+		
+		assert(changes is Array)
+		
+		for change in changes:
+			if not change is Dictionary:
+				push_error("change要是dictionary")
+				continue
+			
+			var target_scene = change.get("scene","")
+			
+			if target_scene != current_scene_name:
+				continue
+			
+			
+			var object = find_things_in_scene_byID(object_group,object_id)
+			
+			if object == null:
+				continue
+				
+			process_current_schedule(object,change)
+			
+			var record_change = change.duplicate(true)
+			record_change.erase("scene")
+			
+			var record_data = {
+				"scene" : [target_scene],
+				"object_ID":object_id,
+				"group":object_group,
+				"change":record_change,
+			}
+			
+			
+			write_record(record_data,"change")
 #{
 #								"scene":"Forecourt",
 #								"object_ID":"Forecourt_npc_Mike",
@@ -289,8 +345,8 @@ func load_default_objects_in_current_scene():
 #							}		
 		
 			
-func process_current_schedule(object: Node, current_schedule: Dictionary):
-	var change = current_schedule.get("change", {})
+func process_current_schedule(object: Node, change: Dictionary):
+	
 	if change.is_empty():
 		return
 	if change.has("position"):
@@ -306,9 +362,15 @@ func process_current_schedule(object: Node, current_schedule: Dictionary):
 
 func process_action_and_change(action_or_change_information,action_or_change:String):
 	var current_scene_name = get_tree().current_scene.scene_id
-	var scene_name = action_or_change_information["scene"]
-	if scene_name != current_scene_name:
-		print("这个scene和现在的Scene不一样",scene_name)
+	var valid_scene = action_or_change_information["scene"]
+	
+	if valid_scene is not Array:
+		push_error("这个东西不是array：", action_or_change_information)
+		return
+	
+	
+	if current_scene_name not in valid_scene:
+		print("这个scene和现在的Scene不一样",valid_scene)
 		return
 	
 	match action_or_change:
@@ -381,8 +443,3 @@ func can_play_this_cg(anim_name:String)->bool:
 	if cg_played_once and cg_played_once.get(anim_name,false):
 		return false
 	return true
-
-func lock_interaction():
-	lock_interact = true
-func unlock_interaction():
-	lock_interact = false

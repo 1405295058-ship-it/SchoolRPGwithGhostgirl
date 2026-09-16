@@ -13,6 +13,9 @@ func enter(_data:Dictionary) -> void:
 	var sit_position = seat.get_sit_target().global_position
 	npc.global_position = sit_position
 	
+	var delay = randf_range(0.3, 0.8)
+	await npc.get_tree().create_timer(delay).timeout
+	
 	if npc is BasicImportantNPC:
 		npc.play_animation("on_class_animation")
 	if npc is BackGroundNPC:

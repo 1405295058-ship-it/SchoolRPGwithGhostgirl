@@ -80,9 +80,57 @@
 						"text": "(高中生活开始了，希望能平安度过吧。)",
 						"emotion": "normal"
 					},
+				],
+	"get_up_01":[
+					{
+						"speaker":"player",
+						"text": "我靠 好困。。。",
+						"emotion": "sleep_normal"
+					},
+					{
+						"speaker":"player",
+						"text": "不想上课。。。",
+						"emotion": "sleep_normal"
+					}
+				],
+	"class_dialog":[
+					{
+						"speaker":"Alice",
+						"text": "上课了，同学们安静一下。",
+						"emotion": "normal"
+					},
+					{
+						"speaker":"Mike",
+						"text": "我给你说啊，昨天我。。。。",
+						"emotion": "surprised"
+					},
+					{
+						"speaker":"Alice",
+						"text": "安静！！！",
+						"emotion": "angry"
+					},
+					{
+						"speaker":"player",
+						"text": "。。。",
+						"emotion": "normal"
+					},
+					{
+						"speaker":"Mike",
+						"text": "。。。",
+						"emotion": "normal"
+					},
+					{
+						"speaker":"Alice",
+						"text": "好，这节课我们上口语哈。",
+						"emotion": "normal"
+					},
+					{
+						"speaker":"Alice",
+						"text": "OkOk, let's look at this picture.",
+						"emotion": "normal"
+					}
+					
 				]
-	
-	
 	
 	
 	

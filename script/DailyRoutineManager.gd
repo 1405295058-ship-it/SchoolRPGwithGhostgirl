@@ -2,6 +2,15 @@
 extends Node
 
 
+var routine_dialog = {
+	"Afternoon_class":[
+	{
+		"speaker":"player",
+		"text": "（该去上课了。）",
+		"emotion": "normal"
+	}
+]
+}
 
 enum RoutineStep {
 	WAKE_UP,
@@ -35,14 +44,14 @@ func start_weekday_routine() -> void:
 		RoutineStep.LUNCH_FREE,
 		RoutineStep.AFTERNOON_CLASS,
 		RoutineStep.EVENING_FREE,
+		RoutineStep.NIGHT_FREE,
 		RoutineStep.NIGHT_SLEEP
 	]
 func start_weekend_routine() -> void:
 	current_routine = [
 		RoutineStep.WAKE_UP,
 		RoutineStep.LUNCH_FREE,
-		RoutineStep.EVENING_FREE,
-		RoutineStep.NIGHT_FREE
+		RoutineStep.NIGHT_SLEEP
 		
 	]
 	
@@ -53,8 +62,10 @@ func start_day():
 	else:
 		start_weekday_routine()
 	current_step_index = 0
-
 	
+	
+#==========================================================================================
+#==========================================================================================	
 func run_current_step():
 	if is_processing:
 		return
@@ -64,6 +75,7 @@ func run_current_step():
 	var current_step = current_routine[current_step_index]
 	match current_step:
 		RoutineStep.WAKE_UP:
+			TimeManager.set_day_period("morning")
 			process_routine_wake_up()
 		RoutineStep.GO_TO_SCHOOL:
 			print("去学校")
@@ -71,24 +83,31 @@ func run_current_step():
 		RoutineStep.MORNING_CLASS:
 			process_class()
 		RoutineStep.LUNCH_FREE:
+			TimeManager.set_day_period("lunch_time")
 			print("进入中午活动")
 			is_processing = false
 		RoutineStep.AFTERNOON_CLASS:
-			print("下午课")
-			go_next_step()
+			start_routine_dialog("Afternoon_class")
+			TimeManager.set_day_period("dinner_time")
+			await FadeLayer.fade_out(1)
+			await process_class()
 		RoutineStep.EVENING_FREE:
 			print("进入黄昏时间")
 			is_processing = false
 		RoutineStep.NIGHT_SLEEP:
-			print("晚上学习")
-			go_next_step()
+			TimeManager.set_day_period("night_time")
+			await  FadeLayer.fade_out(0.5)
+			await process_routine_sleep()
 		RoutineStep.NIGHT_FREE:
-			print("晚上自由活动")
+			TimeManager.set_day_period("night_time")
 			is_processing = false
+#==========================================================================================			
+#==========================================================================================
 func go_next_step():
 	current_step_index += 1
 	
 	if current_step_index >= current_routine.size():
+		TimeManager.process_to_next_week_period()
 		start_day()
 		is_processing = false
 		run_current_step()
@@ -101,7 +120,6 @@ func finish_free_time():
 	var current_step = current_routine[current_step_index]
 	if current_step != RoutineStep.LUNCH_FREE and current_step != RoutineStep.EVENING_FREE and current_step != RoutineStep.NIGHT_FREE:
 		return
-	TimeManager.process_to_next_day_period()
 	go_next_step()
 	
 func pause_daily_routine():
@@ -129,11 +147,10 @@ func process_routine_wake_up():
 
 
 func process_class():
-	await FadeLayer.fade_out(0.5)
 	await SceneManager.change_scene_to("TeachingAreaGF")
 	EventBus.class_start.emit()
 	await get_tree().process_frame#npc定位
-	await play_cg_and_wait("start_class")
+	await play_cg_and_wait("start_morning_class")
 	await end_class()
 	
 func end_class():
@@ -148,8 +165,8 @@ func end_class():
 		npc.global_position = disapear_position
 	EventBus.class_end.emit()	
 	GameStateManager.refresh_scene_state()
-	go_next_step()
 	await FadeLayer.fade_in(1)
+	go_next_step()
 	
 func get_nodes_in_current_scene_group(group_name: StringName) -> Array[Node]:
 	var result: Array[Node] = []
@@ -162,4 +179,31 @@ func get_nodes_in_current_scene_group(group_name: StringName) -> Array[Node]:
 			result.append(node)
 	return result
 	
+func process_routine_sleep():
+	await SceneManager.change_scene_to("BoyAccommodationGF")
+	print("现在起床")
+	await play_cg_and_wait("daily_routine_sleep")
+	go_next_step()
+func start_routine_dialog(routine_step:String):
+	if not routine_dialog.has(routine_step):
+		push_warning("这个step没有设置dialog:" + routine_step)
+		return
+	var dialog = routine_dialog[routine_step]	
+	DialogBox.start_dialog([], dialog)
+
+func set_current_step(step: RoutineStep) -> void:
+	var index := current_routine.find(step)
+
+	if index == -1:
+		push_warning("当前 routine 不包含 step: " + str(step))
+		return
+
+	current_step_index = index
 	
+func resume_from_step(step: RoutineStep) -> void:
+	set_current_step(step)
+
+	is_processing = false
+	is_pause = false
+
+	run_current_step()

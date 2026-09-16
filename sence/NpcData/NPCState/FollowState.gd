@@ -7,7 +7,7 @@ var follow_group: String = ""
 var target_ID: String = ""
 
 var stop_distance := 300.0
-var teleport_distance := 5000.0
+var teleport_distance := 2000.0
 var follow_speed := 2.0
 
 

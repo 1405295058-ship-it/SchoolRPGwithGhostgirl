@@ -1,122 +1,70 @@
 {
-	"Mike":{
-		"schedule":{
-				"monday":{
-					"morning":{
-								"scene":"Forecourt",
-								"object_ID":"npc_Mike",
-								"group":"NPC",
-								"change":{
-									"visible":true,
-									"position":[-535.0,1983.0],
-									"facing_dir":[0,1]
-										}
-						
-							},
-					"lunch_time":{
-						
-								"scene":"Forecourt",
-								"object_ID":"npc_Mike",
-								"group":"NPC",
-								"change":{
-									"visible":true,
-									"position":[-535.0,1983.0],
-									"facing_dir":[0,1]
-										}
-						
-							},
-					"dinner_time":{
-								"scene":"Forecourt",
-								"object_ID":"npc_Mike",
-								"group":"NPC",
-								"change":{
-									"visible":true,
-									"position":[-535.0,1983.0],
-									"facing_dir":[0,1]
-										}
-						
-							},
-					"night_time":{
-								"scene":"Forecourt",
-								"object_ID":"npc_Mike",
-								"group":"NPC",
-								"change":{
-									"visible":true,
-									"position":[-535.0,1983.0],
-									"facing_dir":[0,1]
-										}
-						
-							}
+	"Mike": {
+		"schedule": {
+			"monday": {
+				"morning": {
+					"object_ID": "npc_Mike",
+					"group": "NPC",
+					"changes": [
+						{
+							"scene": "Forecourt",
+							"visible": true,
+							"position": [-535.0, 1983.0],
+							"facing_dir": [0, 1]
 						},
-					"tuesday":{
-					"morning":{
-								"scene":"Forecourt",
-								"object_ID":"npc_Mike",
-								"group":"NPC",
-								"change":{
-									"visible":true,
-									"position":[-535.0,1983.0],
-									"facing_dir":[0,1]
-										}
-						
-							},
-					"lunch_time":{
-								"scene":"Forecourt",
-								"object_ID":"npc_Mike",
-								"group":"NPC",
-								"change":{
-									"visible":true,
-									"position":[-535.0,1983.0],
-									"facing_dir":[0,1]
-										}
-						
-							},
-					"dinner_time":{
-								"scene":"Forecourt",
-								"object_ID":"npc_Mike",
-								"group":"NPC",
-								"change":{
-									"visible":true,
-									"position":[-535.0,1983.0],
-									"facing_dir":[0,1]
-										}
-						
-							},
-					"night_time":{
-								"scene":"Forecourt",
-								"object_ID":"npc_Mike",
-								"group":"NPC",
-								"change":{
-									"visible":true,
-									"position":[-535.0,1983.0],
-									"facing_dir":[0,1]
-										}
-						
-							}	
-					},
-					"wednesday":{},
-					"thursday":{},
-					"friday":{},
-					"saturday":{},
-					"sunday":{
-								"lunch_time":{
-								"scene":"Forecourt",
-								"object_ID":"npc_Mike",
-								"group":"NPC",
-								"change":{
-									"visible":true,
-									"position":[-535.0,1983.0],
-									"facing_dir":[0,-1]
-										}
-						
-							}
-							}
-			
+						{
+							"scene": "TeachingAreaGF",
+							"visible": true,
+							"position": [820.0, 460.0],
+							"facing_dir": [-1, 0]
+						}
+					]
+				},
+
+				"lunch_time": {
+					"object_ID": "npc_Mike",
+					"group": "NPC",
+					"changes": [
+						{
+							"scene": "Forecourt",
+							"visible": true,
+							"position": [-535.0, 1983.0],
+							"facing_dir": [0, 1]
+						},
+						{
+							"scene": "TeachingAreaGF",
+							"visible": true,
+							"position": [1200.0, 800.0],
+							"facing_dir": [0, -1]
+						}
+					]
 				}
-		
+			},
+
+			"tuesday": {},
+
+			"wednesday": {},
+
+			"thursday": {},
+
+			"friday": {},
+
+			"saturday": {},
+
+			"sunday": {
+				"lunch_time": {
+					"object_ID": "npc_Mike",
+					"group": "NPC",
+					"changes": [
+						{
+							"scene": "Forecourt",
+							"visible": true,
+							"position": [-535.0, 1983.0],
+							"facing_dir": [0, -1]
+						}
+					]
+				}
 			}
-	
-	
-	
-	
+		}
+	}
 }

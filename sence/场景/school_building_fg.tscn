@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://2hsv17y1b0dl" path="res://sence/tscn的文件/cg_director.tscn" id="29_ea6g2"]
 [ext_resource type="PackedScene" uid="uid://blphkpdeiko8r" path="res://sence/需要path的/back_ground_npc.tscn" id="30_ekqyo"]
 [ext_resource type="Resource" uid="uid://c8im6f014xdsy" path="res://sence/NpcData/Rescource/Mike.tres" id="31_ekqyo"]
+[ext_resource type="Resource" uid="uid://syl65i06h6r6" path="res://sence/NpcData/Rescource/small_Alice.tres" id="32_bcfl0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3dc60"]
 texture = ExtResource("2_g7ybl")
@@ -457,10 +458,46 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(3969, -1599)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Alice:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4048, -1649)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CGCamera:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2642, -1787)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CGCamera:zoom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.5, 1.5)]
+}
 
 [sub_resource type="Animation" id="Animation_bcfl0"]
-resource_name = "start_class"
-length = 5.0
+resource_name = "start_morning_class"
+length = 6.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -468,10 +505,10 @@ tracks/0/path = NodePath("../Player:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(3969, -1599), Vector2(2701, -1533)]
+"values": [Vector2(2332, -1308)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -480,18 +517,77 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0, 0.13333334, 0.3, 3.9666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"ban_fast_forward"
+}, {
+"args": [],
+"method": &"switch_to_cg_camera"
+}, {
+"args": [0.5],
+"method": &"cg_fade_in"
+}, {
+"args": ["class_dialog"],
+"method": &"start_cg_dialog"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Player")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.06666667),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [1.0],
-"method": &"cg_fade_in"
+"args": ["class_chair_06"],
+"method": &"player_sit_on_chair"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Alice:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.09),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4048, -1649)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../CGCamera:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.09),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2642, -1787)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../CGCamera:zoom")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.12),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.7, 0.7)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8bwhv"]
 _data = {
 &"RESET": SubResource("Animation_8bwhv"),
-&"start_class": SubResource("Animation_bcfl0")
+&"start_morning_class": SubResource("Animation_bcfl0")
 }
 
 [node name="TeachingArea_GF" type="Node2D" unique_id=208967252]
@@ -678,38 +774,39 @@ position = Vector2(-182, 270)
 ID = "class_chair_11"
 
 [node name="Table12" parent="高一一班" unique_id=506985616 instance=ExtResource("20_3xasg")]
-position = Vector2(0, 287)
+position = Vector2(-35, 300)
 facing = 2
 
 [node name="Table11" parent="高一一班" unique_id=800708440 instance=ExtResource("20_3xasg")]
-position = Vector2(-15, 568)
+position = Vector2(-47, 581)
 facing = 2
 
 [node name="Table10" parent="高一一班" unique_id=207887031 instance=ExtResource("20_3xasg")]
+position = Vector2(-41, -6)
 facing = 2
 
 [node name="Table9" parent="高一一班" unique_id=1088617328 instance=ExtResource("20_3xasg")]
-position = Vector2(-463, 595)
+position = Vector2(-495, 608)
 facing = 2
 
 [node name="Table8" parent="高一一班" unique_id=581647769 instance=ExtResource("20_3xasg")]
-position = Vector2(-466, 308)
+position = Vector2(-485, 311)
 facing = 2
 
 [node name="Table7" parent="高一一班" unique_id=191997299 instance=ExtResource("20_3xasg")]
-position = Vector2(-466, -20)
+position = Vector2(-504, -14)
 facing = 2
 
 [node name="Table6" parent="高一一班" unique_id=1736909362 instance=ExtResource("20_3xasg")]
-position = Vector2(-975, 596)
+position = Vector2(-1010, 628)
 facing = 2
 
 [node name="Table5" parent="高一一班" unique_id=1425309984 instance=ExtResource("20_3xasg")]
-position = Vector2(-994, 348)
+position = Vector2(-1007, 351)
 facing = 2
 
 [node name="Table4" parent="高一一班" unique_id=1442633676 instance=ExtResource("20_3xasg")]
-position = Vector2(-1008, 15)
+position = Vector2(-1027, 18)
 facing = 2
 
 [node name="Chair_Normal11" parent="高一一班" unique_id=90640455 instance=ExtResource("19_afor2")]
@@ -717,15 +814,15 @@ position = Vector2(-166, 560)
 ID = "class_chair_12"
 
 [node name="Table" parent="高一一班" unique_id=392530107 instance=ExtResource("20_3xasg")]
-position = Vector2(-1581, -1)
+position = Vector2(-1603, 9)
 facing = 2
 
 [node name="Table2" parent="高一一班" unique_id=10867893 instance=ExtResource("20_3xasg")]
-position = Vector2(-1597, 282)
+position = Vector2(-1613, 304)
 facing = 2
 
 [node name="Table3" parent="高一一班" unique_id=158632115 instance=ExtResource("20_3xasg")]
-position = Vector2(-1596, 646)
+position = Vector2(-1634, 649)
 facing = 2
 
 [node name="Chair_Normal4" parent="高一一班" unique_id=680945469 instance=ExtResource("19_afor2")]
@@ -915,41 +1012,59 @@ on_class_seat_id = "class_chair_01"
 [node name="BackGroundNPC2" parent="." unique_id=402593500 instance=ExtResource("30_ekqyo")]
 position = Vector2(-1530, -780)
 gender = 1
+on_class_seat_id = "class_chair_02"
 
 [node name="BackGroundNPC3" parent="." unique_id=1086648364 instance=ExtResource("30_ekqyo")]
 position = Vector2(-1543, -310)
 gender = 1
+on_class_seat_id = "class_chair_03"
 
 [node name="BackGroundNPC4" parent="." unique_id=294070231 instance=ExtResource("30_ekqyo")]
 position = Vector2(-1550, 160)
 gender = 0
+on_class_seat_id = "class_chair_04"
 
 [node name="BackGroundNPC5" parent="." unique_id=791497534 instance=ExtResource("30_ekqyo")]
 position = Vector2(-1897, 201)
 gender = 0
+on_class_seat_id = "class_chair_11"
 
 [node name="BackGroundNPC6" parent="." unique_id=1966781161 instance=ExtResource("30_ekqyo")]
 position = Vector2(-1972, -290)
 gender = 1
+on_class_seat_id = "class_chair_12"
 
 [node name="BackGroundNPC7" parent="." unique_id=466089089 instance=ExtResource("30_ekqyo")]
 position = Vector2(-1966, -787)
 gender = 0
+on_class_seat_id = "class_chair_07"
 
 [node name="BackGroundNPC8" parent="." unique_id=934525326 instance=ExtResource("30_ekqyo")]
 position = Vector2(-2013, -1264)
 gender = 1
+on_class_seat_id = "class_chair_08"
 
 [node name="BackGroundNPC9" parent="." unique_id=1646841497 instance=ExtResource("30_ekqyo")]
 position = Vector2(-2333, -385)
 gender = 0
+on_class_seat_id = "class_chair_10"
 
 [node name="BackGroundNPC12" parent="." unique_id=88084871 instance=ExtResource("30_ekqyo")]
 position = Vector2(-2442, -1121)
 gender = 1
+on_class_seat_id = "class_chair_09"
 
 [node name="BasicImportantNPC" parent="." unique_id=1328910849 instance=ExtResource("25_2o7ax")]
 position = Vector2(-2258, 228)
 npc_data = ExtResource("31_ekqyo")
+on_class_seat_id = "class_chair_05"
+
+[node name="Alice" parent="." unique_id=49638522 instance=ExtResource("25_2o7ax")]
+position = Vector2(4048, -1649)
+npc_data = ExtResource("32_bcfl0")
+
+[node name="CGCamera" type="Camera2D" parent="." unique_id=73450552 groups=["CGCamera"]]
+position = Vector2(2642, -1787)
+zoom = Vector2(1.5, 1.5)
 
 [editable path="CgDirector"]

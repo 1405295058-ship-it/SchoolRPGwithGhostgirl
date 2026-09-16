@@ -10,6 +10,7 @@ var cg_dialog_database = {}
 var played_once = {}
 
 
+var can_skipping := true
 var is_skipping := false
 var normal_speed := 1.0
 var skip_speed := 10.0
@@ -41,6 +42,8 @@ func play_animation(anim_name:String, is_play_once_only := false):
 
 func start_cg_dialog(cg_dialog_name:String):
 	print("开始播放cg")
+	can_skipping = true
+	EventBus.enable_fast_forward.emit(can_skipping)
 	if not cg_dialog_database.has(cg_dialog_name):
 		push_error("缺少这一段的cg_dialog: ", cg_dialog_name)
 		return
@@ -52,6 +55,7 @@ func start_cg_dialog(cg_dialog_name:String):
 	
 	animation_player.play()
 	
+
 
 	
 func load_file_from_json(path:String)->Dictionary:
@@ -68,12 +72,15 @@ func load_file_from_json(path:String)->Dictionary:
 	return data
 
 func change_scene_when_cg_play(scene_id:String,next_cg_id:String):
+	ban_fast_forward()
 	SceneManager.change_scene_during_cg(scene_id,next_cg_id)
 
 func update_fast_forward():
 	if not animation_player.is_playing():
 		return
-	
+	if not can_skipping:
+		animation_player.speed_scale = normal_speed
+		return
 	
 	if Input.is_action_pressed("Space_Button"):
 		if not is_skipping:
@@ -118,3 +125,8 @@ func cg_fade_out(time:float):
 	FadeLayer.fade_out(time)			
 func start_with_black_screen():
 	FadeLayer.set_black_screen()
+
+func ban_fast_forward():
+	can_skipping = false
+	EventBus.enable_fast_forward.emit(can_skipping)
+	

@@ -32,10 +32,15 @@ signal call_this_change_scene_area(area_id:String,action,warning_dialog_change:A
 #CGdirector
 signal start_play_cg
 signal end_play_cg(anim_name:String)
-signal cg_start_fast_forward()
+signal cg_start_fast_forward
+signal enable_fast_forward(enable:bool)
 
 #DailyRoutineManager
 signal increase_routine_by_one_step
 signal end_free_time
 signal class_start
 signal class_end
+
+#fade_layer
+signal fade_start
+signal fade_end

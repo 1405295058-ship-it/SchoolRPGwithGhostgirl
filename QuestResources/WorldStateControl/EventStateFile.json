@@ -3,7 +3,7 @@
 		"quest_states": {
 						"1": [
 								{
-							"scene": "Home_player_room",
+							"scene": ["Home_player_room"],
 							"object_ID": "CGDirector",
 							"group":"CGDirector",
 							"action": {
@@ -15,7 +15,7 @@
 									}
 								},
 								{
-							"scene": "Forecourt",
+							"scene": ["Forecourt"],
 							"object_ID": "Forecourt_schooldoor_blocker4",
 							"group":"ProgressBlocker",
 							"action": {
@@ -36,7 +36,7 @@
 							],
 						"2": [
 								{
-							"scene": "Forecourt",
+							"scene": ["Forecourt","TeachingAreaGF"],
 							"object_ID": "npc_Mike",
 							"group":"NPC",
 							"action": {
@@ -49,7 +49,7 @@
 									}
 								},
 								{
-							"scene": "Forecourt",
+							"scene": ["Forecourt"],
 							"object_ID": "Forecourt_schooldoor_blocker3",
 							"group":"ProgressBlocker",
 							"action": {
@@ -59,7 +59,7 @@
 									}
 								},
 								{
-							"scene": "Forecourt",
+							"scene": ["Forecourt"],
 							"object_ID": "Forecourt_schooldoor_blocker4",
 							"group":"ProgressBlocker",
 							"action": {
@@ -72,7 +72,7 @@
 							],
 							"3": [
 								{
-							"scene": "Forecourt",
+							"scene": ["Forecourt"],
 							"object_ID": "Forecourt_center_blocker1",
 							"group":"ProgressBlocker",
 							"action": {
@@ -82,12 +82,12 @@
 									}
 								},
 								{
-							"scene": "Forecourt",
+							"scene": ["Forecourt"],
 							"object_ID": "Forecast_to_TeachingAreaGF",
 							"group":"ChangeSceneArea",
 							"action": {
 										
-										"enable": false
+										"enable": true
 										
 									}
 								}
@@ -100,7 +100,7 @@
 		"quest_states": {
 						"unactive": [
 								{
-							"scene": "Forecourt",
+							"scene": ["Forecourt","TeachingAreaGF"],
 							"object_ID": "npc_Mike",
 							"group":"NPC",
 							"action": {
@@ -113,7 +113,7 @@
 									}
 								},
 								{
-							"scene": "Forecourt",
+							"scene": ["Forecourt"],
 							"object_ID": "Forecast_to_TeachingAreaGF",
 							"group":"ChangeSceneArea",
 							"action": {
@@ -126,7 +126,7 @@
 							],
 						"4": [
 								{
-							"scene": "Forecourt",
+							"scene": ["Forecourt","TeachingAreaGF"],
 							"object_ID": "npc_Mike",
 							"group":"NPC",
 							"action": {

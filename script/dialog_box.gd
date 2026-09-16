@@ -84,7 +84,7 @@ func start_dialog(current_dialog_list:Array,default_dialog:Array,start_state:="s
 	$AnimationPlayer.seek(0.0,true)
 	$Content.show()
 	
-	get_tree().paused = true
+	SystemManager.request_pause("Start_dialog")
 	is_in_dialog = true
 	current = 0
 	if current_dialog_list.is_empty():
@@ -171,7 +171,7 @@ func close_dialog():
 	hide_options()
 	is_in_dialog = false
 
-	get_tree().paused = false
+	SystemManager.release_pause("Start_dialog")
 
 	just_closed = true
 	await get_tree().create_timer(0.15, true, false, true).timeout

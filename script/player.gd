@@ -13,6 +13,7 @@ enum Player_states{
 var player_current_state = Player_states.normal
 
 var current_chair = null
+
 @export var walk_speed = 1 
 @export var ran_speed = 2 
 var _speed = 1
@@ -20,9 +21,11 @@ var _speed = 1
 @onready var camera: Camera2D = $Camera2D
 @onready var InteractArea = $AnimatedSprite2D/InteractArea
 @onready var player_camera:Camera2D = $Camera2D
+@onready var interact_hint:AnimatedSprite2D = $InteractHint
 var face_dir := Vector2.DOWN  # 给个默认朝向，别用 ZERO
 var correctVector = Vector2(20.0,20.0)
 
+var is_fading := false
 var is_idle_extra_playing := false
 var idle_extra_timer_running := false
 var ANIMATION_EXTRA_TIMER_WAITING_TIME = 3
@@ -31,12 +34,20 @@ var ANIMATION_EXTRA_TIMER_WAITING_TIME = 3
 func _ready() -> void:
 	EventBus.start_play_cg.connect(on_cg_start_play)
 	EventBus.end_play_cg.connect(on_cg_stop_play)
+	EventBus.fade_start.connect(on_fade_start)
+	EventBus.fade_end.connect(on_fade_end)
 	hide_interact_hint()
 	add_to_group("player")
 	start_random_idle_extra()
 
+func on_fade_start():
+	is_fading = true
+func on_fade_end():
+	is_fading = false
+
 func on_cg_start_play():
 	cg_is_playing = true
+	interact_hint.hide()
 func on_cg_stop_play(_anim_name):
 	cg_is_playing = false
 	enable_player_camera()
@@ -85,7 +96,7 @@ func play_random_idle_extra():
 	
 #每一帧进行一次 有物理计算
 func _physics_process(_delta):
-	if cg_is_playing == false:
+	if can_input_or_interact():
 		player_movement()
 		update_animation()
 
@@ -172,12 +183,9 @@ func camera_zoom():
 	
 	#这是判断是不是可以说话的npc然后用default dialoge对话
 func should_dialog():
-	
-	if DialogBox.is_in_dialog or DialogBox.just_closed:
+	if not can_input_or_interact():
 		return
 
-	if GameStateManager.lock_interact:
-		return
 
 	if Input.is_action_just_pressed("Interaction"):
 		
@@ -205,8 +213,8 @@ func _on_interact_area_body_entered(body: Node2D) -> void:
 func _on_interact_area_body_exited(body: Node2D) -> void:
 	hide_interact_hint()
 	current_interact_object.erase(body)
+	
 #呼叫userUI
-
 func get_face_direction():
 	if face_dir == Vector2.UP:
 		return "_up"
@@ -232,6 +240,21 @@ func sit_on_seat(chair):
 	player_current_state = Player_states.siting
 	$AnimatedSprite2D.play(sit_ani_name)
 
+func player_sit_on_chair(chair_id: String):
+	var player = get_tree().get_first_node_in_group("player")
+	if player == null:
+		push_error("CG找不到player")
+		return
+	
+	var chairs = get_tree().get_nodes_in_group("blue_chair")
+	
+	for chair in chairs:
+		if chair.ID == chair_id:
+			player.sit_on_seat(chair)
+			return
+	
+	push_error("找不到椅子: ", chair_id)
+
 func stand_from_chair()	:
 	player_current_state = Player_states.normal
 	var collision = current_chair.get_node("Collision")
@@ -239,6 +262,8 @@ func stand_from_chair()	:
 func hide_interact_hint():
 	$InteractHint.hide()
 func show_interact_hint():
+	if cg_is_playing == true:
+		return
 	$InteractHint.show()
 	$InteractHint.play("default")
 
@@ -253,4 +278,14 @@ func _play_animation_called_by_animation_player(anim_name:String):
 		push_error(ID,"没有这个动画名: ",anim_name)
 		return
 	$AnimatedSprite2D.play(anim_name)
+
+func can_input_or_interact()->bool:
+	if is_fading :
+		return false
+	if cg_is_playing:
+		return false
+	if DialogBox.is_in_dialog or DialogBox.just_closed:
+		return false	
+	
+	return true
 	
