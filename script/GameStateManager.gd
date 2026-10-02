@@ -13,7 +13,9 @@ var current_changed_record = {
 		
 	"TeachingAreaGF":{},
 	
-	"BoyAccommodationGF":{}
+	"BoyAccommodationGF":{},
+	
+	"CenterCampus":{}
 }
 
 #"morning",

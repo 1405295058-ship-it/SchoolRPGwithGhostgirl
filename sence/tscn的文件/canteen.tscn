@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://dbbqrkg2aqsn7"]
+
+[ext_resource type="Texture2D" uid="uid://bxdvvkpwm3gcu" path="res://art/CenterCampus/食堂.png" id="1_1dhfm"]
+[ext_resource type="Script" uid="uid://bxkt13p2ultsn" path="res://script/shcool_door.gd" id="1_cxc6l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
+size = Vector2(2996, 972)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_co6qv"]
+size = Vector2(1340, 4775)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vkqoe"]
+radius = 182.0
+height = 950.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3taxo"]
+radius = 59.0
+height = 226.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_co6qv"]
+radius = 61.611687
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxc6l"]
+atlas = ExtResource("1_1dhfm")
+region = Rect2(0, 0, 3050, 4810)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vkqoe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxc6l")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3taxo"]
+size = Vector2(479.74066, 217.99028)
+
+[node name="Canteen" type="Node2D" unique_id=915336962]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_cxc6l")
+
+[node name="Collision" type="StaticBody2D" parent="." unique_id=1851358070]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision" unique_id=1027661759]
+position = Vector2(8, -372)
+shape = SubResource("RectangleShape2D_vkqoe")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collision" unique_id=1212488560]
+position = Vector2(-863, 1003.5)
+shape = SubResource("RectangleShape2D_co6qv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Collision" unique_id=129269281]
+z_index = 2
+position = Vector2(1159, -59)
+shape = SubResource("CapsuleShape2D_vkqoe")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Collision" unique_id=1179185184]
+z_index = 3
+position = Vector2(-84, 228)
+shape = SubResource("CapsuleShape2D_3taxo")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Collision" unique_id=2083337845]
+z_index = 3
+position = Vector2(859, 264)
+shape = SubResource("CircleShape2D_co6qv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1793477270]
+z_index = 1
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_vkqoe")
+animation = &"idle"
+offset = Vector2(0, 1000)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=640978777]
+
+[node name="fade_area1" type="CollisionShape2D" parent="Area2D" unique_id=575960456]
+position = Vector2(-34, -705.5)
+scale = Vector2(6.17, 6.17)
+shape = SubResource("RectangleShape2D_3taxo")

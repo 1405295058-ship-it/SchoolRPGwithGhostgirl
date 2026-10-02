@@ -16,14 +16,14 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="game"
 run/main_scene="uid://cvwrfokt5v8ue"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 DialogBox="*res://sence/tscn的文件/dialog_box.tscn"
 UserUi="*res://sence/tscn的文件/user_ui.tscn"
-QuestManager="*res://script/QuestManager.gd"
+QuestManager="*res://script/QuestSystem/QuestManager.gd"
 GameStateManager="*res://script/GameStateManager.gd"
 SceneManager="*res://script/SceneManager.gd"
 InventoryManager="*res://script/InventoryManager.gd"

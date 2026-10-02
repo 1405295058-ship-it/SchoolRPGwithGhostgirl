@@ -71,7 +71,7 @@ func interact(_player: Node) -> void:
 
 
 func resolve_dialog() -> void:
-	dialog_result = QuestManager.resolve_character_dialoglist(
+	dialog_result = NPCDialogResolver.resolve_character_dialoglist(
 		dialog_data,
 		ID
 	)

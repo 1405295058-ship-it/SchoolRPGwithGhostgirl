@@ -6,6 +6,14 @@
 atlas = ExtResource("1_sccaj")
 region = Rect2(0, 2560, 320, 320)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwalu"]
+atlas = ExtResource("1_sccaj")
+region = Rect2(0, 2880, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dm35"]
+atlas = ExtResource("1_sccaj")
+region = Rect2(320, 2880, 320, 320)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_5p7uh"]
 atlas = ExtResource("1_sccaj")
 region = Rect2(640, 2560, 320, 320)
@@ -20,9 +28,20 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u8qrp")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle_down",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwalu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dm35")
+}],
+"loop": 1,
+"name": &"idle_up",
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -31,7 +50,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sccaj")
 }],
-"loop": true,
+"loop": 1,
 "name": &"in_dream_cry",
 "speed": 2.0
 }]

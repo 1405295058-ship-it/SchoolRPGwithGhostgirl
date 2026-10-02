@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cmv0qjg3b5atx"]
+
+[ext_resource type="Texture2D" uid="uid://dhmp6w63hq40f" path="res://art/CenterCampus/操场之路.png" id="1_a3taj"]
+
+[node name="BasketballCourt" type="Node2D" unique_id=384198480]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=219439942]
+texture = ExtResource("1_a3taj")
+offset = Vector2(0, 1000)
+
+[node name="Collision" type="StaticBody2D" parent="." unique_id=1108379390]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision" unique_id=884989099]
+position = Vector2(-843, 1305)
+polygon = PackedVector2Array(36, -64, 339, -68, 262, 266, -2000, -1246, -2000, -1451)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Collision" unique_id=561722145]
+position = Vector2(-848, 1872)
+polygon = PackedVector2Array(36, -64, 265, 93, 262, 266, 152, 290, -2000, -1246, -2000, -1451)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Collision" unique_id=2122093033]
+position = Vector2(1973, 435)
+polygon = PackedVector2Array(-3, 41, -13, 1041, 14, 1047, 14, -639, -15, -638)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Collision" unique_id=1136193104]
+position = Vector2(2650, 447)
+polygon = PackedVector2Array(-3, 41, -13, 1041, 14, 1047, 14, -639, -15, -638)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Collision" unique_id=1752482070]
+position = Vector2(526, 1286)
+polygon = PackedVector2Array(-71, -289, -894, -329, -1481, -314, -1400, -96, -226, 58, 876, 38, 1354, -101, 1448, -175, 1430, -481)

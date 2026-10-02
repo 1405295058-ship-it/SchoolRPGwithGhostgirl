@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bijdwm3tmc4cf" path="res://art/round_head_tree.png" id="1_dy350"]
 [ext_resource type="Script" uid="uid://bhgm4w24l6lxu" path="res://script/tree.gd" id="1_wqbnx"]
-[ext_resource type="Texture2D" uid="uid://cw01fmvj0n1ab" path="res://art/树影子.png" id="3_ehac5"]
+[ext_resource type="Texture2D" uid="uid://2eqk7lywssqq" path="res://art/园树影子.png" id="3_be2vg"]
 [ext_resource type="Texture2D" uid="uid://dtbmic57l86fy" path="res://art/园树叶子.png" id="3_quj1y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_quj1y"]
@@ -39,7 +39,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3l1qv")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 4.0
 }]
@@ -78,12 +78,13 @@ z_index = 1
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_um2kv")
 animation = &"idle"
+frame_progress = 0.21836674
 offset = Vector2(0, -502.705)
 
 [node name="园树影子" type="Sprite2D" parent="StaticBody2D/AnimatedSprite2D" unique_id=7210779]
-position = Vector2(8, -16.999998)
+position = Vector2(1, -7.000003)
 scale = Vector2(1.0566038, 0.79999995)
-texture = ExtResource("3_ehac5")
+texture = ExtResource("3_be2vg")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=864830777]
 

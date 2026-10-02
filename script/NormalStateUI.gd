@@ -76,7 +76,7 @@ func update_track_quest():
 			var objective_block = objective_block_path.instantiate()
 			var objective_node = objective_block.get_node("objectives")
 			var objective_key = objective.get("in_code","")
-			if QuestManager.is_objective_time_available(objective):
+			if QuestConditionChecker.is_objective_time_available(objective):
 				objective_node.text = objective.get("text","")
 				var current_amount = QuestManager.quest_progress_data[quest_name
 				]["objective_progress"].get(objective_key,0)
@@ -110,6 +110,7 @@ func hide_fade_layer_when_cg_end():
 	tween.parallel().tween_property(cg_down_fade_layer,"scale:y",0,1)
 	await tween.finished
 	tween.kill()
+
 func hide_fade_layer():
 	$SkipTip.hide()
 	cg_up_fade_layer.scale.y = 0

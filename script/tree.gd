@@ -1,6 +1,8 @@
 # Tree.gd  (挂在 Tree 根节点上)
 extends Node2D
 
+
+
 @export var fade_alpha := 0.35      # 虚化到多少透明度
 @export var fade_speed := 8.0       # 淡入淡出速度（越大越快）
 @export var behind_offset := 0.0    # 需要的话可微调“判定线”

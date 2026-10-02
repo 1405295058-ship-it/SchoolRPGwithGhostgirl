@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ccr48vc6s56oj" path="res://art/校门和1层/bigbigtree_idel.png" id="1_brfkd"]
 [ext_resource type="Script" uid="uid://bhgm4w24l6lxu" path="res://script/tree.gd" id="1_gvmkm"]
+[ext_resource type="Texture2D" uid="uid://2eqk7lywssqq" path="res://art/园树影子.png" id="3_doiw3"]
 [ext_resource type="Texture2D" uid="uid://deawf2rgcuj1c" path="res://art/校门和1层/叶子.png" id="4_k36v2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ind6k"]
@@ -25,7 +26,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6gkx5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 2.0
 }]
@@ -68,6 +69,11 @@ position = Vector2(-4, 7)
 sprite_frames = SubResource("SpriteFrames_44ud8")
 animation = &"idle"
 offset = Vector2(0, -688.33)
+
+[node name="园树影子" type="Sprite2D" parent="StaticBody2D/AnimatedSprite2D" unique_id=1303393550]
+position = Vector2(1, -7.000003)
+scale = Vector2(1.0566038, 0.79999995)
+texture = ExtResource("3_doiw3")
 
 [node name="LeafFall" type="GPUParticles2D" parent="." unique_id=330757590]
 z_index = 1

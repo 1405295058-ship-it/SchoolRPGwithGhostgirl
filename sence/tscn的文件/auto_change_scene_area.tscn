@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://co4mj1jptn8mo"]
+
+[ext_resource type="Script" uid="uid://doo8hcgwy35ee" path="res://script/auto_change_scene_area.gd" id="1_gj6rw"]
+
+[node name="AutoChangeSceneArea" type="Node2D" unique_id=1159895303 groups=["ChangeSceneArea"]]
+script = ExtResource("1_gj6rw")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1972161058]
+
+[node name="StartMarker2D" type="Marker2D" parent="." unique_id=1887001409]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

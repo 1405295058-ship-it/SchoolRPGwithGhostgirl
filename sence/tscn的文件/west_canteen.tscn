@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://byqrdyyltjub"]
+
+[ext_resource type="Texture2D" uid="uid://pf7olk1553m1" path="res://art/CenterCampus/西餐厅part1.png" id="1_2xecx"]
+[ext_resource type="Texture2D" uid="uid://dmaquet45om17" path="res://art/CenterCampus/西餐厅part2.png" id="2_tw8v7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
+size = Vector2(468.5, 1749)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_co6qv"]
+size = Vector2(1256, 690)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjxql"]
+size = Vector2(1252, 659)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yddip"]
+size = Vector2(503, 3272)
+
+[node name="WestCanteen" type="Node2D" unique_id=1298770940]
+z_index = 1
+y_sort_enabled = true
+
+[node name="西餐厅part1" type="Sprite2D" parent="." unique_id=1675945097]
+position = Vector2(3, 3)
+texture = ExtResource("1_2xecx")
+
+[node name="西餐厅part2" type="Sprite2D" parent="." unique_id=470484904]
+z_index = 2
+position = Vector2(3, 4)
+texture = ExtResource("2_tw8v7")
+
+[node name="Collision" type="StaticBody2D" parent="." unique_id=1583311227]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision" unique_id=2144010981]
+position = Vector2(-386.25, 793.5)
+shape = SubResource("RectangleShape2D_vkqoe")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collision" unique_id=710001967]
+position = Vector2(24, 1689)
+shape = SubResource("RectangleShape2D_co6qv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Collision" unique_id=1173395796]
+position = Vector2(30, -1060.5)
+shape = SubResource("RectangleShape2D_gjxql")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Collision" unique_id=115113826]
+position = Vector2(645, 221)
+shape = SubResource("RectangleShape2D_yddip")

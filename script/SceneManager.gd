@@ -13,7 +13,8 @@ func _ready() -> void:
 	scene_path_map = {
 	"Forecourt": "res://sence/场景/node_2d.tscn",
 	"BoyAccommodationGF":"res://sence/场景/boy_accommodation_gf.tscn",
-	"TeachingAreaGF":"res://sence/场景/school_building_fg.tscn"
+	"TeachingAreaGF":"res://sence/场景/school_building_fg.tscn",
+	"CenterCampus":"res://sence/场景/center_campus.tscn"
 	}
 	
 
@@ -22,7 +23,7 @@ func change_scene_from_spawn(scene_id , spawn_id,enter_animation_facing_dir_):
 		return
 	var scene_path = scene_path_map.get(scene_id,"")
 	if scene_path == "" :
-		push_error("这个scene_id写错了",scene_id,"发生在",spawn_id)
+		push_error("这个scene_id写错了",scene_id,"发生在",spawn_id,"或者未将scene登录scene_path_map数据库")
 		return
 	next_spawn_id = spawn_id
 	enter_animation_facing_dir = enter_animation_facing_dir_

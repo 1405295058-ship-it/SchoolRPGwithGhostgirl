@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b60cmavwu35yx"]
+
+[ext_resource type="Script" uid="uid://bvw8hhy6s3oe6" path="res://script/QuestControlableObject.gd" id="1_bke7q"]
+[ext_resource type="Texture2D" uid="uid://y0y5tp10kwdn" path="res://art/校门和1层/开学装饰.png" id="2_m44rk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqoe"]
+size = Vector2(949, 73)
+
+[node name="OpenDayDec" type="Node2D" unique_id=444929526]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_bke7q")
+ID = "OpenDayDec"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=313877358]
+z_index = 1
+y_sort_enabled = true
+texture = ExtResource("2_m44rk")
+offset = Vector2(0, -261.925)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=162526507]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=196304669]
+position = Vector2(2, 54)
+shape = SubResource("RectangleShape2D_vkqoe")

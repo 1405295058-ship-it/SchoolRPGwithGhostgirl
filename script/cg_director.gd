@@ -129,4 +129,6 @@ func start_with_black_screen():
 func ban_fast_forward():
 	can_skipping = false
 	EventBus.enable_fast_forward.emit(can_skipping)
-	
+
+func hide_cg_fade_layer():
+	NormalStateUi.hide_fade_layer()

@@ -111,7 +111,7 @@ func create_sub_mission_title(quest_name:String):
 	
 
 func on_title_buttom_pressed(quest_name):
-		var discription = QuestManager.find_quest_discription_by_quest_name(quest_name)
+		var discription = QuestManager.find_quest_description_by_quest_name(quest_name)
 		show_objectives(quest_name)
 		$BackGround/MissionBagLine/Discription/DiscriptionPlace.text = ""
 		$BackGround/MissionBagLine/Discription/DiscriptionPlace.text = discription
