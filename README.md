@@ -12,23 +12,23 @@ The project is currently in active development.
 
 ### Campus & Quest System
 
-![Campus and Quest System](docs/images/SchoolDoor.png)
+![Campus and Quest System](docs/image/SchoolDoor.png)
 
 ### Dialogue System
 
-![Dialogue System](docs/images/OnClass.png)
+![Dialogue System](docs/image/OnClass.png)
 
 ### Time & World State
 
-![Night Scene](docs/images/NightBasketball.png)
+![Night Scene](docs/image/NightBasketball.png)
 
 ### Teaching Building
 
-![Teaching Building](docs/images/TeachingArea.png)
+![Teaching Building](docs/image/TeachingArea.png)
 
 ### Visual Atmosphere
 
-![Night Sky](docs/images/NightSky.png)
+![Night Sky](docs/image/NightSky.png)
 
 ---
 
