@@ -32,9 +32,7 @@ var	current_step_index := 1
 func _ready() -> void:
 	EventBus.increase_routine_by_one_step.connect(go_next_step)
 	EventBus.end_free_time.connect(finish_free_time)
-	start_day()
-	current_step_index = 1
-	run_current_step()
+	
 
 func start_weekday_routine() -> void:
 	current_routine = [
@@ -207,3 +205,26 @@ func resume_from_step(step: RoutineStep) -> void:
 	is_pause = false
 
 	run_current_step()
+
+func load_save_data(save_data: Dictionary) -> bool:
+	var routine_data: Dictionary = save_data["daily_routine_manager"]
+	var saved_step := int(routine_data["current_step"])
+	
+	#Timemeneger 完成
+	start_day()
+	# 找到routine
+	var index := current_routine.find(saved_step)
+	if index == -1:
+		push_error("存档里的日程步骤不属于当天日程")
+		return false
+	current_step_index = index
+	is_processing = false
+	is_pause = false
+	# 不调用 run_current_step()。
+	return true
+	
+func get_save_data()->Dictionary:
+	return {
+		"current_step":current_routine[current_step_index]
+	}
+	

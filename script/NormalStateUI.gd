@@ -40,6 +40,7 @@ func on_cg_started_play():
 	hide_head_up_ui()
 	$SkipTip.show()
 	show_fade_layer_when_cg_start()
+	
 func on_cg_ended_play(_anim_name):
 	is_cg_playing = false
 	$SkipTip.hide()
@@ -120,3 +121,12 @@ func hide_cg_fast_forward_sigh(enable:bool):
 		$SkipTip.hide()
 	else:
 		$SkipTip.show()
+
+func refresh_after_load() -> void:
+	update_watch_timer()
+	update_track_quest()
+
+	if not is_cg_playing:
+		show_head_up_ui()
+	else:
+		print("正在播放cg")

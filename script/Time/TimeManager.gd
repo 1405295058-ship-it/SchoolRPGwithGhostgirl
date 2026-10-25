@@ -25,12 +25,9 @@ var start_week_period = "sunday"
 var start_day_period = "lunch_time"
 
 
-func _ready() -> void:
-	set_up_initial_period()
+
 
 func set_up_initial_period():
-	current_week_period = start_week_period
-	current_day_period = start_day_period
 	EventBus.change_week_period.emit()
 	EventBus.change_day_period.emit()
 	EventBus.time_context_changed.emit(current_week_period,current_day_period)
@@ -84,3 +81,18 @@ func set_day_period(period: String):
 		current_week_period,
 		current_day_period
 	)	
+
+func load_save_data(save_data:Dictionary):
+	var time_save_data = save_data["time_manager"]
+	
+	current_day_period = time_save_data["current_day_period"]
+	current_week_period = time_save_data["current_week_period"]
+	
+	set_up_initial_period()
+	
+
+func get_save_data()->Dictionary:
+	return {
+		"current_day_period": current_day_period,
+		"current_week_period":current_week_period
+	}

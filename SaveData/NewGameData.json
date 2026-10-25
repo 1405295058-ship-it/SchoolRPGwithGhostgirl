@@ -1,0 +1,75 @@
+{	
+	"save_version": 1,
+	
+	"quest_manager": 
+							{
+								"quest_progress_data" : 
+													{
+																"开学": 
+															{
+																"quest_progress_status" : 2,
+																"current_state": 1,
+																"objective_progress": {},
+																"unlock_quest":"不对劲！"
+															},
+															"不对劲！": 
+															{
+																"quest_progress_status" : 0,
+																"current_state": 1,
+																"objective_progress": {},
+																"unlock_quest":""
+															}
+													},
+								
+								"current_tracking_quest":""
+			
+							},
+	
+	
+	
+	"gamestate_manager": 
+							{
+									"current_changed_record":
+										{
+											"Forecourt":{},
+												
+											"TeachingAreaGF":{},
+											
+											"BoyAccommodationGF":{},
+											
+											"CenterCampus":{}
+										},
+										
+									"cg_played_once":{}
+							
+							
+							},
+							
+	"time_manager":
+						{
+							"current_week_period" : "sunday",
+							"current_day_period" : "lunch_time"
+						},
+						
+	"daily_routine_manager":
+						{
+							"current_step": 3
+						},
+	
+	"inventory_manager": 
+						{
+							"bags": 
+								{
+									"pocket": [null, null],
+									"backpack": [null, null, null, null, null]
+								}
+						},
+						
+	"scene_manager":
+						{
+							"player_position": [0,0],
+							"scene_id": "Home_player_room"
+						}
+						
+					
+}

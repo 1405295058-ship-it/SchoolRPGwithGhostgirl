@@ -8,15 +8,7 @@ const DEFAULT_OBJECT_SCHEDULE_PATH:="res://QuestResources/WorldStateControl/Defa
 
 var cg_played_once = {}
 
-var current_changed_record = {
-	"Forecourt":{},
-		
-	"TeachingAreaGF":{},
-	
-	"BoyAccommodationGF":{},
-	
-	"CenterCampus":{}
-}
+var current_changed_record:Dictionary 
 
 #"morning",
 #	"lunch_time",
@@ -438,6 +430,7 @@ func process_action_and_change(action_or_change_information,action_or_change:Str
 				var facing_dir = face_dir_vector
 				if body.has_method("apply_facing_dir"):
 					body.apply_facing_dir(facing_dir)
+					
 func can_play_this_cg(anim_name:String)->bool:
 	if anim_name == "":
 		push_error("这个阶段的任务CG动画缺失。",)
@@ -445,3 +438,20 @@ func can_play_this_cg(anim_name:String)->bool:
 	if cg_played_once and cg_played_once.get(anim_name,false):
 		return false
 	return true
+
+#==============================================================================================================================================================
+#SaveSystem
+#==============================================================================================================================================================
+
+
+func load_save_data(save_data):
+	var gamestate_manager_data = save_data["gamestate_manager"]
+	
+	current_changed_record = gamestate_manager_data.get("current_changed_record",{})
+	cg_played_once = gamestate_manager_data.get("cg_played_once",{})
+	
+func get_save_data()-> Dictionary:
+	return {
+		"current_changed_record": current_changed_record.duplicate(true),
+		"cg_played_once": cg_played_once.duplicate(true)
+	}	

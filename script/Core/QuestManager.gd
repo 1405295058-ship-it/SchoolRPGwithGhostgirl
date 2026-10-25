@@ -12,32 +12,15 @@ enum quest_progress_status {
 	finished
 	
 }
-var quest_progress_data = {
-	"开学": 
-	{
-		"quest_progress_status" : quest_progress_status.active,
-		"current_state": 1,
-		"objective_progress": {},
-		"unlock_quest":"不对劲！"
-	},
-	"不对劲！": 
-	{
-		"quest_progress_status" : quest_progress_status.lock,
-		"current_state": 1,
-		"objective_progress": {},
-		"unlock_quest":""
-	}
+var quest_progress_data: Dictionary = {}
 	
 	
-}
 
 func _ready() -> void:
 	load_Data_from_json()
-	update_quest_list()
 	EventBus.time_context_changed.connect(_on_time_context_changed)
 	EventBus.set_tracking_quest.connect(set_tracking_quest)
-	EventBus.quest_hint_should_refresh.emit()
-	
+
 func apply_after_quest_finish(quest_name:String):
 	update_quest_list() 
 	EventBus.quest_state_changed.emit(quest_name)
@@ -67,7 +50,7 @@ func load_Data_from_json():
 	else:
 		print("fail to parsed")
 
-func update_quest_list():
+func update_quest_list(world_update:=true):
 	#清空两种questlist 
 	active_quest.clear()
 	unlocked_quest.clear()
@@ -80,8 +63,9 @@ func update_quest_list():
 			
 		elif quest_progress == quest_progress_status.active :
 			active_quest.append(quest)
-			
-	update_unactive_quest_world()
+	
+	if world_update:		
+		update_unactive_quest_world()
 	
 #单独加的一个函数 搞忘是干嘛的了	
 func update_unactive_quest_world():
@@ -304,3 +288,31 @@ func get_active_quest():
 func get_unlocked_quest():
 	return unlocked_quest
 	
+#================================================================================================================================================================
+#SaveSystem
+#================================================================================================================================================================				
+
+func load_save_data(save_data:Dictionary):
+	var quest_save_data = save_data["quest_manager"].duplicate(true)
+	
+	quest_progress_data = quest_save_data["quest_progress_data"]
+	current_tracking_quest = quest_save_data["current_tracking_quest"]
+
+	for quest_name in quest_progress_data:
+		var progress: Dictionary = quest_progress_data[quest_name]
+
+		progress["quest_progress_status"] = int(
+			progress["quest_progress_status"]
+		)
+
+		progress["current_state"] = int(
+			progress["current_state"]
+		)
+		
+	update_quest_list(false)
+	
+func get_save_data()->Dictionary:
+	return{
+		"quest_progress_data":quest_progress_data.duplicate(true),
+		"current_tracking_quest":current_tracking_quest
+	}
