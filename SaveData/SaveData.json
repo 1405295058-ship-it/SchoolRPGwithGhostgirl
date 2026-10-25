@@ -1,0 +1,160 @@
+{
+	"daily_routine_manager": {
+		"current_step": 3
+	},
+	"dialog_box": {
+		"known_speakers": {
+			"Alice": true,
+			"Evelyn": true,
+			"Mike": true,
+			"Mom": true,
+			"player": true
+		},
+		"player_name": "Alvin"
+	},
+	"gamestate_manager": {
+		"cg_played_once": {
+			"intro_0": true
+		},
+		"current_changed_record": {
+			"BoyAccommodationGF": {},
+			"CenterCampus": {},
+			"Forecourt": {
+				"Forecast_to_TeachingAreaGF": {
+					"action": {
+						"enable": true
+					},
+					"change": {},
+					"group": "ChangeSceneArea",
+					"time_condition": {}
+				},
+				"Forecourt_center_blocker1": {
+					"action": {
+						"enable": false
+					},
+					"change": {},
+					"group": "ProgressBlocker",
+					"time_condition": {}
+				},
+				"Forecourt_schooldoor_blocker3": {
+					"action": {
+						"enable": true
+					},
+					"change": {},
+					"group": "ProgressBlocker",
+					"time_condition": {}
+				},
+				"Forecourt_schooldoor_blocker4": {
+					"action": {
+						"enable": false,
+						"warning_dialog_change": [
+							{
+								"emotion": "normal",
+								"speaker": "player",
+								"text": "Mike在门口，要不要去和他打个招呼？"
+							}
+						]
+					},
+					"change": {},
+					"group": "ProgressBlocker",
+					"time_condition": {}
+				},
+				"npc_Mike": {
+					"action": {
+						"following": {
+							"enable": true,
+							"target_ID": "player",
+							"target_group": "player"
+						}
+					},
+					"change": {
+						"facing_dir": [
+							0.0,
+							1.0
+						],
+						"position": [
+							-1828.0,
+							2663.0
+						],
+						"visible": true
+					},
+					"group": "NPC",
+					"time_condition": {}
+				}
+			},
+			"Home_player_room": {
+				"CGDirector": {
+					"action": {
+						"play_animation": {
+							"anim_name": "intro_0"
+						}
+					},
+					"change": {},
+					"group": "CGDirector",
+					"time_condition": {}
+				}
+			},
+			"MainMenu": {},
+			"TeachingAreaGF": {
+				"npc_Mike": {
+					"action": {
+						"following": {
+							"enable": true,
+							"target_ID": "player",
+							"target_group": "player"
+						}
+					},
+					"change": {},
+					"group": "NPC",
+					"time_condition": {}
+				}
+			}
+		}
+	},
+	"inventory_manager": {
+		"bags": {
+			"backpack": [
+				null,
+				null,
+				null,
+				null,
+				null
+			],
+			"pocket": [
+				{
+					"amount": 1,
+					"item_id": "player_money_card"
+				},
+				null
+			]
+		}
+	},
+	"quest_manager": {
+		"current_tracking_quest": "",
+		"quest_progress_data": {
+			"不对劲！": {
+				"current_state": 1,
+				"objective_progress": {},
+				"quest_progress_status": 0,
+				"unlock_quest": ""
+			},
+			"开学": {
+				"current_state": 3,
+				"objective_progress": {},
+				"quest_progress_status": 2,
+				"unlock_quest": "不对劲！"
+			}
+		}
+	},
+	"scene_manager": {
+		"player_position": [
+			-1479.0,
+			1573.0
+		],
+		"scene_id": "Forecourt"
+	},
+	"time_manager": {
+		"current_day_period": "lunch_time",
+		"current_week_period": "sunday"
+	}
+}

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://ccqxf2bucy3l0"]
+
+[ext_resource type="Script" uid="uid://88okf7fdfq1w" path="res://script/main_menu_ui.gd" id="1_idpdb"]
+[ext_resource type="Texture2D" uid="uid://csve2id3hj68p" path="res://art/主菜单/NewGameButton.png" id="2_x8wy8"]
+[ext_resource type="Texture2D" uid="uid://d26srks2m3jhw" path="res://art/主菜单/ContinueButton.png" id="2_xvm3y"]
+[ext_resource type="Texture2D" uid="uid://5xq0g8ljuwnt" path="res://art/主菜单/SettingButton.png" id="4_w50jj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1t7fq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="MainMenuUI" type="Control" unique_id=2028684775]
+visibility_layer = 64
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_idpdb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2138297744]
+layout_mode = 0
+offset_left = -1163.0
+offset_top = -1550.0
+offset_right = -393.0
+offset_bottom = -822.0
+
+[node name="Continue" type="Button" parent="VBoxContainer" unique_id=1117831056]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_1t7fq")
+icon = ExtResource("2_xvm3y")
+
+[node name="NewGame" type="Button" parent="VBoxContainer" unique_id=1781821811]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_1t7fq")
+icon = ExtResource("2_x8wy8")
+
+[node name="Setting" type="Button" parent="VBoxContainer" unique_id=1066962564]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_1t7fq")
+icon = ExtResource("4_w50jj")
+
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]

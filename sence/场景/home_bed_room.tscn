@@ -226,7 +226,7 @@ tracks/1/path = NodePath("../Player:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.5666668, 9, 9.237402),
+"times": PackedFloat32Array(0.099999994, 9, 9.237402),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [Vector2(4350, 106), Vector2(4350, 106), Vector2(727, -196)]
@@ -272,14 +272,11 @@ tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1, 4.8, 6.1, 10.033334, 12.666667, 14.566667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 4.8, 6.1, 10.033334, 12.666667, 14.566667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [],
 "method": &"switch_to_cg_camera"
-}, {
-"args": [3.0],
-"method": &"cg_fade_in"
 }, {
 "args": ["intro_0_01"],
 "method": &"start_cg_dialog"

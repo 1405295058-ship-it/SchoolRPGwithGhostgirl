@@ -309,3 +309,17 @@ func apply_pending_name_reveal() -> void:
 
 	known_speakers[pending_name_reveal] = true
 	pending_name_reveal = ""
+
+func get_save_data():
+	return {
+		"player_name":player_name,
+		"known_speakers":known_speakers.duplicate(true)
+	}
+
+func load_save_data(save_data:Dictionary):
+	var dialog_box_data = save_data.get("dialog_box",null)
+	if dialog_box_data == null:
+		return
+	player_name = dialog_box_data["player_name"]
+	known_speakers = dialog_box_data["known_speakers"].duplicate(true)
+	pass

@@ -24,17 +24,24 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	update_fast_forward()
 
-func play_animation(anim_name:String, is_play_once_only := false):
+func play_animation(anim_name: String, is_play_once_only := false):
 	if played_once and played_once.get(anim_name, false):
 		return
+
 	if animation_player.is_playing():
 		return
-	# 再播放动画
+
+	print("CG 准备播放：", anim_name, "，节点：", get_path())
+
 	animation_player.play(anim_name)
-	# 强制立即应用动画0秒的所有属性关键帧
 	animation_player.advance(0.0)
+
+	print("CG 发出开始信号：", anim_name)
 	EventBus.start_play_cg.emit()
-	await animation_player.animation_finished
+
+	var finished_anim = await animation_player.animation_finished
+
+	print("CG 动画结束：", finished_anim)
 	EventBus.end_play_cg.emit(anim_name)
 
 
@@ -132,3 +139,10 @@ func ban_fast_forward():
 
 func hide_cg_fade_layer():
 	NormalStateUi.hide_fade_layer()
+
+func interrupt_cg(anim_name) -> void:
+	animation_player.stop()
+	animation_player.speed_scale = normal_speed
+	is_skipping = false
+
+	EventBus.end_play_cg.emit(anim_name)

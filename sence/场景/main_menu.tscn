@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://lrehhjj0gtih" path="res://sence/tscn的文件/basic_important_npc.tscn" id="5_imgug"]
 [ext_resource type="Resource" uid="uid://buiwy3efjnsow" path="res://sence/NpcData/Rescource/Clara.tres" id="6_imgug"]
 [ext_resource type="Texture2D" uid="uid://s2prqn3wgao2" path="res://art/主菜单/星空背景动画.png" id="7_jf5t6"]
+[ext_resource type="Texture2D" uid="uid://dkd124sv56cj4" path="res://art/校门和1层/室内假光.png" id="8_ht236"]
+[ext_resource type="Texture2D" uid="uid://dfe1nqdh7mvst" path="res://art/主菜单/标题.png" id="9_hbh78"]
+[ext_resource type="PackedScene" uid="uid://ccqxf2bucy3l0" path="res://sence/tscn的文件/main_menu_ui.tscn" id="10_1t7fq"]
 
 [sub_resource type="Animation" id="Animation_ht236"]
 length = 0.001
@@ -22,6 +25,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(6, -857)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CanvasLayer/标题:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CanvasLayer/MainMenuUI:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_jf5t6"]
 resource_name = "Start_Animation"
@@ -34,7 +61,7 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.19999999, 1.0666667, 1.1666666),
+"times": PackedFloat32Array(0, 0.13333334, 0.19999999, 1.0666667, 1.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "values": [{
 "args": [0.0],
@@ -49,7 +76,7 @@ tracks/0/keys = {
 "args": [],
 "method": &"hide_cg_fade_layer"
 }, {
-"args": [2.0],
+"args": [1.5],
 "method": &"cg_fade_in"
 }]
 }
@@ -88,10 +115,34 @@ tracks/3/path = NodePath("../CGCamera:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.83333325, 3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(1.2333333, 2.8, 5.233333, 59.99163),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(97, 423), Vector2(97, -2691)]
+"values": [Vector2(97, 100), Vector2(97, -2500), Vector2(97, -2691), Vector2(97, -2691)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../CanvasLayer/标题:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.04, 3.2, 4.766667, 59),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../CanvasLayer/MainMenuUI:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3.8, 5.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ht236"]
@@ -161,6 +212,338 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="Curve2D" id="Curve2D_hbh78"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -318, -3561, 0, 0, 0, 0, 28, -3279, 0, 0, 0, 0, 230, -3144, 0, 0, 0, 0, 524, -3024, 0, 0, 0, 0, 880, -2859, 0, 0, 0, 0, 1235, -2773, 0, 0, 0, 0, 1453, -2779, 0, 0, 0, 0, 1535, -2850, 0, 0, 0, 0, 1603, -2979, 0, 0, 0, 0, 1480, -3162, 0, 0, 0, 0, 1324, -3312, 0, 0, 0, 0, 1085, -3417, 0, 0, 0, 0, 717, -3600, 0, 0, 0, 0, 482, -3674, 0, 0, 0, 0, 258, -3778, 0, 0, 0, 0, 80, -3861, 0, 0, 0, 0, -119, -3953, 0, 0, 0, 0, -300, -4008, 0, 0, 0, 0, -453, -4048, 0, 0, 0, 0, -649, -4091, 0, 0, 0, 0, -762, -4060, 0, 0, 0, 0, -710, -3956, 0, 0, 0, 0, -612, -3845, 0, 0, 0, 0, -490, -3714, 0, 0, 0, 0, -373, -3613, 0, 0, 0, 0, -352, -3591, 0, 0, 0, 0, -324, -3556)
+}
+point_count = 27
+
+[sub_resource type="Animation" id="Animation_hbh78"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.15]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PathFollow2D2:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.4048]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PathFollow2D3:progress_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.8016]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PathFollow2D4:progress_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PathFollow2D/PointLight2D:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PathFollow2D2/PointLight2D:energy")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PathFollow2D3/PointLight2D:energy")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PathFollow2D4/PointLight2D:energy")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../PointLight2D:energy")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../PointLight2D2:energy")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../PointLight2D3:energy")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../PointLight2D6:energy")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../标题/PointLight2D7:energy")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.94]
+}
+
+[sub_resource type="Animation" id="Animation_1t7fq"]
+resource_name = "star move"
+length = 20.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.15, 0.3282]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PathFollow2D2:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.4048, 0.5784]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PathFollow2D3:progress_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.8016, 0.9286]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PathFollow2D4:progress_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.1339]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PathFollow2D/PointLight2D:energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 18),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PathFollow2D2/PointLight2D:energy")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1, 18),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PathFollow2D3/PointLight2D:energy")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1, 18),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PathFollow2D4/PointLight2D:energy")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1, 18),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../PointLight2D:energy")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1, 2.02, 3.02, 3.85, 4.85, 7.09, 8.09, 9.54, 10.54, 11.43, 12.43, 14.22, 15.22, 18, 18.08, 19.08),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.5, 1.0, 0.5, 1.0, 0.5, 1.0, 0.5, 1.0, 0.5, 1.0, 0.5, 1.0, 0.5, 1.0, 1.0, 0.5]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../PointLight2D2:energy")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1, 2.02, 3.02, 3.85, 4.85, 7.09, 8.09, 9.54, 10.54, 11.43, 12.43, 14.22, 15.22, 18, 18.08, 19.08),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.5, 1.0, 0.5, 1.0, 0.5, 1.0, 0.5, 1.0, 0.5, 1.0, 0.5, 1.0, 0.5, 1.0, 1.0, 0.5]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../PointLight2D3:energy")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1, 2.02, 3.02, 3.85, 4.85, 7.09, 8.09, 9.54, 10.54, 11.43, 12.43, 14.22, 15.22, 18, 18.08, 19.08),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.5, 1.0, 0.5, 1.0, 0.5, 1.0, 0.5, 1.0, 0.5, 1.0, 0.5, 1.0, 0.5, 1.0, 1.0, 0.5]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../PointLight2D6:energy")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.83, 1.88, 2.71, 4.13, 4.96, 6.21, 7.04, 8.78, 9.61, 10.6682205, 11.49822, 12.638221, 13.468221, 14.49822, 15.32822, 16.438221, 17.26822, 18.666668, 19.496668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.4, 1.0, 0.4, 1.0, 0.4, 1.0, 0.4, 1.0, 0.4, 1.0, 0.4, 1.0, 0.4, 1.0, 0.4, 1.0, 0.4, 1.0, 0.4]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../标题/PointLight2D7:energy")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 1.4333333, 1.9, 3.0333333, 3.5666666, 5.1, 5.52, 6.9533334, 7.38, 8.8133335, 9.1, 10.533334, 10.8, 12.233334, 12.62, 14.053333, 14.578873, 16.012205, 16.418873, 17.852205, 18.248873, 19.682205),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.94, 0.11, 1.94, 0.11, 1.94, 0.11, 1.94, 0.11, 1.94, 0.11, 1.94, 0.11, 1.94, 0.11, 1.94, 0.11, 1.94, 0.11, 1.94, 0.11, 1.94, 0.11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_evj56"]
+_data = {
+&"RESET": SubResource("Animation_hbh78"),
+&"star move": SubResource("Animation_1t7fq")
+}
+
 [node name="MainMenu" type="Node2D" unique_id=1251341781]
 script = ExtResource("1_n74sa")
 scene_name = "主菜单"
@@ -172,6 +555,7 @@ scene_id = "MainMenu"
 libraries/ = SubResource("AnimationLibrary_ht236")
 
 [node name="BackGroundTIle" type="TileMapLayer" parent="." unique_id=932983304]
+z_index = 1
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD9////AAAAAAAAAAD+////AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAD+//7/AAAAAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAACAP//AAAAAAAAAADz//X/AAAAAAAAAADz//b/AAAAAAAAAADz//f/AAAAAAAAAADz//j/AAAAAAAAAADz//n/AAAAAAAAAADz//r/AAAAAAAAAADz//v/AAAAAAAAAADz//z/AAAAAAAAAADz//3/AAAAAAAAAADz//7/AAAAAAAAAADz////AAAAAAAAAADz/wAAAAAAAAAAAADz/wEAAAAAAAAAAADz/wIAAAAAAAAAAADz/wMAAAAAAAAAAADz/wQAAAAAAAAAAADz/wUAAAAAAAAAAAD0//X/AAAAAAAAAAD0//b/AAAAAAAAAAD0//f/AAAAAAAAAAD0//j/AAAAAAAAAAD0//n/AAAAAAAAAAD0//r/AAAAAAAAAAD0//v/AAAAAAAAAAD0//z/AAAAAAAAAAD0//3/AAAAAAAAAAD0//7/AAAAAAAAAAD0////AAAAAAAAAAD0/wAAAAAAAAAAAAD0/wEAAAAAAAAAAAD0/wIAAAAAAAAAAAD0/wMAAAAAAAAAAAD0/wQAAAAAAAAAAAD0/wUAAAAAAAAAAAD1//X/AAAAAAAAAAD1//b/AAAAAAAAAAD1//f/AAAAAAAAAAD1//j/AAAAAAAAAAD1//n/AAAAAAAAAAD1//r/AAAAAAAAAAD1//v/AAAAAAAAAAD1//z/AAAAAAAAAAD1//3/AAAAAAAAAAD1//7/AAAAAAAAAAD1////AAAAAAAAAAD1/wAAAAAAAAAAAAD1/wEAAAAAAAAAAAD1/wIAAAAAAAAAAAD1/wMAAAAAAAAAAAD1/wQAAAAAAAAAAAD1/wUAAAAAAAAAAAD2//X/AAAAAAAAAAD2//b/AAAAAAAAAAD2//f/AAAAAAEAAAD2//j/AAAAAAEAAAD2//n/AAAAAAAAAAD2//r/AAAAAAAAAAD2//v/AAAAAAAAAAD2//z/AAAAAAAAAAD2//3/AAAAAAAAAAD2//7/AAAAAAAAAAD2////AAAAAAAAAAD2/wAAAAAAAAAAAAD2/wEAAAAAAAAAAAD2/wIAAAAAAAAAAAD2/wMAAAAAAAAAAAD2/wQAAAAAAAAAAAD2/wUAAAAAAAAAAAD3//X/AAAAAAAAAAD3//b/AAAAAAEAAAD3//f/AAAAAAEAAAD3//j/AAAAAAAAAAD3//n/AAAAAAAAAAD3//r/AAAAAAAAAAD3//v/AAAAAAAAAAD3//z/AAAAAAAAAAD3//3/AAAAAAAAAAD3//7/AAAAAAMAAAD3////AAAAAAAAAAD3/wAAAAAAAAAAAAD3/wEAAAAAAAAAAAD3/wIAAAAAAAAAAAD3/wMAAAAAAAAAAAD3/wQAAAAAAAAAAAD3/wUAAAAAAAAAAAD4//X/AAAAAAAAAAD4//b/AAAAAAAAAAD4//f/AAAAAAAAAAD4//j/AAAAAAAAAAD4//n/AAAAAAAAAAD4//r/AAAAAAAAAAD4//v/AAAAAAAAAAD4//z/AAAAAAAAAAD4//3/AAAAAAEAAAD4//7/AAAAAAEAAAD4////AAAAAAMAAAD4/wAAAAAAAAAAAAD4/wEAAAAAAAAAAAD4/wIAAAAAAAAAAAD4/wMAAAAAAAAAAAD4/wQAAAAAAAAAAAD4/wUAAAAAAAAAAAD5//X/AAAAAAAAAAD5//b/AAAAAAAAAAD5//f/AAAAAAAAAAD5//j/AAAAAAAAAAD5//n/AAAAAAAAAAD5//r/AAAAAAAAAAD5//v/AAAAAAAAAAD5//z/AAAAAAAAAAD5//3/AAAAAAAAAAD5//7/AAAAAAEAAAD5////AAAAAAEAAAD5/wAAAAAAAAAAAAD5/wEAAAAAAAAAAAD5/wIAAAAAAAAAAAD5/wMAAAAAAAAAAAD5/wQAAAAAAAAAAAD5/wUAAAAAAAAAAAD6//X/AAAAAAAAAAD6//b/AAAAAAAAAAD6//f/AAAAAAAAAAD6//j/AAAAAAAAAAD6//n/AAAAAAEAAAD6//r/AAAAAAAAAAD6//v/AAAAAAAAAAD6//z/AAAAAAAAAAD6//3/AAAAAAAAAAD6//7/AAAAAAAAAAD6////AAAAAAAAAAD6/wAAAAAAAAAAAAD6/wEAAAAAAAAAAAD6/wIAAAAAAAAAAAD6/wMAAAAAAAAAAAD6/wQAAAAAAAAAAAD6/wUAAAAAAAAAAAD7//X/AAAAAAAAAAD7//b/AAAAAAAAAAD7//f/AAAAAAAAAAD7//j/AAAAAAAAAAD7//n/AAAAAAMAAAD7//r/AAAAAAMAAAD7//v/AAAAAAAAAAD7//z/AAAAAAAAAAD7//3/AAAAAAAAAAD7//7/AAAAAAAAAAD7////AAAAAAAAAAD7/wAAAAAAAAAAAAD7/wEAAAAAAAAAAAD7/wIAAAAAAAAAAAD7/wMAAAAAAAAAAAD7/wQAAAAAAAAAAAD7/wUAAAAAAAAAAAD8//X/AAAAAAAAAAD8//b/AAAAAAAAAAD8//f/AAAAAAAAAAD8//j/AAAAAAAAAAD8//n/AAAAAAAAAAD8//r/AAAAAAAAAAD8//v/AAAAAAAAAAD8//z/AAAAAAAAAAD8//3/AAAAAAAAAAD8//7/AAAAAAAAAAD8////AAAAAAAAAAD8/wAAAAAAAAAAAAD8/wEAAAAAAAAAAAD8/wIAAAAAAAAAAAD8/wMAAAAAAAAAAAD8/wQAAAAAAAAAAAD8/wUAAAAAAAAAAAD9//X/AAAAAAAAAAD9//b/AAAAAAAAAAD9//f/AAAAAAAAAAD9//j/AAAAAAAAAAD9//n/AAAAAAAAAAD9//r/AAAAAAAAAAD9//v/AAAAAAAAAAD9//z/AAAAAAAAAAD9//3/AAAAAAAAAAD9//7/AAAAAAAAAAD9/wAAAAAAAAAAAAD9/wEAAAAAAAAAAAD9/wIAAAAAAAAAAAD9/wMAAAAAAAAAAAD9/wQAAAAAAAAAAAD9/wUAAAAAAAAAAAD+//X/AAAAAAAAAAD+//b/AAAAAAAAAAD+//f/AAAAAAAAAAD+//j/AAAAAAAAAAD+//n/AAAAAAAAAAD+//r/AAAAAAAAAAD+//v/AAAAAAAAAAD+//z/AAAAAAAAAAD+//3/AAAAAAAAAAD+/wAAAAAAAAAAAAD+/wEAAAAAAAAAAAD+/wIAAAAAAAAAAAD+/wMAAAAAAAAAAAD+/wQAAAAAAAAAAAD+/wUAAAAAAAAAAAD///X/AAAAAAAAAAD///b/AAAAAAAAAAD///f/AAAAAAAAAAD///j/AAAAAAAAAAD///n/AAAAAAAAAAD///r/AAAAAAAAAAD///v/AAAAAAAAAAD///z/AAAAAAAAAAD///3/AAAAAAAAAAD//wEAAAAAAAAAAAD//wIAAAAAAAAAAAD//wMAAAAAAAAAAAD//wQAAAAAAAAAAAD//wUAAAAAAAAAAAAAAPX/AAAAAAAAAAAAAPb/AAAAAAAAAAAAAPf/AAAAAAAAAAAAAPj/AAAAAAAAAAAAAPn/AAAAAAAAAAAAAPr/AAAAAAAAAAAAAPv/AAAAAAAAAAAAAPz/AAAAAAAAAAAAAP3/AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAABAPX/AAAAAAAAAAABAPb/AAAAAAAAAAABAPf/AAAAAAAAAAABAPj/AAAAAAAAAAABAPn/AAAAAAAAAAABAPr/AAAAAAAAAAABAPv/AAAAAAAAAAABAPz/AAAAAAAAAAABAP3/AAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAACAPX/AAAAAAAAAAACAPb/AAAAAAAAAAACAPf/AAAAAAAAAAACAPj/AAAAAAAAAAACAPn/AAAAAAAAAAACAPr/AAAAAAAAAAACAPv/AAAAAAAAAAACAPz/AAAAAAAAAAACAP3/AAAAAAAAAAACAP7/AAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAADAPX/AAAAAAAAAAADAPb/AAAAAAAAAAADAPf/AAAAAAAAAAADAPj/AAAAAAAAAAADAPn/AAAAAAAAAAADAPr/AAAAAAAAAAADAPv/AAAAAAAAAAADAPz/AAAAAAAAAAADAP3/AAAAAAAAAAADAP7/AAAAAAAAAAADAP//AAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAEAPX/AAAAAAAAAAAEAPb/AAAAAAAAAAAEAPf/AAAAAAAAAAAEAPj/AAAAAAAAAAAEAPn/AAAAAAAAAAAEAPr/AAAAAAAAAAAEAPv/AAAAAAAAAAAEAPz/AAAAAAAAAAAEAP3/AAAAAAAAAAAEAP7/AAAAAAAAAAAEAP//AAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAPX/AAAAAAAAAAAFAPb/AAAAAAAAAAAFAPf/AAAAAAAAAAAFAPj/AAAAAAAAAAAFAPn/AAAAAAAAAAAFAPr/AAAAAAAAAAAFAPv/AAAAAAAAAAAFAPz/AAAAAAAAAAAFAP3/AAAAAAAAAAAFAP7/AAAAAAAAAAAFAP//AAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAPX/AAAAAAAAAAAGAPb/AAAAAAAAAAAGAPf/AAAAAAAAAAAGAPj/AAAAAAAAAAAGAPn/AAAAAAAAAAAGAPr/AAAAAAMAAAAGAPv/AAAAAAMAAAAGAPz/AAAAAAAAAAAGAP3/AAAAAAAAAAAGAP7/AAAAAAAAAAAGAP//AAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAPX/AAAAAAAAAAAHAPb/AAAAAAAAAAAHAPf/AAAAAAAAAAAHAPj/AAAAAAAAAAAHAPn/AAAAAAAAAAAHAPr/AAAAAAEAAAAHAPv/AAAAAAMAAAAHAPz/AAAAAAAAAAAHAP3/AAAAAAAAAAAHAP7/AAAAAAAAAAAHAP//AAAAAAAAAAAHAAAAAAAAAAMAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAPX/AAAAAAAAAAAIAPb/AAAAAAAAAAAIAPf/AAAAAAAAAAAIAPj/AAAAAAAAAAAIAPn/AAAAAAAAAAAIAPr/AAAAAAAAAAAIAPv/AAAAAAMAAAAIAPz/AAAAAAAAAAAIAP3/AAAAAAAAAAAIAP7/AAAAAAAAAAAIAP//AAAAAAAAAAAIAAAAAAAAAAMAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAJAPX/AAAAAAAAAAAJAPb/AAAAAAAAAAAJAPf/AAAAAAAAAAAJAPj/AAAAAAAAAAAJAPn/AAAAAAAAAAAJAPr/AAAAAAAAAAAJAPv/AAAAAAAAAAAJAPz/AAAAAAAAAAAJAP3/AAAAAAAAAAAJAP7/AAAAAAAAAAAJAP//AAAAAAAAAAAJAAAAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAMAAAAAAAAAAAAJAAQAAAAAAAAAAAAJAAUAAAAAAAAAAAAKAPX/AAAAAAAAAAAKAPb/AAAAAAEAAAAKAPf/AAAAAAAAAAAKAPj/AAAAAAAAAAAKAPn/AAAAAAAAAAAKAPr/AAAAAAAAAAAKAPv/AAAAAAAAAAAKAPz/AAAAAAAAAAAKAP3/AAAAAAAAAAAKAP7/AAAAAAAAAAAKAP//AAAAAAAAAAAKAAAAAAAAAAAAAAAKAAEAAAAAAAAAAAAKAAIAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAQAAAAAAAAAAAAKAAUAAAAAAAAAAAALAPX/AAAAAAAAAAALAPb/AAAAAAMAAAALAPf/AAAAAAMAAAALAPj/AAAAAAAAAAALAPn/AAAAAAAAAAALAPr/AAAAAAAAAAALAPv/AAAAAAAAAAALAPz/AAAAAAMAAAALAP3/AAAAAAAAAAALAP7/AAAAAAAAAAALAP//AAAAAAAAAAALAAAAAAAAAAAAAAALAAEAAAAAAAAAAAALAAIAAAAAAAAAAAALAAMAAAAAAAAAAAALAAQAAAAAAAAAAAALAAUAAAAAAAAAAAAMAPX/AAAAAAAAAAAMAPb/AAAAAAAAAAAMAPf/AAAAAAAAAAAMAPj/AAAAAAAAAAAMAPn/AAAAAAAAAAAMAPr/AAAAAAAAAAAMAPv/AAAAAAAAAAAMAPz/AAAAAAEAAAAMAP3/AAAAAAEAAAAMAP7/AAAAAAAAAAAMAP//AAAAAAAAAAAMAAAAAAAAAAAAAAAMAAEAAAAAAAAAAAAMAAIAAAAAAAAAAAAMAAMAAAAAAAAAAAAMAAQAAAAAAAAAAAAMAAUAAAAAAAAAAAANAPX/AAAAAAAAAAANAPb/AAAAAAAAAAANAPf/AAAAAAAAAAANAPj/AAAAAAAAAAANAPn/AAAAAAAAAAANAPr/AAAAAAAAAAANAPv/AAAAAAAAAAANAPz/AAAAAAEAAAANAP3/AAAAAAEAAAANAP7/AAAAAAAAAAANAP//AAAAAAAAAAANAAAAAAAAAAAAAAANAAEAAAAAAAAAAAANAAIAAAAAAAAAAAANAAMAAAAAAAAAAAANAAQAAAAAAAAAAAANAAUAAAAAAAAAAADt//T/AAAAAAAAAADt//X/AAAAAAAAAADt//b/AAAAAAAAAADt//f/AAAAAAAAAADt//j/AAAAAAAAAADt//n/AAAAAAAAAADt//r/AAAAAAAAAADt//v/AAAAAAAAAADt//z/AAAAAAAAAADt//3/AAAAAAAAAADt//7/AAAAAAAAAADt////AAAAAAAAAADt/wAAAAAAAAAAAADt/wEAAAAAAAAAAADt/wIAAAAAAAAAAADt/wMAAAAAAAAAAADt/wQAAAAAAAAAAADt/wUAAAAAAAAAAADu//T/AAAAAAAAAADu//X/AAAAAAAAAADu//b/AAAAAAAAAADu//f/AAAAAAAAAADu//j/AAAAAAAAAADu//n/AAAAAAAAAADu//r/AAAAAAAAAADu//v/AAAAAAAAAADu//z/AAAAAAAAAADu//3/AAAAAAAAAADu//7/AAAAAAAAAADu////AAAAAAAAAADu/wAAAAAAAAAAAADu/wEAAAAAAAAAAADu/wIAAAAAAAAAAADu/wMAAAAAAAAAAADu/wQAAAAAAAAAAADu/wUAAAAAAAAAAADv//T/AAAAAAAAAADv//X/AAAAAAAAAADv//b/AAAAAAAAAADv//f/AAAAAAAAAADv//j/AAAAAAAAAADv//n/AAAAAAAAAADv//r/AAAAAAAAAADv//v/AAAAAAAAAADv//z/AAAAAAAAAADv//3/AAAAAAAAAADv//7/AAAAAAAAAADv////AAAAAAAAAADv/wAAAAAAAAAAAADv/wEAAAAAAAAAAADv/wIAAAAAAAAAAADv/wMAAAAAAAAAAADv/wQAAAAAAAAAAADv/wUAAAAAAAAAAADw//T/AAAAAAAAAADw//X/AAAAAAAAAADw//b/AAAAAAAAAADw//f/AAAAAAAAAADw//j/AAAAAAAAAADw//n/AAAAAAAAAADw//r/AAAAAAAAAADw//v/AAAAAAAAAADw//z/AAAAAAAAAADw//3/AAAAAAAAAADw//7/AAAAAAAAAADw////AAAAAAAAAADw/wAAAAAAAAAAAADw/wEAAAAAAAAAAADw/wIAAAAAAAAAAADw/wMAAAAAAAAAAADw/wQAAAAAAAAAAADw/wUAAAAAAAAAAADx//T/AAAAAAAAAADx//X/AAAAAAAAAADx//b/AAAAAAAAAADx//f/AAAAAAAAAADx//j/AAAAAAAAAADx//n/AAAAAAAAAADx//r/AAAAAAAAAADx//v/AAAAAAAAAADx//z/AAAAAAAAAADx//3/AAAAAAAAAADx//7/AAAAAAAAAADx////AAAAAAAAAADx/wAAAAAAAAAAAADx/wEAAAAAAAAAAADx/wIAAAAAAAAAAADx/wMAAAAAAAAAAADx/wQAAAAAAAAAAADx/wUAAAAAAAAAAADy//T/AAAAAAAAAADy//X/AAAAAAAAAADy//b/AAAAAAAAAADy//f/AAAAAAAAAADy//j/AAAAAAAAAADy//n/AAAAAAAAAADy//r/AAAAAAAAAADy//v/AAAAAAAAAADy//z/AAAAAAAAAADy//3/AAAAAAAAAADy//7/AAAAAAAAAADy////AAAAAAAAAADy/wAAAAAAAAAAAADy/wEAAAAAAAAAAADy/wIAAAAAAAAAAADy/wMAAAAAAAAAAADy/wQAAAAAAAAAAADy/wUAAAAAAAAAAADz//T/AAAAAAAAAAD0//T/AAAAAAAAAAD1//T/AAAAAAAAAAD2//T/AAAAAAAAAAD3//T/AAAAAAAAAAD4//T/AAAAAAAAAAD5//T/AAAAAAAAAAD6//T/AAAAAAAAAAD7//T/AAAAAAAAAAD8//T/AAAAAAAAAAD9//T/AAAAAAAAAAD+//T/AAAAAAAAAAD///T/AAAAAAAAAAAAAPT/AAAAAAAAAAABAPT/AAAAAAAAAAACAPT/AAAAAAAAAAADAPT/AAAAAAAAAAAEAPT/AAAAAAAAAAAFAPT/AAAAAAAAAAAGAPT/AAAAAAAAAAAHAPT/AAAAAAAAAAAIAPT/AAAAAAAAAAAJAPT/AAAAAAAAAAAKAPT/AAAAAAAAAAALAPT/AAAAAAAAAAAMAPT/AAAAAAAAAAANAPT/AAAAAAAAAAAOAPT/AAAAAAAAAAAOAPX/AAAAAAAAAAAOAPb/AAAAAAEAAAAOAPf/AAAAAAIAAAAOAPj/AAAAAAAAAAAOAPn/AAAAAAAAAAAOAPr/AAAAAAAAAAAOAPv/AAAAAAAAAAAOAPz/AAAAAAAAAAAOAP3/AAAAAAAAAAAOAP7/AAAAAAAAAAAOAP//AAAAAAAAAAAOAAAAAAAAAAAAAAAOAAEAAAAAAAAAAAAOAAIAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAUAAAAAAAAAAAAPAPT/AAAAAAAAAAAPAPX/AAAAAAEAAAAPAPb/AAAAAAEAAAAPAPf/AAAAAAIAAAAPAPj/AAAAAAAAAAAPAPn/AAAAAAAAAAAPAPr/AAAAAAAAAAAPAPv/AAAAAAAAAAAPAPz/AAAAAAAAAAAPAP3/AAAAAAAAAAAPAP7/AAAAAAAAAAAPAP//AAAAAAAAAAAPAAAAAAAAAAAAAAAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAQAPT/AAAAAAAAAAAQAPX/AAAAAAAAAAAQAPb/AAAAAAAAAAAQAPf/AAAAAAAAAAAQAPj/AAAAAAAAAAAQAPn/AAAAAAAAAAAQAPr/AAAAAAAAAAAQAPv/AAAAAAAAAAAQAPz/AAAAAAAAAAAQAP3/AAAAAAAAAAAQAP7/AAAAAAAAAAAQAP//AAAAAAAAAAAQAAAAAAAAAAAAAAAQAAEAAAAAAAAAAAAQAAIAAAAAAAAAAAAQAAMAAAAAAAAAAAAQAAQAAAAAAAAAAAAQAAUAAAAAAAAAAAARAPT/AAAAAAAAAAARAPX/AAAAAAAAAAARAPb/AAAAAAAAAAARAPf/AAAAAAAAAAARAPj/AAAAAAAAAAARAPn/AAAAAAAAAAARAPr/AAAAAAAAAAARAPv/AAAAAAAAAAARAPz/AAAAAAAAAAARAP3/AAAAAAAAAAARAP7/AAAAAAAAAAARAP//AAAAAAAAAAARAAAAAAAAAAAAAAARAAEAAAAAAAAAAAARAAIAAAAAAAAAAAARAAMAAAAAAAAAAAARAAQAAAAAAAAAAAARAAUAAAAAAAAAAAASAPT/AAAAAAAAAAASAPX/AAAAAAAAAAASAPb/AAAAAAAAAAASAPf/AAAAAAAAAAASAPj/AAAAAAAAAAASAPn/AAAAAAAAAAASAPr/AAAAAAAAAAASAPv/AAAAAAAAAAASAPz/AAAAAAAAAAASAP3/AAAAAAAAAAASAP7/AAAAAAAAAAASAP//AAAAAAAAAAASAAAAAAAAAAAAAAASAAEAAAAAAAAAAAASAAIAAAAAAAAAAAASAAMAAAAAAAAAAAASAAQAAAAAAAAAAAASAAUAAAAAAAAAAAATAPT/AAAAAAAAAAATAPX/AAAAAAAAAAATAPb/AAAAAAAAAAATAPf/AAAAAAAAAAATAPj/AAAAAAAAAAATAPn/AAAAAAAAAAATAPr/AAAAAAAAAAATAPv/AAAAAAAAAAATAPz/AAAAAAAAAAATAP3/AAAAAAAAAAATAP7/AAAAAAAAAAATAP//AAAAAAAAAAATAAAAAAAAAAAAAAATAAEAAAAAAAAAAAATAAIAAAAAAAAAAAATAAMAAAAAAAAAAAATAAQAAAAAAAAAAAATAAUAAAAAAAAAAAAUAPT/AAAAAAAAAAAUAPX/AAAAAAAAAAAUAPb/AAAAAAAAAAAUAPf/AAAAAAAAAAAUAPj/AAAAAAAAAAAUAPn/AAAAAAAAAAAUAPr/AAAAAAAAAAAUAPv/AAAAAAAAAAAUAPz/AAAAAAAAAAAUAP3/AAAAAAAAAAAUAP7/AAAAAAAAAAAUAP//AAAAAAAAAAAUAAAAAAAAAAAAAAAUAAEAAAAAAAAAAAAUAAIAAAAAAAAAAAAUAAMAAAAAAAAAAAAUAAQAAAAAAAAAAAAUAAUAAAAAAAAAAAD8//L/AAACAAAAAAD8//P/AAACAAEAAAD9//L/AAAEAAAAAAD9//P/AAAEAAEAAAD+//L/AAACAAAAAAD+//P/AAACAAEAAAD///L/AAACAAAAAAD///P/AAACAAEAAAAAAPL/AAACAAAAAAAAAPP/AAACAAEAAAABAPL/AAADAAAAAAABAPP/AAADAAEAAAACAPL/AAACAAAAAAACAPP/AAACAAEAAAADAPL/AAAEAAAAAAADAPP/AAAEAAEAAAAEAPL/AAADAAAAAAAEAPP/AAADAAEAAAAFAPL/AAAGAAAAAAAFAPP/AAAGAAEAAAAGAPL/AAACAAAAAAAGAPP/AAACAAEAAAAHAPL/AAAEAAAAAAAHAPP/AAAEAAEAAAAIAPL/AAAFAAAAAAAIAPP/AAAFAAEAAAAJAPL/AAACAAAAAAAJAPP/AAACAAEAAAAKAPL/AAADAAAAAAAKAPP/AAADAAEAAAALAPL/AAACAAAAAAALAPP/AAACAAEAAAAMAPL/AAAEAAAAAAAMAPP/AAAEAAEAAAANAPL/AAAFAAAAAAANAPP/AAAFAAEAAAAOAPL/AAACAAAAAAAOAPP/AAACAAEAAAD7//L/AAAHAAAAAAD7//P/AAAHAAEAAAD6//L/AAADAAAAAAD6//P/AAADAAEAAAD5//L/AAACAAAAAAD5//P/AAACAAEAAAD4//L/AAAGAAAAAAD4//P/AAAGAAEAAAD3//L/AAACAAAAAAD3//P/AAACAAEAAAD2//L/AAACAAAAAAD2//P/AAACAAEAAAD1//L/AAADAAAAAAD1//P/AAADAAEAAAD0//L/AAACAAAAAAD0//P/AAACAAEAAADz//L/AAACAAAAAADz//P/AAACAAEAAADy//L/AAACAAAAAADy//P/AAACAAEAAADx//L/AAACAAAAAADx//P/AAACAAEAAADw//L/AAACAAAAAADw//P/AAACAAEAAADv//L/AAACAAAAAADv//P/AAACAAEAAADu//L/AAACAAAAAADu//P/AAACAAEAAADt//L/AAACAAAAAADt//P/AAACAAEAAAAPAPL/AAACAAAAAAAPAPP/AAACAAEAAAAQAPL/AAACAAAAAAAQAPP/AAACAAEAAAARAPL/AAACAAAAAAARAPP/AAACAAEAAAASAPL/AAACAAAAAAASAPP/AAACAAEAAAATAPL/AAACAAAAAAATAPP/AAACAAEAAAAUAPL/AAACAAAAAAAUAPP/AAACAAEAAAA=")
 tile_set = SubResource("TileSet_qbd4h")
@@ -191,7 +575,7 @@ position = Vector2(6, -857)
 zoom = Vector2(0.5, 0.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=533092966]
-layer = -10
+layer = -1
 follow_viewport_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=226317848]
@@ -199,5 +583,138 @@ position = Vector2(188, -2856)
 sprite_frames = SubResource("SpriteFrames_vkqoe")
 autoplay = "default"
 frame_progress = 0.96915495
+
+[node name="BigCircle" type="Path2D" parent="CanvasLayer" unique_id=479547727]
+curve = SubResource("Curve2D_hbh78")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="CanvasLayer/BigCircle" unique_id=381080132]
+position = Vector2(368.5502, -3087.449)
+rotation = 0.38752383
+progress = 838.96936
+
+[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer/BigCircle/PathFollow2D" unique_id=394099438]
+z_index = 5
+color = Color(0.7866205, 0.8593356, 0.90451425, 1)
+energy = 0.0
+range_layer_min = -5
+range_layer_max = 5
+texture = ExtResource("8_ht236")
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="CanvasLayer/BigCircle" unique_id=1319718278]
+position = Vector2(1587.8246, -3001.5784)
+rotation = -2.1625726
+progress = 2264.0986
+
+[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer/BigCircle/PathFollow2D2" unique_id=975610507]
+z_index = 5
+color = Color(0.7866205, 0.8593356, 0.90451425, 1)
+energy = 0.0
+range_layer_min = -5
+range_layer_max = 5
+texture = ExtResource("8_ht236")
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="CanvasLayer/BigCircle" unique_id=94224083]
+position = Vector2(-338.1743, -4017.98)
+rotation = -2.885878
+progress = 4483.452
+
+[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer/BigCircle/PathFollow2D3" unique_id=1655054018]
+z_index = 5
+color = Color(0.7866205, 0.8593356, 0.90451425, 1)
+energy = 0.0
+range_layer_min = -5
+range_layer_max = 5
+texture = ExtResource("8_ht236")
+
+[node name="PathFollow2D4" type="PathFollow2D" parent="CanvasLayer/BigCircle" unique_id=1902884177]
+position = Vector2(-318, -3561)
+rotation = 0.68383795
+
+[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer/BigCircle/PathFollow2D4" unique_id=1206298129]
+z_index = 5
+color = Color(0.7866205, 0.8593356, 0.90451425, 1)
+range_layer_min = -5
+range_layer_max = 5
+texture = ExtResource("8_ht236")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1088881433]
+root_node = NodePath("../BigCircle")
+libraries/ = SubResource("AnimationLibrary_evj56")
+autoplay = &"star move"
+
+[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer" unique_id=1552748672]
+z_index = 5
+position = Vector2(187.00012, -3510)
+scale = Vector2(0.2779017, 0.26450896)
+color = Color(0.84726155, 0.6302361, 0.85420895, 1)
+range_layer_min = -5
+range_layer_max = 5
+texture = ExtResource("8_ht236")
+
+[node name="PointLight2D2" type="PointLight2D" parent="CanvasLayer" unique_id=1650202432]
+z_index = 5
+position = Vector2(991.00006, -3123.0002)
+scale = Vector2(0.2779017, 0.26450896)
+color = Color(0.84726155, 0.6302361, 0.85420895, 1)
+range_layer_min = -5
+range_layer_max = 5
+texture = ExtResource("8_ht236")
+
+[node name="PointLight2D3" type="PointLight2D" parent="CanvasLayer" unique_id=1003114965]
+z_index = 5
+position = Vector2(804, -3596.0002)
+scale = Vector2(0.17645016, 0.17106277)
+color = Color(0.84726155, 0.6302361, 0.85420895, 1)
+range_layer_min = -5
+range_layer_max = 5
+texture = ExtResource("8_ht236")
+
+[node name="PointLight2D4" type="PointLight2D" parent="CanvasLayer" unique_id=1710171645]
+z_index = 5
+position = Vector2(1016, -2351)
+scale = Vector2(0.4862059, 0.44184127)
+color = Color(0.9975626, 0.9011383, 0.5708758, 1)
+range_layer_min = -5
+range_layer_max = 5
+texture = ExtResource("8_ht236")
+
+[node name="PointLight2D5" type="PointLight2D" parent="CanvasLayer" unique_id=1524997573]
+z_index = 5
+position = Vector2(-1113, -2292)
+scale = Vector2(0.17645016, 0.17106277)
+color = Color(0.87322456, 0.68884474, 0.22684598, 1)
+range_layer_min = -5
+range_layer_max = 5
+texture = ExtResource("8_ht236")
+
+[node name="标题" type="Sprite2D" parent="CanvasLayer" unique_id=1601404875]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-1049, -3593.725)
+texture = ExtResource("9_hbh78")
+region_rect = Rect2(0, 0, 0, -8.78)
+
+[node name="PointLight2D7" type="PointLight2D" parent="CanvasLayer/标题" unique_id=785820075]
+visibility_layer = 231
+z_index = 5
+position = Vector2(778.00006, 298.72513)
+scale = Vector2(0.52008927, 0.47946435)
+color = Color(0.7879952, 0.8586613, 0.9057709, 1)
+energy = 1.94
+range_layer_min = -10
+range_layer_max = 10
+texture = ExtResource("8_ht236")
+
+[node name="PointLight2D6" type="PointLight2D" parent="CanvasLayer" unique_id=965249196]
+position = Vector2(366, -1768.0001)
+scale = Vector2(0.36160713, 0.65)
+color = Color(0.48136026, 0.7186213, 0.95587224, 1)
+texture = ExtResource("8_ht236")
+
+[node name="MainMenuUI" parent="CanvasLayer" unique_id=2028684775 instance=ExtResource("10_1t7fq")]
+modulate = Color(1, 1, 1, 0)
+offset_left = -570.0
+offset_top = -1585.0
+offset_right = -570.0
+offset_bottom = -1585.0
 
 [editable path="CgDirector"]

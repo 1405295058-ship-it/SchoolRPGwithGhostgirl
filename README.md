@@ -10,6 +10,11 @@ The project is currently in active development.
 
 ## Screenshots
 
+### MainMenu
+
+![Night Sky](docs/image/NightSky.png)
+
+
 ### Campus & Quest System
 
 ![Campus and Quest System](docs/image/SchoolDoor.png)
@@ -26,9 +31,6 @@ The project is currently in active development.
 
 ![Teaching Building](docs/image/TeachingArea.png)
 
-### Visual Atmosphere
-
-![Night Sky](docs/image/NightSky.png)
 
 ---
 
@@ -87,6 +89,18 @@ The world-state controller listens for quest, time and scene events and refreshe
 - Stackable items
 - Multiple inventory categories
 - Inventory UI and item descriptions
+
+### Save System
+
+Saves and restores game progress using a JSON file. Supports a single save slot.
+
+Saved data includes:
+- Current scene and player position
+- Inventory data
+- Player name and known people
+- Quest progress
+- World state changes
+- Current time and routine step
 
 ---
 
@@ -165,6 +179,7 @@ Dialogue UI
 - WorldStateController
 - SceneManager
 - EventBus
+- SaveManager
 
 ### Quest & Dialogue
 
