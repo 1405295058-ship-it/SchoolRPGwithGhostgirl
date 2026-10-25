@@ -1,16 +1,14 @@
-# Chinese International High School JRPG
+# Your Afterimage
 
-A story-driven 2D pixel RPG set in a Chinese international high school, developed independently in **Godot 4** using **GDScript**.
+A story-driven 2D pixel RPG set in a Chinese international high school, developed in Godot 4 using GDScript. 
 
-Inspired by narrative RPGs such as *Persona*, the project focuses on combining everyday school life with branching dialogue, quests, NPC routines and a world that changes with time and story progression.
-
-The project is currently in active development.
+The project is led by Litong Fang, with the inventory system developed by HaoYu Wang and integrated into the game by Litong Fang.
 
 ---
 
 ## Screenshots
 
-### MainMenu
+### Main Menu
 
 ![Night Sky](docs/image/NightSky.png)
 
@@ -85,10 +83,14 @@ The world-state controller listens for quest, time and scene events and refreshe
 
 ### Inventory System
 
-- Item pickup
-- Stackable items
-- Multiple inventory categories
-- Inventory UI and item descriptions
+- Developed by HaoYu Wang, with project integration by Litong Fang.
+- Pocket and backpack containers with stackable items
+- Item pickup, including partial pickup when capacity is limited
+- Drag-and-drop movement and swapping between slots and containers
+- Item icons, stack counts and descriptions
+- Dropping items into the world or discarding them
+
+Item definitions use Godot resources, with signals keeping the inventory UI in sync with its contents.
 
 ### Save System
 
@@ -202,11 +204,18 @@ Dialogue UI
 ## Current Development
 
 - Expanding story and quest content
-- Reworking the inventory system
-- Building a save and load system
-- Improving reusable systems and code structure
+- Extending the save system to support multiple save slots
+- Improving UI feedback and handling edge cases
+- Refining reusable systems and code structure
+- Adding an interactive settings menu
 
 ---
+
+## Credits
+
+Litong Fang — Project lead; core gameplay systems, save-system development, inventory integration and all original pixel art.
+
+HaoYu Wang — Inventory-system development.
 
 ## About the Project
 
