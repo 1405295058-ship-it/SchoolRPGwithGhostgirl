@@ -108,3 +108,6 @@ func load_from_json() -> void:
 func refresh_quest_hint() -> void:
 	var quest_status = QuestManager.get_hint_type_by_object_id(ID)
 	$QuestHintMarker.update_hint_mark(quest_status)
+
+func apply_world_change(change:Dictionary):
+	pass

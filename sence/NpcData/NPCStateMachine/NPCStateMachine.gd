@@ -1,3 +1,4 @@
+#新的state 在下面add state注册
 extends RefCounted
 class_name NPCStateMachine
 
@@ -20,6 +21,7 @@ func register_all_states() -> void:
 	add_state(&"following",FollowingState.new(npc,self))
 	add_state(&"background_idle",BackgroundIdleState.new(npc,self))
 	add_state(&"on_class_state",OnClassState.new(npc,self))
+	add_state(&"idle_animation",IdleAnimationState.new(npc,self))
 func add_state(
 	state_name: StringName,
 	state: NPCState

@@ -25,6 +25,10 @@ var current_show_objectives: Array = []
 	"quest": {
 		"it_self": $BackGround/MissionBagLine,
 		"switcher": $HBoxContainer/Mission
+	},
+	"settings": {
+		"it_self": $BackGround/SettingsLine,
+		"switcher": $HBoxContainer/Setting
 	}
 }
 
@@ -33,7 +37,7 @@ func _ready() -> void:
 
 	$HBoxContainer/Mission/SwitchToQuestButton.pressed.connect(_on_switch_to_quest_button_pressed)
 
-	$HBoxContainer/Bag/SwitchToBagButton.pressed.connect(_on_switch_to_bag_button_pressed)
+	
 
 	hide()
 
@@ -241,5 +245,11 @@ func _on_track_quest_button_pressed() -> void:
 
 
 func _on_save_test_pressed() -> void:
-	SaveManager.save_game()
+	SaveManager.save_game("slot_data_1")
 	print("数据已经保存啦！")
+
+
+
+
+func _on_switch_to_setting_pressed() -> void:
+	switch_bag_layer("settings")

@@ -1,4 +1,5 @@
 {
+	"can_load": true,
 	"daily_routine_manager": {
 		"current_step": 3
 	},
@@ -59,10 +60,33 @@
 					"group": "ProgressBlocker",
 					"time_condition": {}
 				},
+				"npc_Evelyn": {
+					"action": {},
+					"change": {
+						"facing_dir": [
+							0.0,
+							1.0
+						],
+						"position": [
+							1319.0,
+							-1105.0
+						],
+						"visible": true
+					},
+					"group": "NPC",
+					"time_condition": {
+						"day_period": [
+							"lunch_time"
+						],
+						"week_period": [
+							"monday"
+						]
+					}
+				},
 				"npc_Mike": {
 					"action": {
 						"following": {
-							"enable": true,
+							"enable": false,
 							"target_ID": "player",
 							"target_group": "player"
 						}
@@ -70,11 +94,11 @@
 					"change": {
 						"facing_dir": [
 							0.0,
-							1.0
+							-1.0
 						],
 						"position": [
-							-1828.0,
-							2663.0
+							-535.0,
+							1983.0
 						],
 						"visible": true
 					},
@@ -99,7 +123,7 @@
 				"npc_Mike": {
 					"action": {
 						"following": {
-							"enable": true,
+							"enable": false,
 							"target_ID": "player",
 							"target_group": "player"
 						}
@@ -135,23 +159,24 @@
 			"不对劲！": {
 				"current_state": 1,
 				"objective_progress": {},
-				"quest_progress_status": 0,
+				"quest_progress_status": 1,
 				"unlock_quest": ""
 			},
 			"开学": {
-				"current_state": 3,
+				"current_state": 4,
 				"objective_progress": {},
-				"quest_progress_status": 2,
+				"quest_progress_status": 3,
 				"unlock_quest": "不对劲！"
 			}
 		}
 	},
+	"save_time": "2026-10-30 04:14:36",
 	"scene_manager": {
 		"player_position": [
-			-1479.0,
-			1573.0
+			404.0,
+			413.0
 		],
-		"scene_id": "Forecourt"
+		"scene_id": "TeachingAreaGF"
 	},
 	"time_manager": {
 		"current_day_period": "lunch_time",

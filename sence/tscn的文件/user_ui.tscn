@@ -13,8 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://bvihnl834difi" path="res://art/UI/设置书贴.png" id="11_q4fcb"]
 [ext_resource type="Texture2D" uid="uid://bliws8dgwsllw" path="res://art/UI/任务面板排线.png" id="11_vyjxb"]
 [ext_resource type="Texture2D" uid="uid://dxr55bosrqo4x" path="res://art/UI/任务书贴.png" id="12_m43yq"]
+[ext_resource type="Texture2D" uid="uid://b23pfgxwq8n8u" path="res://art/UI/Settingsline.png" id="12_slen8"]
+[ext_resource type="Texture2D" uid="uid://p4dlihf8b1c" path="res://art/UI/settingTagButton.png" id="13_a778r"]
+[ext_resource type="Script" uid="uid://bvyskqdr0mtk4" path="res://sence/tscn的文件/SettingsUi.gd" id="13_oqe3t"]
 [ext_resource type="Texture2D" uid="uid://cvakwuk7c2hyp" path="res://art/UI/背包书贴.png" id="13_vyjxb"]
 [ext_resource type="Texture2D" uid="uid://b862j3y8d04v2" path="res://art/UI/关系书贴.png" id="14_8akce"]
+[ext_resource type="PackedScene" uid="uid://da2vjdyki6b4i" path="res://sence/需要path的/save_slot.tscn" id="15_kw8jc"]
+[ext_resource type="PackedScene" uid="uid://iw2a2w2jww1e" path="res://sence/需要path的/load_slot.tscn" id="16_qn8vd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbh78"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -27,6 +32,27 @@ bg_color = Color(1, 1, 1, 0.2509804)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8akce"]
 bg_color = Color(0.6664675, 0.4581313, 0.14388236, 0.043137256)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkqoe"]
+bg_color = Color(0.9501192, 0.9501192, 0.9501191, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oqe3t"]
+bg_color = Color(0.9413647, 0.9413647, 0.94136465, 0.03137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kw8jc"]
+bg_color = Color(0.9916416, 0.96496063, 0.8102063, 0.13333334)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_co6qv"]
+bg_color = Color(0.959452, 0.93127435, 0.7523808, 0.0627451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a778r"]
+bg_color = Color(0.9643025, 0.9456273, 0.80392015, 0.03137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3m3tu"]
+bg_color = Color(0.18120003, 0.18120006, 0.18119991, 0.05490196)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qn8vd"]
+bg_color = Color(0.98364764, 0.968062, 0.77078617, 0.101960786)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_opc8p"]
 
@@ -468,6 +494,155 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_imom8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_q4fcb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8akce")
 
+[node name="SettingsLine" type="TextureRect" parent="BackGround" unique_id=1639180424]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.536
+anchor_right = 0.5
+anchor_bottom = 0.536
+offset_left = -1297.3077
+offset_top = -1354.8523
+offset_right = 1262.6921
+offset_bottom = 1205.1476
+texture = ExtResource("12_slen8")
+script = ExtResource("13_oqe3t")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BackGround/SettingsLine" unique_id=829643777]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.19500001
+anchor_top = 0.16900001
+anchor_right = 0.19500001
+anchor_bottom = 0.16900001
+offset_left = -316.50778
+offset_top = 150.05228
+offset_right = 254.64606
+offset_bottom = 1913.514
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackGround/SettingsLine/ScrollContainer" unique_id=1053578799]
+layout_mode = 2
+theme_override_constants/separation = 67
+
+[node name="SaveButton" type="Button" parent="BackGround/SettingsLine/ScrollContainer/VBoxContainer" unique_id=526256211]
+custom_minimum_size = Vector2(700, 210)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_colors/font_outline_color = Color(0.7372549, 0.7372549, 0.7372549, 0)
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("4_nts06")
+theme_override_font_sizes/font_size = 96
+theme_override_styles/normal = SubResource("StyleBoxFlat_vkqoe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_oqe3t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kw8jc")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_co6qv")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_a778r")
+text = "保存"
+
+[node name="TextureRect" type="TextureRect" parent="BackGround/SettingsLine/ScrollContainer/VBoxContainer/SaveButton" unique_id=274918207]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_a778r")
+
+[node name="LoadButton" type="Button" parent="BackGround/SettingsLine/ScrollContainer/VBoxContainer" unique_id=1208260902]
+custom_minimum_size = Vector2(700, 210)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_colors/font_outline_color = Color(0.7372549, 0.7372549, 0.7372549, 0)
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("4_nts06")
+theme_override_font_sizes/font_size = 96
+theme_override_styles/normal = SubResource("StyleBoxFlat_vkqoe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3m3tu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qn8vd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_co6qv")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_a778r")
+text = "读取"
+
+[node name="TextureRect" type="TextureRect" parent="BackGround/SettingsLine/ScrollContainer/VBoxContainer/LoadButton" unique_id=36919985]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_a778r")
+
+[node name="SaveSlot" type="VBoxContainer" parent="BackGround/SettingsLine" unique_id=1604346135]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.65900004
+anchor_top = 0.5
+anchor_right = 0.65900004
+anchor_bottom = 0.5
+offset_left = -629.34753
+offset_top = -791.53845
+offset_right = 659.1138
+offset_bottom = 1116.1543
+theme_override_constants/separation = 370
+
+[node name="SaveSlot" parent="BackGround/SettingsLine/SaveSlot" unique_id=436785638 instance=ExtResource("15_kw8jc")]
+layout_mode = 2
+disp_name = "Save slot 1"
+slot_id = "save_data_1"
+
+[node name="SaveSlot2" parent="BackGround/SettingsLine/SaveSlot" unique_id=2095681678 instance=ExtResource("15_kw8jc")]
+layout_mode = 2
+disp_name = "Save slot 2"
+slot_id = "save_data_2"
+
+[node name="SaveSlot3" parent="BackGround/SettingsLine/SaveSlot" unique_id=133125610 instance=ExtResource("15_kw8jc")]
+layout_mode = 2
+disp_name = "Save slot 3"
+slot_id = "save_data_3"
+
+[node name="SaveSlot4" parent="BackGround/SettingsLine/SaveSlot" unique_id=1278571260 instance=ExtResource("15_kw8jc")]
+layout_mode = 2
+disp_name = "Save slot 4"
+slot_id = "save_data_4"
+
+[node name="SaveSlot5" parent="BackGround/SettingsLine/SaveSlot" unique_id=1678990927 instance=ExtResource("15_kw8jc")]
+layout_mode = 2
+disp_name = "Save slot 5"
+slot_id = "save_data_5"
+
+[node name="LoadSlots" type="VBoxContainer" parent="BackGround/SettingsLine" unique_id=1842094783]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.65900004
+anchor_top = 0.5
+anchor_right = 0.65900004
+anchor_bottom = 0.5
+offset_left = -629.34753
+offset_top = -791.53845
+offset_right = 659.1138
+offset_bottom = 1116.1543
+theme_override_constants/separation = 370
+
+[node name="LoadSlot" parent="BackGround/SettingsLine/LoadSlots" unique_id=1805244442 instance=ExtResource("16_qn8vd")]
+layout_mode = 2
+disp_name = "Load slot 1"
+slot_id = "save_data_1"
+
+[node name="LoadSlot2" parent="BackGround/SettingsLine/LoadSlots" unique_id=2120685505 instance=ExtResource("16_qn8vd")]
+layout_mode = 2
+disp_name = "Load slot 2"
+slot_id = "save_data_2"
+
+[node name="LoadSlot3" parent="BackGround/SettingsLine/LoadSlots" unique_id=1158535534 instance=ExtResource("16_qn8vd")]
+layout_mode = 2
+disp_name = "Load slot 3"
+slot_id = "save_data_3"
+
+[node name="LoadSlot4" parent="BackGround/SettingsLine/LoadSlots" unique_id=594926694 instance=ExtResource("16_qn8vd")]
+layout_mode = 2
+disp_name = "Load slot 4"
+slot_id = "save_data_4"
+
+[node name="LoadSlot5" parent="BackGround/SettingsLine/LoadSlots" unique_id=782405828 instance=ExtResource("16_qn8vd")]
+layout_mode = 2
+disp_name = "Load slot 5"
+slot_id = "save_data_5"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1191044640]
 z_index = 1
 anchors_preset = -1
@@ -500,10 +675,24 @@ theme_override_fonts/font = ExtResource("4_nts06")
 theme_override_font_sizes/font_size = 120
 text = "设置"
 
-[node name="Save_Test" type="Button" parent="HBoxContainer/Setting" unique_id=995734027]
-layout_mode = 0
-offset_right = 453.84607
-offset_bottom = 263.46152
+[node name="SwitchToSetting" type="Button" parent="HBoxContainer/Setting" unique_id=1979108628]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -229.0
+offset_right = 224.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_opc8p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mv81f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_euitq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_bo0br")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mppen")
 
 [node name="Relasionship" type="TextureRect" parent="HBoxContainer" unique_id=1369466104]
 z_index = -1
@@ -598,5 +787,8 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_w0ula")
 libraries/ = SubResource("AnimationLibrary_w0ula")
 
 [connection signal="pressed" from="BackGround/MissionBagLine/TrackQuestButton" to="." method="_on_track_quest_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/Setting/Save_Test" to="." method="_on_save_test_pressed"]
+[connection signal="pressed" from="BackGround/SettingsLine/ScrollContainer/VBoxContainer/SaveButton" to="BackGround/SettingsLine" method="_on_save_button_pressed"]
+[connection signal="pressed" from="BackGround/SettingsLine/ScrollContainer/VBoxContainer/LoadButton" to="BackGround/SettingsLine" method="_on_load_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Setting/SwitchToSetting" to="." method="_on_switch_to_setting_pressed"]
+[connection signal="pressed" from="HBoxContainer/Bag/SwitchToBagButton" to="." method="_on_switch_to_bag_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Mission/SwitchToQuestButton" to="." method="_on_switch_to_mission_button_pressed"]

@@ -13,7 +13,8 @@ func _on_new_game_pressed() -> void:
 
 func _on_continue_pressed() -> void:
 	print("加载游戏哈哈哈")
-	SaveManager.load_game()
+	var slot_id = SaveManager.get_latest_slot_name()
+	SaveManager.load_game(slot_id)
 	
 	
 	

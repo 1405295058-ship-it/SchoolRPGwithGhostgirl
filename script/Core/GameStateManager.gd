@@ -74,26 +74,30 @@ func _on_unlocked_quest_world_should_apply(quest_name)->void:
 func refresh_scene_state():
 	if get_tree().current_scene == null:
 		return
-	erase_current_scene_record()
-	load_default_objects_in_current_scene()
-	apply_current_quest_states()
-	load_record()
+	erase_current_scene_record()#擦除这个场景的所有的record
+	load_default_objects_in_current_scene()#把defult的schedule的change初始化
+	apply_current_quest_states()#把任务的更新初始化
+	load_record()#把之前存档的更新
 	
 	
 func erase_current_scene_record():
+	#拿到现在的场景
 	var current_scene = get_tree().current_scene
 
 	if current_scene == null:
 		return
-
+	
 	var current_scene_id = current_scene.scene_id
-
+	#判断场景有没有注册进record
 	if not current_changed_record.has(current_scene_id ):
 		current_changed_record[current_scene_id ] = {}
 		return
-
+	#把这个场景的record擦除
 	for object_id in current_changed_record[current_scene_id ].keys():
 		current_changed_record[current_scene_id ][object_id]["change"] = {}
+
+#对任务进行检索 然后按照顺序对人物进行任务状态的刷新
+# 以后会加入任务优先级功能 目前是约后面的会覆盖前面的
 func apply_current_quest_states():
 	for quest_name in QuestManager.quest_progress_data.keys():
 		var quest_data = QuestManager.quest_progress_data[quest_name]
@@ -106,9 +110,11 @@ func apply_current_quest_states():
 		elif status == QuestManager.quest_progress_status.unlock:
 			event_and_world_state_update(quest_name, "unactive")
 
+#合并两个state change的函数
 func event_and_world_state_update(quest_name,current_state_str):
 	event_state_update(quest_name,current_state_str)
 	world_state_update(quest_name,current_state_str)
+#对event进行更新
 func event_state_update(quest_name,current_state_str):
 	if not event_state.has(quest_name):
 		return
@@ -120,14 +126,16 @@ func event_state_update(quest_name,current_state_str):
 		return
 		
 	var current_actions = event_state[quest_name]["quest_states"][current_state_str]
-	
-	
+	#得到现在的event
+	#是一个数组
 	for action in current_actions :
 		
 		process_action_and_change(action,"action")
 		write_record(action,"action")
-		
+	#对这个数据里面每一个action 进行process_action or change
+	#然后写进record	
 
+#同上一样
 func world_state_update(quest_name,current_state_str):
 
 	
@@ -148,8 +156,8 @@ func world_state_update(quest_name,current_state_str):
 		write_record(change_information,"change")
 		
 
-		
-func find_things_in_scene_byID(group:String,ID:String):
+#在此场景里面找important NPC		
+func find_basic_important_npc_in_scene_byID(group:String,ID:String):
 	for obj in get_tree().get_nodes_in_group(group):
 		if not obj is BasicImportantNPC:
 			continue
@@ -158,12 +166,13 @@ func find_things_in_scene_byID(group:String,ID:String):
 			return obj
 	return null
 
+#对npc应用follow
 func should_follow(ID:String,group:String,action:Dictionary):
 	if  action["action"].has("following"):
 		var enable = action["action"]["following"]["enable"]
 		var target_ID = action["action"]["following"]["target_ID"]
 		var target_group = action["action"]["following"]["target_group"]
-		var obj = find_things_in_scene_byID(group,ID)
+		var obj = find_basic_important_npc_in_scene_byID(group,ID)
 		if obj == null:
 			return
 		if enable == true:
@@ -181,7 +190,7 @@ func should_follow(ID:String,group:String,action:Dictionary):
 
 #	thing = find_target(follow_group, target_ID)		
 
-
+#写record
 func write_record(save: Dictionary,action_or_change: String) -> void:
 
 	if not save.has("scene"):
@@ -229,6 +238,8 @@ func write_record(save: Dictionary,action_or_change: String) -> void:
 		record["time_condition"] = (time_condition.duplicate(true))
 		for key in real_data.keys():
 			record[action_or_change][key] = real_data[key]
+
+#加载record 
 func load_record():
 	var current_scene_id = get_tree().current_scene.scene_id
 
@@ -268,52 +279,59 @@ func load_record():
 			
 #加载有schedule的东西
 func load_default_objects_in_current_scene():
+	#拿到现在的时间 和 场景名字
 	var current_week_period = TimeManager.current_week_period
 	var current_day_period = TimeManager.current_day_period
-	var current_scene_name = get_tree().current_scene.name
+	var current_scene_id = get_tree().current_scene.scene_id
 	
+	#每一个schedule里面有的东西
 	for object_name in default_object_schedule.keys():
 		var object_data = default_object_schedule[object_name]
 		var object_schedule = object_data.get("schedule",{})
+		#拿到schedule
 		if object_schedule.is_empty():
 			push_error("这个npc没有写schedule：  ",object_name)
 			continue
+		#判断有没有写week period
 		if not object_schedule.has(current_week_period):
 			continue
 		var week_schedule = object_schedule[current_week_period]
-		
+		#判断有没有写day period
 		if not week_schedule.has(current_day_period):
 			continue
+		#没有的话直接去判断下一个东西
+			
 		var current_schedule =  week_schedule[current_day_period]
-		
+		#拿到最终的shcedule
 		
 		var object_group = current_schedule.get("group")
 		var object_id = current_schedule.get("object_ID")
 		var changes = current_schedule.get("changes", [])
+		#拿到这个东西的信息
 		
+		#判断这个东西是什么组的
 		if object_group.is_empty():
 			push_error("schedule 缺少 group:" + object_name)
 			continue
 		
 		assert(changes is Array)
 		
-		for change in changes:
+		for change in changes:#changes 是不同地方的位置 对这个东西的每一个地方
 			if not change is Dictionary:
 				push_error("change要是dictionary")
 				continue
 			
 			var target_scene = change.get("scene","")
 			
-			if target_scene != current_scene_name:
+			if target_scene != current_scene_id:
 				continue
 			
-			
-			var object = find_things_in_scene_byID(object_group,object_id)
+			var object = find_basic_important_npc_in_scene_byID(object_group,object_id)#尝试去拿这个东西
 			
 			if object == null:
 				continue
 				
-			process_current_schedule(object,change)
+			process_current_schedule(object,change)#实施这个schedule
 			
 			var record_change = change.duplicate(true)
 			record_change.erase("scene")
@@ -338,7 +356,7 @@ func load_default_objects_in_current_scene():
 #						
 #							}		
 		
-			
+#和change 差不多
 func process_current_schedule(object: Node, change: Dictionary):
 	
 	if change.is_empty():
@@ -354,6 +372,7 @@ func process_current_schedule(object: Node, change: Dictionary):
 		if object.has_method("apply_facing_dir"):
 			object.apply_facing_dir(facing_dir)
 
+#超长函数 对action进行分类 然后处理
 func process_action_and_change(action_or_change_information,action_or_change:String):
 	var current_scene_name = get_tree().current_scene.scene_id
 	var valid_scene = action_or_change_information["scene"]
@@ -407,7 +426,7 @@ func process_action_and_change(action_or_change_information,action_or_change:Str
 			var group = action_or_change_information["group"]
 			var object_id = action_or_change_information["object_ID"]
 			var change = action_or_change_information["change"]
-			var body = find_things_in_scene_byID(group, object_id)
+			var body = find_basic_important_npc_in_scene_byID(group, object_id)
 			var time_condition = action_or_change_information.get("time_condition",{})
 			
 				

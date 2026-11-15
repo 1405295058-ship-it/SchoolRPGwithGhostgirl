@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_dbp3w")
-NPC_name = "Clara"
-ID = "npc_Clara"
+NPC_name = "Selena"
+ID = "npc_Selena"
 default_dialog = [{
 "emotion": "normal",
 "speaker": "Clara",

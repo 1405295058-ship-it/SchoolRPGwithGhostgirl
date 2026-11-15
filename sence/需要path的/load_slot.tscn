@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://iw2a2w2jww1e"]
+
+[ext_resource type="Script" uid="uid://dkaffjcwjtiw5" path="res://script/save_slot.gd" id="1_wfj6y"]
+[ext_resource type="Texture2D" uid="uid://bxohjkw3hwasq" path="res://art/UI/load_slot.png" id="2_1ovsp"]
+[ext_resource type="FontFile" uid="uid://ccbttyuoii471" path="res://art/UI/VonwaonBitmap-16px.ttf" id="3_xjv37"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qn8vd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3m3tu"]
+bg_color = Color(0.99215686, 0.9411765, 0.77254903, 0.0627451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iq1yd"]
+bg_color = Color(0.99180657, 0.9801428, 0.86960286, 0.10980392)
+
+[node name="LoadSlot" type="Control" unique_id=436785638]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wfj6y")
+slot_type = 1
+
+[node name="Button" type="Button" parent="." unique_id=1942917773]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 0
+offset_top = 3.0
+offset_right = 1228.0
+offset_bottom = 291.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_qn8vd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3m3tu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_iq1yd")
+icon = ExtResource("2_1ovsp")
+
+[node name="SlotID" type="Label" parent="Button" unique_id=2004831249]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.008
+anchor_top = 0.004
+anchor_right = 0.008
+anchor_bottom = 0.004
+offset_left = 30.175999
+offset_top = 36.848
+offset_right = 547.176
+offset_bottom = 169.99251
+theme_override_colors/font_color = Color(0.28911078, 0.23282474, 0.16654927, 1)
+theme_override_fonts/font = ExtResource("3_xjv37")
+theme_override_font_sizes/font_size = 80
+text = "Save slot 1"
+autowrap_mode = 3
+autowrap_trim_flags = 0
+justification_flags = 0
+
+[node name="TimeLabel" type="Label" parent="Button" unique_id=1218731210]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.008
+anchor_top = 0.004
+anchor_right = 0.008
+anchor_bottom = 0.004
+offset_left = 151.176
+offset_top = 169.848
+offset_right = 611.176
+offset_bottom = 302.9925
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("3_xjv37")
+theme_override_font_sizes/font_size = 64
+text = "Save time:"
+autowrap_mode = 3
+autowrap_trim_flags = 0
+justification_flags = 0
+
+[node name="EmptySigh" type="Label" parent="Button" unique_id=782830980]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.008
+anchor_top = 0.004
+anchor_right = 0.008
+anchor_bottom = 0.004
+offset_left = 612.176
+offset_top = 146.848
+offset_right = 1072.176
+offset_bottom = 279.9925
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("3_xjv37")
+theme_override_font_sizes/font_size = 64
+text = "Empty..."
+autowrap_mode = 3
+autowrap_trim_flags = 0
+justification_flags = 0
+
+[node name="SaveTime" type="Label" parent="Button" unique_id=766175166]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.008
+anchor_top = 0.004
+anchor_right = 0.008
+anchor_bottom = 0.004
+offset_left = 490.176
+offset_top = 170.848
+offset_right = 1186.176
+offset_bottom = 255.848
+theme_override_colors/font_color = Color(0.35686275, 0.2901961, 0.21176471, 1)
+theme_override_fonts/font = ExtResource("3_xjv37")
+theme_override_font_sizes/font_size = 64
+text = "2026/10/28 01:23"
+autowrap_mode = 3
+autowrap_trim_flags = 0
+justification_flags = 0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

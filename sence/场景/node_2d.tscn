@@ -47,7 +47,6 @@
 [ext_resource type="Texture2D" uid="uid://dm7balgu5yr6s" path="res://art/动画资源/开学/车子.png" id="51_2hqcw"]
 [ext_resource type="PackedScene" uid="uid://b0i2pgw2of37r" path="res://sence/tscn的文件/progress_blocker.tscn" id="51_lovux"]
 [ext_resource type="Resource" uid="uid://b3ynmi4q1vl5t" path="res://sence/Item/LaoShiCard.tres" id="51_rksx3"]
-[ext_resource type="Resource" uid="uid://deyo7viblerke" path="res://sence/Item/MoneyCard.tres" id="51_u5gu7"]
 [ext_resource type="PackedScene" uid="uid://bh1u51nkb477v" path="res://sence/tscn的文件/random_npc_spawner.tscn" id="52_lovux"]
 [ext_resource type="PackedScene" uid="uid://dw7abahg0pmx0" path="res://sence/tscn的文件/bird_spawn.tscn" id="53_rksx3"]
 [ext_resource type="PackedScene" uid="uid://co4mj1jptn8mo" path="res://sence/tscn的文件/auto_change_scene_area.tscn" id="53_u5gu7"]
@@ -917,13 +916,16 @@ position = Vector2(2065, -5885)
 position = Vector2(1767, -3549)
 
 [node name="Table5" parent="." unique_id=359647289 instance=ExtResource("41_maje2")]
-position = Vector2(-1435, 1430)
+position = Vector2(7970, -367)
+ID = "Table_1"
 
 [node name="Table6" parent="." unique_id=578059502 instance=ExtResource("41_maje2")]
-position = Vector2(-1223, 1432)
+position = Vector2(7604, 242)
+ID = "Table_2"
 
 [node name="Table7" parent="." unique_id=1278548852 instance=ExtResource("41_maje2")]
-position = Vector2(-646, 1486)
+position = Vector2(7754, 718)
+ID = "Table_3"
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=809311728]
 position = Vector2(1319, -1105)
@@ -1263,22 +1265,8 @@ facing_direction = 1
 position = Vector2(-1143, -6087)
 facing_direction = 3
 
-[node name="WorldItems" type="Node2D" parent="." unique_id=848718455]
-
-[node name="WorldItem" parent="WorldItems" unique_id=1426212331 instance=ExtResource("50_lovux")]
-position = Vector2(546, 2850)
-item_data = ExtResource("51_rksx3")
-
-[node name="WorldItem2" parent="WorldItems" unique_id=1211742559 instance=ExtResource("50_lovux")]
-position = Vector2(-1792, 2739)
-item_data = ExtResource("51_u5gu7")
-
-[node name="WorldItem3" parent="WorldItems" unique_id=1882983512 instance=ExtResource("50_lovux")]
-position = Vector2(374, 2897)
-item_data = ExtResource("51_u5gu7")
-
-[node name="WorldItem4" parent="WorldItems" unique_id=77882840 instance=ExtResource("50_lovux")]
-position = Vector2(424, 2875)
+[node name="WorldItem" parent="." unique_id=569794120 instance=ExtResource("50_lovux")]
+position = Vector2(-440, 2778)
 item_data = ExtResource("51_rksx3")
 
 [editable path="ChangeSceneArea"]

@@ -1,8 +1,8 @@
 {
 	"intro_0_01":[
 					{
-						"speaker":"Clara",
-						"text": "救救我",
+						"speaker":"Selena",
+						"text": "你好，有人在吗？",
 						"emotion": "in_dream"
 					},
 					{
@@ -11,45 +11,60 @@
 						"emotion": "normal"
 					},
 					{
-						"speaker":"Clara",
-						"text": "救救我",
+						"speaker":"Selena",
+						"text": "啊！终于有人回应了！",
+						"emotion": "in_dream"
+					},
+					{
+						"speaker":"Selena",
+						"text": "求求你帮帮我！",
 						"emotion": "in_dream"
 					},
 					{
 						"speaker":"player",
-						"text": "你是谁啊？我该怎么救你？",
+						"text": "啊？你是谁啊？我该怎么救你？",
 						"emotion": "normal"
 					},
 					{
-						"speaker":"Clara",
-						"text": "....",
+						"speaker":"Selena",
+						"text": "求你帮我找到...",
 						"emotion": "in_dream"
 					},
 				],
 	"intro_0_02":[
 					{
 						"speaker":"player",
-						"text": "我靠,刚刚那个人是谁？",
+						"text": "原来是做梦啊。",
 						"emotion": "sleep_normal_surprised"
 					},
 					{
 						"speaker":"player",
-						"text": "听声音应该是个女生吧。",
+						"text": "吓死我了。",
 						"emotion": "sleep_normal_surprised"
 					},
 					{
 						"speaker":"player",
-						"text": "我去, 吓死我了。",
+						"text": "(梦中的那个女孩好像需要我我的帮助。)",
 						"emotion": "sleep_normal"
 					},
 					{
 						"speaker":"player",
-						"text": "就是没看清那个女生的脸。",
+						"text": "(但她最后一句话说的什么来着？)",
 						"emotion": "sleep_normal"
 					},
 					{
 						"speaker":"player",
-						"text": "话说今天开学了吧, 得赶紧收拾东西了。",
+						"text": "(靠，怎么记不起来了！)",
+						"emotion": "sleep_normal"
+					},
+					{
+						"speaker":"player",
+						"text": "(这真是一个奇怪的梦啊。)",
+						"emotion": "sleep_normal"
+					},
+					{
+						"speaker":"player",
+						"text": "话说今天开学了吧, 得赶紧收拾东西去学校了。",
 						"emotion": "sleep_normal"
 					},
 					

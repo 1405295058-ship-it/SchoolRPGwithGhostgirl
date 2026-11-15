@@ -47,21 +47,29 @@ func play_animation(anim_name: String, is_play_once_only := false):
 
 
 
-func start_cg_dialog(cg_dialog_name:String):
-	print("开始播放cg")
+func start_cg_dialog(cg_dialog_name: String) -> void:
 	can_skipping = true
 	EventBus.enable_fast_forward.emit(can_skipping)
+
 	if not cg_dialog_database.has(cg_dialog_name):
-		push_error("缺少这一段的cg_dialog: ", cg_dialog_name)
+		push_error("缺少这一段的cg_dialog: " + cg_dialog_name)
 		return
-	var cg_dialog = cg_dialog_database.get(cg_dialog_name,[])
+
+	var cg_dialog = cg_dialog_database[cg_dialog_name]
+
 	animation_player.pause()
-	
-	DialogBox.start_dialog([],cg_dialog)
+
+	# 分支对话
+	if not cg_dialog.is_empty() and cg_dialog[0].has("talk_state"):
+		DialogBox.start_dialog(cg_dialog, [], "start")
+
+	# 普通对话
+	else:
+		DialogBox.start_dialog([], cg_dialog)
+
 	await EventBus.on_dialog_finished
-	
+
 	animation_player.play()
-	
 
 
 	

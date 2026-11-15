@@ -1,3 +1,5 @@
+#原装函数init  enter   update   exit 
+#变量 npc self   npc 的 state Machine
 extends RefCounted
 class_name NPCState
 

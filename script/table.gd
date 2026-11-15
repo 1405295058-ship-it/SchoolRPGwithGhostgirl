@@ -1,5 +1,6 @@
 extends StaticBody2D
 
+@export var ID:String
 
 enum FacingDir{
 	down,

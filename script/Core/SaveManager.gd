@@ -3,22 +3,70 @@ extends Node
 
 var save_data:Dictionary
 
+var save_data_slot_path:= {
+											"save_data_1":{
+												"can_load":false,
+												"save_time":"",
+												"path":"res://SaveData/SaveData1.json"
+											},													
+											"save_data_2":{
+												"can_load":false,
+												"save_time":"",
+												"path":"res://SaveData/SaveData2.json"
+											},	
+											"save_data_3":{
+												"can_load":false,
+												"save_time":"",
+												"path":"res://SaveData/SaveData3.json"
+											},	
+											"save_data_4":{
+												"can_load":false,
+												"save_time":"",
+												"path":"res://SaveData/SaveData4.json"
+											},	
+											"save_data_5":{
+												"can_load":false,
+												"save_time":"",
+												"path":"res://SaveData/SaveData5.json"
+											}
+					}				
 
+func _ready() -> void:
+	refresh_slot()
+	
 
-
+func refresh_slot():
+	for slot in save_data_slot_path:
+		var save_data_path = save_data_slot_path[slot]["path"]
+		var save_data_local = read_json_file(save_data_path)
+		
+		var can_load = save_data_local.get("can_load", false)
+		var save_time = save_data_local.get("save_time", "")
+		save_data_slot_path[slot]["can_load"] = can_load
+		save_data_slot_path[slot]["save_time"] = save_time
+		
+func can_slot_load(slot_id:String):
+	return save_data_slot_path[slot_id]["can_load"]
+func get_save_time(slot_id:String)->String:
+	return save_data_slot_path[slot_id]["save_time"]	
 
 func start_new_game():
 	get_new_game_data()
 	call_manager()
 	
-func load_game():
-	save_data = read_json_file("res://SaveData/SaveData.json")
-	call_manager()
-
+func load_game(slot_id:String):
+	print("开始加载")
+	if save_data_slot_path[slot_id]["can_load"]:
+		print("可以加载")
+		save_data = read_json_file(save_data_slot_path[slot_id]["path"])
+		call_manager()
+	else:
+		print("不可以读取这个的啦啦")
 func get_new_game_data():
 	save_data = read_json_file("res://SaveData/NewGameData.json")
 
 func call_manager():
+	print("开始call manager")
 	QuestManager.load_save_data(save_data)
 	GameStateManager.load_save_data(save_data)
 	TimeManager.load_save_data(save_data)
@@ -28,6 +76,7 @@ func call_manager():
 	set_up_scene(save_data)
 	
 func set_up_scene(save_data:Dictionary):
+	print("开始set up cg")
 	await FadeLayer.fade_out(3)
 	interapt_cg()
 	await SceneManager.load_save_data(save_data)
@@ -36,8 +85,16 @@ func set_up_scene(save_data:Dictionary):
 	NormalStateUi.refresh_after_load()
 	
 	print("加载场景最后 CG 状态：", NormalStateUi.is_cg_playing)
-func save_game():
+	
+func save_game_to_slot(slot_id:String):
+	
+	if not save_data_slot_path.has(slot_id):
+		push_error("没有此slot_id:", slot_id)
+		return
+	
 	var current_save_data = {
+		"can_load" : true,
+		"save_time":Time.get_datetime_string_from_system(false, true),
 		"quest_manager" : QuestManager.get_save_data(),
 		"gamestate_manager" : GameStateManager.get_save_data(),
 		"time_manager" : TimeManager.get_save_data(),
@@ -46,18 +103,33 @@ func save_game():
 		"scene_manager": SceneManager.get_save_data(),
 		"dialog_box": DialogBox.get_save_data()
 	}
+	
+	
 	var success := write_json_file(
-		"res://SaveData/SaveData.json",
+		save_data_slot_path[slot_id]["path"],
 		current_save_data
 	)
 
 	if success:
 		save_data = current_save_data
 
+	refresh_slot()
+	
 	return success
 	
-	
-
+func get_latest_slot_name()->String:
+	var latest_slot_time = ""
+	var latest_slot = ""
+	for slot in save_data_slot_path:
+		var save_time = save_data_slot_path[slot]["save_time"]
+		if save_time.is_empty():
+			continue
+		if latest_slot.is_empty():
+			latest_slot = save_time
+		if save_time > latest_slot_time:
+			latest_slot_time = save_time
+			latest_slot = slot
+	return latest_slot
 func read_json_file(file_path: String) -> Dictionary:
 	# 1. 检查文件是否存在。
 	if not FileAccess.file_exists(file_path):
@@ -129,6 +201,9 @@ func write_json_file(file_path: String, data: Dictionary) -> bool:
 
 
 func interapt_cg():
-	var cg_director = SceneManager.get_cg_director_in_current_scene()
+	if get_tree().current_scene.scene_id == "MainMenu":
+		var cg_director = SceneManager.get_cg_director_in_current_scene()
+		cg_director.interrupt_cg("Start_Animation")
+
+
 	
-	cg_director.interrupt_cg("Start_Animation")
